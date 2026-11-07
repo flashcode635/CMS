@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400&family=Frank+Ruhl+Libre:wght@400;600;700&family=Inter:wght@400;500;600;700;800&family=Lexend:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400&family=Poppins:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap');
+
+@import "tailwindcss";
+@theme {
+  --color-brand-green: #00923F;
+  --color-brand-blue: #3163FF;
+  --color-brand-royal: #0039ea;
+  --color-brand-navy: #0028a5;
+  --color-brand-sky: #bacbff;
+  --color-brand-cyan: #00b4d8;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: #e8f0f9;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #000 #fff;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 9999px;
+}
+
+/* Tablet + smaller screens: thinner scrollbar */
+@media (max-width: 1024px) {
+  html::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+/* Mobile: hide the page scrollbar entirely (scrolling still works) */
+@media (max-width: 767px) {
+  html,
+  body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* old Edge / IE */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}

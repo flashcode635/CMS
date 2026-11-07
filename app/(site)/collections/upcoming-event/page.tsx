@@ -1,0 +1,36 @@
+
+import PageBanner from "@/components/ui/PageBanner";
+import UpcomingEventsGrid from "@/components/collections/UpcomingEventsGrid";
+import PreviousEventsSection from "@/components/collections/PreviousEventsSection";
+
+export const metadata = {
+    title: "Upcoming Events | Study Palace Hub",
+    description:
+        "Explore upcoming MBBS Admission Gateway events hosted by Study Palace Hub across India.",
+};
+
+export default function UpcomingEventPage() {
+    return (
+        <div
+            className="flex flex-col"
+            style={{
+                background:
+                    "linear-gradient(90deg, #e4f4eb 0%, #e9f0fe 100%)",
+            }}
+        >
+            {/* ── Banner ── */}
+            <PageBanner
+                title="Upcoming Events"
+                subtitle="Join us at an MBBS Admission Gateway seminar near you. Meet our counsellors, explore top universities, and take the first step towards your medical career abroad."
+                backgroundImage="/home/about-graduation.jpg"
+                overlayOpacity={0.5}
+            />
+
+            {/* ── Upcoming Events Grid ── */}
+            <UpcomingEventsGrid />
+
+            {/* ── Previous Events (Past Seminars) ── */}
+            <PreviousEventsSection />
+        </div>
+    );
+}

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793351166178,
+      "tag": "0000_milky_namora",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793429828661,
+      "tag": "0001_fair_paladin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793615749096,
+      "tag": "0002_sharp_gravity",
+      "breakpoints": true
+    }
+  ]
+}
