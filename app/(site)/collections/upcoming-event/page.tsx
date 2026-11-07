@@ -4,9 +4,9 @@ import UpcomingEventsGrid from "@/components/collections/UpcomingEventsGrid";
 import PreviousEventsSection from "@/components/collections/PreviousEventsSection";
 
 export const metadata = {
-    title: "Upcoming Events | Study Palace Hub",
+    title: "Upcoming Events | My Study Hub",
     description:
-        "Explore upcoming MBBS Admission Gateway events hosted by Study Palace Hub across India.",
+        "Explore upcoming MBBS Admission Gateway events hosted by My Study Hub across India.",
 };
 
 export default function UpcomingEventPage() {

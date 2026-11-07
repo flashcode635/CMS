@@ -51,10 +51,10 @@ export default function WhyPartnerWithUs() {
           >
             W
           </span>
-          elcome to Study Palace Hub, your gateway to pursuing an MBBS
+          elcome to My Study Hub, your gateway to pursuing an MBBS
           education overseas! We invite you to become a valued partner in
           our mission to assist aspiring medical students in achieving their
-          dreams of studying abroad. Partnering with Study Palace Hub for
+          dreams of studying abroad. Partnering with My Study Hub for
           MBBS overseas opens up a world of opportunities for{" "}
           <strong
             style={{

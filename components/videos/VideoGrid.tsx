@@ -27,7 +27,7 @@ import { Button } from "@/components/ui/Button";
 const FEATURED_VIDEO = {
   id: 1,
   title: "Big Moment: Indian Ambassador at Samara State Medical University Dr Shubham Interaction & Highlight",
-  channel: "Study Palace Hub",
+  channel: "My Study Hub",
   youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste your YouTube link here
 };
 
@@ -35,79 +35,79 @@ const VIDEOS = [
   {
     id: 1,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 2,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 3,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 4,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 5,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 6,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 7,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 8,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 9,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 10,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 11,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 12,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
   {
     id: 13,
     title: "Fresher's Party Highlights",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // ← paste YouTube link
   },
 ];
@@ -177,7 +177,7 @@ function YoutubePlayIcon({ size = 52 }) {
   );
 }
 
-// SPH channel avatar placeholder
+// MSH channel avatar placeholder
 function ChannelAvatar({ size = 36 }) {
   return (
     <div
@@ -185,7 +185,7 @@ function ChannelAvatar({ size = 36 }) {
       style={{ width: size, height: size }}
     >
       <span className="text-white font-bold" style={{ fontSize: size * 0.35 }}>
-        S
+        M
       </span>
     </div>
   );

@@ -52,7 +52,7 @@ export default function JoinTeamSection() {
                 "linear-gradient(167.98deg, #00923F 12.704%, #3163FF 87.17%)",
             }}
           >
-            Join the Study Palace Hub Team
+            Join the My Study Hub Team
           </h2>
           <p
             className="text-[#606c83] font-normal leading-relaxed"
@@ -79,7 +79,7 @@ export default function JoinTeamSection() {
           >
             <Image
               src="/home/about-graduation.jpg"
-              alt="Study Palace Hub team collaborating in the office"
+              alt="My Study Hub team collaborating in the office"
               fill
               className="object-cover object-center"
               sizes="67vw"
@@ -105,7 +105,7 @@ export default function JoinTeamSection() {
                   lineHeight: "18px",
                 }}
               >
-                About Study Palace Hub
+                About My Study Hub
               </h3>
               <p
                 className="font-light text-[#6d758f] leading-relaxed"
@@ -115,7 +115,7 @@ export default function JoinTeamSection() {
                   lineHeight: "25px",
                 }}
               >
-                Briefly describe Study Palace Hub&apos;s mission, values, and impact on
+                Briefly describe My Study Hub&apos;s mission, values, and impact on
                 student learning in Delhi. Highlight what makes your company unique
                 and the kind of work environment you foster.
               </p>
@@ -139,7 +139,7 @@ export default function JoinTeamSection() {
           <div className="relative w-full rounded-xl overflow-hidden" style={{ height: 260 }}>
             <Image
               src="/home/about-graduation.jpg"
-              alt="Study Palace Hub team collaborating in the office"
+              alt="My Study Hub team collaborating in the office"
               fill
               className="object-cover object-center"
               sizes="100vw"

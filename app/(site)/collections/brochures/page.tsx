@@ -3,9 +3,9 @@ import BrochuresIntro from "@/components/brochures/BrochuresIntro";
 import BrochuresGrid from "@/components/brochures/BrochuresGrid";
 import { DUMMY_BROCHURES } from "@/lib/constants";
 export const metadata = {
-    title: "Brochures | Study Palace Hub",
+    title: "Brochures | My Study Hub",
     description:
-        "Download official brochures, prospectuses, and admission guides for studying MBBS abroad with Study Palace Hub.",
+        "Download official brochures, prospectuses, and admission guides for studying MBBS abroad with My Study Hub.",
 };
 
 // ── Dummy data — replace with real API fetch when backend is ready ────────────
@@ -35,7 +35,7 @@ export default async function BrochuresPage() {
             {/* ── Banner ── */}
             <PageBanner
                 title="Brochures"
-                subtitle="Download all official Study Palace Hub brochures and get complete information about studying MBBS abroad."
+                subtitle="Download all official My Study Hub brochures and get complete information about studying MBBS abroad."
                 backgroundImage="/home/about-graduation.jpg"
                 overlayOpacity={0.5}
             />

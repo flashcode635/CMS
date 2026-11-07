@@ -10,9 +10,9 @@ import HeadingOfCard from "@/components/ui/HeadingOfCard";
 import FaqSection from "@/components/about-us/lastsection";
 
 export const metadata = {
-  title: "Our Services | Study Palace Hub",
+  title: "Our Services | My Study Hub",
   description:
-    "Explore the comprehensive services Study Palace Hub offers — from personal counseling and university selection to FMGE coaching and on-arrival support.",
+    "Explore the comprehensive services My Study Hub offers — from personal counseling and university selection to FMGE coaching and on-arrival support.",
 };
 
 export default function ServicesPage() {
@@ -28,7 +28,7 @@ export default function ServicesPage() {
 
       {/* ── Services grid ── */}
       
-      <HeadingOfCard type="bold" title="Services At Study Palace Hub" description={
+      <HeadingOfCard type="bold" title="Services At My Study Hub" description={
         (
           <>
              <div
@@ -43,7 +43,7 @@ export default function ServicesPage() {
             >
               A
             </span>
-            t Study Palace Hub, we not only assist you with the admissions process for your MBBS in Abroad, but we also guide
+            t My Study Hub, we not only assist you with the admissions process for your MBBS in Abroad, but we also guide
           </p>
        
           <p className="text-base sm:text-lg leading-relaxed">

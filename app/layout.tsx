@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "StudyPalace",
-  description: "Learn smarter with StudyPalace",
+  title: "My Study Hub",
+  description: "Learn smarter with My Study Hub",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

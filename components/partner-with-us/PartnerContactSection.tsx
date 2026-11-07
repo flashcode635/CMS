@@ -50,16 +50,16 @@ const inputCls = "w-full h-12 xl:h-13 rounded-lg border border-[#d9dbde] bg-whit
 const CONTACT = [
   { icon: "/home/footer-phone.svg", label: "Helpline No.", value: "+91-9971944622, 011-40550609" },
   { icon: "/svg/contact-us-location.svg", label: "Head Office", value: "806, KLJ Tower, Pitampura, Delhi - 110034" },
-  { icon: "/home/footer-mail.svg", label: "Mail for info.", value: "contact@studypalacehub.com" },
+  { icon: "/home/footer-mail.svg", label: "Mail for info.", value: "contact@mystudyhub.com" },
 ];
 
 // ── Social links data ─────────────────────────────────────────────────────────
 const SOCIALS = [
-  { icon: "/home/footer-facebook.svg", handle: "studypalacehub0", href: "https://facebook.com" },
-  { icon: "/home/footer-instagram.svg", handle: "studypalacehub.official", href: "https://instagram.com" },
-  { icon: "/home/footer-linkedin.svg", handle: "study-palace-hub", href: "https://linkedin.com" },
-  { icon: "/home/footer-pinterest.svg", handle: "Studypalacehub12", href: "https://pinterest.com" },
-  { icon: "/home/footer-youtube.svg", handle: "@Studypalacehub", href: "https://youtube.com" },
+  { icon: "/home/footer-facebook.svg", handle: "mystudyhub0", href: "https://facebook.com" },
+  { icon: "/home/footer-instagram.svg", handle: "mystudyhub.official", href: "https://instagram.com" },
+  { icon: "/home/footer-linkedin.svg", handle: "my-study-hub", href: "https://linkedin.com" },
+  { icon: "/home/footer-pinterest.svg", handle: "Mystudyhub12", href: "https://pinterest.com" },
+  { icon: "/home/footer-youtube.svg", handle: "@MyStudyHub", href: "https://youtube.com" },
 ];
 
 interface ContactItem {

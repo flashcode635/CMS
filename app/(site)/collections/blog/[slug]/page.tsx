@@ -32,14 +32,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: BlogPageProps) {
   const { slug } = await params;
   const post = getBlogPost(slug);
-  if (!post) return { title: "Blog | Study Palace Hub" };
+  if (!post) return { title: "Blog | My Study Hub" };
   return {
-    title: `${post.title} | Study Palace Hub Blog`,
+    title: `${post.title} | My Study Hub Blog`,
     description: post.subtitle,
   };
 }
 
-const SITE_URL = "https://studypalacehub.com";
+const SITE_URL = "https://mystudyhub.com";
 
 export default async function BlogDetailPage({ params }: BlogPageProps) {
   const { slug } = await params;

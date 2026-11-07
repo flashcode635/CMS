@@ -287,7 +287,7 @@ export default function DashboardPage() {
               <Menu size={20} />
             </button>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-brand-green">Study Palace Hub</p>
+              <p className="text-[11px] font-semibold uppercase tracking-widest text-brand-green">My Study Hub</p>
               <h1 className="mt-0.5 text-lg font-bold tracking-tight">{title}</h1>
             </div>
           </div>

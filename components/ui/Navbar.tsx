@@ -514,8 +514,8 @@ export default function Navbar() {
             overflow:        "visible",
           }}
         >
-          <Link href="/" className="flex items-center shrink-0 min-w-0" aria-label="Study Palace Hub home">
-            <Image src="/study_ph_logo.png" alt="Study Palace Hub" width={221} height={46}
+          <Link href="/" className="flex items-center shrink-0 min-w-0" aria-label="My Study Hub home">
+            <Image src="/logo_crm-removebg.png" alt="My Study Hub" width={221} height={46}
               style={{ height:"clamp(30px,2.4vw,46px)", width:"auto", maxWidth:"100%", objectFit:"contain" }} priority />
           </Link>
 

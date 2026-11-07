@@ -6,7 +6,7 @@ Primary Purpose: Section components for the MBBS-in-Russia landing page — hero
 
 Route composition (`app/(site)/countries/mbbs-in-russia/page.tsx`, rendered top-to-bottom):
 `RussiaBanner` → `CountryIntro` → `WhyRussia` → `EligibilitySection` → `SSMUDurations` (imported as `SSMUDurations` from `ssmuDurations.tsx`) → `StepsSSMU` → `AdmissionProcess` (imported from `stepSection.tsx`) → `EventContactForm` (imported from `components/images/EventContactForm`, i.e. a cross-folder reuse) → `Faq` (from `components/ui/Faq`).
-`durationSection.tsx` is **not imported anywhere** and renders nothing. The page also exports `metadata` (title "MBBS in Russia For Indian Students 2026-27 | StudyPalace").
+`durationSection.tsx` is **not imported anywhere** and renders nothing. The page also exports `metadata` (title "MBBS in Russia For Indian Students 2026-27 | My Study Hub").
 
 ## Files
 
@@ -41,7 +41,7 @@ Route composition (`app/(site)/countries/mbbs-in-russia/page.tsx`, rendered top-
 [CountryIntro.tsx]: Two-column intro block — Russia photo on the right, overlapping white copy card with a CTA on the left.
 
 - **Runtime:** client (`"use client"`; only because the CTA `Link` uses `onMouseEnter`/`onMouseLeave`).
-- **Purpose:** Narrative introduction ("MBBS in Russia for Indian Students 2026-27"): four paragraphs on NMC/WHO recognition, cities, fees, and Study Palace Hub's role, plus an "Apply Now" link to `/contact-us`.
+- **Purpose:** Narrative introduction ("MBBS in Russia for Indian Students 2026-27"): four paragraphs on NMC/WHO recognition, cities, fees, and My Study Hub's role, plus an "Apply Now" link to `/contact-us`.
 - **Props:** none.
 - **State & effects:** none.
 - **Handlers / functions:** inline `onMouseEnter` / `onMouseLeave` on the CTA mutate `opacity` and `transform` (`translateY(-1px)`).

@@ -1,0 +1,359 @@
+# Directory: public
+
+Primary Purpose: Static assets served from the site root (`/<path>`): photos, SVG icons, logos, map illustrations, backgrounds. Consumed by `next/image` (`src="/home/hero-bg.jpg"`), plain `<img>`, CSS `url('/...')`, or static imports (`import img from "@/public/..."`).
+
+> Asset blueprint, hand-maintained. Last verified against the tree on 2026-10-23.
+> **Used by** = source file containing the exact path string, or a static `@/public/...` import (marked `static import`). **unreferenced** = no reference found in `app/`, `components/` or `lib/`. Never delete assets without asking the user.
+> Remote images are allow-listed in `next.config.ts` (`images.unsplash.com`, `flagcdn.com`, `www.figma.com`).
+
+## Folder conventions
+
+| Folder | Holds |
+|---|---|
+| `/` (root) | Shared page banners (`bg-doctor.jpg`), brand logo, one illustration |
+| `/about-us/` | One `.webp` per Indian city for the National Presence grid/map, plus section backgrounds |
+| `/about-us/career/` | Career page banner |
+| `/contact-us/` | Contact page photo |
+| `/countries/russia/` | Every Russia MBBS page asset (maps, glow, check icon, city photos) |
+| `/countries/` | Country-level shared art (`universityselection.svg`, currently unreferenced) |
+| `/home/` | Homepage sections, grouped by filename prefix: `about-*`, `blog-*`, `mbbs-*`, `service-*`, `team-*`, `party*`, `footer-*` |
+| `/home/partner/` | University logos: `.svg` for the marquee, `logo-*.png` for the university cards |
+| `/svg/` | Small shared icons (stars, contact icons) |
+| `/unused/` | Retired or unreferenced assets, kept for reference. **Flat** - no subfolders |
+
+Naming: lowercase-kebab for descriptive assets (`service-visa.png`, `hero-bg.jpg`); camelCase only for the freshers-party gallery (`partyEight.webp` ... `partySixteen.webp`, plus `partyone.webp`/`partytwo.webp`); `team-<firstname>.jpg`; city names in `about-us/` are lowercase and sometimes misspelled (`bareily`, `bhubaneshwar`) - do not "fix" without updating `NationalPresence.tsx`.
+
+## Snapshot
+
+196 files, 57.7 MB. By extension: webp 52, jpg 30, png 36, svg 78.
+
+> Counts are by file extension; a few files are mislabelled - see "Known issues".
+
+## How to add an image
+
+1. Put the file in the folder matching its purpose (table above) and reference it as `/folder/file.ext` - the path starts at `public/`, and the word `public` never appears in the URL.
+2. Reuse an existing folder rather than inventing one; match the neighbours' naming (`service-*.png`, `team-*.jpg`, `about-*.svg`).
+3. Reference it with `next/image` (`<Image src="/home/foo.jpg" width={...} height={...} alt="..." />`) or CSS `url('/home/foo.jpg')`. Static imports (`import img from "@/public/..."`) let Next infer dimensions - currently only `countries/mbbs-russia/RussiaBanner.tsx` (`bg-doctor.jpg`) and `stepsSSMU.tsx` (city webps) do this.
+4. Add a row to the matching table here with type, real dimensions, size and consumer.
+5. To retire art, move it to `public/unused/` (flat) and move its row into the unused table.
+
+## Known issues / gotchas
+
+- **Broken banner default:** `components/ui/PageBanner.tsx` defaults `backgroundImage` to `"/bd-doctor.jpg"`, but only `public/bg-doctor.jpg` exists. Every current call site passes the prop, so the bug is latent - always pass `backgroundImage`.
+- **Extension mismatches:** `home/enroll-bg-pattern.png` is actually JPEG bytes; `unused/card-bg-*.png` (5 files), `unused/counselling-cap.png`, `unused/map-ellipse.png` and `unused/party-youtube-logo.png` are actually SVG text. Browsers sniff the content, but the extensions mislead tooling and image optimisation.
+- **Near-duplicates:** `about-us/bg.jpg` has the same dimensions as `bg-doctor.jpg` (3543x2362) and is unreferenced; `countries/universityselection.svg` duplicates `unused/universityselection.svg` and is also unreferenced.
+- **Mid-edit:** `countries/russia/chhattisgarh.webp` and `countries/russia/delhi.webp` were moved here from `unused/` and are imported by `components/countries/mbbs-russia/stepsSSMU.tsx`. Treat them as in-progress user work.
+- **Stale paths in older docs:** earlier revisions of this file claimed `/unused/about-us/`, `/unused/countries/russia/`, `/unused/home/` and `/unused/home/partner/`. Those folders do not exist; every retired asset sits directly in `/unused/`.
+- **`/svg/arrow.svg`:** older docs credited it to `RussiaBanner`; that component only imports `star-grey.svg` / `star-yellow.svg`, so it is now unreferenced.
+
+## `/` - public root (served as `/file.ext`)
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `bg-doctor.jpg` | jpg | 3543x2362 | 1.1 MB | contact-us/ContactHeroBanner.tsx, countries/mbbs-russia/RussiaBanner.tsx (static import), app/(site)/about-us/services/page.tsx, app/(site)/countries/page.tsx |
+| `contact-hand-illustration.png` | png | 630x878 | 455 KB | about-us/ContactSection.tsx |
+| `study_ph_logo.png` | png | 4096x854 | 324 KB | ui/Navbar.tsx |
+
+## `/about-us/` - India city photos + section backgrounds
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `bareily.webp` | webp | 475x284 | 64 KB | about-us/NationalPresence.tsx |
+| `bengaluru.webp` | webp | 434x260 | 45 KB | about-us/NationalPresence.tsx, countries/countryCarousal.tsx |
+| `bg-midsection.jpg` | jpg | 3840x2560 | 1.3 MB | about-us/ImageComboBanner.tsx |
+| `bg.jpg` | jpg | 3543x2362 | 1.1 MB | unreferenced |
+| `bhubaneshwar.webp` | webp | 434x260 | 45 KB | about-us/NationalPresence.tsx |
+| `chennai.webp` | webp | 434x260 | 70 KB | about-us/NationalPresence.tsx, countries/countryCarousal.tsx |
+| `front-image.jpg` | jpg | 3360x2240 | 1.0 MB | about-us/ImageComboBanner.tsx |
+| `gorakhpur.webp` | webp | 434x260 | 44 KB | about-us/NationalPresence.tsx |
+| `gujarat.webp` | webp | 434x260 | 54 KB | about-us/NationalPresence.tsx, countries/countryCarousal.tsx |
+| `hyderabad.webp` | webp | 434x260 | 40 KB | about-us/NationalPresence.tsx |
+| `indore.webp` | webp | 434x260 | 69 KB | about-us/NationalPresence.tsx, countries/countryCarousal.tsx |
+| `kannur.webp` | webp | 434x260 | 51 KB | about-us/NationalPresence.tsx |
+| `kolhapur.webp` | webp | 475x284 | 54 KB | about-us/NationalPresence.tsx |
+| `kolkata.webp` | webp | 434x260 | 43 KB | about-us/NationalPresence.tsx |
+| `kota.webp` | webp | 475x284 | 77 KB | about-us/NationalPresence.tsx |
+| `latur.webp` | webp | 434x260 | 52 KB | about-us/NationalPresence.tsx |
+| `mumbai.webp` | webp | 434x260 | 49 KB | about-us/NationalPresence.tsx |
+| `nagpur.webp` | webp | 434x260 | 34 KB | about-us/NationalPresence.tsx, countries/countryCarousal.tsx |
+| `nashik.webp` | webp | 434x260 | 45 KB | about-us/NationalPresence.tsx |
+| `patna.webp` | webp | 434x260 | 38 KB | about-us/NationalPresence.tsx |
+| `ranchi.webp` | webp | 514x308 | 73 KB | about-us/NationalPresence.tsx |
+| `srinagar.webp` | webp | 434x260 | 48 KB | about-us/NationalPresence.tsx |
+| `tripura.webp` | webp | 434x260 | 39 KB | about-us/NationalPresence.tsx |
+| `varanasi.webp` | webp | 475x284 | 66 KB | about-us/NationalPresence.tsx |
+
+## `/about-us/career/`
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `welcome.webp` | webp | 6143x3455 | 484 KB | career/WelcomeBanner.tsx |
+
+## `/contact-us/`
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `chairs.jpg` | jpg | 2783x1855 | 943 KB | about-us/ContactSection.tsx (static import), homepage/EnrollNowSection.tsx |
+
+## `/countries/`
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `universityselection.svg` | svg | 64x64 | 879 KB | unreferenced |
+
+## `/countries/russia/` - Russia MBBS page assets
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `bg-map.png` | png | 1024x1024 | 490 KB | blog-details/AuthorCard.tsx, countries/mbbs-russia/WhyRussia.tsx |
+| `bg-worldmap.png` | png | 512x512 | 122 KB | unreferenced |
+| `check-icon.svg` | svg | 32x32 | 2 KB | countries/mbbs-russia/WhyRussia.tsx |
+| `chhattisgarh.webp` | webp | 475x284 | 75 KB | countries/mbbs-russia/stepsSSMU.tsx (static import) |
+| `delhi.webp` | webp | 514x308 | 72 KB | countries/mbbs-russia/stepsSSMU.tsx (static import) |
+| `ellipse-glow.svg` | svg | 600x600 | <1 KB | countries/mbbs-russia/WhyRussia.tsx |
+| `russia-map.svg` | svg | 703x548 | 1.6 MB | countries/mbbs-russia/WhyRussia.tsx |
+
+`chhattisgarh.webp` and `delhi.webp` are static imports in `countries/mbbs-russia/stepsSSMU.tsx` (mid-edit by the user).
+
+## `/home/` - homepage sections (largest group)
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `about-book-icon.svg` | svg | 16x16 | <1 KB | homepage/AboutSection.tsx |
+| `about-check-blue.svg` | svg | 20.681x20.661 | <1 KB | homepage/AboutSection.tsx |
+| `about-check-green.svg` | svg | 20.681x20.661 | <1 KB | homepage/AboutSection.tsx |
+| `about-check-orange.svg` | svg | 20.681x20.661 | <1 KB | homepage/AboutSection.tsx |
+| `about-graduation.jpg` | jpg | 1190x1637 | 128 KB | career/JoinTeamSection.tsx, about-us/page.tsx, about-us/MissionCoreValues.tsx, ui/Navbar.tsx, ui/NavDropdown.tsx, homepage/AboutSection.tsx, app/(site)/collections/page.tsx, app/(site)/collections/upcoming-event/page.tsx, app/(site)/collections/brochures/page.tsx, app/(site)/collections/blog/page.tsx, app/(site)/about-us/career/page.tsx, app/(site)/about-us/partner-with-us/page.tsx, app/(site)/web-stories/page.tsx, app/(site)/gallery/images/page.tsx, app/(site)/gallery/images/[slug]/page.tsx, app/(site)/gallery/videos/page.tsx |
+| `amurcontract.webp` | webp | 2963x2938 | 387 KB | homepage/BigNewsSection.tsx |
+| `bignews-quote-close.svg` | svg | 112.488x76.966 | <1 KB | homepage/BigNewsSection.tsx |
+| `bignews-quote-open.svg` | svg | 112.488x76.966 | <1 KB | homepage/BigNewsSection.tsx |
+| `blog-book-icon.svg` | svg | 16x16 | <1 KB | homepage/LatestBlogs.tsx |
+| `blog-graduation.jpg` | jpg | 1372x870 | 141 KB | homepage/LatestBlogs.tsx |
+| `cap.svg` | svg | 260x260 | 4 KB | homepage/ExpertCounsellingSection.tsx |
+| `closed.svg` | svg | 139x127 | 1 KB | about-us/QuoteBanner.tsx |
+| `enroll-bg-pattern.png` | png (JPEG bytes) | 3578x2451 | 335 KB | about-us/ContactSection.tsx, homepage/EnrollNowSection.tsx |
+| `flight.svg` | svg | 1330x900 | 3.1 MB | homepage/ExpertCounsellingSection.tsx |
+| `footer-facebook.svg` | svg | 32x32 | 1 KB | about-us/ContactSection.tsx, ui/Footer.tsx |
+| `footer-instagram.svg` | svg | 32x32 | 2 KB | about-us/ContactSection.tsx, ui/Footer.tsx |
+| `footer-linkedin.svg` | svg | 24x24 | 2 KB | about-us/ContactSection.tsx |
+| `footer-mail.svg` | svg | 24x24 | 3 KB | about-us/ContactSection.tsx |
+| `footer-phone.svg` | svg | 24.0114x24.0114 | 3 KB | about-us/ContactSection.tsx |
+| `footer-pinterest.svg` | svg | 30x30 | 2 KB | about-us/ContactSection.tsx |
+| `footer-twitter.svg` | svg | 24x24 | 2 KB | ui/Footer.tsx |
+| `footer-youtube.svg` | svg | 28x32 | 1 KB | about-us/ContactSection.tsx, ui/Footer.tsx |
+| `globe-image.png` | png | 3646x1184 | 749 KB | homepage/MBBSCountries.tsx |
+| `hero-bg.jpg` | jpg | 3840x2560 | 147 KB | homepage/HeroBanner.tsx |
+| `mbbs-abroad-flag-russia.png` | png | 72x72 | 3 KB | homepage/MBBSAbroad.tsx |
+| `mbbs-abroad-georgia.jpg` | jpg | 629x944 | 213 KB | homepage/MBBSAbroad.tsx |
+| `mbbs-abroad-kazakhstan.jpg` | jpg | 944x629 | 64 KB | homepage/MBBSAbroad.tsx |
+| `mbbs-abroad-kyrgyzstan.jpg` | jpg | 944x708 | 167 KB | homepage/MBBSAbroad.tsx |
+| `mbbs-abroad-russia.jpg` | jpg | 944x629 | 146 KB | countries/mbbs-russia/CountryIntro.tsx, homepage/MBBSAbroad.tsx |
+| `mbbs-abroad-uzbekistan.jpg` | jpg | 944x755 | 196 KB | homepage/MBBSAbroad.tsx |
+| `mbbs-bg-pattern.jpg` | jpg | 3578x2451 | 494 KB | homepage/MBBSAbroadHero.tsx |
+| `mbbs-georgia.webp` | webp | 1055x864 | 166 KB | homepage/MBBSAbroadHero.tsx |
+| `mbbs-kazakhstan.webp` | webp | 1056x865 | 360 KB | homepage/MBBSAbroadHero.tsx |
+| `mbbs-nepal.webp` | webp | 1056x865 | 271 KB | homepage/MBBSAbroadHero.tsx |
+| `mbbs-russia.webp` | webp | 1055x864 | 73 KB | homepage/MBBSAbroadHero.tsx |
+| `mbbs-uzbekistan.webp` | webp | 1055x864 | 112 KB | homepage/MBBSAbroadHero.tsx |
+| `northcaucasiancontract.webp` | webp | 2962x2937 | 905 KB | homepage/BigNewsSection.tsx |
+| `open.svg` | svg | 142x127 | 2 KB | about-us/QuoteBanner.tsx |
+| `party-channel-thumb.jpg` | jpg | 68x68 | 3 KB | homepage/FreshersPartyHighlights.tsx |
+| `party-video1.jpg` | jpg | 1078x1615 | 316 KB | homepage/FreshersPartyHighlights.tsx |
+| `party-video2.jpg` | jpg | 1616x1077 | 228 KB | homepage/FreshersPartyHighlights.tsx |
+| `party-yt-wordmark.svg` | svg | 90x20 | 5 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyEight.webp` | webp | 340x280 | 44 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyEleven.webp` | webp | 340x280 | 33 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyFifteen.webp` | webp | 340x280 | 28 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyFive.webp` | webp | 339x279 | 26 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyFour.webp` | webp | 339x279 | 32 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyFourteen.webp` | webp | 356x534 | 38 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyNine.webp` | webp | 340x280 | 24 KB | homepage/FreshersPartyHighlights.tsx |
+| `partySeven.webp` | webp | 340x280 | 35 KB | homepage/FreshersPartyHighlights.tsx |
+| `partySix.webp` | webp | 339x279 | 25 KB | homepage/FreshersPartyHighlights.tsx |
+| `partySixteen.webp` | webp | 340x280 | 22 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyTen.webp` | webp | 340x280 | 24 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyThirteen.webp` | webp | 340x280 | 12 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyThree.webp` | webp | 339x279 | 31 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyTwelve.webp` | webp | 340x280 | 12 KB | homepage/FreshersPartyHighlights.tsx |
+| `partyone.webp` | webp | 339x279 | 31 KB | homepage/FreshersPartyHighlights.tsx |
+| `partytwo.webp` | webp | 339x279 | 52 KB | homepage/FreshersPartyHighlights.tsx |
+| `service-accommodation.png` | png | 1024x1024 | 709 KB | homepage/PersonalisedServices.tsx |
+| `service-admission.png` | png | 1024x1024 | 703 KB | homepage/PersonalisedServices.tsx |
+| `service-arrival.png` | png | 1024x1024 | 778 KB | homepage/PersonalisedServices.tsx |
+| `service-food.png` | png | 1024x1024 | 743 KB | homepage/PersonalisedServices.tsx |
+| `service-onetoone.png` | png | 1024x1024 | 793 KB | homepage/PersonalisedServices.tsx |
+| `service-student.png` | png | 1024x1024 | 715 KB | homepage/PersonalisedServices.tsx |
+| `service-travel.png` | png | 1024x1024 | 735 KB | homepage/PersonalisedServices.tsx |
+| `service-university.png` | png | 1024x1024 | 659 KB | homepage/PersonalisedServices.tsx |
+| `service-visa.png` | png | 1024x1024 | 905 KB | homepage/PersonalisedServices.tsx |
+| `team-amy.jpg` | jpg | 666x995 | 84 KB | homepage/MeetOurTeam.tsx |
+| `team-chloe.jpg` | jpg | 664x996 | 152 KB | homepage/MeetOurTeam.tsx |
+| `team-ethan.jpg` | jpg | 665x996 | 98 KB | homepage/MeetOurTeam.tsx |
+| `team-kara.jpg` | jpg | 664x995 | 93 KB | homepage/MeetOurTeam.tsx |
+| `team-leo.jpg` | jpg | 996x664 | 124 KB | homepage/MeetOurTeam.tsx |
+| `team-nadia.jpg` | jpg | 664x996 | 150 KB | homepage/MeetOurTeam.tsx |
+| `team-paul.jpg` | jpg | 995x662 | 127 KB | homepage/MeetOurTeam.tsx |
+| `team-ruth.jpg` | jpg | 996x664 | 47 KB | homepage/MeetOurTeam.tsx |
+| `team-sam.jpg` | jpg | 660x995 | 103 KB | homepage/MeetOurTeam.tsx |
+| `team-uma.jpg` | jpg | 664x996 | 72 KB | homepage/MeetOurTeam.tsx |
+| `team-will.jpg` | jpg | 996x664 | 56 KB | homepage/MeetOurTeam.tsx |
+| `team-yara.jpg` | jpg | 664x995 | 113 KB | homepage/MeetOurTeam.tsx |
+| `univ-campus.jpg` | jpg | 3279x2186 | 1.3 MB | homepage/GloballyRecognizedUniversities.tsx |
+| `uralcontract.webp` | webp | 2962x2937 | 260 KB | homepage/BigNewsSection.tsx |
+| `worldmap.png` | png | 2000x1280 | 274 KB | unreferenced |
+
+Note: `party-yt-wordmark.svg` renders at its viewBox ratio (90x20), not 100x100. `enroll-bg-pattern.png` (335 KB) and `globe-image.png` (749 KB) are smaller on disk than older docs claimed.
+
+## `/home/partner/` - university logos (marquee + cards)
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `amur.svg` | svg | 493x489 | 425 KB | homepage/Marquee.tsx |
+| `bau.svg` | svg | 1340x346 | 98 KB | homepage/Marquee.tsx |
+| `dtmu.svg` | svg | 547x546 | 1.3 MB | homepage/Marquee.tsx |
+| `easteuropian.svg` | svg | 501x533 | 426 KB | homepage/Marquee.tsx |
+| `europeanuniveristy.svg` | svg | 620x607 | 2.3 MB | homepage/Marquee.tsx |
+| `grigol.svg` | svg | 553x553 | 378 KB | homepage/Marquee.tsx |
+| `gruni.svg` | svg | 1268x371 | 150 KB | homepage/Marquee.tsx |
+| `jalalabadinternational.svg` | svg | 562x562 | 422 KB | homepage/Marquee.tsx |
+| `jalalabadstate.svg` | svg | 1368x352 | 588 KB | homepage/Marquee.tsx |
+| `kabardinobalkarian.svg` | svg | 533x515 | 625 KB | homepage/Marquee.tsx |
+| `kazanfederal.svg` | svg | 1848x390 | 523 KB | homepage/Marquee.tsx |
+| `kazanstate.svg` | svg | 491x483 | 808 KB | homepage/Marquee.tsx |
+| `logo-eeu.png` | png | 450x450 | 59 KB | homepage/GloballyRecognizedUniversities.tsx |
+| `logo-ibsu.png` | png | 450x450 | 105 KB | homepage/GloballyRecognizedUniversities.tsx, homepage/Marquee.tsx |
+| `logo-kbsu.png` | png | 450x450 | 248 KB | homepage/GloballyRecognizedUniversities.tsx |
+| `logo-novosibirsk.png` | png | 450x450 | 35 KB | homepage/GloballyRecognizedUniversities.tsx |
+| `logo-samara.png` | png | 320x320 | 46 KB | homepage/GloballyRecognizedUniversities.tsx |
+| `logo-ural.png` | png | 450x450 | 243 KB | homepage/GloballyRecognizedUniversities.tsx |
+| `ncsa.svg` | svg | 440x440 | 924 KB | homepage/Marquee.tsx |
+| `novosibirsk.svg` | svg | 1292x483 | 459 KB | homepage/Marquee.tsx |
+| `oshinternational.svg` | svg | 618x740 | 418 KB | homepage/Marquee.tsx |
+| `oshstate.svg` | svg | 958x549 | 299 KB | homepage/Marquee.tsx |
+| `samarastatemedical.svg` | svg | 1175x705 | 552 KB | homepage/Marquee.tsx |
+| `ural.svg` | svg | 603x523 | 1.1 MB | homepage/Marquee.tsx |
+
+## `/svg/` - shared icons
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `arrow.svg` | svg | 24x25 | <1 KB | unreferenced |
+| `contact-us-location.svg` | svg | 128x128 | 4 KB | about-us/ContactSection.tsx |
+| `contact-us-route.svg` | svg | 395x342 | 19 KB | about-us/ContactSection.tsx |
+| `star-grey.svg` | svg | 24x24 | <1 KB | countries/mbbs-russia/RussiaBanner.tsx |
+| `star-yellow.svg` | svg | 24x24 | <1 KB | countries/mbbs-russia/RussiaBanner.tsx |
+
+## `/unused/` - flat, no subfolders
+
+48 files, all flat. Nothing here is imported by `app/`, `components/` or `lib/`.
+
+| File | Type | Dimensions | Size | Used by |
+|---|---|---|---|---|
+| `about-arrow.svg` | svg | 24x25 | <1 KB | unreferenced |
+| `accomodation.svg` | svg | 64x64 | 946 KB | unreferenced |
+| `admissionguidance.svg` | svg | 64x64 | 938 KB | unreferenced |
+| `arrow-icon.svg` | svg | 24x25 | <1 KB | unreferenced |
+| `bgofstudy.svg` | svg | 5475x1763 | 1.3 MB | unreferenced |
+| `bignews-chevron-left.svg` | svg | 8.236x14.775 | <1 KB | unreferenced |
+| `bignews-chevron-right.svg` | svg | 8.236x14.775 | <1 KB | unreferenced |
+| `bignews.webp` | webp | 768x957 | 85 KB | unreferenced |
+| `card-bg-eeu.png` | png (SVG text) | 253x375 | <1 KB | unreferenced |
+| `card-bg-kbsu.png` | png (SVG text) | 253x375 | <1 KB | unreferenced |
+| `card-bg-novosibirsk.png` | png (SVG text) | 253x375 | <1 KB | unreferenced |
+| `card-bg-samara.png` | png (SVG text) | 253x375 | <1 KB | unreferenced |
+| `card-bg-ural.png` | png (SVG text) | 253x375 | <1 KB | unreferenced |
+| `check-icon-mobile.svg` | svg | 22x22 | 2 KB | unreferenced |
+| `check-icon-sm.svg` | svg | 22x22 | 1 KB | unreferenced |
+| `counselling-airplane.png` | png | 2752x1536 | 634 KB | unreferenced |
+| `counselling-arrow.svg` | svg | 24x25 | <1 KB | unreferenced |
+| `counselling-cap.png` | png (SVG text) | 260x260 | 7 KB | unreferenced |
+| `counselling-screenshot.png` | png | 1920x1166 | 1.7 MB | unreferenced |
+| `enroll-classroom.webp` | webp | 5075x1291 | 297 KB | unreferenced |
+| `enroll-section-bg.png` | png | 1920x949 | 1.7 MB | unreferenced |
+| `file.svg` | svg | 16x16 | <1 KB | unreferenced |
+| `flight_bg.svg` | svg | 1528x900 | 752 KB | unreferenced |
+| `footer-arrow.svg` | svg | 24x25 | <1 KB | unreferenced |
+| `footer-location.svg` | svg | 24x24.02 | 5 KB | unreferenced |
+| `footer-search.svg` | svg | 32x32 | <1 KB | unreferenced |
+| `globe.svg` | svg | 16x16 | 1 KB | unreferenced |
+| `hero-arrow.svg` | svg | 12.7999x12.5846 | <1 KB | unreferenced |
+| `hero-search.svg` | svg | 32x32 | <1 KB | unreferenced |
+| `indianfood.svg` | svg | 64x64 | 991 KB | unreferenced |
+| `kanpur.webp` | webp | 475x284 | 48 KB | unreferenced |
+| `map-ellipse.png` | png (SVG text) | 84.3961x9.60547 | <1 KB | unreferenced |
+| `map-pin.png` | png | 1024x1024 | 234 KB | unreferenced |
+| `mbbs-arrow.svg` | svg | 24x25 | <1 KB | unreferenced |
+| `mbbs-countries-arrow.svg` | svg | 24x25 | <1 KB | unreferenced |
+| `nav-chevron.svg` | svg | 11.0001x6.00003 | <1 KB | unreferenced |
+| `next.svg` | svg | 394x80 | 1 KB | unreferenced |
+| `onarrivalbenefits.svg` | svg | 64x64 | 1.0 MB | unreferenced |
+| `onetoone.svg` | svg | 64x64 | 1.0 MB | unreferenced |
+| `party-youtube-logo.png` | png (SVG text) | 91.0222x64 | 1 KB | unreferenced |
+| `russia-sticker.png` | png | 512x512 | 147 KB | unreferenced |
+| `student support.svg` | svg | 64x64 | 954 KB | unreferenced |
+| `travel.svg` | svg | 64x64 | 980 KB | unreferenced |
+| `universityselection.svg` | svg | 64x64 | 879 KB | unreferenced |
+| `uttarakhand.webp` | webp | 434x260 | 48 KB | unreferenced |
+| `vercel.svg` | svg | 1155x1000 | <1 KB | unreferenced |
+| `visa.svg` | svg | 64x64 | 1.2 MB | unreferenced |
+| `window.svg` | svg | 16x16 | <1 KB | unreferenced |
+
+## Unreferenced assets outside `/unused/`
+
+No exact string and no static import found for these. Re-check with `npm run find -- <name>` before moving them; a dynamic reference could hide them.
+
+| File | Type | Dimensions | Size | Notes |
+|---|---|---|---|---|
+| `/about-us/bg.jpg` | jpg | 3543x2362 | 1.1 MB | Same dimensions as `/bg-doctor.jpg`; near-duplicate |
+| `/countries/russia/bg-worldmap.png` | png | 512x512 | 122 KB | Only named in a comment in `countries/mbbs-russia/WhyRussia.tsx` (the rendered map is `russia-map.svg`) |
+| `/countries/universityselection.svg` | svg | 64x64 | 879 KB | Unreferenced duplicate of `unused/universityselection.svg` |
+| `/home/worldmap.png` | png | 2000x1280 | 274 KB | Only named in a comment in `countries/mbbs-russia/WhyRussia.tsx` |
+| `/svg/arrow.svg` | svg | 24x25 | <1 KB | Previously credited to `RussiaBanner`; no longer imported |
+
+## Large files (>=500 KB, 43)
+
+Compression candidates. Several 64x64 SVGs weigh ~1 MB because they embed raster images.
+
+- `/home/flight.svg` (3.1 MB, 1330x900)
+- `/home/partner/europeanuniveristy.svg` (2.3 MB, 620x607)
+- `/unused/counselling-screenshot.png` (1.7 MB, 1920x1166)
+- `/unused/enroll-section-bg.png` (1.7 MB, 1920x949)
+- `/countries/russia/russia-map.svg` (1.6 MB, 703x548)
+- `/about-us/bg-midsection.jpg` (1.3 MB, 3840x2560)
+- `/home/partner/dtmu.svg` (1.3 MB, 547x546)
+- `/home/univ-campus.jpg` (1.3 MB, 3279x2186)
+- `/unused/bgofstudy.svg` (1.3 MB, 5475x1763)
+- `/unused/visa.svg` (1.2 MB, 64x64)
+- `/about-us/bg.jpg` (1.1 MB, 3543x2362)
+- `/bg-doctor.jpg` (1.1 MB, 3543x2362)
+- `/home/partner/ural.svg` (1.1 MB, 603x523)
+- `/unused/onetoone.svg` (1.0 MB, 64x64)
+- `/unused/onarrivalbenefits.svg` (1.0 MB, 64x64)
+- `/about-us/front-image.jpg` (1.0 MB, 3360x2240)
+- `/unused/indianfood.svg` (991 KB, 64x64)
+- `/unused/travel.svg` (980 KB, 64x64)
+- `/unused/student support.svg` (954 KB, 64x64)
+- `/unused/accomodation.svg` (946 KB, 64x64)
+- `/contact-us/chairs.jpg` (943 KB, 2783x1855)
+- `/unused/admissionguidance.svg` (938 KB, 64x64)
+- `/home/partner/ncsa.svg` (924 KB, 440x440)
+- `/home/service-visa.png` (905 KB, 1024x1024)
+- `/home/northcaucasiancontract.webp` (905 KB, 2962x2937)
+- `/countries/universityselection.svg` (879 KB, 64x64)
+- `/unused/universityselection.svg` (879 KB, 64x64)
+- `/home/partner/kazanstate.svg` (808 KB, 491x483)
+- `/home/service-onetoone.png` (793 KB, 1024x1024)
+- `/home/service-arrival.png` (778 KB, 1024x1024)
+- `/unused/flight_bg.svg` (752 KB, 1528x900)
+- `/home/globe-image.png` (749 KB, 3646x1184)
+- `/home/service-food.png` (743 KB, 1024x1024)
+- `/home/service-travel.png` (735 KB, 1024x1024)
+- `/home/service-student.png` (715 KB, 1024x1024)
+- `/home/service-accommodation.png` (709 KB, 1024x1024)
+- `/home/service-admission.png` (703 KB, 1024x1024)
+- `/home/service-university.png` (659 KB, 1024x1024)
+- `/unused/counselling-airplane.png` (634 KB, 2752x1536)
+- `/home/partner/kabardinobalkarian.svg` (625 KB, 533x515)
+- `/home/partner/jalalabadstate.svg` (588 KB, 1368x352)
+- `/home/partner/samarastatemedical.svg` (552 KB, 1175x705)
+- `/home/partner/kazanfederal.svg` (523 KB, 1848x390)

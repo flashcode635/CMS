@@ -51,7 +51,7 @@ export default function LocationMap() {
 
         <div
           className="relative isolate min-h-105 overflow-hidden rounded-4xl border border-white/80 bg-[#edf4f1] shadow-[0_18px_55px_rgba(41,87,105,0.16)] sm:min-h-135 lg:min-h-155"
-          aria-label="Illustrated map showing StudyPalace Hub locations across India"
+          aria-label="Illustrated map showing My Study Hub locations across India"
         >
           <svg
             className="absolute inset-0 size-full"
@@ -173,7 +173,7 @@ export default function LocationMap() {
 
           <div className="absolute bottom-5 left-5 rounded-xl bg-white/90 px-4 py-3 text-xs text-[#314965] shadow-sm backdrop-blur-sm sm:bottom-7 sm:left-7 sm:text-sm">
             <span className="mr-2 inline-block size-2.5 rounded-full bg-brand-blue" />
-            StudyPalace Hub offices
+            My Study Hub offices
           </div>
         </div>
       </div>

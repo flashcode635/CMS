@@ -8,7 +8,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/about-us`
 - **Runtime:** server component (no `"use client"`); no `dynamic`/`revalidate`. The re-exported component is also server and imports several client sections.
-- **Metadata:** re-exported from `components/about-us/page.tsx`: title `About Us | StudyPalace Hub`, description `Learn more about Study Palace Hub and our mission to help students study MBBS abroad.`
+- **Metadata:** re-exported from `components/about-us/page.tsx`: title `About Us | My Study Hub`, description `Learn more about My Study Hub and our mission to help students study MBBS abroad.`
 - **Renders (from `components/about-us/page.tsx`, `backgroundColor:"#e1f0f9"`):** `PageBanner(title="About Us", subtitle="Learn more about who we are", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `HeadingOfCard(type="bold", title="Know More About Us", description=<JSX drop-cap paragraphs>)` → `AboutImageSection` → `AboutTextContent` → `MissionCoreValues` → `QuoteBanner` → `MeetOurTeam` → `NationalPresence` → `ExpertCounsellingSection(type="location")` → `FaqSection`.
 - **Data / functions:** no params, no fetch, no redirect. Every section hard-codes its own content. `components/about-us/page.tsx` imports `LocationMap` and `ContactSection` but never renders them (dead imports).
 - **Auth:** none.
@@ -21,8 +21,8 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/about-us/career`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Career at SPH | Study Palace Hub`, description `Explore the comprehensive Career oppurtunities at Study Palace Hub.` (typo "oppurtunities" is in source).
-- **Renders:** wrapper `div.flex.flex-col` with `backgroundColor:#ffffff` → `PageBanner(title="Career - Study Palace Hub Pvt Ltd", subtitle="Celebrate individuals who have made a meaningful difference. Fill out the nomination form to bestow a prestigious title. Acknowledge exceptional leaders for their societal contributions. Nominate someone today!", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (default `slim=true`).
+- **Metadata:** title `Career at SPH | My Study Hub`, description `Explore the comprehensive Career oppurtunities at My Study Hub.` (typo "oppurtunities" is in source).
+- **Renders:** wrapper `div.flex.flex-col` with `backgroundColor:#ffffff` → `PageBanner(title="Career - My Study Hub Pvt Ltd", subtitle="Celebrate individuals who have made a meaningful difference. Fill out the nomination form to bestow a prestigious title. Acknowledge exceptional leaders for their societal contributions. Nominate someone today!", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (default `slim=true`).
 - **Data / functions:** `export default function ServicesPage()` — component name is copy-pasted from the services page; no params/fetch/redirect.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/career/{WelcomeBanner,JoinTeamSection,RecruitmentGrid}`, `@/components/about-us/lastsection` (default export `FaqSection`, optional `slim` prop).
@@ -34,7 +34,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/about-us/partner-with-us`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Partner With Us | Study Palace Hub`, description `Partner with Study Palace Hub to help aspiring medical students achieve their dreams of studying MBBS abroad.`
+- **Metadata:** title `Partner With Us | My Study Hub`, description `Partner with My Study Hub to help aspiring medical students achieve their dreams of studying MBBS abroad.`
 - **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Partner With Us", subtitle="Join us in empowering aspiring medical students to achieve their dreams of studying MBBS abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `PartnerBenefits` → `PartnershipScope` → `BenefitsGallery` → `PartnerContactSection` → `ExclusiveUniversities` → `FaqSection slim={false}`.
 - **Data / functions:** `export default function PartnerWithUsPage()`; no params/fetch.
 - **Auth:** none.
@@ -47,8 +47,8 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/about-us/services`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Our Services | Study Palace Hub`, description `Explore the comprehensive services Study Palace Hub offers — from personal counseling and university selection to FMGE coaching and on-arrival support.`
-- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Our Services", subtitle="Comprehensive guidance for every step of your MBBS abroad journey", backgroundImage="/bg-doctor.jpg", overlayOpacity={0.5})` → `HeadingOfCard(type="bold", title="Services At Study Palace Hub", description=<JSX>)` → `ServicesGrid` → `AdmissionProcess` → `div` wrapping `FaqSection`.
+- **Metadata:** title `Our Services | My Study Hub`, description `Explore the comprehensive services My Study Hub offers — from personal counseling and university selection to FMGE coaching and on-arrival support.`
+- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Our Services", subtitle="Comprehensive guidance for every step of your MBBS abroad journey", backgroundImage="/bg-doctor.jpg", overlayOpacity={0.5})` → `HeadingOfCard(type="bold", title="Services At My Study Hub", description=<JSX>)` → `ServicesGrid` → `AdmissionProcess` → `div` wrapping `FaqSection`.
 - **Data / functions:** `export default function ServicesPage()`; the `description` prop is inline JSX using `<div style={{fontFamily:"'Lexend', sans-serif", fontWeight:300}}>` + a floated "A" drop cap and two paragraphs; no params/fetch.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/{PageBanner,HeadingOfCard}` (note: `HeadingOfCard` is in `components/ui`, not `components/about-us`), `@/components/services/{ServicesGrid,AdmissionProcess}`, `@/components/about-us/lastsection`.
@@ -60,7 +60,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/collections`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Collections & Events | StudyPalace Hub`, description `Explore our collections, webinars, and upcoming events.`
+- **Metadata:** title `Collections & Events | My Study Hub`, description `Explore our collections, webinars, and upcoming events.`
 - **Renders (wrapper `flex flex-col min-h-screen`, `backgroundColor:#f8fafc`):** `PageBanner(title="Events & Collections", subtitle="Stay updated with our latest webinars, educational fairs, and events", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.6})` → `<div className="py-12">` → `UpcomingEventsGrid` → `PreviousEventsSection`.
 - **Data / functions:** `export default function CollectionsPage()`; no params/fetch. Event data lives inside the two section components.
 - **Auth:** none.
@@ -73,7 +73,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/collections/blog`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Blog | Study Palace Hub`, description `Read the latest blogs and articles about studying abroad, visa guides, scholarships, student life, and more from Study Palace Hub.`
+- **Metadata:** title `Blog | My Study Hub`, description `Read the latest blogs and articles about studying abroad, visa guides, scholarships, student life, and more from My Study Hub.`
 - **Renders (wrapper `backgroundColor:#f6f7fb`):** `PageBanner(title="Blog", subtitle="Insights, guides, and stories to help you navigate your journey of studying abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `BlogsGrid`.
 - **Data / functions:** `export default function BlogPage()`; no params/fetch. Blog data is the shared registry `lib/blogPosts.ts` (imported inside `components/blogs/BlogsGrid.tsx`).
 - **Auth:** none.
@@ -86,14 +86,14 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/collections/blog/[slug]` — dynamic segment with `generateStaticParams` over `BLOG_POSTS` (12 slugs, statically prerendered at build; mode becomes ○ with on-demand fallback semantics gone — unknown slugs hit `notFound()`).
 - **Runtime:** server component; `export default async function BlogDetailPage(...)`; `import { notFound } from "next/navigation"` — unknown slug → 404.
-- **Metadata:** `generateMetadata` reads the registry post: title `` `${post.title} | Study Palace Hub Blog` ``, description = `post.subtitle`.
+- **Metadata:** `generateMetadata` reads the registry post: title `` `${post.title} | My Study Hub Blog` ``, description = `post.subtitle`.
 - **Renders:** wrapper `min-h-screen` with inline gradient `linear-gradient(93.86deg, rgba(0,146,63,0.1) 12.7%, rgba(49,99,255,0.1) 87.17%), #ffffff` →
   - `BlogHero(title, category, author, date, readTime, views, coverImage=post.coverImg, slug=post.slug)`.
   - `div.max-w-350.mx-auto.px-4.sm:px-8.lg:px-16.py-14` → flex row:
-    - `<main id="main-content">`: mobile-only `TableOfContents items={DEFAULT_TOC_ITEMS}`; `BlogContent` (no props — same canned body on every slug); divider; `ShareBar(totalShares={DEFAULT_TOTAL_SHARES}, views={post.views}, shareUrl={\`https://studypalacehub.com${blogPostHref(post.slug)}\`})`; divider; `AuthorCard(name, designation, bio, variant="full")`; mobile-only `TagsList tags={tagsForPost(post)}`; mobile-only `RelatedBlogs slug={post.slug}`.
+    - `<main id="main-content">`: mobile-only `TableOfContents items={DEFAULT_TOC_ITEMS}`; `BlogContent` (no props — same canned body on every slug); divider; `ShareBar(totalShares={DEFAULT_TOTAL_SHARES}, views={post.views}, shareUrl={\`https://mystudyhub.com${blogPostHref(post.slug)}\`})`; divider; `AuthorCard(name, designation, bio, variant="full")`; mobile-only `TagsList tags={tagsForPost(post)}`; mobile-only `RelatedBlogs slug={post.slug}`.
     - `<aside aria-label="Blog sidebar">` (hidden below `lg`, `lg:sticky lg:top-8`): `AuthorCard(name, designation, variant="sidebar")`, `TableOfContents`, `TagsList`, `RelatedBlogs slug={post.slug}`.
   - `NewsletterCTA` (no props) at the end.
-- **Data / functions:** all per-slug data from `@/lib/blogPosts` (`getBlogPost`, `tagsForPost`, `blogPostHref`); module-level `DEFAULT_TOC_ITEMS`, `DEFAULT_DESIGNATION`, `DEFAULT_AUTHOR_BIO`, `DEFAULT_TOTAL_SHARES` re-exported defaults. `SITE_URL = "https://studypalacehub.com"` (hard-coded production host, no env). `export interface BlogPageProps { params: Promise<{ slug: string }> }`. No fetch/no DB.
+- **Data / functions:** all per-slug data from `@/lib/blogPosts` (`getBlogPost`, `tagsForPost`, `blogPostHref`); module-level `DEFAULT_TOC_ITEMS`, `DEFAULT_DESIGNATION`, `DEFAULT_AUTHOR_BIO`, `DEFAULT_TOTAL_SHARES` re-exported defaults. `SITE_URL = "https://mystudyhub.com"` (hard-coded production host, no env). `export interface BlogPageProps { params: Promise<{ slug: string }> }`. No fetch/no DB.
 - **Auth:** none.
 - **Dependencies:** `next/navigation` (`notFound`), `@/lib/blogPosts`, `@/components/blog-details/{BlogHero,BlogContent,TableOfContents,AuthorCard,TagsList,ShareBar,RelatedBlogs,NewsletterCTA}`.
 - **Consumers / navigation:** reachable from every card of `/collections/blog` (grid + featured) and from `RelatedBlogs` cards on other blog slugs.
@@ -104,9 +104,9 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/collections/brochures`
 - **Runtime:** server component, `export default async function BrochuresPage()`; no `dynamic`/`revalidate`. The only `await` is on a local function that resolves immediately, so the route is effectively static.
-- **Metadata:** title `Brochures | Study Palace Hub`, description `Download official brochures, prospectuses, and admission guides for studying MBBS abroad with Study Palace Hub.`
-- **Renders (wrapper `backgroundColor:#e8f2f4` — a light teal, unlike the site-wide `#e8f0f9`):** `PageBanner(title="Brochures", subtitle="Download all official Study Palace Hub brochures and get complete information about studying MBBS abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `BrochuresIntro` → `BrochuresGrid brochures={brochures}`.
-- **Data / functions:** `const DUMMY_BROCHURES` (module scope, 15 objects with `{id,title,description,coverImage,fileUrl,fileName,year}`): "Study Palace Hub Pvt Ltd", Samara, Northern State, Kazan Federal, Bashkir State, Kursk State, Orenburg State, Volgograd State, Crimea Federal, Rostov State, Altai State, Ural State, Perm (2024), Tver (2024), Ivanovo (2024); the rest are 2025. `async function getBrochures() { return DUMMY_BROCHURES; }` — no network. Above it, a commented block shows the intended implementation: `fetch(\`${process.env.NEXT_PUBLIC_API_URL}/api/brochures\`, { next: { revalidate: 300 } })`; `NEXT_PUBLIC_API_URL` is **not** defined in `.env.example`.
+- **Metadata:** title `Brochures | My Study Hub`, description `Download official brochures, prospectuses, and admission guides for studying MBBS abroad with My Study Hub.`
+- **Renders (wrapper `backgroundColor:#e8f2f4` — a light teal, unlike the site-wide `#e8f0f9`):** `PageBanner(title="Brochures", subtitle="Download all official My Study Hub brochures and get complete information about studying MBBS abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `BrochuresIntro` → `BrochuresGrid brochures={brochures}`.
+- **Data / functions:** `const DUMMY_BROCHURES` (module scope, 15 objects with `{id,title,description,coverImage,fileUrl,fileName,year}`): "My Study Hub Pvt Ltd", Samara, Northern State, Kazan Federal, Bashkir State, Kursk State, Orenburg State, Volgograd State, Crimea Federal, Rostov State, Altai State, Ural State, Perm (2024), Tver (2024), Ivanovo (2024); the rest are 2025. `async function getBrochures() { return DUMMY_BROCHURES; }` — no network. Above it, a commented block shows the intended implementation: `fetch(\`${process.env.NEXT_PUBLIC_API_URL}/api/brochures\`, { next: { revalidate: 300 } })`; `NEXT_PUBLIC_API_URL` is **not** defined in `.env.example`.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/brochures/{BrochuresIntro,BrochuresGrid}`.
 - **Consumers / navigation:** Navbar Collections dropdown item `Brochures` (`NavDropdown.tsx:132`).
@@ -117,7 +117,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/collections/upcoming-event`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Upcoming Events | Study Palace Hub`, description `Explore upcoming MBBS Admission Gateway events hosted by Study Palace Hub across India.`
+- **Metadata:** title `Upcoming Events | My Study Hub`, description `Explore upcoming MBBS Admission Gateway events hosted by My Study Hub across India.`
 - **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Upcoming Events", subtitle="Join us at an MBBS Admission Gateway seminar near you. Meet our counsellors, explore top universities, and take the first step towards your medical career abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `UpcomingEventsGrid` → `PreviousEventsSection`.
 - **Data / functions:** `export default function UpcomingEventPage()`; no params/fetch; data inside the section components.
 - **Auth:** none.
@@ -130,7 +130,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/contact-us`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Contact Us | StudyPalace Hub`, description `Get in touch with StudyPalace Hub counselors for guidance on studying MBBS abroad. Reach us through phone, email, or visit our offices in India and Russia.`
+- **Metadata:** title `Contact Us | My Study Hub`, description `Get in touch with My Study Hub counselors for guidance on studying MBBS abroad. Reach us through phone, email, or visit our offices in India and Russia.`
 - **Renders:** `<div className="flex flex-col min-h-screen">` → `ContactHeroBanner` → `ContactSection`. Both take no props. No wrapper background, so the body's `#e8f0f9` shows through.
 - **Data / functions:** `export default function ContactUsPage()`; no params/fetch. `ContactSection` is a client component that renders phone/email/address blocks and social links (external), not a form — there is no `<form>` and no POST anywhere on this route. Its "Book Your FREE Counselling Session" CTA links to `/contact-us`; when already on that path the click is `preventDefault`ed and the page scrolls to top.
 - **Auth:** none.
@@ -143,7 +143,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/countries`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** **none** — inherits root `StudyPalace` / `Learn smarter with StudyPalace`. This is the only fully built public page with no page-specific metadata.
+- **Metadata:** **none** — inherits root `My Study Hub` / `Learn smarter with My Study Hub`. This is the only fully built public page with no page-specific metadata.
 - **Renders:** fragment → `PageBanner(title="Top Countries for studies in Abroad", subtitle="Explore the best countries for studying abroad, offering diverse cultures, world-class education, and unique experiences.", overlayOpacity={0.9}, backgroundImage="/bg-doctor.jpg")` → `CountryCarousal` (named export from `countryCarousal.tsx`) → `RussianUni` (named export) → `CollegeCards` (default export).
 - **Data / functions:** `export default function Countries()`; no params/fetch. `CountryCarousal` hard-codes 6 countries (Russia, Canada, Australia, Germany, Japan, France) but pairs them with **Indian city photos** (`/about-us/bengaluru.webp`, `chennai.webp`, …). `RussianUni` renders only a `HeadingOfCard(prefix="Top Universities in ", title="Russia", type="bold", italic)` — a heading with no list beneath it on this page.
 - **Auth:** none.
@@ -156,7 +156,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/countries/mbbs-in-russia` (a leaf segment — there is no `[country]` route; other countries would 404).
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `MBBS in Russia For Indian Students 2026-27 | StudyPalace`, description `Enroll at Samara State Medical University with expert guidance, ensuring a smooth application process.` (title says Russia, description is Samara-specific).
+- **Metadata:** title `MBBS in Russia For Indian Students 2026-27 | My Study Hub`, description `Enroll at Samara State Medical University with expert guidance, ensuring a smooth application process.` (title says Russia, description is Samara-specific).
 - **Renders (wrapper `div.flex.flex-col`, no background style):** `RussiaBanner` → `CountryIntro` → `WhyRussia` → `EligibilitySection` → `SSMUDurations` → `StepsSSMU` → `EventContactForm`. All take no props.
 - **Data / functions:** `export default function MBBSInRussiaPage()`; no params/fetch/redirect. University list is inside `RussiaBanner`/sections, not this file.
 - **Auth:** none.
@@ -182,8 +182,8 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/gallery/images`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Gallery — Images | Study Palace Hub` (em dash), description `Explore our gallery of events, seminars, academic fests, and Events at Study Palace Hub.`
-- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Seminars, Academic Fests & Events at Study Palace Hub in pictures", subtitle="Explore our memorable moments from events, seminars, and academic fests. Celebrate inspiration, learning of students. Look at community workshops and events through our gallery. ", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `GalleryGrid`.
+- **Metadata:** title `Gallery — Images | My Study Hub` (em dash), description `Explore our gallery of events, seminars, academic fests, and Events at My Study Hub.`
+- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Seminars, Academic Fests & Events at My Study Hub in pictures", subtitle="Explore our memorable moments from events, seminars, and academic fests. Celebrate inspiration, learning of students. Look at community workshops and events through our gallery. ", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `GalleryGrid`.
 - **Data / functions:** `export default function GalleryImagesPage()`; no params/fetch. Events (incl. `slug: "event-2025"`) are hard-coded in `components/images/GalleryGrid.tsx`; card hrefs fall back to the event year when `slug` is absent (`/gallery/images/<year>`).
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/images/GalleryGrid` (client, owns filter state).
@@ -195,7 +195,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/gallery/images/[slug]` — dynamic; no `generateStaticParams`; any string (including unknown events) is served.
 - **Runtime:** server component; `export default async function EventGalleryPage({ params }: { params: Promise<{ slug: string }> })`; no `dynamic`/`revalidate`.
-- **Metadata:** `export async function generateMetadata({ params }: { params: Promise<{ slug: string }> })` — `const { slug } = await params` (Next 16 async params), then `formatTitle(slug)` and returns `{ title: \`${title} Gallery | Study Palace Hub\`, description: \`Explore the moments and highlights from the ${title} organized by Study Palace Hub.\` }`. Title/description are derived from the URL, not from real event data.
+- **Metadata:** `export async function generateMetadata({ params }: { params: Promise<{ slug: string }> })` — `const { slug } = await params` (Next 16 async params), then `formatTitle(slug)` and returns `{ title: \`${title} Gallery | My Study Hub\`, description: \`Explore the moments and highlights from the ${title} organized by My Study Hub.\` }`. Title/description are derived from the URL, not from real event data.
 - **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title={displayTitle}, subtitle="Explore the moments and highlights from this event", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `EventDescription` → `EventGalleryGrid` → `EventContactForm` (all no props — they do **not** receive the slug, so every event shows the same photos/description).
 - **Data / functions:** helper `function formatTitle(slug: string)` — `slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase())`, e.g. `event-2025` → `Event 2025`. Page awaits `params`, computes `displayTitle`. No `notFound()`, no fetch, no search-param handling.
 - **Auth:** none.
@@ -208,7 +208,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/gallery/videos`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Gallery — Videos | Study Palace Hub`, description `Watch our video highlights from events, seminars, fresher's parties, and academic fests at Study Palace Hub.`
+- **Metadata:** title `Gallery — Videos | My Study Hub`, description `Watch our video highlights from events, seminars, fresher's parties, and academic fests at My Study Hub.`
 - **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Gallery", subtitle="Watch our memorable moments from events, seminars, and academic fests", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `VideoGrid`.
 - **Data / functions:** `export default function GalleryVideosPage()`; no params/fetch; video data hard-coded inside `VideoGrid`.
 - **Auth:** none.
@@ -221,7 +221,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 
 - **Route:** `/web-stories`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
-- **Metadata:** title `Web Stories | StudyPalace Hub`, description `Visual web stories about MBBS abroad, university reviews, and student experiences.`
+- **Metadata:** title `Web Stories | My Study Hub`, description `Visual web stories about MBBS abroad, university reviews, and student experiences.`
 - **Renders (wrapper `flex flex-col min-h-screen`, `backgroundColor:#f8fafc`):** `PageBanner(title="Web Stories", subtitle="Explore quick visual stories and updates about medical education abroad", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.6})` → `<div className="max-w-7xl mx-auto px-4 py-16 w-full bg-brand-sky">` → `WebStoriesViewer` (dark tray+viewer block) → `WebStoriesCarousel` → `<MBBSAbroadHero/>`.
 - **Data / functions:** `export default function WebStoriesPage()`; no params/fetch. Story data is hard-coded inside `components/web-stories/WebStoriesCarousel.tsx`.
 - **Auth:** none.

@@ -41,15 +41,15 @@ const OFFICES = [
 
 const CONTACTS = [
   { href: "tel:+919971944622", icon: "/home/footer-phone.svg", text: "+91-9971944622" },
-  { href: "mailto:contact@studypalacehub.com", icon: "/home/footer-mail.svg", text: "contact@studypalacehub.com" },
+  { href: "mailto:contact@mystudyhub.com", icon: "/home/footer-mail.svg", text: "contact@mystudyhub.com" },
 ];
 
 const SOCIALS = [
-  { label: "Facebook", handle: "studypalacehub0", href: "https://www.facebook.com/studypalacehub0", icon: "/home/footer-facebook.svg" },
-  { label: "Instagram", handle: "studypalacehub.official", href: "https://www.instagram.com/studypalacehub.official", icon: "/home/footer-instagram.svg" },
-  { label: "LinkedIn", handle: "study-palace-hub", href: "https://www.linkedin.com/company/study-palace-hub", icon: "/home/footer-linkedin.svg" },
-  { label: "Pinterest", handle: "Studypalacehub12", href: "https://www.pinterest.com/studypalacehub12", icon: "/home/footer-pinterest.svg" },
-  { label: "YouTube", handle: "@Studypalacehub", href: "https://www.youtube.com/@Studypalacehub", icon: "/home/footer-youtube.svg" },
+  { label: "Facebook", handle: "mystudyhub0", href: "https://www.facebook.com/mystudyhub0", icon: "/home/footer-facebook.svg" },
+  { label: "Instagram", handle: "mystudyhub.official", href: "https://www.instagram.com/mystudyhub.official", icon: "/home/footer-instagram.svg" },
+  { label: "LinkedIn", handle: "my-study-hub", href: "https://www.linkedin.com/company/my-study-hub", icon: "/home/footer-linkedin.svg" },
+  { label: "Pinterest", handle: "Mystudyhub12", href: "https://www.pinterest.com/mystudyhub12", icon: "/home/footer-pinterest.svg" },
+  { label: "YouTube", handle: "@MyStudyHub", href: "https://www.youtube.com/@MyStudyHub", icon: "/home/footer-youtube.svg" },
 ];
 
 // ── Shared classes ─────────────────────────────────────────────────────────────
@@ -316,7 +316,7 @@ export default function ContactSection() {
             sizes="100vw"
           />
           <p className="relative text-[clamp(10px,0.9vw,14px)] font-semibold uppercase tracking-[3.4px] text-brand-sky">
-            Study Palace Hub
+            My Study Hub
           </p>
           <h2 className="relative max-w-190 font-['DM_Serif_Display','Playfair_Display',Georgia,serif] text-[clamp(24px,3.33vw,56px)] font-bold leading-[1.15] text-white">
             Book Your FREE Counselling Session Today!

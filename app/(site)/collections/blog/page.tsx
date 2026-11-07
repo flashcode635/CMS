@@ -3,9 +3,9 @@ import BlogsGrid from "@/components/blog-details/BlogsGrid";
 import MBBSAbroadHero from "@/components/homepage/MBBSAbroadHero";
 
 export const metadata = {
-    title: "Blog | Study Palace Hub",
+    title: "Blog | My Study Hub",
     description:
-        "Read the latest blogs and articles about studying abroad, visa guides, scholarships, student life, and more from Study Palace Hub.",
+        "Read the latest blogs and articles about studying abroad, visa guides, scholarships, student life, and more from My Study Hub.",
 };
 
 export default function BlogPage() {

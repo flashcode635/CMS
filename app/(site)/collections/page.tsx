@@ -3,7 +3,7 @@ import UpcomingEventsGrid from "@/components/collections/UpcomingEventsGrid";
 import PreviousEventsSection from "@/components/collections/PreviousEventsSection";
 
 export const metadata = {
-  title: "Collections & Events | StudyPalace Hub",
+  title: "Collections & Events | My Study Hub",
   description: "Explore our collections, webinars, and upcoming events.",
 };
 

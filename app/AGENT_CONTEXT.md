@@ -11,7 +11,7 @@ imports `globals.css`, and renders route children without site chrome.
 
 - **Route:** layout — applies to `/`, all `(site)` pages, and `/admin/admin` + `/admin/admin/login`.
 - **Runtime:** server component (no `"use client"`); no `export const dynamic` / `revalidate` / `runtime`.
-- **Metadata:** `export const metadata = { title: "StudyPalace", description: "Learn smarter with StudyPalace" }`. No `metadataBase`, no `title.template`, no `robots`. Any page that does not export its own metadata (e.g. `/`, `/countries`) inherits exactly this title and description — the site's own brand spelling is inconsistent (`StudyPalace` here vs `Study Palace Hub` on child pages).
+- **Metadata:** `export const metadata = { title: "My Study Hub", description: "Learn smarter with My Study Hub" }`. No `metadataBase`, no `title.template`, no `robots`. Any page that does not export its own metadata (e.g. `/`, `/countries`) inherits exactly this title and description — the site's own brand spelling is inconsistent (`My Study Hub` here vs `My Study Hub` on child pages).
 - **Renders:** `<html lang="en" className={\`${geistSans.variable} ${geistMono.variable} h-full antialiased scrollbar-thin\`}>` → `<body className="min-h-full w-full flex flex-col scrollbar-thin">` → `<Navbar />` → `<main className="flex flex-col flex-1 relative">{children}</main>` → `<Footer />`.
 - **Data / functions:** `export default function RootLayout({ children }: any)`. Fonts: `Geist({ variable: "--font-geist-sans", subsets: ["latin"] })` and `Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] })`. Both CSS variables are injected on `<html>` but are **not referenced** by `globals.css` (which sets `--font-sans: "Inter", …`), so Geist is downloaded but effectively unused. No data fetching, no redirect, no `notFound()`.
 - **Auth:** none at this level. Admin pages are rendered inside this public shell.
@@ -27,7 +27,7 @@ imports `globals.css`, and renders route children without site chrome.
 
 - **Route:** `/` (homepage at `app/(site)/page.tsx`; the route group contributes no URL segment).
 - **Runtime:** `"use client"` — the whole page (and every imported section) is a client boundary. No `dynamic`/`revalidate` export (not allowed together with client metadata anyway).
-- **Metadata:** none in this file → inherits root layout's `StudyPalace` / `Learn smarter with StudyPalace`. SEO for the homepage is therefore the root defaults only.
+- **Metadata:** none in this file → inherits root layout's `My Study Hub` / `Learn smarter with My Study Hub`. SEO for the homepage is therefore the root defaults only.
 - **Renders (in DOM order):**
   1. `<HeroBanner />` (no props) — full-viewport hero.
   2. `<SearchBar color="white" className="absolute max-w-224.25 -translate-x-1/2 rounded-xl top-123 left-1/2 z-20" />` — imported as `{ SearchBar }` from `@/components/ui/searchbar`; positioned over the hero using arbitrary spacing values (`max-w-224.25` = 897px, `top-123` = 492px), i.e. magic numbers tuned to the hero height.

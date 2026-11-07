@@ -116,10 +116,10 @@ export default function Footer() {
               className="text-2xl font-bold tracking-wide text-white"
               style={{ fontFamily: "'Frank Ruhl Libre', serif" }}
             >
-              Study Palace Hub
+              My Study Hub
             </h2>
             <p className="text-white/70 text-sm leading-relaxed font-light">
-              Study Palace Hub: Your trusted partner for seamless MBBS abroad
+              My Study Hub: Your trusted partner for seamless MBBS abroad
               guidance, admissions, and career success. Turning dreams into
               reality!
             </p>
@@ -133,12 +133,12 @@ export default function Footer() {
 
             <div className="border-l-2 border-[#0092ff] pl-4 py-1 space-y-1">
               <p className="text-[#3b82f6] text-sm font-semibold">
-                International Office - Russia
+                International Office, Russia
               </p>
               <p className="text-white/60 text-xs leading-relaxed">
-                Office No. - 831, Proletarskaya - 150/4,
+                Office No. - 412, Nevsky Prospekt - 78/3,
                 <br />
-                Samara, Russia - 443001
+                Saint Petersburg, Russia - 190000
               </p>
             </div>
           </div>
@@ -216,9 +216,9 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-cyan-400" />
               </div>
               <div>
-                <p className="text-xs text-white/50 font-medium">Head Office</p>
+                <p className="text-xs text-white/50 font-medium">My Study Hub - Head Office</p>
                 <p className="text-sm text-white font-medium mt-0.5 leading-tight">
-                  806, KLJ Tower, Pitampura, Delhi - 110034
+                  305, Metro Heights, Sector 44, Gurugram - 122003
                 </p>
               </div>
             </div>
@@ -231,7 +231,7 @@ export default function Footer() {
               <div>
                 <p className="text-xs text-white/50 font-medium">Mail for info.</p>
                 <p className="text-sm text-white font-medium mt-0.5 break-all">
-                  contact@studypalacehub.com
+                  contact@mystudyhub.com
                 </p>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function Footer() {
 
         {/* Bottom Sub-Footer Copyright & Legal Links Bar */}
         <div className="mt-12 pt-6 border-t border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>© Copyright Study Palace Hub 2026-27 All Rights Reserved.</p>
+          <p>© Copyright My Study Hub 2026-27 All Rights Reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="#" className="hover:text-cyan-300 transition-colors">
               Privacy Policy

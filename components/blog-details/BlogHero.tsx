@@ -118,7 +118,7 @@ export default function BlogHero({
             className="text-white font-semibold tracking-[3px] uppercase text-sm sm:text-base mb-3"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Study Palace Hub
+            My Study Hub
           </p>
 
           {/* Main title */}

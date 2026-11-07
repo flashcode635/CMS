@@ -97,7 +97,7 @@ const SERVICES = [
     title: "Selection of University",
     image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
     body: [
-      "Study Palace Hub consultants are highly experienced and knowledgeable professionals dedicated to helping students find the right university for their studies abroad, tailored to their individual needs and preferences.",
+      "My Study Hub consultants are highly experienced and knowledgeable professionals dedicated to helping students find the right university for their studies abroad, tailored to their individual needs and preferences.",
       "They provide a curated selection of options from over 50+ top medical universities across more than 20 countries, assisting you on your path to becoming a successful doctor.",
     ],
   },
@@ -124,7 +124,7 @@ const SERVICES = [
     title: "FMGE/NEXT Coaching",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
     body: [
-      "Study Palace Hub consultants are highly experienced and knowledgeable professionals dedicated to helping students find the right university for their studies abroad, tailored to their individual needs and preferences.",
+      "My Study Hub consultants are highly experienced and knowledgeable professionals dedicated to helping students find the right university for their studies abroad, tailored to their individual needs and preferences.",
       "They provide a curated selection of options from over 50+ top medical universities across more than 20 countries, assisting you on your path to becoming a successful doctor.",
     ],
   },
@@ -151,7 +151,7 @@ const SERVICES = [
     title: "Indian Food & Lifestyle Support.",
     image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=800&q=80",
     body: [
-      "Study Palace Hub consultants are highly experienced and knowledgeable professionals dedicated to helping students find the right university for their studies abroad, tailored to their individual needs and preferences.",
+      "My Study Hub consultants are highly experienced and knowledgeable professionals dedicated to helping students find the right university for their studies abroad, tailored to their individual needs and preferences.",
       "They provide a curated selection of options from over 50+ top medical universities across more than 20 countries, assisting you on your path to becoming a successful doctor.",
     ],
   },

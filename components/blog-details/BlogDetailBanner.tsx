@@ -29,7 +29,7 @@ export default function BlogDetailBanner() {
           className="uppercase font-semibold text-white/85 tracking-[3px]"
           style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(12px, 1.1vw, 15px)" }}
         >
-          Study Palace Hub
+          My Study Hub
         </p>
         <h1
           className="m-0 font-semibold leading-tight text-white"

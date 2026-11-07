@@ -1,4 +1,4 @@
-// Global Data Models for StudyPalace Hub Frontend
+// Global Data Models for My Study Hub Frontend
 
 import { ReactNode } from "react";
 

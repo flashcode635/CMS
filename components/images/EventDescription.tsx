@@ -56,7 +56,7 @@ export default function EventDescription({
             </h1>
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-['Lexend',sans-serif]">
-              Study Palace Hub successfully organized the{" "}
+              My Study Hub successfully organized the{" "}
               <span className="text-brand-green font-semibold">2025 Pre-Departure Seminar</span>{" "}
               for aspiring medical students joining{" "}
               <span className="text-brand-blue font-semibold">
@@ -100,7 +100,7 @@ export default function EventDescription({
               Looking Forward
             </p>
             <p className="text-base sm:text-xl font-light leading-relaxed font-['Lexend',sans-serif]">
-              The event concluded with a <strong className="font-semibold text-white">networking lunch and group photo session</strong>, giving students the opportunity to connect with peers and build lifelong friendships. Study Palace Hub remains dedicated to supporting every student from admission to graduation!
+              The event concluded with a <strong className="font-semibold text-white">networking lunch and group photo session</strong>, giving students the opportunity to connect with peers and build lifelong friendships. My Study Hub remains dedicated to supporting every student from admission to graduation!
             </p>
           </div>
         </div>

@@ -13,9 +13,9 @@ import ExclusiveUniversities from "@/components/partner-with-us/ExclusiveUnivers
 import FaqSection from "@/components/about-us/lastsection";
 
 export const metadata = {
-  title: "Partner With Us | Study Palace Hub",
+  title: "Partner With Us | My Study Hub",
   description:
-    "Partner with Study Palace Hub to help aspiring medical students achieve their dreams of studying MBBS abroad.",
+    "Partner with My Study Hub to help aspiring medical students achieve their dreams of studying MBBS abroad.",
 };
 
 export default function PartnerWithUsPage() {

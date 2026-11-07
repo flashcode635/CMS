@@ -7,9 +7,9 @@ import PageBanner from "@/components/ui/PageBanner";
 import VideoGrid from "@/components/videos/VideoGrid";
 
 export const metadata = {
-  title: "Gallery — Videos | Study Palace Hub",
+  title: "Gallery — Videos | My Study Hub",
   description:
-    "Watch our video highlights from events, seminars, fresher's parties, and academic fests at Study Palace Hub.",
+    "Watch our video highlights from events, seminars, fresher's parties, and academic fests at My Study Hub.",
 };
 
 export default function GalleryVideosPage() {

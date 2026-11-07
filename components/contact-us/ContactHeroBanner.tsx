@@ -51,7 +51,7 @@ export default function ContactHeroBanner() {
           className="text-white font-semibold uppercase tracking-[0.22em]"
           style={{ fontSize: "clamp(10px, 0.95vw, 15px)", letterSpacing: "3.4px" }}
         >
-          Study Palace Hub
+          My Study Hub
         </p>
 
         {/* Main title */}

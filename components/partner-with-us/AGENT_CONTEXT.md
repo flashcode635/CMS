@@ -19,10 +19,10 @@ Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page backgrou
 - **Handlers / functions:** none.
 - **Constants & types:**
   - `BENEFITS` — 4 objects, shape `{ id: number; desktopIcon: string; mobileIcon: string; title: string; desktopBody: string; mobileBody: string }`:
-    1. "Expert Guidance" — desktop body mentions "Partnering with StudyPalaceHub means aligning with a trusted advisor for aspiring medical professionals.", mobile body truncates at "…trusted advisor.";
+    1. "Expert Guidance" — desktop body mentions "Partnering with My Study Hub means aligning with a trusted advisor for aspiring medical professionals.", mobile body truncates at "…trusted advisor.";
     2. "Vast Network" — desktop includes "…students seeking guidance on studying medicine overseas.", mobile ends "Expand your reach.";
     3. "Comprehensive Support" — desktop ends "…support they need to succeed.", mobile ends "…at every step.";
-    4. "Ethical Practices" — desktop mentions "Study Palace Hub" and "integrity, transparency, and professionalism", mobile ends "…associating your brand with integrity."
+    4. "Ethical Practices" — desktop mentions "My Study Hub" and "integrity, transparency, and professionalism", mobile ends "…associating your brand with integrity."
   - All eight icon values are `https://www.figma.com/api/mcp/asset/...` URLs (external, expiring Figma exports); there are distinct desktop/mobile icons for each card.
   - `cardBase` — shared class string: `bg-white border border-brand-sky/60 w-full flex flex-col gap-2 rounded-lg rounded-tr-[52px] xl:rounded-tr-[50px] rounded-bl-[52px] xl:rounded-bl-[50px] shadow-[0px_10px_30px_rgba(88,92,95,0.1)] transition-all duration-300 cursor-pointer hover:-translate-y-1.5 hover:shadow-[0px_20px_40px_rgba(49,99,255,0.15)] hover:border-brand-blue`.
   - No exported types.
@@ -116,9 +116,9 @@ Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page backgrou
   - `CONTACT` — 3 records `{ icon: string; label: string; value: string }`:
     - "Helpline No." → `+91-9971944622, 011-40550609`
     - "Head Office" → `806, KLJ Tower, Pitampura, Delhi - 110034`
-    - "Mail for info." → `contact@studypalacehub.com`
+    - "Mail for info." → `contact@mystudyhub.com`
     Icons are Figma MCP asset URLs.
-  - `SOCIALS` — 5 records `{ icon, handle, href }`: `studypalacehub0` → `https://facebook.com`; `studypalacehub.official` → `https://instagram.com`; `study-palace-hub` → `https://linkedin.com`; `Studypalacehub12` → `https://pinterest.com`; `@Studypalacehub` → `https://youtube.com`. **All hrefs are bare platform homepages, not the actual profiles** — placeholder links.
+  - `SOCIALS` — 5 records `{ icon, handle, href }`: `mystudyhub0` → `https://facebook.com`; `mystudyhub.official` → `https://instagram.com`; `my-study-hub` → `https://linkedin.com`; `Mystudyhub12` → `https://pinterest.com`; `@MyStudyHub` → `https://youtube.com`. **All hrefs are bare platform homepages, not the actual profiles** — placeholder links.
   - `inputCls` — `w-full bg-white border border-[#d9dbde] rounded-lg px-6 text-[#536782] font-medium text-base placeholder-[#536782] outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 …`.
   - `interface ContactItem { icon: string; label: string; value: string }`, `interface SocialItem { icon: string; handle: string; href: string }`.
   - Local icon components: `ArrowRight({ size = 16 })` (white stroke), `ChevronDown()` (`#536782`), `ExtLink()` (diagonal arrow, white).
@@ -189,6 +189,6 @@ Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page backgrou
 - **Notes:**
   - Section: `px-4 sm:px-8 lg:px-16 xl:px-24 py-12 lg:py-16`, `max-w-300`, centered.
   - Heading "Why Partner With Us?" is gradient-clipped (`165.04deg`) in Inter extrabold `clamp(28px,3.33vw,48px)`.
-  - Body uses a **manual drop cap**: a `<span className="float-left mr-0.5 mt-1 leading-none">W</span>` followed by the text "elcome to Study Palace Hub, …". Assistive tech and copy/paste therefore split the word ("W" + "elcome"), and the float can collide with the first line on narrow widths.
+  - Body uses a **manual drop cap**: a `<span className="float-left mr-0.5 mt-1 leading-none">W</span>` followed by the text "elcome to My Study Hub, …". Assistive tech and copy/paste therefore split the word ("W" + "elcome"), and the float can collide with the first line on narrow widths.
   - Body: Lexend Light `clamp(14px,1.04vw,18px)`, line-height 27px, `maxWidth: 1156px`, colour `#606c83`; the phrase "collaboration and mutual growth" is bolded (Lexend 700) and the sentence ends with a period.
   - No CTA, no image. If re-enabled it would sit between `PageBanner` and `PartnerBenefits`, duplicating the "Why Partner with Us…" heading that `PartnerBenefits` already renders — one of the two should be removed.

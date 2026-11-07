@@ -37,7 +37,7 @@ const VIDEOS: PartyVideo[] = [
     id: "f7kfU3T5yA0",
     thumb: "/home/party-video1.jpg",
     title: "Impulse NCSA",
-    channel: "Study Palace Hub",
+    channel: "My Study Hub",
   },
   {
     id: "dp7__dZmSU8",
@@ -173,7 +173,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             >
               <Image
                 src="/home/party-channel-thumb.jpg"
-                alt="Study Palace Hub"
+                alt="My Study Hub"
                 fill
                 className="object-cover"
                 sizes="36px"

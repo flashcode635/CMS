@@ -105,7 +105,7 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
       {", with leading universities teaching in English."}
     </>,
     <>
-      {"At Study Palace Hub, we guide students at every step - from choosing the right university to complete admission support - ensuring a smooth journey to study MBBS abroad."}
+      {"At My Study Hub, we guide students at every step - from choosing the right university to complete admission support - ensuring a smooth journey to study MBBS abroad."}
     </>,
   ],
   durations: {
@@ -178,7 +178,7 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
     subtitle:
       "Discover the rich culture, history, and opportunities that await you in your study destination.",
     paragraphs: [
-      "Study Palace Hub students choose study-abroad destinations for their affordable and high-quality MBBS programs, globally recognised universities, and English-taught coursework.",
+      "My Study Hub students choose study-abroad destinations for their affordable and high-quality MBBS programs, globally recognised universities, and English-taught coursework.",
       "Medical universities across our destinations hold accreditations from major medical bodies such as the WHO, NMC, and FAIMER, ensuring graduates can practice medicine worldwide.",
       "For aspiring doctors seeking a world-class education at reasonable costs, these countries offer strong theoretical foundations combined with practical training, preparing students to excel in the global healthcare sector.",
     ],
@@ -186,8 +186,8 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
   },
   languages: "English",
   currency: "—",
-  metaTitle: "Study MBBS Abroad | Study Palace Hub",
-  metaDescription: "Study MBBS abroad with expert guidance from Study Palace Hub.",
+  metaTitle: "Study MBBS Abroad | My Study Hub",
+  metaDescription: "Study MBBS abroad with expert guidance from My Study Hub.",
 };
 
 export const COUNTRY_CONTENT: Record<string, CountryContent> = {
@@ -218,7 +218,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         {"Leading universities such as Novosibirsk State University, Samara State Medical University, Ural State Medical University, and North Caucasus State Medical Academy provide world-class medical education in English."}
       </>,
       <>
-        {"At Study Palace Hub, we guide students at every step - from choosing the right university to complete admission support - ensuring a smooth journey to study MBBS abroad."}
+        {"At My Study Hub, we guide students at every step - from choosing the right university to complete admission support - ensuring a smooth journey to study MBBS abroad."}
       </>,
     ],
     whyPoints: [
@@ -389,7 +389,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
     },
     languages: "English, Russian, Tatar, Bashkir, and Ukrainian",
     currency: "Russian Ruble",
-    metaTitle: "MBBS in Russia For Indian Students 2026-27 | StudyPalace",
+    metaTitle: "MBBS in Russia For Indian Students 2026-27 | My Study Hub",
     metaDescription: "Enroll at Samara State Medical University with expert guidance, ensuring a smooth application process.",
   },
   kyrgyzstan: {
@@ -563,7 +563,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
     },
     languages: "English, Kyrgyzstan, Tatar, Bashkir, and Ukrainian",
     currency: "Kyrgyzstan Ruble",
-    metaTitle: "MBBS in Kyrgyzstan For Indian Students 2026-27 | StudyPalace",
+    metaTitle: "MBBS in Kyrgyzstan For Indian Students 2026-27 | My Study Hub",
     metaDescription: "Enroll at Samara State Medical University with expert guidance, ensuring a smooth application process.",
 },
 
@@ -599,8 +599,8 @@ export const DEFAULT_UNIVERSITY_CONTENT: UniversityContent = {
   duration: "6 Years (5 + 1 Internship)",
   medium: "English",
   recognition: "NMC, WHO",
-  metaTitle: "Study MBBS Abroad | Study Palace Hub",
-  metaDescription: "Study MBBS at a top medical university with Study Palace Hub.",
+  metaTitle: "Study MBBS Abroad | My Study Hub",
+  metaDescription: "Study MBBS at a top medical university with My Study Hub.",
 };
 
 export const UNIVERSITY_CONTENT: Record<string, UniversityContent> = {
@@ -617,7 +617,7 @@ export const UNIVERSITY_CONTENT: Record<string, UniversityContent> = {
     duration: "6 Years (5 + 1 Internship)",
     medium: "English",
     recognition: "NMC, WHO, ECFMG",
-    metaTitle: "Samara State Medical University 2026-27 | StudyPalace",
+    metaTitle: "Samara State Medical University 2026-27 | My Study Hub",
     metaDescription: "Enroll at Samara State Medical University with expert guidance, ensuring a smooth application process.",
   },
   // ...the other 13 universities (kazan-federal-university, bashkir-, kursk-,
@@ -636,11 +636,11 @@ export function getUniversityContent(slug: string): UniversityContent {
 export const DUMMY_BROCHURES = [
     {
         id: "1",
-        title: "Study Palace Hub Pvt Ltd",
+        title: "My Study Hub Pvt Ltd",
         description: "Your gateway to top-tier study abroad. Comprehensive guide to programs, facilities, and admission.",
         coverImage: "https://www.figma.com/api/mcp/asset/7741d685-c566-48a6-974b-96bc94c58331",
         fileUrl: "#",
-        fileName: "SPH-Brochure-2025.pdf",
+        fileName: "MSH-Brochure-2025.pdf",
         year: "2025",
     },
     {

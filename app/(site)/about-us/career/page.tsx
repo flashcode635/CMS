@@ -10,9 +10,9 @@ import RecruitmentGrid from "@/components/career/RecruitmentGrid";
 import FaqSection from "@/components/about-us/lastsection";
 
 export const metadata = {
-    title: "Career at SPH | Study Palace Hub",
+    title: "Career at MSH | My Study Hub",
     description:
-        "Explore the comprehensive Career oppurtunities at Study Palace Hub.",
+        "Explore the comprehensive Career opportunities at My Study Hub.",
 };
 
 export default function ServicesPage() {
@@ -20,7 +20,7 @@ export default function ServicesPage() {
         <div className="flex flex-col" style={{ backgroundColor: "#ffffff" }}>
             {/* ── Banner ── */}
             <PageBanner
-                title="Career - Study Palace Hub Pvt Ltd"
+                title="Career - My Study Hub Pvt Ltd"
                 subtitle="Celebrate individuals who have made a meaningful difference. Fill out the nomination form to bestow a prestigious title. Acknowledge exceptional leaders for their societal contributions. Nominate someone today!"
                 backgroundImage="/home/about-graduation.jpg"
                 overlayOpacity={0.5}

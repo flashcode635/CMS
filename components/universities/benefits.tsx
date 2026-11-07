@@ -77,7 +77,7 @@ export const DEFAULT_CONTENT: Required<BenefitsProps> = {
     // TODO: set a real YouTube URL (watch?v=… links are rewritten to embed/)
     videoUrl: "",
     videoTitle: "FMGE Classes at Samara State Medical University",
-    videoBadge: "Study Palace Hub",
+    videoBadge: "My Study Hub",
     watchLabel: "Watch on YouTube",
     videoPoster: univCampusImg,
 };

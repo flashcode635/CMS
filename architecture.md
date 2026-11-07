@@ -1,6 +1,6 @@
 # architecture.md — how this project is built
 
-System-level map of the Study Palace Hub website. For *where files live* read
+System-level map of the My Study Hub website. For *where files live* read
 [details.md](details.md); for *per-file implementation detail* open the
 `AGENT_CONTEXT.md` in the folder you are about to touch. This file consolidates
 and supersedes the previous `Architecture.md` (renamed), verified against the
@@ -8,7 +8,7 @@ working tree at the time of writing.
 
 ## 1. Overview
 
-Study Palace Hub is a content-heavy marketing website for an MBBS-abroad
+My Study Hub is a content-heavy marketing website for an MBBS-abroad
 admissions consultancy, with a small, partly unfinished admin placeholder.
 Almost everything is static, presentational React. There is **no CMS, no public
 API and no server action** in the repository today — editorial content (blogs,

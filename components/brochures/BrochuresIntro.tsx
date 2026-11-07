@@ -72,7 +72,7 @@ export default function BrochuresIntro() {
           >
             <p className="m-0">
               Explore all official brochures, prospectuses, and admission guides
-              by Study Palace Hub below and get complete information about
+              by My Study Hub below and get complete information about
               studying MBBS abroad. From top medical universities and affordable
               fee structures to hostel facilities, admission procedures,
               eligibility criteria, student life, campus facilities, and
@@ -80,10 +80,10 @@ export default function BrochuresIntro() {
               medical journey is available here in one place.
             </p>
             <p className="m-0">
-              Browse and download all Study Palace Hub brochures to explore the
+              Browse and download all My Study Hub brochures to explore the
               best opportunities for your future and take the first step toward
               achieving your dream of becoming a doctor with expert guidance and
-              complete support from Study Palace Hub.
+              complete support from My Study Hub.
             </p>
           </div>
         </div>

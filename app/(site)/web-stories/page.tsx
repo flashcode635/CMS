@@ -4,7 +4,7 @@ import WebStoriesCarousel from "@/components/web-stories/WebStoriesCarousel";
 import WebStoriesViewer from "@/components/web-stories/WebStoriesViewer";
 
 export const metadata = {
-  title: "Web Stories | StudyPalace Hub",
+  title: "Web Stories | My Study Hub",
   description: "Visual web stories about MBBS abroad, university reviews, and student experiences.",
 };
 

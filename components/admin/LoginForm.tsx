@@ -4,8 +4,8 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 
 const SAMPLE_ADMIN = {
-  email: "admin@studypalacehub.com",
-  password: "StudyPalace@123",
+  email: "admin@mystudyhub.com",
+  password: "MyStudyHub@123",
 } as const;
 
 export default function LoginForm() {
@@ -45,7 +45,7 @@ export default function LoginForm() {
       <div className="mb-8 text-center">
         <h1 className="font-['Poppins'] text-2xl font-bold text-brand-navy">Admin Portal</h1>
         <p className="mt-2 font-['Lexend'] text-sm text-slate-500">
-          Sign in to access the Study Palace Hub dashboard
+          Sign in to access the My Study Hub dashboard
         </p>
       </div>
 

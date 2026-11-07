@@ -33,7 +33,7 @@ Routes:
 - **Dependencies:** `react` (`useState`), `lucide-react` (`Phone`, `Mail`, `MapPin`, `Send`, `CheckCircle2`), `@/components/ui/Button`.
 - **Consumers:** `app/(site)/gallery/images/[slug]/page.tsx` (section 4) and `app/(site)/countries/mbbs-in-russia/page.tsx` (last section).
 - **Notes:**
-  - Left panel is a gradient `bg-linear-to-br from-brand-navy via-brand-royal to-brand-blue`, `lg:w-[38%]`, with two decorative blurred circles. Contact data: Call Us `+91-9971944622`; Email Us `info@studypalacehub.com`; Head Office `806, KLJ Tower, Pitampura, Delhi`. Footer quote: "Official University Contractor" / "Turning medical dreams into global reality since 2014."
+  - Left panel is a gradient `bg-linear-to-br from-brand-navy via-brand-royal to-brand-blue`, `lg:w-[38%]`, with two decorative blurred circles. Contact data: Call Us `+91-9971944622`; Email Us `info@mystudyhub.com`; Head Office `806, KLJ Tower, Pitampura, Delhi`. Footer quote: "Official University Contractor" / "Turning medical dreams into global reality since 2014."
   - Shell: `max-w-[1640px]`, `rounded-3xl`, `border-[#e2e8f0]`, `flex-col lg:flex-row`, big shadow; `px-5 sm:px-10 lg:px-16 xl:px-20 py-12 lg:py-20`.
   - **A11y gaps:** `<label>` elements have no `htmlFor` and inputs have no `id`; the required fields are not marked with `aria-required`; the success panel is not announced (no `role="status"`/`aria-live`).
   - The success button hard-codes `bg-brand-green` on top of `variant="brandSolid"` (already green) and has no `type`, which is harmless only because it is rendered outside the `<form>`.
@@ -45,7 +45,7 @@ Routes:
 [EventDescription.tsx]: Event intro card + four highlight cards + a "Looking Forward" conclusion banner.
 
 - **Runtime:** client (`"use client"`) though it is stateless — could be a server component.
-- **Purpose:** Describes a Study Palace Hub pre-departure seminar and its four themes on the event detail page.
+- **Purpose:** Describes a My Study Hub pre-departure seminar and its four themes on the event detail page.
 - **Props:** `EventDescriptionProps { title?: string }`; default `title = "Samara State Medical University – Pre-Departure Seminar 2025"`. The page renders `<EventDescription />` with no props, so the default title is always used (the slug-derived title only appears in `PageBanner`/metadata).
 - **State & effects:** none.
 - **Handlers / functions:** none.

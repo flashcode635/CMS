@@ -12,8 +12,8 @@ import FaqSection from "./lastsection";
 import LocationPin from "./LocationMap";
 import ExpertCounsellingSection from "../homepage/ExpertCounsellingSection";
 export const metadata = {
-  title: "About Us | StudyPalace Hub",
-  description: "Learn more about Study Palace Hub and our mission to help students study MBBS abroad.",
+  title: "About Us | My Study Hub",
+  description: "Learn more about My Study Hub and our mission to help students study MBBS abroad.",
 };
 
 export default function AboutUsPage() {
@@ -43,7 +43,7 @@ export default function AboutUsPage() {
             >
               W
             </span>
-            elcome to Study Palace Hub, a premier Medical Education Consultancy
+            elcome to My Study Hub, a premier Medical Education Consultancy
             in Delhi, India. Our mission is to assist 
           </p>
 
@@ -56,7 +56,7 @@ export default function AboutUsPage() {
             <br/>
             <br/>
 
-            At Study Palace Hub, we recognize that the decision to study abroad
+            At My Study Hub, we recognize that the decision to study abroad
             can be daunting, particularly for those pursuing a career in
             medicine. That&apos;s why we have a dedicated team of experienced
             counselors and professionals committed to making the process as

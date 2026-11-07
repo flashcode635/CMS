@@ -132,7 +132,7 @@ export default function EnrollNowSection() {
                 letterSpacing: "3.41px",
               }}
             >
-              Study Palace Hub
+              My Study Hub
             </p>
           </div>
 

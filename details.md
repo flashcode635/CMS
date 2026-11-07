@@ -2,7 +2,7 @@
 
 Read this first to know **where things live**. For *how the pieces fit together* read [architecture.md](architecture.md). For per-file detail (purpose, imports, importers, auth) open the `AGENT_CONTEXT.md` inside the folder you are about to touch.
 
-Project: **Study Palace Hub** - marketing site for an MBBS-abroad admissions consultancy (Next.js 16 App Router, React 19, Tailwind v4, TypeScript 5).
+Project: **My Study Hub** - marketing site for an MBBS-abroad admissions consultancy (Next.js 16 App Router, React 19, Tailwind v4, TypeScript 5).
 
 ## Tree
 

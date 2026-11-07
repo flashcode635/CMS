@@ -29,7 +29,7 @@ export default function WelcomeBanner() {
               className="text-center text-white text-[clamp(22px,3.33vw,64px)] font-extrabold font-['Inter'] leading-[1.2]"
               style={{ width: "clamp(300px, 55.67vw, 1068.91px)" }}
             >
-              Welcome to Study Palace Hub!
+              Welcome to My Study Hub!
             </h1>
           </div>
 
@@ -39,7 +39,7 @@ export default function WelcomeBanner() {
               className="text-center text-white/90 text-[clamp(13px,1.04vw,20px)] font-normal font-['Inter'] leading-[1.6]"
               style={{ width: "clamp(300px, 58.87vw, 1130.38px)" }}
             >
-              At Study Palace Hub Pvt. Ltd., we believe in the power of
+              At My Study Hub Pvt. Ltd., we believe in the power of
               education to transform lives. We&apos;re not just a company;
               we&apos;re a passionate team dedicated to fostering a love of
               learning and creating a brighter future for students.

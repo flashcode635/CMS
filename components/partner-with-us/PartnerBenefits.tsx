@@ -11,8 +11,8 @@ const BENEFITS = [
     desktopIcon: "https://www.figma.com/api/mcp/asset/385c2ab4-553d-455e-93ce-82042185eb7a",
     mobileIcon:  "https://www.figma.com/api/mcp/asset/b1d4b01c-62e1-4e73-93a8-6f937684dc1e",
     title: "Expert Guidance",
-    desktopBody: "Benefit from our expertise and experience in assisting students with the MBBS admission process overseas. Partnering with StudyPalaceHub means aligning with a trusted advisor for aspiring medical professionals.",
-    mobileBody:  "Benefit from our expertise and experience in assisting students with the MBBS admission process overseas. Partnering with StudyPalaceHub means aligning with a trusted advisor.",
+    desktopBody: "Benefit from our expertise and experience in assisting students with the MBBS admission process overseas. Partnering with My Study Hub means aligning with a trusted advisor for aspiring medical professionals.",
+    mobileBody:  "Benefit from our expertise and experience in assisting students with the MBBS admission process overseas. Partnering with My Study Hub means aligning with a trusted advisor.",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const BENEFITS = [
     desktopIcon: "https://www.figma.com/api/mcp/asset/210f0008-7082-4894-bca9-d64643b4573e",
     mobileIcon:  "https://www.figma.com/api/mcp/asset/55ccb07c-902e-4a96-a6fe-e12d6ede52aa",
     title: "Ethical Practices",
-    desktopBody: "We adhere to strict ethical standards and prioritize the best interests of students above all else. Partnering with Study Palace Hub means associating your brand with integrity, transparency, and professionalism.",
+    desktopBody: "We adhere to strict ethical standards and prioritize the best interests of students above all else. Partnering with My Study Hub means associating your brand with integrity, transparency, and professionalism.",
     mobileBody:  "We adhere to strict ethical standards and prioritize the best interests of students above all else. Partnering with us means associating your brand with integrity.",
   },
 ];
@@ -144,7 +144,7 @@ export default function PartnerBenefits() {
               fontFamily: "'Lexend', sans-serif",
             }}
           >
-            At Study Palace Hub, we believe in the power of collaboration.
+            At My Study Hub, we believe in the power of collaboration.
             Whether you&apos;re an educational institution, business, or industry
             leader, partnering with us opens doors to mutual growth, innovation,
             and success. Benefits of Partnership:

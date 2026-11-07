@@ -2,7 +2,7 @@
 
 Primary Purpose: Sections for the Career page (`/about-us/career`): welcome hero, "Join the team" photo/card block, and the open-positions grid with mouse-tilt cards.
 
-Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "Career - Study Palace Hub Pvt Ltd", background `/home/about-graduation.jpg`) → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (`components/about-us/lastsection`). The page background is `#ffffff`.
+Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "Career - My Study Hub Pvt Ltd", background `/home/about-graduation.jpg`) → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (`components/about-us/lastsection`). The page background is `#ffffff`.
 
 ## Files
 
@@ -11,7 +11,7 @@ Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "
 [WelcomeBanner.tsx]: Full-width career hero with team photo, navy overlay, and welcome copy.
 
 - **Runtime:** client (`"use client"`) although it has no hooks or handlers — could be a server component.
-- **Purpose:** Second section of the career page, directly under `PageBanner`: a graduation photo band with "Welcome to Study Palace Hub!" and a mission paragraph.
+- **Purpose:** Second section of the career page, directly under `PageBanner`: a graduation photo band with "Welcome to My Study Hub!" and a mission paragraph.
 - **Props:** none.
 - **State & effects:** none.
 - **Handlers / functions:** none.
@@ -22,14 +22,14 @@ Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "
 - **Notes:**
   - Section: `relative w-full overflow-hidden flex flex-col justify-center items-center gap-16 py-12 px-12`, height `clamp(200px, 25.36vw, 487px)`. Fixed `px-12` at every breakpoint leaves only 96px of usable width on a 320px phone.
   - Background: `<Image src="/about-us/career/welcome.webp" alt="Students graduation background" fill priority className="object-cover object-center" />` plus an overlay `bg-[rgba(10,36,114,0.82)]` (≈82% navy) — the photo is barely visible.
-  - Heading: `<h1>` "Welcome to Study Palace Hub!" — `text-[clamp(22px,3.33vw,64px)] font-extrabold font-['Inter'] leading-[1.2]`, width `clamp(300px, 55.67vw, 1068.91px)`.
-  - Body: `<p>` "At Study Palace Hub Pvt. Ltd., we believe in the power of education to transform lives…" — `text-white/90`, `clamp(13px,1.04vw,20px)`, width `clamp(300px, 58.87vw, 1130.38px)`; apostrophe escaped as `&apos;`.
+  - Heading: `<h1>` "Welcome to My Study Hub!" — `text-[clamp(22px,3.33vw,64px)] font-extrabold font-['Inter'] leading-[1.2]`, width `clamp(300px, 55.67vw, 1068.91px)`.
+  - Body: `<p>` "At My Study Hub Pvt. Ltd., we believe in the power of education to transform lives…" — `text-white/90`, `clamp(13px,1.04vw,20px)`, width `clamp(300px, 58.87vw, 1130.38px)`; apostrophe escaped as `&apos;`.
   - Two competing top-of-page headings exist: `PageBanner` renders the page title and this renders an `<h1>` — SEO/screen-reader duplication.
   - The width clamps use `px` minimums of 300px, which can exceed the available width after `px-12` on very small screens (content will shrink but the fixed min can cause overflow).
 
 ### `JoinTeamSection.tsx`
 
-[JoinTeamSection.tsx]: "Join the Study Palace Hub Team" heading with an overlapping office-photo + white "About" card on desktop.
+[JoinTeamSection.tsx]: "Join the My Study Hub Team" heading with an overlapping office-photo + white "About" card on desktop.
 
 - **Runtime:** server component (no `"use client"`; imports `next/image` and `Button` only).
 - **Purpose:** Third section of the career page: recruiting pitch heading, subtitle, office photo, and a white card with company blurb and a "Brochures" button.
@@ -42,13 +42,13 @@ Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "
 - **Dependencies:** `next/image`, `@/components/ui/Button`.
 - **Consumers:** `app/(site)/about-us/career/page.tsx` (line 8 / rendered at line 33).
 - **Notes:**
-  - Header: `<h2>` "Join the Study Palace Hub Team" in `'Poppins'` `clamp(32px,4.17vw,64px)` gradient text; subtitle "We're looking for passionate individuals who are dedicated to making a difference in education." in Inter `clamp(14px,1.11vw,21px)` with `letterSpacing: "-0.4267px"`. Container `max-w-380.25`, `px-4 sm:px-8 lg:px-16 xl:px-20 py-14 lg:py-20`, `gap-12 lg:gap-16`.
+  - Header: `<h2>` "Join the My Study Hub Team" in `'Poppins'` `clamp(32px,4.17vw,64px)` gradient text; subtitle "We're looking for passionate individuals who are dedicated to making a difference in education." in Inter `clamp(14px,1.11vw,21px)` with `letterSpacing: "-0.4267px"`. Container `max-w-380.25`, `px-4 sm:px-8 lg:px-16 xl:px-20 py-14 lg:py-20`, `gap-12 lg:gap-16`.
   - **Desktop (`hidden lg:block`, fixed `height: 600`)**: photo `absolute left-0 top-0 h-full w-[66.75%] rounded-xl overflow-hidden`; white card `absolute right-0 top-[19.2%] w-[clamp(460px,51.5%,650px)] p-12 rounded-xl border-brand-sky shadow-[0px_3px_34.25px_rgba(25,33,61,0.08)]`. The card overlaps the photo's right edge.
-  - Card text is **unfinished placeholder copy**: "Briefly describe Study Palace Hub's mission, values, and impact on student learning in Delhi. Highlight what makes your company unique and the kind of work environment you foster."
+  - Card text is **unfinished placeholder copy**: "Briefly describe My Study Hub's mission, values, and impact on student learning in Delhi. Highlight what makes your company unique and the kind of work environment you foster."
   - The "Brochures" `Button` (`variant="brandOutline" size="bare"`) has **no `href`, no `onClick`, no `asChild`** — it is an inert `<button>` that goes nowhere.
   - **Mobile (`flex lg:hidden`)**: renders the photo (`height: 260`) and then an **empty** card `<div>` (the "Card below" comment is followed by nothing). So on `<lg` the About heading, body and Brochures button do not exist at all.
   - Card `<h3>` declares `fontSize: clamp(20px,1.67vw,32px)` but `lineHeight: "18px"`, which clips/overlaps larger sizes.
-  - `alt="Study Palace Hub team collaborating in the office"` is used for the graduation photo (same asset) — description mismatch.
+  - `alt="My Study Hub team collaborating in the office"` is used for the graduation photo (same asset) — description mismatch.
   - The page comment above the route says `/about-us/services — Services page`; that stale comment is in `app/`, not here.
 
 ### `RecruitmentGrid.tsx`

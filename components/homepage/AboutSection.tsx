@@ -225,7 +225,7 @@ export default function AboutSection() {
                     backgroundImage: "linear-gradient(149deg, #00923F 12.7%, #3163FF 87.2%)",
                   }}
                 >
-                  About Study Palace Hub
+                  About My Study Hub
                 </h2>
               </div>
 

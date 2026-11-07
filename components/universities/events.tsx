@@ -12,7 +12,7 @@ import Image, { type StaticImageData } from "next/image";
  *  - Every prop is optional with a default from `DEFAULT_CONTENT`, so a CMS can
  *    render it with plain JSON via `<EventsSection {...cmsContent} />`.
  *  - Photo is a URL string (CMS) or static image import.
- *  - Note: the copy mentions the ORGANIZER ("Study Palace Hub"), not the
+ *  - Note: the copy mentions the ORGANIZER ("My Study Hub"), not the
  *    university, so univNav's name substitution is a no-op here by design.
  */
 
@@ -35,7 +35,7 @@ export const DEFAULT_CONTENT: Required<EventsProps> = {
     titleMain: "Rythm 3.0 2026 – Relive the",
     titleAccent: "Most Electrifying Freshers' Night",
     paragraphs: [
-        "Rythm 3.0 – 2025 Freshers' Party, hosted by Study Palace Hub & others, turned into an electrifying celebration of new beginnings with an incredible crowd of 500+ Indian students. The evening was filled with energy, enthusiasm, and unforgettable moments, creating a grand welcome for the newest batch.",
+        "Rythm 3.0 – 2025 Freshers' Party, hosted by My Study Hub & others, turned into an electrifying celebration of new beginnings with an incredible crowd of 500+ Indian students. The evening was filled with energy, enthusiasm, and unforgettable moments, creating a grand welcome for the newest batch.",
         "The night sparkled with DJ beats, dance, engaging games, and spectacular stage performances. Special gratitude goes to our dedicated senior volunteers and team members who set up a perfect platform for freshers to interact, bond, and step into their academic journey with confidence, fun, and unity.",
         "Rythm 3.0 – 2026 not only brought smiles and memories but also built friendships that will last throughout the upcoming medical years. A night that truly marked the start of an exciting chapter!",
     ],

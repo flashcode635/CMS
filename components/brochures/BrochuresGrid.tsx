@@ -420,7 +420,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
             backgroundClip: "text",
           }}
         >
-          Explore our premium educational brochures &amp; Study Palace Hub
+          Explore our premium educational brochures &amp; My Study Hub
         </h2>
         <p
           className="text-[#0b0b0b99] text-[13px] md:text-[15px] font-normal leading-[1.45] tracking-[-0.2px] m-0 max-w-[640px]"

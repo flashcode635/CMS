@@ -65,7 +65,7 @@ Severity: **High** = feature broken / security, **Medium** = wrong behaviour or 
 - `components/ui/Faq.tsx` is imported by nothing (graph "Orphans"). Either use it on a page or remove it.
 
 ### P-013 | Weak typing in the root layout
-- `app/layout.tsx` types `children` as `any`; `decisions.md` rules say avoid `any`. Use `ReactNode`. The metadata is also generic ("StudyPalace").
+- `app/layout.tsx` types `children` as `any`; `decisions.md` rules say avoid `any`. Use `ReactNode`. The metadata is also generic ("My Study Hub").
 
 ### P-014 | Fonts are loaded two ways
 - `app/layout.tsx` loads Geist via `next/font`, while `app/globals.css` also `@import`s many Google fonts (Poppins, Lexend, Inter, ...) from a CSS URL. The layout comment says to avoid `@import url(...)`. The CSS import blocks rendering and the fonts are not self-hosted. Move them to `next/font`.

@@ -127,7 +127,7 @@ export function AboutDropdown({ onClose, onEnter, onLeave }: BaseDropdownProps) 
     <DropdownPanel onEnter={onEnter} onLeave={onLeave}>
       <DropdownLayout
         imageSrc="/home/about-graduation.jpg"
-        imageAlt="About Study Palace Hub"
+        imageAlt="About My Study Hub"
         items={ABOUT_ITEMS}
         onClose={onClose}
       />

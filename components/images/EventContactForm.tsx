@@ -90,7 +90,7 @@ export default function EventContactForm() {
                 </div>
                 <div>
                   <p className="text-xs text-white/60">Email Us</p>
-                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">info@studypalacehub.com</p>
+                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">info@mystudyhub.com</p>
                 </div>
               </div>
 

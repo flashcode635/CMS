@@ -23,7 +23,7 @@ Primary Purpose: Building blocks for the blog article page (`/collections/blog/[
   - Image: `fill`, `priority`, `sizes="100vw"`, `unoptimized`, `object-cover opacity-50` over a black base, plus a `bg-black/20` overlay and the bottom gradient.
   - Breadcrumb `nav aria-label="Breadcrumb"`: Home (`/`) → Blog (`/collections/blog`) → title truncated with `max-w-50`; the floating "Back" link also targets `/collections/blog`.
   - `<time dateTime={date}>` gets a display string ("June 1, 2023"), not an ISO date — invalid `datetime`; should be `dateTime="2023-06-01"`.
-  - Hard-coded brand copy: "Study Palace Hub" and "Grow Together in Excellence".
+  - Hard-coded brand copy: "My Study Hub" and "Grow Together in Excellence".
   - No `dangerouslySetInnerHTML`, no images from `public/`, no responsive logic beyond Tailwind classes.
 
 ### `BlogContent.tsx`
@@ -169,7 +169,7 @@ Primary Purpose: Building blocks for the blog article page (`/collections/blog/[
   - WhatsApp (separate JSX) `https://wa.me/?text=${encodeURIComponent(url)}`, `#25d366`, `MessageCircle`
   - Views chip `bg-brand-royal` (`#0039ea`).
 - **Dependencies:** `react`, `@/components/ui/Button`, `lucide-react` (`Eye`, `Link`, `Check`, `Share2`, `MessageCircle`, `ThumbsUp`, `LucideIcon`).
-- **Consumers:** `app/(site)/collections/blog/[slug]/page.tsx` (only). That page passes `shareUrl={"https://studypalacehub.com/collections/blog/"+slug}` (production host hard-coded) and `totalShares={10000}` / `views={1600}`.
+- **Consumers:** `app/(site)/collections/blog/[slug]/page.tsx` (only). That page passes `shareUrl={"https://mystudyhub.com/collections/blog/"+slug}` (production host hard-coded) and `totalShares={10000}` / `views={1600}`.
 - **Notes:**
   - All share links use `target="_blank" rel="noopener noreferrer"` and `aria-label`s (`Share on {label} — {count} shares`, `Share on WhatsApp`, `{n} views`).
   - Pinterest/LinkedIn hrefs omit `media`/`title`/`summary`, so Pinterest opens without an image.

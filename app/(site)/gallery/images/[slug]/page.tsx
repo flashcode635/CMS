@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const title = formatTitle(slug);
   return {
-    title: `${title} Gallery | Study Palace Hub`,
-    description: `Explore the moments and highlights from the ${title} organized by Study Palace Hub.`,
+    title: `${title} Gallery | My Study Hub`,
+    description: `Explore the moments and highlights from the ${title} organized by My Study Hub.`,
   };
 }
 
