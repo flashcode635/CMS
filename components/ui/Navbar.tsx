@@ -54,18 +54,18 @@ function FlagIcon({ src, emoji, alt, size = 26 }: FlagIconProps) {
   const [err, setErr] = useState<boolean>(false);
   if (err) {
     return (
-      <span style={{ display:"flex", alignItems:"center", justifyContent:"center", width:size, height:size, borderRadius:5, background:"#d2ddff", fontSize:size*0.52, flexShrink:0, userSelect:"none" }} aria-label={alt}>
+      <span style={{ display:"flex", alignItems:"center", justifyContent:"center", width:size, height:size, borderRadius:5, background:"#F1E3C8", fontSize:size*0.52, flexShrink:0, userSelect:"none" }} aria-label={alt}>
         {emoji || "🏳️"}
       </span>
     );
   }
   return (
-    <div style={{ position:"relative", width:size, height:size, borderRadius:5, background:"#d2ddff", flexShrink:0, overflow:"hidden" }}>
+    <div style={{ position:"relative", width:size, height:size, borderRadius:5, background:"#F1E3C8", flexShrink:0, overflow:"hidden" }}>
       <Image src={src} alt={alt} fill style={{ objectFit:"cover" }} onError={() => setErr(true)} sizes={`${size}px`} />
     </div>
   );
 }
-export const bgColor= "bg-neutral-950/96";
+export const bgColor= "bg-[#072A21]/96";
 
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
@@ -117,11 +117,11 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
         backdropFilter:       "blur(24px) saturate(1.5)",
         WebkitBackdropFilter: "blur(24px) saturate(1.5)",
         borderRadius:         18,
-        border:               "1px solid rgba(186,203,255,0.13)",
-        boxShadow:            "0 20px 50px -8px rgba(0,0,0,0.7)",
+        border:               "1px solid rgba(241, 227, 200, 0.13)",
+        boxShadow:            "0 20px 50px -8px rgba(7,42,33,0.7)",
         padding:              16,
         animation:            "np-in 0.17s ease forwards",
-        fontFamily:           "'Plus Jakarta Sans','Inter',sans-serif",
+        fontFamily:           "'Inter','Inter',sans-serif",
         pointerEvents:        "auto",
       }}
     >
@@ -135,15 +135,15 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
             <span style={{ fontSize:13, fontWeight:500, color:"white", whiteSpace:"nowrap" }}>Study Abroad</span>
           </div>
 
-          <div style={{ display:"flex", alignItems:"center", gap:10, height:44, padding:"0 11px", borderRadius:11, backgroundImage:"linear-gradient(147.53deg,#00923F 12.704%,#3163FF 87.17%)", cursor:"pointer" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:10, height:44, padding:"0 11px", borderRadius:11, backgroundImage:"linear-gradient(147.53deg,#0E8F5B 12.704%,#0B3B2E 87.17%)", cursor:"pointer" }}>
             <span style={{ width:28, height:28, borderRadius:6, background:"rgba(255,255,255,0.2)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, color:"white" }}>
               <Stethoscope size={15} strokeWidth={1.8} />
             </span>
             <span style={{ fontSize:13, fontWeight:500, color:"white", whiteSpace:"nowrap" }}>MBBS Abroad</span>
           </div>
 
-          <div style={{ flex:1, borderRadius:"10px 10px 0 0", overflow:"hidden", background:"#bacbff", minHeight:160 }}>
-            <Image src="/home/about-graduation.jpg" alt="Study abroad" width={185} height={220} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
+          <div style={{ flex:1, borderRadius:"10px 10px 0 0", overflow:"hidden", background:"#F1E3C8", minHeight:160 }}>
+            <Image src="/home/about-graduation.png" alt="Study abroad" width={185} height={220} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
           </div>
         </div>
 
@@ -155,10 +155,10 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
               style={{
                 display:"flex", alignItems:"center", height:36, borderRadius:9, overflow:"hidden",
                 width: searchExpanded ? "100%" : 130,
-                background: searchExpanded ? "rgba(49,99,255,0.08)" : "rgba(255,255,255,0.07)",
-                border: searchExpanded ? "1px solid rgba(186,203,255,0.5)" : "1px solid rgba(186,203,255,0.2)",
+                background: searchExpanded ? "rgba(14, 143, 91, 0.08)" : "rgba(255,255,255,0.07)",
+                border: searchExpanded ? "1px solid rgba(241, 227, 200, 0.5)" : "1px solid rgba(241, 227, 200, 0.2)",
                 padding: searchExpanded ? "0 10px" : "0 9px",
-                boxShadow: searchExpanded ? "0 0 0 3px rgba(49,99,255,0.08)" : "none",
+                boxShadow: searchExpanded ? "0 0 0 3px rgba(14, 143, 91, 0.08)" : "none",
                 cursor:"text",
                 transition:"width .22s cubic-bezier(.4,0,.2,1), background .16s, box-shadow .16s",
               }}
@@ -190,7 +190,7 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
             <div style={{ display:"flex", flexDirection:"column", gap:2, padding:5 }}>
 
               <Link href="/countries" onClick={onClose}
-                style={{ display:"flex", alignItems:"center", justifyContent:"center", height:38, borderRadius:7, flexShrink:0, backgroundImage:"linear-gradient(156deg,#00923F 12.7%,#3163FF 87.2%)", fontSize:13, fontWeight:500, color:"white", textDecoration:"none", fontFamily:"'Inter',sans-serif", transition:"opacity .14s" }}
+                style={{ display:"flex", alignItems:"center", justifyContent:"center", height:38, borderRadius:7, flexShrink:0, backgroundImage:"linear-gradient(156deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", fontSize:13, fontWeight:500, color:"white", textDecoration:"none", fontFamily:"'Inter',sans-serif", transition:"opacity .14s" }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "0.85"; }}
                 onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}
               >
@@ -207,22 +207,22 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
                 const active = hoveredCountry?.id === country.id;
                 const countrySlug = slugify(country.name);
                 return (
-                  <Link className="bg-neutral-800/90"
+                  <Link className="bg-white/5"
                     key={country.id}
                     href={`/countries/${countrySlug}`}
                     onClick={onClose}
                     onMouseEnter={() => setCountry(country)}
                     onMouseLeave={scheduleHide}
-                    style={{ display:"flex", alignItems:"center", gap:10, height:42, padding:"0 10px", borderRadius:8, width:"100%", cursor:"pointer", border:"solid 1px rgba(186,203,255,0.09)", outline:"none", position:"relative", overflow:"hidden", 
-                      // backgroundColor:"#f7f9ff", 
+                    style={{ display:"flex", alignItems:"center", gap:10, height:42, padding:"0 10px", borderRadius:8, width:"100%", cursor:"pointer", border:"solid 1px rgba(241, 227, 200, 0.09)", outline:"none", position:"relative", overflow:"hidden", 
+                      // backgroundColor:"#F7F4EE", 
 
                       flexShrink:0, textAlign:"left", textDecoration:"none" }}
                   >
-                    <span aria-hidden style={{ position:"absolute", inset:0, borderRadius:"inherit", pointerEvents:"none", backgroundImage:"linear-gradient(156deg,#00923F 12.7%,#3163FF 87.2%)", opacity: active ? 1 : 0, transition:"opacity .18s ease" }} />
+                    <span aria-hidden style={{ position:"absolute", inset:0, borderRadius:"inherit", pointerEvents:"none", backgroundImage:"linear-gradient(156deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", opacity: active ? 1 : 0, transition:"opacity .18s ease" }} />
                     <span style={{ position:"relative", zIndex:1, display:"flex", flexShrink:0 }}>
                       <FlagIcon src={country.flag} emoji={country.emoji} alt={country.name} />
                     </span>
-                    <span style={{ position:"relative", zIndex:1, fontSize:13, fontWeight:500, fontFamily:"'Inter',sans-serif", whiteSpace:"nowrap", color: active ? "white" : "#f7f9ff", transition:"color .18s ease" }}>
+                    <span style={{ position:"relative", zIndex:1, fontSize:13, fontWeight:500, fontFamily:"'Inter',sans-serif", whiteSpace:"nowrap", color: active ? "white" : "#F7F4EE", transition:"color .18s ease" }}>
                       {country.name}
                     </span>
                     <ChevronRight size={12} strokeWidth={1.8} color="white" style={{ marginLeft:"auto", position:"relative", zIndex:1, flexShrink:0, opacity: active ? 1 : 0, transition:"opacity .16s ease" }} />
@@ -236,7 +236,7 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
         <div
           onMouseEnter={cancelHide}
           onMouseLeave={scheduleHide}
-          style={{ flex:1, minWidth:0, borderRadius:12, background: hoveredCountry ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)", border:"1px solid rgba(186,203,255,0.09)", display:"flex", flexDirection:"column", overflow:"hidden" }}
+          style={{ flex:1, minWidth:0, borderRadius:12, background: hoveredCountry ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)", border:"1px solid rgba(241, 227, 200, 0.09)", display:"flex", flexDirection:"column", overflow:"hidden" }}
         >
           {hoveredCountry ? (
             <div key={hoveredCountry.id} style={{ display:"flex", flexDirection:"column", height:"100%", padding:"14px 13px 11px", animation:"cd-col .13s ease forwards" }}>
@@ -246,22 +246,22 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
                   {hoveredCountry.name}
                 </span>
               </div>
-              <div style={{ height:1, background:"rgba(186,203,255,0.1)", marginBottom:8 }} />
+              <div style={{ height:1, background:"rgba(241, 227, 200, 0.1)", marginBottom:8 }} />
               <ul style={{ listStyle:"none", margin:0, padding:0, display:"flex", flexDirection:"column", gap:1, flex:1 }}>
                 {hoveredCountry.colleges.map(college => (
                   <li key={college}>
                     <Link href={`/universities/${slugify(college)}`} onClick={onClose}
                       style={{ display:"flex", alignItems:"center", gap:8, padding:"6px 8px", borderRadius:7, fontSize:"12.5px", color:"rgba(255,255,255,0.72)", textDecoration:"none", fontFamily:"'Inter',sans-serif", transition:"background .14s,color .14s" }}
-                      onMouseEnter={e => { e.currentTarget.style.background="rgba(49,99,255,0.13)"; e.currentTarget.style.color="white"; }}
+                      onMouseEnter={e => { e.currentTarget.style.background="rgba(14, 143, 91, 0.13)"; e.currentTarget.style.color="white"; }}
                       onMouseLeave={e => { e.currentTarget.style.background="transparent"; e.currentTarget.style.color="rgba(255,255,255,0.72)"; }}
                     >
-                      <span style={{ width:4, height:4, borderRadius:"50%", background:"linear-gradient(135deg,#00923F,#3163FF)", flexShrink:0 }} />
+                      <span style={{ width:4, height:4, borderRadius:"50%", background:"linear-gradient(135deg,#0E8F5B,#0B3B2E)", flexShrink:0 }} />
                       {college}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div style={{ paddingTop:8, borderTop:"1px solid rgba(186,203,255,0.08)", marginTop:"auto" }}>
+              <div style={{ paddingTop:8, borderTop:"1px solid rgba(241, 227, 200, 0.08)", marginTop:"auto" }}>
                 <Link href={`/countries/${slugify(hoveredCountry.name)}`} onClick={onClose}
                   style={{ display:"flex", alignItems:"center", justifyContent:"space-between", width:"100%", fontSize:"11.5px", color:"rgba(255,255,255,0.32)", textDecoration:"none", fontFamily:"'Inter',sans-serif", transition:"color .14s" }}
                   onMouseEnter={e => { e.currentTarget.style.color="rgba(255,255,255,0.7)"; }}
@@ -410,11 +410,10 @@ export default function Navbar() {
           content:''; position:absolute; bottom:2px; left:50%;
           transform:translateX(-50%) scaleX(0);
           width:60%; height:1.5px;
-          background:linear-gradient(90deg,#00923F,#3163FF);
+          background:linear-gradient(90deg,#0E8F5B,#D8B26E);
           border-radius:2px; transition:transform 0.25s ease; transform-origin:center;
         }
         .nb-link:hover::after { transform:translateX(-50%) scaleX(1); }
-        .nb-link:hover { color:rgba(186,203,255,1); }
 
         @keyframes np-in {
           from { opacity:0; transform:translateX(-50%) translateY(-6px); }
@@ -429,11 +428,11 @@ export default function Navbar() {
            thin on desktop, thinner on smaller screens, hidden on mobile. */
         .cd-scroll {
           scrollbar-width: thin;
-          scrollbar-color: rgba(49,99,255,0.22) transparent;
+          scrollbar-color: rgba(14, 143, 91, 0.22) transparent;
         }
         .cd-scroll::-webkit-scrollbar       { width:3px; height:3px; }
         .cd-scroll::-webkit-scrollbar-track { background:transparent; }
-        .cd-scroll::-webkit-scrollbar-thumb { background:rgba(49,99,255,0.22); border-radius:99px; }
+        .cd-scroll::-webkit-scrollbar-thumb { background:rgba(14, 143, 91, 0.22); border-radius:99px; }
         @media (max-width: 1280px) {
           .cd-scroll::-webkit-scrollbar { width:2px; height:2px; }
         }
@@ -449,11 +448,11 @@ export default function Navbar() {
         .nd-item:hover { border-color:transparent !important; }
 
         .nb-login { transition:background-color 0.2s ease,box-shadow 0.2s ease; }
-        .nb-login:hover { background-color:rgba(255,255,255,0.8); box-shadow:0 0 0 1px rgba(255,255,255,0.3); }
+        .nb-login:hover { background-color:rgba(216,178,110,0.16); border-color:rgba(216,178,110,0.9); box-shadow:0 0 0 1px rgba(216,178,110,0.25); }
         .nb-login:active { transform:scale(0.97); }
 
         .nb-contact { transition:opacity 0.2s ease,transform 0.15s ease,box-shadow 0.2s ease; }
-        .nb-contact:hover { opacity:0.88; transform:translateY(-1px); box-shadow:0 6px 20px rgba(49,99,255,0.4); }
+        .nb-contact:hover { opacity:0.88; transform:translateY(-1px); box-shadow:0 6px 20px rgba(14, 143, 91, 0.4); }
         .nb-contact:active { transform:scale(0.97); }
 
         @keyframes nbMobileIn {
@@ -496,7 +495,7 @@ export default function Navbar() {
 
       <header
         className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-5"
-        style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", overflow:"visible" }}
+        style={{ fontFamily:"'Inter',sans-serif", overflow:"visible" }}
       >
         <nav
           ref={navRef}
@@ -504,11 +503,11 @@ export default function Navbar() {
           style={{
             height:          "clamp(64px,5.21vw,100px)",
             borderRadius:    "clamp(40px,5.73vw,110px)",
-            backgroundColor: scrolled ? "rgba(0,0,0,0.1)" : "rgba(0,0,0,0.2)",
-            borderBottom:    "1px solid rgba(186,203,255,0.4)",
+            backgroundColor: scrolled ? "rgba(7,42,33,0.78)" : "rgba(7,42,33,0.46)",
+            borderBottom:    "1px solid rgba(241, 227, 200, 0.4)",
             backdropFilter:  "blur(40px) saturate(2.4)",
             WebkitBackdropFilter: "blur(20px) saturate(1.4)",
-            boxShadow:       scrolled ? "0 8px 32px rgba(0,0,0,0.3)" : "none",
+            boxShadow:       scrolled ? "0 8px 32px rgba(7,42,33,0.45)" : "none",
             transition:      "background-color 0.3s ease,box-shadow 0.3s ease",
             padding:         "0 clamp(20px,1.82vw,35px)",
             overflow:        "visible",
@@ -531,14 +530,15 @@ export default function Navbar() {
                     <>
                       <Button
                         onClick={() => { if (dropTimer.current) clearTimeout(dropTimer.current);
-                       
                           setActiveDropdown(isOpen ? null : dropKey); }}
                           variant="nav"
-                        style={{ fontSize:"clamp(13px,0.83vw,16px)", lineHeight:"20px", padding:"8px clamp(8px,0.63vw,12px)", gap:4, whiteSpace:"nowrap", fontFamily:"'Plus Jakarta Sans',sans-serif", color: isOpen ? "rgba(186,203,255,1)" : "white" }}
+                        style={{ fontSize:"clamp(13px,0.83vw,16px)", lineHeight:"20px", padding:"8px clamp(8px,0.63vw,12px)", gap:4, whiteSpace:"nowrap", fontFamily:"'Inter',sans-serif", color: isOpen ? "#F1E3C8" : "white" /* scrolled ? "#12211C" : "white" */ }}
                         aria-haspopup="true" aria-expanded={isOpen}
+                        onMouseEnter={e => { if (!isOpen) e.currentTarget.style.color = "#F1E3C8"; }}
+                        onMouseLeave={e => { if (!isOpen) e.currentTarget.style.color = "white"; }}
                       >
                         {label}
-                        <ChevronDownIcon size={20} color={isOpen ? "rgba(186,203,255,1)" : "white"} />
+                        <ChevronDownIcon size={20} color={isOpen ? "#F1E3C8" : "white"} />
                       </Button>
 
                       {isOpen && dropKey === "about" && (
@@ -555,8 +555,10 @@ export default function Navbar() {
                       )}
                     </>
                   ) : (
-                    <Link href={href} className="nb-link flex items-center text-white font-medium"
-                      style={{ fontSize:"clamp(13px,0.83vw,16px)", lineHeight:"20px", padding:"8px clamp(8px,0.63vw,12px)", gap:4, whiteSpace:"nowrap" }}>
+                    <Link href={href} className="nb-link flex items-center font-medium"
+                      style={{ fontSize:"clamp(13px,0.83vw,16px)", lineHeight:"20px", padding:"8px clamp(8px,0.63vw,12px)", gap:4, whiteSpace:"nowrap", color:"white" /* scrolled ? "#12211C" : "white" */ }}
+                      onMouseEnter={e => { e.currentTarget.style.color = "#F1E3C8"; }}
+                      onMouseLeave={e => { e.currentTarget.style.color = "white"; }}>
                       {label}
                     </Link>
                   )}
@@ -566,12 +568,12 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden lg:flex items-center" style={{ gap:12, flexShrink:0 }}>
-            <Link href="/admin/login" className="nb-login flex items-center justify-center gap-1 text-white font-semibold border border-white"
-              style={{ height:"clamp(36px,2.19vw,42px)", width:"clamp(100px,6.25vw,120px)", borderRadius:"60px", fontSize:"clamp(12px,0.73vw,14px)", background:"transparent", cursor:"pointer", whiteSpace:"nowrap", textDecoration:"none" }}>
-              Login <ChevronDownIcon size={18} />
+            <Link href="/admin/login" className="nb-login flex items-center justify-center gap-1 font-semibold border"
+              style={{ height:"clamp(36px,2.19vw,42px)", width:"clamp(100px,6.25vw,120px)", borderRadius:"60px", fontSize:"clamp(12px,0.73vw,14px)", background:"transparent", cursor:"pointer", whiteSpace:"nowrap", textDecoration:"none", color:"white" /* scrolled ? "#12211C" : "white" */, borderColor: scrolled ? "#12211C" : "white" }}>
+              Login <ChevronDownIcon size={18} color="white" />
             </Link>
-            <Link href="/contact-us" className="nb-contact flex items-center justify-center text-white font-semibold"
-              style={{ height:"clamp(36px,2.19vw,42px)", width:"clamp(100px,6.25vw,120px)", borderRadius:"60px", fontSize:"clamp(12px,0.73vw,14px)", backgroundImage:"linear-gradient(134deg,#00923F 12.7%,#3163FF 87.2%)", border:"none", cursor:"pointer", whiteSpace:"nowrap", textDecoration:"none" }}>
+            <Link href="/contact-us" className="nb-contact text-white flex items-center justify-center font-semibold"
+              style={{ height:"clamp(36px,2.19vw,42px)", width:"clamp(100px,6.25vw,120px)", borderRadius:"60px", fontSize:"clamp(12px,0.73vw,14px)", backgroundImage:"linear-gradient(134deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", border:"none", cursor:"pointer", whiteSpace:"nowrap", textDecoration:"none" }}>
               Contact Us
             </Link>
           </div>
@@ -596,7 +598,7 @@ export default function Navbar() {
         {mobileOpen && (
           <>
             <div
-              className="fixed inset-0 -z-10 bg-black/55 lg:hidden"
+              className="fixed inset-0 -z-10 bg-[#072A21]/60 lg:hidden"
               onClick={closeMobile}
               aria-hidden
             />
@@ -609,12 +611,12 @@ export default function Navbar() {
                 overscrollBehavior:   "contain",
                 borderRadius:         20,
                 padding:              "8px 12px 14px",
-                backgroundColor:      "rgba(0,10,40,0.94)",
+                backgroundColor:      "rgba(7,42,33,0.97)",
                 backdropFilter:       "blur(24px) saturate(1.4)",
                 WebkitBackdropFilter: "blur(24px) saturate(1.4)",
-                border:               "1px solid rgba(186,203,255,0.2)",
-                boxShadow:            "0 16px 40px rgba(0,0,0,0.5)",
-                fontFamily:           "'Plus Jakarta Sans',sans-serif",
+                border:               "1px solid rgba(241, 227, 200, 0.2)",
+                boxShadow:            "0 16px 40px rgba(7,42,33,0.55)",
+                fontFamily:           "'Inter',sans-serif",
               }}
             >
               <ul className="flex flex-col" role="navigation" aria-label="Mobile navigation">
@@ -652,7 +654,7 @@ export default function Navbar() {
                           <span className="flex min-w-0 items-center gap-2.5">
                             {(active || sectionOpen) && (
                               <span aria-hidden className="size-1.5 shrink-0 rounded-full"
-                                style={{ backgroundImage:"linear-gradient(135deg,#00923F,#3163FF)" }} />
+                                style={{ backgroundImage:"linear-gradient(135deg,#0E8F5B,#0B3B2E)" }} />
                             )}
                             {label}
                           </span>
@@ -672,7 +674,7 @@ export default function Navbar() {
                         >
                           {active && (
                             <span aria-hidden className="size-1.5 shrink-0 rounded-full"
-                              style={{ backgroundImage:"linear-gradient(135deg,#00923F,#3163FF)" }} />
+                              style={{ backgroundImage:"linear-gradient(135deg,#0E8F5B,#0B3B2E)" }} />
                           )}
                           {label}
                         </Link>
@@ -726,7 +728,7 @@ export default function Navbar() {
                                       }`}
                                     >
                                       <span aria-hidden className="size-1 shrink-0 rounded-full"
-                                        style={{ backgroundImage:"linear-gradient(135deg,#00923F,#3163FF)" }} />
+                                        style={{ backgroundImage:"linear-gradient(135deg,#0E8F5B,#0B3B2E)" }} />
                                       {item.label}
                                     </Link>
                                   </li>
@@ -753,12 +755,12 @@ export default function Navbar() {
               <div className="mt-3 flex gap-3 pt-3" style={{ borderTop:"1px solid rgba(255,255,255,0.1)" }}>
                 <Link href="/admin/login" onClick={closeMobile}
                   className="flex h-10 flex-1 items-center justify-center gap-1 rounded-full border border-white text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                  style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", textDecoration:"none" }}>
+                  style={{ fontFamily:"'Inter',sans-serif", textDecoration:"none" }}>
                   Login <ChevronDownIcon size={16} />
                 </Link>
                 <Link href="/contact-us" onClick={closeMobile}
                   className="flex h-10 flex-1 items-center justify-center rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                  style={{ backgroundImage:"linear-gradient(134deg,#00923F 12.7%,#3163FF 87.2%)", fontFamily:"'Plus Jakarta Sans',sans-serif", textDecoration:"none" }}>
+                  style={{ backgroundImage:"linear-gradient(134deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", fontFamily:"'Inter',sans-serif", textDecoration:"none" }}>
                   Contact Us
                 </Link>
               </div>

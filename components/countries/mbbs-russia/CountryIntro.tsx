@@ -43,7 +43,7 @@ export default function CountryIntro({
   ];
 
   return (
-    <section className="w-full bg-[#e8f5ee] px-5 py-12 @min-[640px]:px-8 @min-[640px]:py-16 @min-[1024px]:px-24.5 @min-[1024px]:py-27.75">
+    <section className="w-full bg-[#EDF3EF] px-5 py-12 @min-[640px]:px-8 @min-[640px]:py-16 @min-[1024px]:px-24.5 @min-[1024px]:py-27.75">
       {/* Inner frame — mirrors the 1724px Figma frame; on phones the image and
           card simply stack instead of being overlaid */}
       <div className="relative mx-auto h-auto w-full max-w-[1724px] @min-[1024px]:h-[clamp(500px,52.135cqw,1001px)]">
@@ -73,12 +73,12 @@ export default function CountryIntro({
             <h2
               style={{
                 margin: 0,
-                fontFamily: "'Hanken Grotesk', sans-serif",
+                fontFamily: "'Playfair Display', serif",
                 fontWeight: 600,
                 fontSize: "clamp(24px, 2.813cqw, 54px)",
                 lineHeight: "clamp(32px, 3.333cqw, 64px)",
                 backgroundImage:
-                  "linear-gradient(149.39deg, #00923F 12.704%, #3163FF 87.17%)",
+                  "linear-gradient(149.39deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -114,9 +114,9 @@ export default function CountryIntro({
               height: "clamp(42px, 3.333cqw, 64px)",
               padding: "16px 32px",
               backgroundImage:
-                "linear-gradient(137.12deg, #00923F 12.704%, #3163FF 87.17%)",
+                "linear-gradient(137.12deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
               borderRadius: 8,
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 600,
               fontSize: "clamp(13px, 0.938cqw, 18px)",
               lineHeight: "24px",
@@ -137,9 +137,9 @@ export default function CountryIntro({
 
 const p = {
   margin: 0,
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "'Inter', sans-serif",
   fontWeight: 400,
   fontSize: "clamp(14px, 0.938cqw, 18px)",
   lineHeight: "clamp(18px, 1.458cqw, 28px)",
-  color: "#485f84",
+  color: "#4A554F",
 };

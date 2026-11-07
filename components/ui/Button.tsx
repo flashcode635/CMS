@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap font-sans font-medium " +
     "transition-all duration-200 cursor-pointer " +
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/50 focus-visible:ring-offset-2 " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/40 focus-visible:ring-offset-2 " +
     "disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
@@ -17,23 +17,23 @@ export const buttonVariants = cva(
         brandOutline:
           "border border-brand-blue bg-transparent text-brand-blue hover:bg-brand-blue hover:text-white",
         brandWide:
-          "bg-linear-90 from-brand-green via-brand-cyan to-brand-blue text-white shadow-lg hover:scale-105 hover:shadow-cyan-500/30",
+          "bg-linear-90 from-brand-green via-brand-royal to-brand-blue text-white shadow-lg hover:scale-105 hover:shadow-brand-cyan/30",
         brandBorder:
-          "border-2 border-transparent text-white hover:bg-cyan-500/20 " +
-          "[background:linear-gradient(#061833,#061833)_padding-box,linear-gradient(90deg,#00923F,#00b4d8,#3163FF)_border-box]",
+          "border-2 border-transparent text-white hover:bg-brand-cyan/20 " +
+          "[background:linear-gradient(#0B3B2E,#0B3B2E)_padding-box,linear-gradient(90deg,#0E8F5B,#D8B26E,#0B3B2E)_border-box]",
         outline:
-          "border border-gray-300 bg-white text-gray-700 hover:border-brand-royal hover:text-brand-royal",
+          "border border-line bg-card text-body hover:border-brand-royal hover:text-brand-royal",
         tab:
-          "border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 " +
+          "border border-line bg-card text-body hover:bg-surface " +
           "data-[active=true]:border-transparent data-[active=true]:bg-linear-135 " +
           "data-[active=true]:from-brand-green data-[active=true]:to-brand-blue data-[active=true]:text-white",
         glass: "border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20",
         dark:
-          "border border-cyan-700/90 bg-[#051833]/90 text-white/90 hover:border-cyan-400/60 hover:bg-cyan-700/20",
-        ghost: "bg-transparent text-inherit hover:bg-black/5",
+          "border border-brand-cyan/70 bg-brand-navy/90 text-white/90 hover:border-brand-cyan hover:bg-brand-forest/40",
+        ghost: "bg-transparent text-inherit hover:bg-[#072A21]/5",
         unstyled: "font-normal",
         nav: "bg-transparent text-white",
-        link: "text-brand-blue underline-offset-4 hover:underline",
+        link: "text-brand-green underline-offset-4 hover:underline",
         destructive: "bg-red-600 text-white hover:bg-red-700",
       },
       size: {

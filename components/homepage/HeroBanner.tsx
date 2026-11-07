@@ -8,7 +8,7 @@ export default function HeroBanner() {
 
   return (
     <section className="w-full" style={{ backgroundImage: "url('/home/hero-bg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh"  }} >
-      <div className="relative w-full min-h-[92vh] bg-[#020916]/30 text-white flex flex-col justify-between overflow-hidden select-none">
+      <div className="relative w-full min-h-[92vh] bg-linear-to-r from-[#072A21]/90 via-[#072A21]/55 to-[#072A21]/25 text-white flex flex-col justify-between overflow-hidden select-none">
 
       {/* ========================================== */}
       {/* HERO MAIN CONTENT */}
@@ -18,10 +18,10 @@ export default function HeroBanner() {
         {/* Main Headline */}
         <h1
           className="text-3xl md:text-5xl lg:text-6xl md:mt-10 font-normal tracking-wide text-white leading-tighter max-w-262.5"
-          style={{ fontFamily: "'Playfair Display', 'Frank Ruhl Libre', serif" }}
+          style={{ fontFamily: "'Playfair Display', 'Playfair Display', serif" }}
         >
           <span className="font-extrabold font-sans">Study In </span>
-          <span className="italic font-serif font-light text-cyan-100">Abroad</span>{" "}
+          <span className="italic font-serif font-light text-brand-champagne-soft">Abroad</span>{" "}
           <span className="font-extrabold font-sans">From </span>
           <br className="hidden sm:inline" />
          
@@ -29,9 +29,9 @@ export default function HeroBanner() {
          {/* Main Headline */}
         <h1
           className="text-3xl md:text-5xl lg:text-6xl font-normal tracking-wide text-white leading-tighter max-w-262.5"
-          style={{ fontFamily: "'Playfair Display', 'Frank Ruhl Libre', serif" }}
+          style={{ fontFamily: "'Playfair Display', 'Playfair Display', serif" }}
         >
-          <span className="italic font-serif font-light text-cyan-200">12+</span>{" "}
+          <span className="italic font-serif font-light text-brand-champagne">12+</span>{" "}
           <span className="font-extrabold font-sans">Countries</span>
         </h1>
 
@@ -46,21 +46,21 @@ export default function HeroBanner() {
           <Button
           variant="brandWide"
             rightIcon={<ArrowRight className="w-4 h-4" />}
-            className="px-4 pt-2.5 pb-1.5 rounded-md text-white! text-sm font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-cyan-500/30 hover:scale-105 h-auto"
+            className="px-4 pt-2.5 pb-1.5 rounded-md text-white! text-sm font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-brand-champagne/30 hover:scale-105 h-auto"
             style={{
               background:
-                "linear-gradient(90deg, #00923F 0%, #00b4d8 50%, #3163FF 100%)",
+                "linear-gradient(135deg, #0E8F5B 0%, #0A6B44 55%, #0B3B2E 100%)",
             }}
           >
             Register Now
           </Button>
           <Button
           variant="brandBorder"
-            className="px-4 pt-2.5 pb-1.5 rounded-md border-2 border-transparent bg-[#061833]/50 text-white text-sm 
-            font-semibold hover:bg-cyan-500/20 transition-all h-auto shadow-none"
+            className="px-4 pt-2.5 pb-1.5 rounded-md border-2 border-transparent bg-[#0B3B2E]/50 text-white text-sm 
+            font-semibold hover:bg-brand-champagne/20 transition-all h-auto shadow-none"
             style={{
               background:
-                "linear-gradient(#061833, #061833) padding-box, linear-gradient(90deg, #00923F 0%, #00b4d8 50%, #3163FF 100%) border-box",
+                "linear-gradient(#0B3B2E, #0B3B2E) padding-box, linear-gradient(90deg, #D8B26E 0%, #0E8F5B 60%, #0B3B2E 100%) border-box",
             }}
           >
             Explore Courses

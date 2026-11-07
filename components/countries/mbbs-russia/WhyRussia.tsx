@@ -33,9 +33,9 @@ export default function WhyRussia({
     <section
       className="relative w-full overflow-hidden py-14 @min-[640px]:py-20 @min-[1024px]:py-24 px-5 @min-[640px]:px-8 @min-[768px]:px-2"
       style={{
-        backgroundColor: "#000B1A",
+        backgroundColor: "#072A21",
         backgroundImage:
-          "linear-gradient(135deg, rgba(0, 146, 63, 0.05) 0%, rgba(49, 99, 255, 0.08) 100%), #000B1A",
+          "linear-gradient(135deg, rgba(14, 143, 91, 0.05) 0%, rgba(216, 178, 110, 0.08) 100%), #072A21",
       }}
       aria-label={heading}
     >
@@ -89,9 +89,9 @@ export default function WhyRussia({
               className="font-semibold tracking-tight text-[26px] 
               @min-[640px]:text-[34px] @min-[1024px]:text-[40px] @min-[1280px]:text-[44px] leading-[1.18] m-0"
               style={{
-                fontFamily: "'Hanken Grotesk', sans-serif",
+                fontFamily: "'Playfair Display', serif",
                 backgroundImage:
-                  "linear-gradient(136.47deg, #00923F 12.704%, #3163FF 87.17%)",
+                  "linear-gradient(136.47deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -101,7 +101,7 @@ export default function WhyRussia({
             </h2>
             <div
               className="h-0.5 w-full rounded-full"
-              style={{ backgroundColor: "rgba(0, 146, 63, 0.45)" }}
+              style={{ backgroundColor: "rgba(14, 143, 91, 0.45)" }}
               aria-hidden="true"
             />
           </div>
@@ -112,7 +112,7 @@ export default function WhyRussia({
             key={index}
             className="text-white text-[13.5px] @min-[640px]:text-[14.5px]
              @min-[1024px]:text-[15.5px] leading-[1.6] m-0 font-normal"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {point}
           </p>
@@ -130,7 +130,7 @@ export default function WhyRussia({
                 />
                 <span
                   className="text-white text-[13.5px] @min-[640px]:text-[14.5px] font-normal"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {exam}
                 </span>
@@ -143,7 +143,7 @@ export default function WhyRussia({
             className="text-white text-[13.5px] @min-[640px]:text-[14.5px]
              @min-[1024px]:text-[15.5px]
              font-normal m-0 pt-1"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {additionalLabel}
           </p>
@@ -161,7 +161,7 @@ export default function WhyRussia({
                   className="absolute left-0 top-0 bottom-0 w-1.25 @min-[640px]:w-1.5"
                   style={{
                     backgroundImage:
-                      "linear-gradient(152.61deg, #00923F 12.704%, #3163FF 87.17%)",
+                      "linear-gradient(152.61deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
                   }}
                   aria-hidden="true"
                 />
@@ -180,7 +180,7 @@ export default function WhyRussia({
           {/* Paragraph 3 */}
           <p
             className="text-white text-[13.5px] @min-[640px]:text-[14.5px] @min-[1024px]:text-[15.5px] leading-[1.6] m-0 font-normal pt-1"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {outro}
           </p>

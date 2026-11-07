@@ -92,7 +92,7 @@ function MemberCard({ member, visible, index, featured = false }: MemberCardProp
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-[clamp(2px,0.4vw,6px)] p-[clamp(10px,1.2vw,20px)]">
         {/* accent bar on hover */}
         <div
-          className={`h-0.75 rounded-full bg-[#3aafa9] transition-all duration-400ms
+          className={`h-0.75 rounded-full bg-[#D8B26E] transition-all duration-400ms
             ${hovered ? "w-[clamp(20px,2vw,36px)]" : "w-0"}`}
         />
 
@@ -108,7 +108,7 @@ function MemberCard({ member, visible, index, featured = false }: MemberCardProp
 
         {/* Role */}
         <p
-          className={`m-0 font-light text-white/80 font-['Lexend',sans-serif]
+          className={`m-0 font-light text-white/80 font-['Inter',sans-serif]
             ${featured
               ? "text-[clamp(11px,1vw,16px)]"
               : "text-[clamp(9px,0.8vw,13px)]"}`}
@@ -142,13 +142,13 @@ export default function MeetOurTeam() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-linear-to-r from-[#e7f3ec] via-[#eef5f6] to-[#e9effb]">
+    <section ref={sectionRef} className="bg-linear-to-r from-[#EDF3EF] via-[#EFE9DE] to-[#EFE9DE]">
       {/* ── Header ── */}
       <div className="flex flex-col items-center gap-[clamp(6px,0.42vw,8px)] px-[clamp(20px,4.17vw,80px)] pt-[clamp(32px,3.33vw,64px)]
        pb-[clamp(34px,2.08vw,40px)]">
         <p
-          className={`m-0 text-center font-normal uppercase tracking-widest text-[#3aafa9]
-            font-['Lexend',sans-serif] text-[clamp(11px,1.04vw,20px)] leading-8
+          className={`m-0 text-center font-normal uppercase tracking-widest text-[#D8B26E]
+            font-['Inter',sans-serif] text-[clamp(11px,1.04vw,20px)] leading-8
             transition-all duration-700
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
           style={{ transitionDelay: "0.18s" }}
@@ -157,7 +157,7 @@ export default function MeetOurTeam() {
         </p>
 
         <h2
-          className={`m-0 text-center font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)]
+          className={`m-0 text-center font-serif font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)]
             bg-linear-to-br from-brand-green to-brand-blue bg-clip-text text-transparent
             transition-all duration-700  
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}

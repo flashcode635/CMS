@@ -31,9 +31,9 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
       style={{
         padding: "clamp(14px, 1.25vw, 22px)",
         backgroundColor: "#ffffff",
-        border: `1.5px solid ${hovered ? "#00923F" : "#e2ece6"}`,
+        border: `1.5px solid ${hovered ? "#0E8F5B" : "#EDF3EF"}`,
         boxShadow: hovered
-          ? "0 12px 28px -6px rgba(0, 146, 63, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04)"
+          ? "0 12px 28px -6px rgba(14, 143, 91, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04)"
           : "0 2px 10px rgba(0, 0, 0, 0.04)",
         transform: hovered ? "translateY(-4px)" : "translateY(0)",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -45,7 +45,7 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
       <div
         className="absolute top-0 right-0 w-24 h-24 pointer-events-none transition-opacity duration-300"
         style={{
-          background: "radial-gradient(circle at top right, rgba(0, 146, 63, 0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle at top right, rgba(14, 143, 91, 0.12) 0%, transparent 70%)",
           opacity: hovered ? 1 : 0,
         }}
       />
@@ -55,7 +55,7 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
         className="absolute bottom-0 left-0 right-0 h-[2.5px] transition-all duration-300"
         style={{
           background: hovered
-            ? "linear-gradient(90deg, #00923F 0%, #34d399 50%, #3163FF 100%)"
+            ? "linear-gradient(90deg, #0E8F5B 0%, #0E8F5B 50%, #0B3B2E 100%)"
             : "transparent",
         }}
       />
@@ -66,9 +66,9 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
         style={{
           width: "clamp(44px, 3.4vw, 60px)",
           height: "clamp(44px, 3.4vw, 60px)",
-          backgroundColor: hovered ? "#edf8f2" : "#f4f9f6",
-          border: `1px solid ${hovered ? "#b8e6cb" : "#e1eee7"}`,
-          boxShadow: hovered ? "0 4px 12px rgba(0, 146, 63, 0.12)" : "none",
+          backgroundColor: hovered ? "#EDF3EF" : "#F1F6F2",
+          border: `1px solid ${hovered ? "#C9E6D6" : "#EDF3EF"}`,
+          boxShadow: hovered ? "0 4px 12px rgba(14, 143, 91, 0.12)" : "none",
         }}
       >
         <Image
@@ -82,7 +82,7 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
 
       {/* Title */}
       <p
-        className="font-medium text-[#112437] group-hover:text-brand-green transition-colors"
+        className="font-medium text-[#0B3B2E] group-hover:text-brand-green transition-colors"
         style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: "clamp(13px, 0.88vw, 16px)",
@@ -129,7 +129,7 @@ export default function PersonalisedServices() {
 
       <section
         ref={sectionRef}
-        className="relative overflow-hidden bg-[#f4faf6] text-[#0d1b2e]"
+        className="relative overflow-hidden bg-[#F1F6F2] text-[#0B3B2E]"
         style={{
           padding: "clamp(48px, 5.2vw, 96px) clamp(20px, 4.17vw, 80px)",
         }}
@@ -175,7 +175,7 @@ export default function PersonalisedServices() {
             <p
               className="text-brand-green font-semibold tracking-[0.85px] uppercase"
               style={{
-                fontFamily: "'Lexend', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: "clamp(12px, 0.83vw, 14px)",
                 margin: 0,
               }}
@@ -185,9 +185,9 @@ export default function PersonalisedServices() {
 
             {/* Title */}
             <h2
-              className={`ps-title${visible ? " in" : ""} font-bold text-center bg-linear-to-r from-brand-green via-[#028a3e] to-[#1e50d8] bg-clip-text text-transparent`}
+              className={`ps-title${visible ? " in" : ""} font-bold text-center bg-linear-to-r from-brand-green via-[#0E8F5B] to-[#0B3B2E] bg-clip-text text-transparent`}
               style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(28px, 3.33vw, 52px)",
                 lineHeight: "clamp(34px, 3.6vw, 60px)",
                 margin: 0,
@@ -198,9 +198,9 @@ export default function PersonalisedServices() {
 
             {/* Subtitle */}
             <p
-              className={`ps-sub${visible ? " in" : ""} text-center font-normal text-[#5b6e77]`}
+              className={`ps-sub${visible ? " in" : ""} text-center font-normal text-[#4A554F]`}
               style={{
-                fontFamily: "'Lexend', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: "clamp(13px, 0.94vw, 17px)",
                 lineHeight: "26px",
                 margin: 0,

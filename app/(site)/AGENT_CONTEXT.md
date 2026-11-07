@@ -1,15 +1,17 @@
 # Directory: app/(site)
+
 Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL segment). All pages are thin server components that compose section components from `components/<feature>/`, almost always starting with `PageBanner`. `layout.tsx` owns the public Navbar/Footer/main shell. All public routes, including `/`, live here.
 
 ## Files
 
 ### `about-us/page.tsx` (`/about-us`)
+
 [page.tsx]: Thin re-export file: `export { default, metadata } from "@/components/about-us/page"` — the real About page lives in `components/about-us/page.tsx`.
 
 - **Route:** `/about-us`
 - **Runtime:** server component (no `"use client"`); no `dynamic`/`revalidate`. The re-exported component is also server and imports several client sections.
 - **Metadata:** re-exported from `components/about-us/page.tsx`: title `About Us | My Study Hub`, description `Learn more about My Study Hub and our mission to help students study MBBS abroad.`
-- **Renders (from `components/about-us/page.tsx`, `backgroundColor:"#e1f0f9"`):** `PageBanner(title="About Us", subtitle="Learn more about who we are", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `HeadingOfCard(type="bold", title="Know More About Us", description=<JSX drop-cap paragraphs>)` → `AboutImageSection` → `AboutTextContent` → `MissionCoreValues` → `QuoteBanner` → `MeetOurTeam` → `NationalPresence` → `ExpertCounsellingSection(type="location")` → `FaqSection`.
+- **Renders (from `components/about-us/page.tsx`, `backgroundColor:"#e1f0f9"`):** `PageBanner(title="About Us", subtitle="Learn more about who we are", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `HeadingOfCard(type="bold", title="Know More About Us", description=<JSX drop-cap paragraphs>)` → `AboutImageSection` → `AboutTextContent` → `MissionCoreValues` → `QuoteBanner` → `MeetOurTeam` → `NationalPresence` → `ExpertCounsellingSection(type="location")` → `FaqSection`.
 - **Data / functions:** no params, no fetch, no redirect. Every section hard-codes its own content. `components/about-us/page.tsx` imports `LocationMap` and `ContactSection` but never renders them (dead imports).
 - **Auth:** none.
 - **Dependencies:** `@/components/about-us/page` only. That file imports `@/components/ui/PageBanner`, `@/components/ui/HeadingOfCard`, `components/about-us/{AboutImageSection,AboutTextContent,MissionCoreValues,QuoteBanner,NationalPresence,LocationMap,ContactSection}`, `../homepage/{MeetOurTeam,ExpertCounsellingSection}`, `./lastsection` — all verified to exist.
@@ -17,12 +19,13 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** the file comment says "Content lives in components/about-us/page.js" but the file is `.tsx`. Section 10 in the component's comments is labelled "Get In Touch / Contact + Form" yet renders `FaqSection` — the contact section (`ContactSection`) is imported but not used, so the About page has no contact form.
 
 ### `about-us/career/page.tsx` (`/about-us/career`)
+
 [page.tsx]: Careers page: `PageBanner` + `WelcomeBanner` + `JoinTeamSection` + `RecruitmentGrid` + FAQ, on a white background.
 
 - **Route:** `/about-us/career`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Career at SPH | My Study Hub`, description `Explore the comprehensive Career oppurtunities at My Study Hub.` (typo "oppurtunities" is in source).
-- **Renders:** wrapper `div.flex.flex-col` with `backgroundColor:#ffffff` → `PageBanner(title="Career - My Study Hub Pvt Ltd", subtitle="Celebrate individuals who have made a meaningful difference. Fill out the nomination form to bestow a prestigious title. Acknowledge exceptional leaders for their societal contributions. Nominate someone today!", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (default `slim=true`).
+- **Renders:** wrapper `div.flex.flex-col` with `backgroundColor:#ffffff` → `PageBanner(title="Career - My Study Hub Pvt Ltd", subtitle="Celebrate individuals who have made a meaningful difference. Fill out the nomination form to bestow a prestigious title. Acknowledge exceptional leaders for their societal contributions. Nominate someone today!", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (default `slim=true`).
 - **Data / functions:** `export default function ServicesPage()` — component name is copy-pasted from the services page; no params/fetch/redirect.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/career/{WelcomeBanner,JoinTeamSection,RecruitmentGrid}`, `@/components/about-us/lastsection` (default export `FaqSection`, optional `slim` prop).
@@ -30,12 +33,13 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** file header comment incorrectly says "/about-us/services — Services page". The banner subtitle is award-nomination copy (copied from another page) and does not describe careers. `FaqSection` renders with `slim=true`, unlike partner-with-us which passes `slim={false}`.
 
 ### `about-us/partner-with-us/page.tsx` (`/about-us/partner-with-us`)
+
 [page.tsx]: Partner programme page: banner + five rendered partner sections + exclusive universities + FAQ; `WhyPartnerWithUs` is imported but commented out.
 
 - **Route:** `/about-us/partner-with-us`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Partner With Us | My Study Hub`, description `Partner with My Study Hub to help aspiring medical students achieve their dreams of studying MBBS abroad.`
-- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Partner With Us", subtitle="Join us in empowering aspiring medical students to achieve their dreams of studying MBBS abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `PartnerBenefits` → `PartnershipScope` → `BenefitsGallery` → `PartnerContactSection` → `ExclusiveUniversities` → `FaqSection slim={false}`.
+- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Partner With Us", subtitle="Join us in empowering aspiring medical students to achieve their dreams of studying MBBS abroad.", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `PartnerBenefits` → `PartnershipScope` → `BenefitsGallery` → `PartnerContactSection` → `ExclusiveUniversities` → `FaqSection slim={false}`.
 - **Data / functions:** `export default function PartnerWithUsPage()`; no params/fetch.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/partner-with-us/{WhyPartnerWithUs,PartnerBenefits,PartnershipScope,BenefitsGallery,PartnerContactSection,ExclusiveUniversities}`, `@/components/about-us/lastsection`.
@@ -43,6 +47,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** `{/* <WhyPartnerWithUs /> */}` is commented out at line 34, yet the import at line 7 remains (dead import; removing it is safe). `WhyPartnerWithUs.tsx` therefore has zero render sites. Section comments still number it "Section 2".
 
 ### `about-us/services/page.tsx` (`/about-us/services`)
+
 [page.tsx]: Services page: banner → gradient `HeadingOfCard` with a drop-cap intro → `ServicesGrid` → `AdmissionProcess` → FAQ.
 
 - **Route:** `/about-us/services`
@@ -53,15 +58,16 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/{PageBanner,HeadingOfCard}` (note: `HeadingOfCard` is in `components/ui`, not `components/about-us`), `@/components/services/{ServicesGrid,AdmissionProcess}`, `@/components/about-us/lastsection`.
 - **Consumers / navigation:** Navbar About dropdown item `Our Services` (`NavDropdown.tsx:113`).
-- **Notes:** the JSX passed to `description` wraps its content in a fragment containing a single `div` — the fragment is redundant. The empty `<div className="">` around `FaqSection` is also redundant. Banner uses the root `/bg-doctor.jpg` while every other page uses `/home/about-graduation.jpg`.
+- **Notes:** the JSX passed to `description` wraps its content in a fragment containing a single `div` — the fragment is redundant. The empty `<div className="">` around `FaqSection` is also redundant. Banner uses the root `/bg-doctor.jpg` while every other page uses `/home/about-graduation.png`.
 
 ### `collections/page.tsx` (`/collections`)
+
 [page.tsx]: Collections/events hub: banner + upcoming events grid + previous events, on `#f8fafc` with a `py-12` block.
 
 - **Route:** `/collections`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Collections & Events | My Study Hub`, description `Explore our collections, webinars, and upcoming events.`
-- **Renders (wrapper `flex flex-col min-h-screen`, `backgroundColor:#f8fafc`):** `PageBanner(title="Events & Collections", subtitle="Stay updated with our latest webinars, educational fairs, and events", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.6})` → `<div className="py-12">` → `UpcomingEventsGrid` → `PreviousEventsSection`.
+- **Renders (wrapper `flex flex-col min-h-screen`, `backgroundColor:#f8fafc`):** `PageBanner(title="Events & Collections", subtitle="Stay updated with our latest webinars, educational fairs, and events", backgroundImage="/home/about-graduation.png", overlayOpacity={0.6})` → `<div className="py-12">` → `UpcomingEventsGrid` → `PreviousEventsSection`.
 - **Data / functions:** `export default function CollectionsPage()`; no params/fetch. Event data lives inside the two section components.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/collections/{UpcomingEventsGrid,PreviousEventsSection}`.
@@ -69,12 +75,13 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** identical section pair to `/collections/upcoming-event`; only banner copy, overlay (0.6 vs 0.5), background (`#f8fafc` vs `#e8f0f9`) and the extra `py-12` wrapper differ. No link to `/collections/blog`, `/collections/brochures` or `/web-stories` from within the page — those live only in the Navbar dropdown.
 
 ### `collections/blog/page.tsx` (`/collections/blog`)
+
 [page.tsx]: Blog listing: banner + `BlogsGrid` (featured card + card grid), on `#f6f7fb`.
 
 - **Route:** `/collections/blog`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Blog | My Study Hub`, description `Read the latest blogs and articles about studying abroad, visa guides, scholarships, student life, and more from My Study Hub.`
-- **Renders (wrapper `backgroundColor:#f6f7fb`):** `PageBanner(title="Blog", subtitle="Insights, guides, and stories to help you navigate your journey of studying abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `BlogsGrid`.
+- **Renders (wrapper `backgroundColor:#f6f7fb`):** `PageBanner(title="Blog", subtitle="Insights, guides, and stories to help you navigate your journey of studying abroad.", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `BlogsGrid`.
 - **Data / functions:** `export default function BlogPage()`; no params/fetch. Blog data is the shared registry `lib/blogPosts.ts` (imported inside `components/blogs/BlogsGrid.tsx`).
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/blogs/BlogsGrid`.
@@ -82,6 +89,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** every grid card and the featured card now link to `/collections/blog/{slug}` from the registry (verified — the old `"#"`/`visa-guide` placeholders are gone). The tag pills in the article sidebar still emit `/collections/blog?tag=…`, but this page ignores `searchParams` (no tag filter).
 
 ### `collections/blog/[slug]/page.tsx` (`/collections/blog/[slug]`)
+
 [page.tsx]: Blog article page; hero/metadata/tags/related come from the shared registry per slug — the article **body** is still one hard-coded layout (`BlogContent`).
 
 - **Route:** `/collections/blog/[slug]` — dynamic segment with `generateStaticParams` over `BLOG_POSTS` (12 slugs, statically prerendered at build; mode becomes ○ with on-demand fallback semantics gone — unknown slugs hit `notFound()`).
@@ -100,25 +108,27 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** per-post coverage: hero (title/category/author/date/read-time/views/cover), tags, share link, related list, metadata — but `BlogContent` ignores the post, so the body text of every slug is the same MBBS/study-abroad article and `DEFAULT_TOC_ITEMS` labels don't all match the rendered headings (pre-existing mismatch). Swapping `BlogContent` for per-post content is the remaining work.
 
 ### `collections/brochures/page.tsx` (`/collections/brochures`)
+
 [page.tsx]: Brochure downloads page with 15 hard-coded records fed to `BrochuresGrid`; the "real API" fetch is present only as a comment.
 
 - **Route:** `/collections/brochures`
 - **Runtime:** server component, `export default async function BrochuresPage()`; no `dynamic`/`revalidate`. The only `await` is on a local function that resolves immediately, so the route is effectively static.
 - **Metadata:** title `Brochures | My Study Hub`, description `Download official brochures, prospectuses, and admission guides for studying MBBS abroad with My Study Hub.`
-- **Renders (wrapper `backgroundColor:#e8f2f4` — a light teal, unlike the site-wide `#e8f0f9`):** `PageBanner(title="Brochures", subtitle="Download all official My Study Hub brochures and get complete information about studying MBBS abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `BrochuresIntro` → `BrochuresGrid brochures={brochures}`.
-- **Data / functions:** `const DUMMY_BROCHURES` (module scope, 15 objects with `{id,title,description,coverImage,fileUrl,fileName,year}`): "My Study Hub Pvt Ltd", Samara, Northern State, Kazan Federal, Bashkir State, Kursk State, Orenburg State, Volgograd State, Crimea Federal, Rostov State, Altai State, Ural State, Perm (2024), Tver (2024), Ivanovo (2024); the rest are 2025. `async function getBrochures() { return DUMMY_BROCHURES; }` — no network. Above it, a commented block shows the intended implementation: `fetch(\`${process.env.NEXT_PUBLIC_API_URL}/api/brochures\`, { next: { revalidate: 300 } })`; `NEXT_PUBLIC_API_URL` is **not** defined in `.env.example`.
+- **Renders (wrapper `backgroundColor:#e8f2f4` — a light teal, unlike the site-wide `#e8f0f9`):** `PageBanner(title="Brochures", subtitle="Download all official My Study Hub brochures and get complete information about studying MBBS abroad.", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `BrochuresIntro` → `BrochuresGrid brochures={brochures}`.
+- **Data / functions:** `const DUMMY_BROCHURES` (module scope, 15 objects with `{id,title,description,coverImage,fileUrl,fileName,year}`): "My Study Hub Pvt Ltd", Samara, Northern State, Kazan Federal, Bashkir State, Kursk State, Orenburg State, Volgograd State, Crimea Federal, Rostov State, Altai State, Ural State, Perm (2024), Tver (2024), Ivanovo (2024); the rest are 2025. `async function getBrochures() { return DUMMY_BROCHURES; }` — no network. Above it, a commented block shows the intended implementation: `fetch(\`${process.env.NEXT_PUBLIC_API_URL}/api/brochures\`, { next: { revalidate: 300 } })`; `NEXT_PUBLIC_API_URL`is **not** defined in`.env.example`.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/brochures/{BrochuresIntro,BrochuresGrid}`.
 - **Consumers / navigation:** Navbar Collections dropdown item `Brochures` (`NavDropdown.tsx:132`).
 - **Notes:** every `fileUrl` is `"#"` and every `coverImage` is a `https://www.figma.com/api/mcp/asset/…` URL (temporary Figma CDN assets; three distinct images recycled across 15 cards). Until a route handler exists, all download buttons are dead. Comment at line 11 documents the exact object shape to preserve when swapping in the API.
 
 ### `collections/upcoming-event/page.tsx` (`/collections/upcoming-event`)
+
 [page.tsx]: Upcoming-events page: events-focused banner + the same `UpcomingEventsGrid` and `PreviousEventsSection` used by `/collections`.
 
 - **Route:** `/collections/upcoming-event`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Upcoming Events | My Study Hub`, description `Explore upcoming MBBS Admission Gateway events hosted by My Study Hub across India.`
-- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Upcoming Events", subtitle="Join us at an MBBS Admission Gateway seminar near you. Meet our counsellors, explore top universities, and take the first step towards your medical career abroad.", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `UpcomingEventsGrid` → `PreviousEventsSection`.
+- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Upcoming Events", subtitle="Join us at an MBBS Admission Gateway seminar near you. Meet our counsellors, explore top universities, and take the first step towards your medical career abroad.", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `UpcomingEventsGrid` → `PreviousEventsSection`.
 - **Data / functions:** `export default function UpcomingEventPage()`; no params/fetch; data inside the section components.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/collections/{UpcomingEventsGrid,PreviousEventsSection}`.
@@ -126,6 +136,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** near-duplicate of `/collections` (see that entry). Leading blank line before the first import (cosmetic).
 
 ### `contact-us/page.tsx` (`/contact-us`)
+
 [page.tsx]: Contact page: `ContactHeroBanner` + `ContactSection`; no `PageBanner`, no page-level background color.
 
 - **Route:** `/contact-us`
@@ -139,6 +150,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** the only public page that does not start with `PageBanner`. Despite the "Contact Us" name and the metadata promising "phone, email, or visit our offices", there is **no enquiry form** — lead capture lives in `PartnerContactSection`/`EventContactForm` on other pages. `components/about-us/page.tsx` imports `ContactSection` but never renders it. No `metadata` robots directive.
 
 ### `countries/page.tsx` (`/countries`)
+
 [page.tsx]: Countries landing page: banner + country carousel + Russia universities heading + college cards. No metadata export.
 
 - **Route:** `/countries`
@@ -152,6 +164,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** no wrapper `div`/background — the three sections supply their own. Neither the carousel, the college cards nor the homepage map pins link to a country page, so `/countries/mbbs-in-russia` is reachable only through the Navbar Countries dropdown (plus `WhyRussia`'s self-link on that page). Adding `export const metadata` here would be the cheapest SEO win.
 
 ### `countries/mbbs-in-russia/page.tsx` (`/countries/mbbs-in-russia`)
+
 [page.tsx]: The only country-detail page: Russia/Samara landing page composed of six country-specific sections plus the lead-gen `EventContactForm` at the end.
 
 - **Route:** `/countries/mbbs-in-russia` (a leaf segment — there is no `[country]` route; other countries would 404).
@@ -165,6 +178,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** no `PageBanner` — the page relies on `RussiaBanner`'s own hero, so the transition from `/countries` is visually different. No `min-h-screen`, no background color (body `#e8f0f9`). The final `EventContactForm` is the gallery contact form, so copy may be event-oriented.
 
 ### `gallery/page.tsx` (`/gallery`)
+
 [page.tsx]: Pure redirect: `/gallery` → `/gallery/images`; renders nothing.
 
 - **Route:** `/gallery` (responds with a `redirect()` — Next throws `NEXT_REDIRECT`, so the function body never returns).
@@ -178,12 +192,13 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** redirect target exists (`gallery/images/page.tsx`). If SEO permanence matters, use `permanentRedirect()` or `redirect("/gallery/images", RedirectType.replace)`.
 
 ### `gallery/images/page.tsx` (`/gallery/images`)
+
 [page.tsx]: Photo-gallery index: banner + filterable `GalleryGrid`; each card links to `/gallery/images/<slug>`.
 
 - **Route:** `/gallery/images`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Gallery — Images | My Study Hub` (em dash), description `Explore our gallery of events, seminars, academic fests, and Events at My Study Hub.`
-- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Seminars, Academic Fests & Events at My Study Hub in pictures", subtitle="Explore our memorable moments from events, seminars, and academic fests. Celebrate inspiration, learning of students. Look at community workshops and events through our gallery. ", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `GalleryGrid`.
+- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Seminars, Academic Fests & Events at My Study Hub in pictures", subtitle="Explore our memorable moments from events, seminars, and academic fests. Celebrate inspiration, learning of students. Look at community workshops and events through our gallery. ", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `GalleryGrid`.
 - **Data / functions:** `export default function GalleryImagesPage()`; no params/fetch. Events (incl. `slug: "event-2025"`) are hard-coded in `components/images/GalleryGrid.tsx`; card hrefs fall back to the event year when `slug` is absent (`/gallery/images/<year>`).
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/images/GalleryGrid` (client, owns filter state).
@@ -191,12 +206,13 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** the subtitle has a trailing space and a duplicated "events … Events" phrase. Because `GalleryGrid` supplies hrefs, the set of valid slugs is only whatever data it hard-codes — but `[slug]` accepts anything.
 
 ### `gallery/images/[slug]/page.tsx` (`/gallery/images/[slug]`)
+
 [page.tsx]: Per-event gallery: derives a display title from the slug and renders description, photo grid and contact form. No validation, so every slug yields a page.
 
 - **Route:** `/gallery/images/[slug]` — dynamic; no `generateStaticParams`; any string (including unknown events) is served.
 - **Runtime:** server component; `export default async function EventGalleryPage({ params }: { params: Promise<{ slug: string }> })`; no `dynamic`/`revalidate`.
 - **Metadata:** `export async function generateMetadata({ params }: { params: Promise<{ slug: string }> })` — `const { slug } = await params` (Next 16 async params), then `formatTitle(slug)` and returns `{ title: \`${title} Gallery | My Study Hub\`, description: \`Explore the moments and highlights from the ${title} organized by My Study Hub.\` }`. Title/description are derived from the URL, not from real event data.
-- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title={displayTitle}, subtitle="Explore the moments and highlights from this event", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `EventDescription` → `EventGalleryGrid` → `EventContactForm` (all no props — they do **not** receive the slug, so every event shows the same photos/description).
+- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title={displayTitle}, subtitle="Explore the moments and highlights from this event", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `EventDescription` → `EventGalleryGrid` → `EventContactForm` (all no props — they do **not** receive the slug, so every event shows the same photos/description).
 - **Data / functions:** helper `function formatTitle(slug: string)` — `slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase())`, e.g. `event-2025` → `Event 2025`. Page awaits `params`, computes `displayTitle`. No `notFound()`, no fetch, no search-param handling.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/images/{EventDescription,EventGalleryGrid,EventContactForm}`.
@@ -204,12 +220,13 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** unknown slugs render a valid-looking page with a 200 status (soft 404s, unbounded URL space). To make it real: validate the slug against the event list (or DB) and call `notFound()`; pass the event into the three sections. The slug is a `Promise` and is awaited in both metadata and the page (correct for Next 16).
 
 ### `gallery/videos/page.tsx` (`/gallery/videos`)
+
 [page.tsx]: Video gallery: banner + `VideoGrid` (featured video + grid).
 
 - **Route:** `/gallery/videos`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Gallery — Videos | My Study Hub`, description `Watch our video highlights from events, seminars, fresher's parties, and academic fests at My Study Hub.`
-- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Gallery", subtitle="Watch our memorable moments from events, seminars, and academic fests", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.5})` → `VideoGrid`.
+- **Renders (wrapper `backgroundColor:#e8f0f9`):** `PageBanner(title="Gallery", subtitle="Watch our memorable moments from events, seminars, and academic fests", backgroundImage="/home/about-graduation.png", overlayOpacity={0.5})` → `VideoGrid`.
 - **Data / functions:** `export default function GalleryVideosPage()`; no params/fetch; video data hard-coded inside `VideoGrid`.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/videos/VideoGrid`.
@@ -217,12 +234,13 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** banner title is just "Gallery" (not "Videos"), so the two gallery pages are indistinguishable in their hero. `VideoGrid` is client (modal/player state).
 
 ### `web-stories/page.tsx` (`/web-stories`)
+
 [page.tsx]: Banner + `WebStoriesCarousel` story slider + the homepage MBBS-abroad hero section.
 
 - **Route:** `/web-stories`
 - **Runtime:** server component; no `dynamic`/`revalidate`.
 - **Metadata:** title `Web Stories | My Study Hub`, description `Visual web stories about MBBS abroad, university reviews, and student experiences.`
-- **Renders (wrapper `flex flex-col min-h-screen`, `backgroundColor:#f8fafc`):** `PageBanner(title="Web Stories", subtitle="Explore quick visual stories and updates about medical education abroad", backgroundImage="/home/about-graduation.jpg", overlayOpacity={0.6})` → `<div className="max-w-7xl mx-auto px-4 py-16 w-full bg-brand-sky">` → `WebStoriesViewer` (dark tray+viewer block) → `WebStoriesCarousel` → `<MBBSAbroadHero/>`.
+- **Renders (wrapper `flex flex-col min-h-screen`, `backgroundColor:#f8fafc`):** `PageBanner(title="Web Stories", subtitle="Explore quick visual stories and updates about medical education abroad", backgroundImage="/home/about-graduation.png", overlayOpacity={0.6})` → `<div className="max-w-7xl mx-auto px-4 py-16 w-full bg-brand-sky">` → `WebStoriesViewer` (dark tray+viewer block) → `WebStoriesCarousel` → `<MBBSAbroadHero/>`.
 - **Data / functions:** `export default function WebStoriesPage()`; no params/fetch. Story data is hard-coded inside `components/web-stories/WebStoriesCarousel.tsx`.
 - **Auth:** none.
 - **Dependencies:** `@/components/ui/PageBanner`, `@/components/web-stories/{WebStoriesViewer,WebStoriesCarousel}`, `@/components/homepage/MBBSAbroadHero`.
@@ -230,6 +248,7 @@ Primary Purpose: Public marketing site (route group — `(site)` adds **no** URL
 - **Notes:** `WebStoriesViewer` sits above `WebStoriesCarousel`; both render the same `WEB_STORIES` array (exported from the carousel file). The carousel also auto-advances every 6 s while the viewer runs a 7 s per-story progress timer — two competing autoplay loops on one page; consider keeping only one happy path (either drop the carousel or pause it while the viewer is in view). The `bg-brand-sky` background comes from the user's manual edit of the page wrapper. Currently no `/web-stories/[slug]` story-detail route and stories have no hrefs (deliberate — avoids dead links).
 
 ## Navigation map for this group
+
 - Navbar (`components/ui/Navbar.tsx`, client) main items: Home `/`, About Us `/about-us` (`about` dropdown), Collections `/collections` (`collections`), Countries `/countries` (`countries` panel), Gallery `/gallery` (`gallery`), Contact Us `/contact-us`; plus a Login link to `/admin/login` (broken — see `app/admin/AGENT_CONTEXT.md`).
 - About dropdown (`components/ui/NavDropdown.tsx`): Overview `/about-us`, Our Services `/about-us/services`, Career `/about-us/career`, Partner With Us `/about-us/partner-with-us`.
 - Collections dropdown: Blog `/collections/blog`, Upcoming Events `/collections/upcoming-event`, Brochures `/collections/brochures`, Web Stories `/web-stories`.

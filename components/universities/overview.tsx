@@ -58,7 +58,7 @@ export default function UniversityOverview({
     badgeText = DEFAULT_CONTENT.badgeText,
 }: OverviewProps) {
     return (
-        <section aria-label={sectionLabel} className="bg-[#f3f8f6] py-16 @min-[1024px]:py-24">
+        <section aria-label={sectionLabel} className="bg-[#F1F6F2] py-16 @min-[1024px]:py-24">
             <div className="mx-auto grid max-w-7xl grid-cols-1
              items-center gap-12 px-4 @min-[640px]:px-8 @min-[1024px]:px-25 @min-[1024px]:grid-cols-[5fr_6fr] @min-[1024px]:gap-16">
                 {/* Left: heading + paragraphs + CTA */}
@@ -66,15 +66,15 @@ export default function UniversityOverview({
                     <div className="flex gap-4">
                         <div
                             aria-hidden="true"
-                            className="w-1.5 flex-none rounded-full bg-green-600"
+                            className="w-1.5 flex-none rounded-full bg-brand-emerald"
                         />
                         <h2 className="text-3xl font-semibold leading-snug @min-[1024px]:text-4xl">
-                            <span className="text-green-600">{titleGreen}</span>{" "}
-                            <span className="block text-blue-600">{titleBlue}</span>
+                            <span className="text-brand-emerald-deep">{titleGreen}</span>{" "}
+                            <span className="block text-brand-emerald-deep">{titleBlue}</span>
                         </h2>
                     </div>
 
-                    <div className="mt-8 space-y-6 text-sm leading-relaxed text-gray-600 @min-[1024px]:pl-5.5">
+                    <div className="mt-8 space-y-6 text-sm leading-relaxed text-body @min-[1024px]:pl-5.5">
                         {paragraphs.map((paragraph) => (
                             <p key={paragraph.slice(0, 24)}>{paragraph}</p>
                         ))}
@@ -82,7 +82,7 @@ export default function UniversityOverview({
 
                     <Link
                         href={ctaHref}
-                        className="mt-10 inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-green-600 to-blue-600 px-8 py-4 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90 @min-[1024px]:ml-5.5"
+                        className="mt-10 inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-brand-emerald to-brand-forest px-8 py-4 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90 @min-[1024px]:ml-5.5"
                     >
                         {ctaLabel}
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -100,9 +100,9 @@ export default function UniversityOverview({
                         />
                     </div>
 
-                    <div className="absolute bottom-4 left-4 rounded-xl bg-[#0e1b2a] px-6 py-5 shadow-xl @min-[1024px]:-bottom-4 @min-[1024px]:-left-10">
+                    <div className="absolute bottom-4 left-4 rounded-xl bg-[#12211C] px-6 py-5 shadow-xl @min-[1024px]:-bottom-4 @min-[1024px]:-left-10">
                         <p className="text-xl font-bold text-white">{badgeCount}</p>
-                        <p className="mt-1 text-xs text-blue-100">{badgeText}</p>
+                        <p className="mt-1 text-xs text-brand-champagne-soft">{badgeText}</p>
                     </div>
                 </div>
             </div>

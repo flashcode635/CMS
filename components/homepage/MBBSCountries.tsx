@@ -113,7 +113,7 @@ export default function MBBSCountries() {
         .mc-reg-btn:hover {
           opacity: 0.9;
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(49,99,255,0.35);
+          box-shadow: 0 8px 28px rgba(216,178,110,0.35);
         }
         .mc-reg-btn:active { transform: scale(0.97); }
         .mc-reg-btn:hover .mc-reg-arrow {
@@ -132,7 +132,7 @@ export default function MBBSCountries() {
         ref={sectionRef}
         style={{
           // Figma bg: light blue gradient
-          background: "#e6f0fb",
+          background: "#EFE9DE",
           width: "100%",
           overflow: "hidden",
           position: "relative",
@@ -154,7 +154,7 @@ export default function MBBSCountries() {
             zIndex: 5,
           }}
         >
-          {/* Heading — Figma: Playfair Display Regular 64px #022e78 */}
+          {/* Heading — Figma: Playfair Display Regular 64px #0B3B2E */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "clamp(10px, 1.25vw, 24px)", textAlign: "center" }}>
             <h2
               className={`mc-title${visible ? " in" : ""}`}
@@ -163,7 +163,7 @@ export default function MBBSCountries() {
                 fontWeight: 400,
                 fontSize: "clamp(28px, 3.33vw, 64px)",
                 lineHeight: "clamp(32px, 2.5vw, 48px)",
-                color: "#022e78",
+                color: "#0B3B2E",
                 margin: 0,
                 textTransform: "capitalize",
               }}
@@ -171,11 +171,11 @@ export default function MBBSCountries() {
               MBBS From 12+ Countries
             </h2>
 
-            {/* Subtitle — Figma: Helvetica 16px rgba(2,46,120,0.61) */}
+            {/* Subtitle — Figma: Inter 16px rgba(2,46,120,0.61) */}
             <p
               className={`mc-sub${visible ? " in" : ""}`}
               style={{
-                fontFamily: "Helvetica, Arial, sans-serif",
+                fontFamily: "Inter, Inter, sans-serif",
                 fontWeight: 400,
                 fontSize: "clamp(12px, 0.83vw, 16px)",
                 lineHeight: "22px",
@@ -197,7 +197,7 @@ export default function MBBSCountries() {
               style={{
                 height: "clamp(40px, 2.92vw, 56px)",
                 padding: "0 clamp(18px, 1.67vw, 32px)",
-                backgroundImage: "linear-gradient(147deg, #00923F 12.7%, #3163FF 87.2%)",
+                backgroundImage: "linear-gradient(147deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
                 border: "none",
                 cursor: "pointer",
                 fontFamily: "'Inter', sans-serif",

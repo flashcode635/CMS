@@ -99,16 +99,16 @@ export default function BenefitsSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="relative overflow-hidden bg-[linear-gradient(150deg,#0e2438_0%,#0b1a2b_100%)] py-16 @min-[1024px]:py-24"
+            className="relative overflow-hidden bg-[linear-gradient(150deg,#0B3B2E_0%,#072A21_100%)] py-16 @min-[1024px]:py-24"
         >
             {/* Decorative circles */}
             <div
                 aria-hidden="true"
-                className="absolute -right-32 -top-44 size-112 rounded-full border border-emerald-500/10"
+                className="absolute -right-32 -top-44 size-112 rounded-full border border-brand-champagne/25"
             />
             <div
                 aria-hidden="true"
-                className="absolute -bottom-24 -left-16 size-64 rounded-full bg-emerald-900/25"
+                className="absolute -bottom-24 -left-16 size-64 rounded-full bg-brand-forest/25"
             />
 
             <div className="relative mx-auto max-w-7xl px-4 @min-[640px]:px-6 @min-[1024px]:px-25">
@@ -116,15 +116,15 @@ export default function BenefitsSection({
                 <div className="flex items-center gap-2">
                     <span
                         aria-hidden="true"
-                        className="h-px flex-none w-4 bg-teal-300"
+                        className="h-px flex-none w-4 bg-brand-champagne"
                     />
-                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-teal-300">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-champagne">
                         {eyebrow}
                     </p>
                 </div>
                 <h2 className="mt-3 max-w-2xl text-[clamp(1.35rem,3vw,1.9rem)] font-semibold leading-snug">
-                    <span className="text-green-400">{titleGreen}</span>{" "}
-                    <span className="text-blue-400">{titleBlue}</span>
+                    <span className="text-brand-champagne">{titleGreen}</span>{" "}
+                    <span className="text-brand-champagne">{titleBlue}</span>
                 </h2>
 
                 <div className="mt-10 grid grid-cols-1 items-center gap-12 @min-[1024px]:grid-cols-2 @min-[1024px]:gap-16">
@@ -137,15 +137,15 @@ export default function BenefitsSection({
                             >
                                 <span
                                     aria-hidden="true"
-                                    className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-sky-100 text-xs font-bold text-blue-700"
+                                    className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-brand-champagne-soft text-xs font-bold text-brand-emerald-deep"
                                 >
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
                                 <div>
-                                    <h3 className="text-sm font-semibold text-[#16224a]">
+                                    <h3 className="text-sm font-semibold text-[#1C2B25]">
                                         {benefit.title}
                                     </h3>
-                                    <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                                    <p className="mt-1 text-xs leading-relaxed text-muted">
                                         {benefit.description}
                                     </p>
                                 </div>
@@ -154,7 +154,7 @@ export default function BenefitsSection({
                     </ul>
 
                     {/* Right: video card (placeholder until videoUrl is set) */}
-                    <div className="self-center overflow-hidden rounded-2xl bg-black shadow-lg ring-1 ring-white/10">
+                    <div className="self-center overflow-hidden rounded-2xl bg-[#072A21] shadow-lg ring-1 ring-white/10">
                         {embedSrc ? (
                             <iframe
                                 src={embedSrc}
@@ -174,15 +174,15 @@ export default function BenefitsSection({
                                 />
                                 <div
                                     aria-hidden="true"
-                                    className="absolute inset-0 bg-black/20"
+                                    className="absolute inset-0 bg-[#072A21]/25"
                                 />
 
                                 {/* Top-left caption overlay (mimics the YouTube embed header) */}
-                                <div className="absolute inset-x-0 top-0 flex items-center gap-2 bg-black/25 p-3">
+                                <div className="absolute inset-x-0 top-0 flex items-center gap-2 bg-[#072A21]/35 p-3">
                                     <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white/90">
                                         <GraduationCap
                                             aria-hidden="true"
-                                            className="h-4 w-4 text-blue-700"
+                                            className="h-4 w-4 text-brand-emerald-deep"
                                         />
                                     </span>
                                     <div className="min-w-0">

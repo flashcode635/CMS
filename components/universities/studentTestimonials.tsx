@@ -181,7 +181,7 @@ export default function StudentTestimonials({
       className="relative overflow-hidden px-6 py-14 @min-[640px]:px-8 @min-[1024px]:px-10 @min-[1024px]:py-16"
       style={{
         background:
-          "linear-gradient(112deg, #e6f4f0 0%, #e8f0fc 51%, #e8edff 100%)",
+          "linear-gradient(112deg, #EDF3EF 0%, #F7F4EE 51%, #F1E3C8 100%)",
       }}
     >
       <div className="mx-auto max-w-350">
@@ -192,7 +192,7 @@ export default function StudentTestimonials({
           >
             {heading}
           </h2>
-          <p className="mt-1 text-[9px] text-slate-500 @min-[640px]:text-[10px]">
+          <p className="mt-1 text-[9px] text-muted @min-[640px]:text-[10px]">
             {subtitle}
           </p>
         </div>
@@ -219,12 +219,12 @@ export default function StudentTestimonials({
                     aria-label="5 out of 5 stars"
                   >
                     {stars.map((_, index) => (
-                      <span key={index} aria-hidden="true" className="text-[#ffb400]">
+                      <span key={index} aria-hidden="true" className="text-[#D8B26E]">
                         ★
                       </span>
                     ))}
                   </div>
-                  <p className="mx-auto min-h-16 max-w-58.75 text-[10px] leading-[1.55] text-slate-500 @min-[640px]:text-[11px]">
+                  <p className="mx-auto min-h-16 max-w-58.75 text-[10px] leading-[1.55] text-muted @min-[640px]:text-[11px]">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </div>
@@ -239,7 +239,7 @@ export default function StudentTestimonials({
                   />
                 </div>
 
-                <div className="-mt-px bg-[#737d9d] px-3 py-3 text-center text-white">
+                <div className="-mt-px bg-[#4A554F] px-3 py-3 text-center text-white">
                   <p className="text-[10px] font-semibold @min-[640px]:text-[11px]">
                     {testimonial.name}
                   </p>
@@ -280,7 +280,7 @@ export default function StudentTestimonials({
               aria-current={activePage === page ? "true" : undefined}
               onClick={() => goToPage(page)}
               className={`h-1.5 rounded-full transition-all ${
-                activePage === page ? "w-5 bg-brand-blue" : "w-1.5 bg-slate-400/60"
+                activePage === page ? "w-5 bg-brand-blue" : "w-1.5 bg-brand-champagne/60"
               }`}
             />
           ))}

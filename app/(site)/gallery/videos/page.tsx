@@ -14,12 +14,12 @@ export const metadata = {
 
 export default function GalleryVideosPage() {
   return (
-    <div className="flex flex-col" style={{ backgroundColor: "#e8f0f9" }}>
+    <div className="flex flex-col" style={{ backgroundColor: "#F7F4EE" }}>
       {/* ── Section 1: Banner ── */}
       <PageBanner
         title="Gallery"
         subtitle="Watch our memorable moments from events, seminars, and academic fests"
-        backgroundImage="/home/about-graduation.jpg"
+        backgroundImage="/home/about-graduation.png"
         overlayOpacity={0.5}
       />
 

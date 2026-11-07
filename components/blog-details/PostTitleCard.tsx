@@ -27,7 +27,7 @@ export default function PostTitleCard({
   coverImage,
 }: PostTitleCardProps) {
   return (
-    <section className="relative w-full rounded-3xl overflow-hidden bg-[#0d1b3a]" aria-label="Blog post title">
+    <section className="relative w-full rounded-3xl overflow-hidden bg-[#0B3B2E]" aria-label="Blog post title">
       {/* Cover */}
       <div className="relative inset-x-0" style={{ height: "clamp(300px, 34vw, 430px)" }}>
         <Image
@@ -53,23 +53,23 @@ export default function PostTitleCard({
           <div className="flex items-center gap-2.5">
             <span
               className="px-2.5 py-1 rounded-md text-white font-medium"
-              style={{ fontFamily: "'Work Sans', sans-serif", fontSize: 12, background: "#4b6bfb" }}
+              style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, background: "#0A6B44" }}
             >
               {category}
             </span>
             <time
               dateTime={date}
-              className="text-[#5b6e77]"
-              style={{ fontFamily: "'Work Sans', sans-serif", fontSize: 12.5, fontWeight: 500 }}
+              className="text-[#4A554F]"
+              style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, fontWeight: 500 }}
             >
               {date}
             </time>
           </div>
 
           <h2
-            className="m-0 uppercase font-bold text-[#101b33]"
+            className="m-0 uppercase font-bold text-[#0B3B2E]"
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontSize: "clamp(19px, 2.5vw, 31px)",
               lineHeight: 1.22,
               maxWidth: "34ch",
@@ -79,7 +79,7 @@ export default function PostTitleCard({
           </h2>
 
           <p
-            className="m-0 text-[#55697a]"
+            className="m-0 text-[#4A554F]"
             style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(12.5px, 1.05vw, 15px)" }}
           >
             {subtitle}
@@ -90,7 +90,7 @@ export default function PostTitleCard({
       {/* Meta row under the card, light blue chip like the design */}
       <div
         className="flex items-center justify-between gap-4 px-5 sm:px-8 py-4 text-white"
-        style={{ background: "linear-gradient(93.86deg, rgba(0,146,63,0.85) 12.7%, rgba(49,99,255,0.85) 87.17%)" }}
+        style={{ background: "linear-gradient(93.86deg, rgba(14,143,91,0.85) 12.7%, rgba(216,178,110,0.85) 87.17%)" }}
       >
         <span
           className="flex items-center gap-2.5 min-w-0"

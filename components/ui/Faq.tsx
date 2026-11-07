@@ -45,17 +45,17 @@ export default function Faq() {
 
   return (
     <div className="w-full max-w-4xl mx-auto py-8 px-4">
-      <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Frequently Asked Questions</h2>
+      <h2 className="text-3xl font-bold text-center text-ink mb-8">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {FAQ_ITEMS.map((item, idx) => (
-          <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+          <div key={idx} className="border border-line rounded-lg overflow-hidden bg-white shadow-sm">
 <Button onClick={() => toggle(idx)} variant="unstyled" size="bare" shape="none"
-  className="w-full justify-between whitespace-normal p-4 text-left font-semibold text-gray-800 hover:bg-gray-50">
+  className="w-full justify-between whitespace-normal p-4 text-left font-semibold text-ink hover:bg-surface">
               <span>{item.question}</span>
               <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${openIndex === idx ? "rotate-180" : ""}`} />
             </Button>
             {openIndex === idx && (
-              <div className="p-4 pt-0 text-gray-600 text-sm border-t border-gray-100 mt-2">
+              <div className="p-4 pt-0 text-body text-sm border-t border-line mt-2">
                 {item.answer}
               </div>
             )}

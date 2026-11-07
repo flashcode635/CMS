@@ -42,9 +42,9 @@ const blankEntry = (type: ContentType): Entry => ({
 
 /* ---------- shared styles ---------- */
 const inputClass =
-  "w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-base text-[#17233d] sm:text-sm " +
-  "placeholder:text-slate-400 outline-none transition " +
-  "hover:border-slate-300 focus:border-brand-green focus:ring-4 focus:ring-brand-green/10";
+  "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-base text-[#1C2B25] sm:text-sm " +
+  "placeholder:text-muted outline-none transition " +
+  "hover:border-line-strong focus:border-brand-green focus:ring-4 focus:ring-brand-green/10";
 
 /* ---------- page ---------- */
 export default function DashboardPage() {
@@ -219,20 +219,20 @@ export default function DashboardPage() {
   const canSave = !saving && selected.title.trim() && selected.slug.trim();
 
   return (
-    <div className="flex h-dvh overflow-hidden bg-[#f4f6f7] text-[#17233d]">
+    <div className="flex h-dvh overflow-hidden bg-[#EFE9DE] text-[#1C2B25]">
       {/* ---------- toast ---------- */}
       {toast && (
         <div
           role="status"
           className={`fixed inset-x-4 top-4 z-50 flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium shadow-lg ring-1 sm:inset-x-auto sm:right-5 sm:top-5 sm:max-w-sm ${
             toast.kind === "success"
-              ? "bg-white text-[#08743a] ring-[#08743a]/20"
+              ? "bg-white text-[#0A6B44] ring-[#0A6B44]/20"
               : "bg-white text-red-600 ring-red-200"
           }`}
         >
           {toast.kind === "success" ? <CheckCircle2 size={17} /> : <AlertCircle size={17} />}
           {toast.text}
-          <button onClick={() => setToast(null)} className="ml-2 text-slate-400 hover:text-slate-600">
+          <button onClick={() => setToast(null)} className="ml-2 text-muted hover:text-body">
             <X size={14} />
           </button>
         </div>
@@ -240,7 +240,7 @@ export default function DashboardPage() {
 
       {/* ---------- icon rail ---------- */}
       <aside
-        className={`${railOpen ? "fixed inset-y-0 left-0 z-40 flex" : "hidden"} w-17 shrink-0 flex-col items-center bg-linear-to-b from-[#073b2b] to-[#052b20] py-5 text-white
+        className={`${railOpen ? "fixed inset-y-0 left-0 z-40 flex" : "hidden"} w-17 shrink-0 flex-col items-center bg-linear-to-b from-[#072A21] to-[#052b20] py-5 text-white
          shadow-xl md:flex`}
       >
         <div className="mb-8 grid h-10 w-10 place-items-center rounded-xl bg-brand-green text-sm font-bold shadow-md shadow-black/20">
@@ -274,16 +274,16 @@ export default function DashboardPage() {
         </div>
       </aside>
       {railOpen && (
-        <button aria-label="Close navigation" onClick={() => setRailOpen(false)} className="fixed inset-0 z-30 bg-black/40 backdrop-blur-sm md:hidden" />
+        <button aria-label="Close navigation" onClick={() => setRailOpen(false)} className="fixed inset-0 z-30 bg-[#072A21]/45 backdrop-blur-sm md:hidden" />
       )}
 
       {/* ---------- list pane ---------- */}
       <section
-        className={`${mobilePane === "list" ? "flex" : "hidden"} w-full shrink-0 flex-col border-r border-slate-200 bg-white md:flex md:w-72`}
+        className={`${mobilePane === "list" ? "flex" : "hidden"} w-full shrink-0 flex-col border-r border-line bg-white md:flex md:w-72`}
       >
-        <header className="border-b border-slate-100 px-5 pb-4 pt-5">
+        <header className="border-b border-line px-5 pb-4 pt-5">
           <div className="flex items-center gap-3">
-            <button className="grid h-10 w-10 place-items-center rounded-lg hover:bg-slate-100 md:hidden" onClick={() => setRailOpen(true)}>
+            <button className="grid h-10 w-10 place-items-center rounded-lg hover:bg-surface-alt md:hidden" onClick={() => setRailOpen(true)}>
               <Menu size={20} />
             </button>
             <div>
@@ -291,16 +291,16 @@ export default function DashboardPage() {
               <h1 className="mt-0.5 text-lg font-bold tracking-tight">{title}</h1>
             </div>
           </div>
-          <div className="mt-4 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 transition focus-within:border-brand-green focus-within:bg-white focus-within:ring-4 focus-within:ring-brand-green/10">
-            <Search size={15} className="text-slate-400" />
+          <div className="mt-4 flex items-center gap-2 rounded-xl border border-line bg-surface px-3 py-2.5 transition focus-within:border-brand-green focus-within:bg-white focus-within:ring-4 focus-within:ring-brand-green/10">
+            <Search size={15} className="text-muted" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={`Search ${title.toLowerCase()}...`}
-              className="w-full bg-transparent text-base outline-none placeholder:text-slate-400 sm:text-sm"
+              className="w-full bg-transparent text-base outline-none placeholder:text-muted sm:text-sm"
             />
             {query && (
-              <button onClick={() => setQuery("")} className="text-slate-400 hover:text-slate-600">
+              <button onClick={() => setQuery("")} className="text-muted hover:text-body">
                 <X size={14} />
               </button>
             )}
@@ -310,7 +310,7 @@ export default function DashboardPage() {
         <div className="flex-1 overflow-y-auto px-3 pb-4">
           {loading && (
             <div className="space-y-2 px-1 py-4">
-              {[0, 1, 2].map((i) => <div key={i} className="h-12 animate-pulse rounded-xl bg-slate-100" />)}
+              {[0, 1, 2].map((i) => <div key={i} className="h-12 animate-pulse rounded-xl bg-surface-alt" />)}
             </div>
           )}
 
@@ -326,12 +326,12 @@ export default function DashboardPage() {
                   <div
                     key={route.href}
                     className={`grid grid-cols-4 mb-1 rounded-xl transition ${
-                      previewing ? "bg-[#e9f5ee] ring-1 ring-[#08743a]/10" : "hover:bg-slate-50"
+                      previewing ? "bg-[#EDF3EF] ring-1 ring-[#0A6B44]/10" : "hover:bg-surface"
                     }`}
                   >
                     <button onClick={() => previewRoute(route)} className="min-w-0 col-span-3 px-3 py-2.5 text-left">
                       <span className="block truncate text-sm font-medium">{route.title}</span>
-                      <span className="block truncate text-xs text-slate-400">{route.slug}</span>
+                      <span className="block truncate text-xs text-muted">{route.slug}</span>
                     </button>
                     <a
                       href={route.href}
@@ -340,7 +340,7 @@ export default function DashboardPage() {
                       title="Open live page"
                       className="group col-span-1 flex w-full items-center justify-between rounded-xl px-3 py-2.5 transition"
                     >
-                      <ExternalLink size={14} className="shrink-0 text-slate-300 transition group-hover:text-brand-green" />
+                      <ExternalLink size={14} className="shrink-0 text-muted transition group-hover:text-brand-green" />
                     </a>
                   </div>
                 );
@@ -356,12 +356,12 @@ export default function DashboardPage() {
                 key={entry.id}
                 onClick={() => chooseEntry(entry)}
                 className={`mb-1 flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-left transition ${
-                  on ? "bg-[#e9f5ee] text-[#08743a] ring-1 ring-[#08743a]/10" : "hover:bg-slate-50"
+                  on ? "bg-[#EDF3EF] text-[#0A6B44] ring-1 ring-[#0A6B44]/10" : "hover:bg-surface"
                 }`}
               >
                 <span className="min-w-0">
                   <span className="block truncate text-sm font-medium">{entry.title || "Untitled"}</span>
-                  <span className="mt-0.5 block truncate text-xs text-slate-400">/{entry.slug}</span>
+                  <span className="mt-0.5 block truncate text-xs text-muted">/{entry.slug}</span>
                 </span>
                 <span className="flex shrink-0 items-center gap-2">
                   <StatusBadge status={entry.status} />
@@ -373,11 +373,11 @@ export default function DashboardPage() {
 
           {!loading && filtered.length === 0 && (
             <div className="px-3 py-10 text-center">
-              <div className="mx-auto mb-3 grid h-11 w-11 place-items-center rounded-full bg-slate-100 text-slate-400">
+              <div className="mx-auto mb-3 grid h-11 w-11 place-items-center rounded-full bg-surface-alt text-muted">
                 <Pencil size={18} />
               </div>
-              <p className="text-sm font-medium text-slate-600">No entries yet</p>
-              <p className="mt-1 text-xs text-slate-400">Fill the form to create your first one.</p>
+              <p className="text-sm font-medium text-body">No entries yet</p>
+              <p className="mt-1 text-xs text-muted">Fill the form to create your first one.</p>
             </div>
           )}
         </div>
@@ -385,9 +385,9 @@ export default function DashboardPage() {
 
       {/* ---------- form pane ---------- */}
       <main className={`${mobilePane === "form" ? "flex" : "hidden"} min-w-0 flex-1 flex-col bg-white md:flex`}>
-        <header className="flex items-center justify-between gap-3 border-b border-slate-200 px-4 py-3 sm:px-6 sm:py-4">
+        <header className="flex items-center justify-between gap-3 border-b border-line px-4 py-3 sm:px-6 sm:py-4">
           <div className="min-w-0">
-            <p className="flex items-center gap-1 text-xs text-slate-400">
+            <p className="flex items-center gap-1 text-xs text-muted">
               CMS <ChevronRight size={11} /> {title}
             </p>
             <h2 className="mt-1 truncate text-base font-semibold">
@@ -398,7 +398,7 @@ export default function DashboardPage() {
           </div>
           <div className="flex items-center gap-2">
             {!activePreview && !isNew && <StatusBadge status={selected.status} />}
-            <button onClick={() => setMobilePane("preview")} className="rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-50 md:hidden">
+            <button onClick={() => setMobilePane("preview")} className="rounded-lg border border-line p-2 text-body hover:bg-surface md:hidden">
               <Eye size={16} />
             </button>
           </div>
@@ -459,7 +459,7 @@ export default function DashboardPage() {
         </div>
 
         {!activePreview && (
-        <footer className="flex items-center justify-between gap-2 border-t border-slate-200 bg-white/90 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur sm:px-6 sm:py-4">
+        <footer className="flex items-center justify-between gap-2 border-t border-line bg-white/90 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur sm:px-6 sm:py-4">
           <button
             onClick={deleteEntry}
             disabled={isNew}
@@ -468,7 +468,7 @@ export default function DashboardPage() {
             <Trash2 size={15} /> Delete
           </button>
           <div className="flex gap-2">
-            <button onClick={() => setMobilePane("list")} className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium hover:bg-slate-50 md:hidden">
+            <button onClick={() => setMobilePane("list")} className="rounded-xl border border-line px-4 py-2 text-sm font-medium hover:bg-surface md:hidden">
               List
             </button>
             <button
@@ -485,25 +485,25 @@ export default function DashboardPage() {
       </main>
 
       {/* ---------- preview pane ---------- */}
-      <aside className={`${mobilePane === "preview" ? "flex" : "hidden"} min-w-0 flex-1 flex-col bg-[#eceff1] md:flex`}>
-        <header className="flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3 sm:px-6 sm:py-4">
+      <aside className={`${mobilePane === "preview" ? "flex" : "hidden"} min-w-0 flex-1 flex-col bg-[#EFE9DE] md:flex`}>
+        <header className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3 sm:px-6 sm:py-4">
           <div>
-            <p className="flex items-center gap-1.5 text-xs text-slate-400">
+            <p className="flex items-center gap-1.5 text-xs text-muted">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-green" /> Live preview
             </p>
             <h2 className="mt-1 text-sm font-semibold">Page canvas</h2>
           </div>
           <div className="flex gap-2 md:hidden">
-            <button onClick={() => setMobilePane("list")} className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium hover:bg-slate-50">
+            <button onClick={() => setMobilePane("list")} className="rounded-lg border border-line px-3 py-2 text-xs font-medium hover:bg-surface">
               List
             </button>
-            <button onClick={() => setMobilePane("form")} className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium hover:bg-slate-50">
+            <button onClick={() => setMobilePane("form")} className="rounded-lg border border-line px-3 py-2 text-xs font-medium hover:bg-surface">
               Edit
             </button>
           </div>
         </header>
         <div className="flex-1 scrollbar-thin scrollbar-track-slate-100 scrollbar-thumb-slate-300 scrollbar-thumb-rounded-lg overflow-y-auto py-4 px-1 md:p-7">
-          <div className="@container mx-auto max-w-5xl overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200">
+          <div className="@container mx-auto max-w-5xl overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-line">
             {activePreview ? <PreviewSection /> : active === "universities" ? (
               <UnivLayoutPreview selected={selected} sections={sections} />
             ) : (

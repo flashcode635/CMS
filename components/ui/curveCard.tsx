@@ -22,7 +22,7 @@ export function PinIcon() {
     >
       <path
         d="M8 0C3.589 0 0 3.589 0 8c0 6.053 7.25 11.695 7.555 11.938a.75.75 0 0 0 .89 0C8.75 19.695 16 14.053 16 8c0-4.411-3.589-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
-        fill="#0a0a0a"
+        fill="#12211C"
       />
     </svg>
   );
@@ -70,13 +70,13 @@ return (
         />
       </div>
 
-      <div className="city-pill absolute left-1/2 -translate-x-1/2 rounded-2xl top-29.5 w-[82%] h-8.5 px-2.5 bg-[#e4e7eb] rounded-25 flex items-center gap-2 overflow-hidden transition-[background,box-shadow] duration-300 ease-[ease]">
+      <div className="city-pill absolute left-1/2 -translate-x-1/2 rounded-2xl top-29.5 w-[82%] h-8.5 px-2.5 bg-[#E4DDD0] rounded-25 flex items-center gap-2 overflow-hidden transition-[background,box-shadow] duration-300 ease-[ease]">
         <div className="size-5 flex items-center justify-center shrink-0">
           <PinIcon />
         </div>
         <span
-          className="text-[#0a0a0a] text-sm font-light leading-5 whitespace-nowrap overflow-hidden text-ellipsis"
-          style={{ fontFamily: "'Lexend', sans-serif" }}
+          className="text-[#12211C] text-sm font-light leading-5 whitespace-nowrap overflow-hidden text-ellipsis"
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {name}
         </span>
@@ -87,7 +87,7 @@ return (
           transform: scale(1.03);
         }
         .city-card:hover .city-pill {
-          background: #d0d5dd;
+          background: #D6CCBA;
           box-shadow: 0 4px 16px rgba(0,0,0,0.10);
         }
       `}</style>

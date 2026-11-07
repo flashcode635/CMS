@@ -92,7 +92,7 @@ function StatCard({ item, iconSize, numSize, labelSize, playing }: StatCardProps
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-5px)";
-        e.currentTarget.style.boxShadow = "0 22px 44px rgba(0,146,63,0.13)";
+        e.currentTarget.style.boxShadow = "0 22px 44px rgba(14,143,91,0.13)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)";
@@ -102,8 +102,8 @@ function StatCard({ item, iconSize, numSize, labelSize, playing }: StatCardProps
       <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden>
         <defs>
           <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0f766e" />
-            <stop offset="100%" stopColor="#1d4ed8" />
+            <stop offset="0%" stopColor="#0A6B44" />
+            <stop offset="100%" stopColor="#0B3B2E" />
           </linearGradient>
         </defs>
       </svg>
@@ -123,14 +123,14 @@ function StatCard({ item, iconSize, numSize, labelSize, playing }: StatCardProps
         />
         <div className="flex flex-col items-center w-full">
           <span
-            className="text-neutral-900 font-bold text-center leading-none tabular-nums"
-            style={{ fontSize: numSize, fontFamily: "'Poppins', sans-serif" }}
+            className="text-ink font-bold text-center leading-none tabular-nums"
+            style={{ fontSize: numSize, fontFamily: "'Inter', sans-serif" }}
           >
             {count.toLocaleString()}{item.suffix}
           </span>
           <span
-            className="text-neutral-400 font-normal text-center leading-snug"
-            style={{ fontSize: labelSize, fontFamily: "'Poppins', sans-serif", marginTop: "4px" }}
+            className="text-muted font-normal text-center leading-snug"
+            style={{ fontSize: labelSize, fontFamily: "'Inter', sans-serif", marginTop: "4px" }}
           >
             {item.label}
           </span>
@@ -163,14 +163,14 @@ function StatRow({ items, ghostsBefore, ghostsAfter, offsetLeft, playing }: Stat
         className="pointer-events-none absolute left-0 top-0 h-full z-10"
         style={{
           width: "clamp(40px, 6vw, 100px)",
-          background: "linear-gradient(to right, #e8f2f4, transparent)",
+          background: "linear-gradient(to right, #EFE9DE, transparent)",
         }}
       />
       <div
         className="pointer-events-none absolute right-0 top-0 h-full z-10"
         style={{
           width: "clamp(40px, 6vw, 100px)",
-          background: "linear-gradient(to left, #e8f2f4, transparent)",
+          background: "linear-gradient(to left, #EFE9DE, transparent)",
         }}
       />
 
@@ -222,14 +222,14 @@ export default function OurStrength() {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden py-19"
-      style={{ backgroundColor: "#e8f2f4" }}
+      style={{ backgroundColor: "#EFE9DE" }}
     >
       <div
         aria-hidden
         className="pointer-events-none absolute -bottom-20 -right-20 rounded-full"
         style={{
           width: 320, height: 320,
-          background: "radial-gradient(circle, rgba(49,99,255,0.15), transparent 70%)",
+          background: "radial-gradient(circle, rgba(216,178,110,0.15), transparent 70%)",
         }}
       />
 
@@ -237,7 +237,7 @@ export default function OurStrength() {
         <h2
           className="font-bold leading-tight bg-linear-to-r from-brand-green to-brand-blue bg-clip-text text-transparent"
           style={{
-            fontFamily: "'Poppins', sans-serif",
+            fontFamily: "'Playfair Display', serif",
             fontSize: "clamp(28px, 3.2vw, 56px)",
             lineHeight: "1.15",
           }}
@@ -245,8 +245,8 @@ export default function OurStrength() {
           Our Strength in Numbers
         </h2>
         <p
-          className="text-gray-400 text-base font-normal leading-6 text-center"
-          style={{ fontFamily: "'Lexend', sans-serif" }}
+          className="text-muted text-base font-normal leading-6 text-center"
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           Building trust through experience, expertise, and results
         </p>

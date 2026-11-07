@@ -47,7 +47,7 @@ function FaqItem({ question, answer, isOpen, onToggle, visible, index }: FaqItem
     <div
       className={`overflow-hidden rounded-2xl bg-white/20 shadow-sm border-b border-b-gray-500 transition-all
          duration-700 ease-out
-        ${isOpen ? "shadow-md ring-[#3aafa9]/30" : "hover:shadow-md"}
+        ${isOpen ? "shadow-md ring-[#D8B26E]/30" : "hover:shadow-md"}
         ${visible ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"}`}
       style={{ transitionDelay: `${0.05 + index * 0.08}s` }}
     >
@@ -56,7 +56,7 @@ function FaqItem({ question, answer, isOpen, onToggle, visible, index }: FaqItem
   className="flex w-full items-start justify-between gap-4 px-[clamp(16px,2vw,28px)] py-[clamp(14px,1.6vw,22px)] text-left">
         <span
           className={`font-semibold font-['Inter',sans-serif] text-[clamp(14px,1.25vw,20px)] leading-[1.35] transition-colors duration-300
-            ${isOpen ? "text-brand-green" : "text-gray-800"}`}
+            ${isOpen ? "text-brand-green" : "text-ink"}`}
         >
           {question}
         </span>
@@ -66,7 +66,7 @@ function FaqItem({ question, answer, isOpen, onToggle, visible, index }: FaqItem
           className={`flex h-[clamp(28px,2.4vw,38px)] w-[clamp(28px,2.4vw,38px)] shrink-0 items-center justify-center rounded-full transition-all duration-300
             ${isOpen
               ? "rotate-45 bg-linear-to-br from-brand-green to-brand-blue text-white"
-              : "bg-[#e8f2f4] text-[#3aafa9]"}`}
+              : "bg-[#EFE9DE] text-[#D8B26E]"}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ function FaqItem({ question, answer, isOpen, onToggle, visible, index }: FaqItem
           ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
       >
         <div className="overflow-hidden">
-          <p className="m-0 px-[clamp(16px,2vw,28px)] pb-[clamp(14px,1.6vw,22px)] font-light text-gray-600 font-['Lexend',sans-serif] text-[clamp(12px,1vw,16px)] leading-[1.7]">
+          <p className="m-0 px-[clamp(16px,2vw,28px)] pb-[clamp(14px,1.6vw,22px)] font-light text-body font-['Inter',sans-serif] text-[clamp(12px,1vw,16px)] leading-[1.7]">
             {answer}
           </p>
         </div>
@@ -119,12 +119,12 @@ export default function FaqSection({slim=true}: {slim?: boolean}) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#f9fcfc]">
+    <section ref={sectionRef} className="bg-[#F7F4EE]">
       <div className={`mx-auto flex max-w-225 flex-col items-center gap-[clamp(6px,0.42vw,8px)]
          ${slim?  "px-[clamp(20px,4.17vw,80px)]":""} pt-[clamp(32px,3.33vw,64px)] pb-[clamp(32px,3.33vw,64px)]`}>
         {/* Eyebrow */}
         <p
-          className={`m-0 text-center font-normal uppercase tracking-widest text-[#3aafa9] font-['Lexend',sans-serif] text-[clamp(11px,1.04vw,20px)] leading-8 transition-all duration-700
+          className={`m-0 text-center font-normal uppercase tracking-widest text-[#D8B26E] font-['Inter',sans-serif] text-[clamp(11px,1.04vw,20px)] leading-8 transition-all duration-700
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
           style={{ transitionDelay: "0.05s" }}
         >
@@ -133,7 +133,7 @@ export default function FaqSection({slim=true}: {slim?: boolean}) {
 
         {/* linear title */}
         <h2
-          className={`m-0 text-center font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)] bg-linear-to-br from-brand-green to-brand-blue bg-clip-text text-transparent font-['Poppins',sans-serif] transition-all duration-700
+          className={`m-0 text-center font-serif font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)] bg-linear-to-br from-brand-green to-brand-blue bg-clip-text text-transparent transition-all duration-700
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
           style={{ transitionDelay: "0.12s" }}
         >

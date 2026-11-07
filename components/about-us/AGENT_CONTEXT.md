@@ -5,6 +5,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 ## Files
 
 ### `page.tsx`
+
 [page.tsx]: Route body for `/about-us` — exports `metadata` and the default `AboutUsPage` component that composes every About section.
 
 - **Runtime:** Server component (no `"use client"`); composed of client children (`PageBanner`, `NationalPresence`, `lastsection`, `ExpertCounsellingSection`).
@@ -14,7 +15,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Handlers:** None.
 - **Constants & types:** `export const metadata = { title: "About Us | My Study Hub", description: "Learn more about My Study Hub and our mission to help students study MBBS abroad." }` (untyped object, inferred by Next). Root wrapper is `<div className="flex flex-col" style={{ backgroundColor: "#e1f0f9", width: "100%" }}>`.
 - **Data flow / section order (all inside the wrapper):**
-  1. `<PageBanner title="About Us" subtitle="Learn more about who we are" backgroundImage="/home/about-graduation.jpg" overlayOpacity={0.5} />`
+  1. `<PageBanner title="About Us" subtitle="Learn more about who we are" backgroundImage="/home/about-graduation.png" overlayOpacity={0.5} />`
   2. `<HeadingOfCard type="bold" title="Know More About Us" description={JSX} />` — copy inside a `<div className="flex flex-col text-[#606c83]">` with `fontFamily: "'Lexend', sans-serif"`, `fontWeight: 300` and a drop-cap `<span>` "W" (`float-left text-[2rem] sm:text-[2.3rem]`, `fontFamily: Inter`).
   3. `<AboutImageSection />`
   4. `<AboutTextContent />`
@@ -29,6 +30,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** Two dead imports — `ContactSection` is imported (line 9) but never rendered, and `LocationMap` is imported as `LocationPin` (line 12) and also never rendered. The JSX comments are stale as a result: "Office locations map" now renders `ExpertCounsellingSection`, and "Get In Touch / Contact + Form" renders `FaqSection`. `ContactSection` reaches this page only indirectly (it is not used here at all). No `HeadingOfCard.tsx` exists in this folder; the component lives at `components/ui/HeadingOfCard.tsx`. Auth: none — fully public.
 
 ### `AboutImageSection.tsx`
+
 [AboutImageSection.tsx]: Thin wrapper that renders the `ImageComboBanner` photo collage for section 3 of the About page.
 
 - **Runtime:** Server component (no `"use client"`, no hooks).
@@ -43,6 +45,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** Component is effectively a 3-line wrapper; the floating-card markup promised by the header comment no longer exists. Spacing only changes at `lg`. No images of its own.
 
 ### `AboutTextContent.tsx`
+
 [AboutTextContent.tsx]: Two stacked marketing text blocks ("How Can We Help You Achieve Your MBBS Goal?" and "What Makes Us the Ideal Partner for MBBS in Russia?").
 
 - **Runtime:** Server component (no `"use client"`, no hooks).
@@ -57,6 +60,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** Fully static; no ids/anchors so it cannot be deep-linked. Responsive only via the four padding breakpoints (`sm`, `lg`, `xl`) plus viewport clamps. Body text is long-form and unbroken by subheadings — an SEO/readability consideration, not a bug.
 
 ### `ContactSection.tsx`
+
 [ContactSection.tsx]: Client-side contact block (inquiry form + India/Russia office cards + social links + CTA strip) reused by the `/contact-us` page; the form does **not** post anywhere.
 
 - **Runtime:** Client component — `"use client"` at line 1 (`useState`, `window` access in a click handler).
@@ -92,6 +96,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
   - Fonts are referenced by name only (`Inter`, `DM Sans`, `Playfair Display`, `DM Serif Display`) — no local font import here, so they must already be loaded globally.
 
 ### `ImageComboBanner.tsx`
+
 [ImageComboBanner.tsx]: Full-bleed About-page banner — library photo washed green/blue, with a centred white frame holding the medical-students photo and two frosted "Elite Colleges" badges.
 
 - **Runtime:** Server component (no `"use client"`, no hooks).
@@ -111,6 +116,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** Section height equals the frame height — there is no vertical padding; the background is the only layer inset (`BG_INSET`). The `priority` prop was removed (deprecated in Next 16 in favour of `preload`; this banner is below the fold, so neither is needed). Changing `SCALE.height` alone rescales the whole banner; changing `CURVE.x` / `CURVE.y` alone reshapes the ends. Keep mirrored corners equal for a symmetric leaf, and keep each axis' two radii summing to ~100 % or straight segments appear between the curves. Background image is decorative (`alt=""`); the foreground alt describes the students. The `<style>` block is static (same string for every instance), so it does not add per-request state.
 
 ### `LocationMap.tsx`
+
 [LocationMap.tsx]: Stylised, non-interactive India "map" (hand-drawn SVG roads + absolutely positioned city pins); not a real map library.
 
 - **Runtime:** Server component (no `"use client"`, no hooks/state).
@@ -126,6 +132,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** The original heading block ("Find us across India" / "Our Locations") is commented out at lines 30–50 — the component now renders map only, so the surrounding page must supply a title. Because the SVG uses `preserveAspectRatio="none"`, pin percentages do not track the drawn roads; positions are purely decorative. All `min-h-*` values are fixed, so the graphic does not shrink on small screens (pins can crowd). `animate-ping` has no `prefers-reduced-motion` guard. No links/markers are clickable and no address data is emitted — an SEO/contact-detail gap if real office info is expected here.
 
 ### `MissionCoreValues.tsx`
+
 [MissionCoreValues.tsx]: Alternating mission / vision / goals rows around a central green timeline, built almost entirely with inline styles.
 
 - **Runtime:** Server component (no `"use client"`, no hooks).
@@ -135,15 +142,16 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Handlers:** None.
 - **Internal components & types:**
   - `CheckIcon()` — 20×20 double-tick SVG, green `#00923F` + blue `#3163FF`, `aria-hidden`.
-  - `interface StackedPhotoProps { alt: string; shadowRight?: boolean }`; `StackedPhoto({ alt, shadowRight = false })` — `clamp(280px,38vw,562px)` × `clamp(210px,29vw,424px)` relative box with a gradient shadow rect offset right (`left 4.5% / right -4.5%`) or left (mirrored), photo always `/home/about-graduation.jpg`, `fill`, `sizes="(max-width:768px) 90vw, 40vw"`, `borderRadius: 14`.
+  - `interface StackedPhotoProps { alt: string; shadowRight?: boolean }`; `StackedPhoto({ alt, shadowRight = false })` — `clamp(280px,38vw,562px)` × `clamp(210px,29vw,424px)` relative box with a gradient shadow rect offset right (`left 4.5% / right -4.5%`) or left (mirrored), photo always `/home/about-graduation.png`, `fill`, `sizes="(max-width:768px) 90vw, 40vw"`, `borderRadius: 14`.
   - `interface ContentBlockProps { title, grad, quote, subHead, bullets: string[], right?: boolean }`; `ContentBlock({ … right = false })` — two gradient rules (162px/108px wide), gradient `h3` (`clamp(36px,4.17vw,64px)`, clipped text), italic-less quote paragraph, bold sub-heading, bullet `<ul>` where `CheckIcon` is placed after the text for `right` rows and before it for left rows; alignment flips via `alignItems`/`textAlign`.
 - **Constants & types:** `GRAD` = `linear-gradient(115.73deg,#00923F 12.704%,#3163FF 87.17%)`, `GRAD2` (165deg), `GRAD3` (153deg), `LINE = "#00923F"`. `ROWS` (3): `mission` (`imgLeft: true`, `grad: GRAD2`), `vision` (`imgLeft: false`, `grad: GRAD3`), `goals` (`imgLeft: true`, `grad: GRAD2`); each has `title`, `quote`, `subHead` ("Guiding Your MBBS Abroad Journey:", "Empowering Future Healthcare Leaders:", "Building Trust, Ensuring Success:") and 7 `bullets`.
 - **Data flow:** `<section>` with inline `padding: clamp(48px,6vw,96px) clamp(24px,5vw,120px)` → `maxWidth: 1680` column `gap: 80` → centered header (`h2` "Our Mission & Core Values" with gradient clip; sub-copy "Uncover more additional about us and how we help make your dreams a reality.") → `position: relative` block with a 2px `LINE` bar at `left: 50%` → `ROWS.map` rows: left half always `paddingRight: 48`, right half always `paddingLeft: 48`; `imgLeft` decides which side gets `StackedPhoto`.
 - **Dependencies:** `next/image` only.
 - **Consumers:** `components/about-us/page.tsx`.
-- **Notes:** **No responsive breakpoints at all** — a hard-coded two-column flex row (image ~562px wide) will overflow/cramp below tablet widths; there is no `flex-col` fallback, so mobile needs a media query or a Tailwind rewrite before this section is touched. All three photos are the same `/home/about-graduation.jpg`, so the rows look repetitive. Vision bullets repeat the idea "To empower aspiring medical students" twice (also present as the quote) — copy cleanup opportunity, not a code defect. Inline styles bypass Tailwind tokens (`#00923F`/`#3163FF` duplicated instead of `brand-green`/`brand-blue`); keep that in mind if the design tokens change.
+- **Notes:** **No responsive breakpoints at all** — a hard-coded two-column flex row (image ~562px wide) will overflow/cramp below tablet widths; there is no `flex-col` fallback, so mobile needs a media query or a Tailwind rewrite before this section is touched. All three photos are the same `/home/about-graduation.png`, so the rows look repetitive. Vision bullets repeat the idea "To empower aspiring medical students" twice (also present as the quote) — copy cleanup opportunity, not a code defect. Inline styles bypass Tailwind tokens (`#00923F`/`#3163FF` duplicated instead of `brand-green`/`brand-blue`); keep that in mind if the design tokens change.
 
 ### `NationalPresence.tsx`
+
 [NationalPresence.tsx]: "Our National Presence" grid of 24 animated city cards, populated from a hard-coded `CITIES` array.
 
 - **Runtime:** Client component — `"use client"` (hooks + `IntersectionObserver`).
@@ -160,6 +168,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** The staggered delay math assumes 5 columns, so on the 2-column (`sm`) and 1-column (`lg`-down) layouts the delay is computed from a five-per-row grid — cards reveal out of visual order (cosmetic only). Keys use `` `${city.name}-${idx}` `` which is what keeps the duplicated "Gorakhpur" from colliding. `Country` should either be deleted or wired to a country tab/section. Typo "Bareily" (file `bareily.webp`) is intentional-to-the-asset — renaming the label alone is safe, renaming the file is not. Image `alt` comes from `CurveCard` as the city `name`, which is acceptable but not descriptive of the photo.
 
 ### `QuoteBanner.tsx`
+
 [QuoteBanner.tsx]: Large centered pull-quote flanked by oversized decorative quote-mark SVGs.
 
 - **Runtime:** Server component (no `"use client"`, no hooks).
@@ -174,6 +183,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** Purely decorative images are correctly hidden from AT. The horizontal `padding: clamp(80px,12vw,200px)` keeps text clear of the marks but reserves a lot of width on mobile — at 375px the quote gets ~215px of usable width. `max-w-361` is an unusual Tailwind value; verify against the design before changing. No attribution/author is shown, which reads oddly for a testimonial-style quote — content decision, not a bug.
 
 ### `lastsection.tsx`
+
 [lastsection.tsx]: Exports `FaqSection` — an animated single-open FAQ accordion used as the closing section of four About-family pages (despite the file name).
 
 - **Runtime:** Client component — `"use client"` (hooks, `IntersectionObserver`).
@@ -185,7 +195,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
   - `openIndex` — `useState<number | null>(0)` → **first FAQ is open on load**.
   - `useEffect` (deps `[]`): `IntersectionObserver` with `threshold: 0` and `rootMargin: "0px 0px -60px 0px"`; on first intersection `setVisible(true)` + `observer.disconnect()`; cleanup returns `observer.disconnect()`.
 - **Handlers:** Per item `onToggle={() => setOpenIndex(openIndex === i ? null : i)}` — clicking the open item closes it, clicking another opens only that one (accordion). Closure over `openIndex` is fine because it re-renders each toggle.
-- **Internal components & types:** `interface FaqItemProps { question; answer; isOpen; onToggle; visible; index }`; `FaqItem` renders a card (`rounded-2xl bg-white/20 border-b border-b-gray-500`) containing a `Button` (`type="button"`, `variant="unstyled"`, `size="bare"`, `shape="none"`) as the question row, a plus icon that rotates to an X (`rotate-45`, gradient background when open), and the answer in a `grid-rows-[0fr]/[1fr]` + `opacity` wrapper for the expand animation. Entrance uses `translate-y-7 opacity-0` → `translate-y-0 opacity-100` with `style={{ transitionDelay: `${0.05 + index * 0.08}s` }}`.
+- **Internal components & types:** `interface FaqItemProps { question; answer; isOpen; onToggle; visible; index }`; `FaqItem` renders a card (`rounded-2xl bg-white/20 border-b border-b-gray-500`) containing a `Button` (`type="button"`, `variant="unstyled"`, `size="bare"`, `shape="none"`) as the question row, a plus icon that rotates to an X (`rotate-45`, gradient background when open), and the answer in a `grid-rows-[0fr]/[1fr]` + `opacity` wrapper for the expand animation. Entrance uses `translate-y-7 opacity-0` → `translate-y-0 opacity-100` with `style={{ transitionDelay: `${0.05 + index \* 0.08}s` }}`.
 - **Constants & types:** `faqs` — 5 hard-coded Q/A pairs: "How do I apply for admission?", "What scholarships and financial aid options are available?", "Do you assist international students with visas?", "Can I visit the campus before applying?", "What programs and courses do you offer?". Copy is generic study-abroad/campus content (mentions 40+ programs, 95% first-attempt visas, weekday campus tours at 11 AM/3 PM) and does not match an MBBS-consultancy offering — flag before publishing.
 - **Data flow:** `<section ref={sectionRef} className="bg-[#f9fcfc]">` → `mx-auto max-w-225 flex flex-col` → eyebrow `<p>` → gradient `<h2>` → `faqs.map(<FaqItem … visible={visible} index={i} />)`.
 - **Dependencies:** `react` (`useEffect`, `useRef`, `useState`), `@/components/ui/Button`.
@@ -193,6 +203,7 @@ Primary Purpose: Content sections for the `/about-us` page (banner, intro copy, 
 - **Notes:** **Accessibility gap** — the question button has no `aria-expanded`, `aria-controls`, or `id`/`role` pairing with the answer panel, and the answer stays in the DOM (grid-collapsed) without `hidden`. Screen readers announce a plain button with no state. Also no `aria-live` for the expanding region. Sizes are all `clamp()` arbitrary values (`text-[clamp(14px,1.25vw,20px)]`, `max-w-225`), so it is fluid rather than breakpoint-driven; check at 320px. The `visible` gate is one-shot (observer disconnects), so items do not re-animate on scroll-back — intended.
 
 ### `HeadingOfCard.md`
+
 [HeadingOfCard.md]: Design/usage note for the `HeadingOfCard` component — documentation prose only, **not source code**.
 
 - **Runtime:** N/A (Markdown; not imported by anything and not a route/module).

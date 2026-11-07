@@ -15,12 +15,12 @@ export const metadata = {
 
 export default function GalleryImagesPage() {
   return (
-    <div className="flex flex-col @container" style={{ backgroundColor: "#e8f0f9" }}>
+    <div className="flex flex-col @container" style={{ backgroundColor: "#F7F4EE" }}>
       {/* ── Section 1: Banner ── */}
       <PageBanner
         title="Seminars, Academic Fests & Events at My Study Hub in pictures"
         subtitle="Explore our memorable moments from events, seminars, and academic fests. Celebrate inspiration, learning of students. Look at community workshops and events through our gallery. "
-        backgroundImage="/home/about-graduation.jpg"
+        backgroundImage="/home/about-graduation.png"
         overlayOpacity={0.5}
       />
 

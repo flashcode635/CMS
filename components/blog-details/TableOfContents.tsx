@@ -43,14 +43,14 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
     <nav aria-label="Table of contents" className="w-full">
       {/* Header */}
       <p
-        className="text-[#121416] font-bold text-base tracking-[3.6px] uppercase mb-6"
+        className="text-[#12211C] font-bold text-base tracking-[3.6px] uppercase mb-6"
         style={{ fontFamily: "'Inter', sans-serif" }}
       >
         Table of Contents
       </p>
 
       {/* Divider */}
-      <div className="h-px bg-[#e9ecef] mb-6" />
+      <div className="h-px bg-[#E4DDD0] mb-6" />
 
       {/* Items */}
       <ol className="flex flex-col gap-3">
@@ -81,7 +81,7 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
                       "flex-none w-[30px] h-[30px] rounded-full flex items-center justify-center text-sm font-bold transition-colors",
                       isActive
                         ? "bg-brand-royal text-white"
-                        : "bg-[#e8eeff] text-brand-royal",
+                        : "bg-[#F1E3C8] text-brand-royal",
                     ].join(" ")}
                     aria-hidden
                   >
@@ -92,7 +92,7 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
                   <span
                     className={[
                       "flex-none w-[6px] h-[6px] rounded-full transition-colors",
-                      isActive ? "bg-brand-royal" : "bg-[#00142d]",
+                      isActive ? "bg-brand-royal" : "bg-[#12211C]",
                     ].join(" ")}
                     aria-hidden
                   />
@@ -104,7 +104,7 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
                     isTop ? "font-semibold" : "font-normal",
                     isActive
                       ? "text-brand-royal"
-                      : "text-[#00142d] group-hover:text-brand-royal",
+                      : "text-[#12211C] group-hover:text-brand-royal",
                   ].join(" ")}
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
@@ -117,7 +117,7 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
       </ol>
 
       {/* Divider */}
-      <div className="h-px bg-[#e9ecef] mt-6" />
+      <div className="h-px bg-[#E4DDD0] mt-6" />
     </nav>
   );
 }

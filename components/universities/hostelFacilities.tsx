@@ -2,7 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { CircleCheck, Info } from "lucide-react";
-import aboutGraduationImg from "@/public/home/about-graduation.jpg";
+import aboutGraduationImg from "@/public/home/about-graduation.png";
 import blogGraduationImg from "@/public/home/blog-graduation.jpg";
 import univCampusImg from "@/public/home/univ-campus.jpg";
 import heroBgImg from "@/public/home/hero-bg.jpg";
@@ -165,37 +165,37 @@ export default function HostelFacilitiesSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(120deg,#e6f3ec_0%,#eef4ef_50%,#edf0fa_100%)] py-16 @min-[1024px]:py-24"
+            className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
         >
             <div className="mx-auto max-w-7xl px-4 @min-[640px]:px-6 @min-[1024px]:px-25">
                 {/* Eyebrow + centered heading + intro */}
                 <div className="flex items-center justify-center gap-2">
                     <span
                         aria-hidden="true"
-                        className="h-px flex-none w-4 bg-teal-500/60"
+                        className="h-px flex-none w-4 bg-brand-emerald/60"
                     />
-                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-teal-600">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-emerald-deep">
                         {eyebrow}
                     </p>
                     <span
                         aria-hidden="true"
-                        className="h-px flex-none w-4 bg-teal-500/60"
+                        className="h-px flex-none w-4 bg-brand-emerald/60"
                     />
                 </div>
-                <h2 className="mt-3 text-center text-[clamp(1.5rem,3vw,2rem)] font-bold text-[#16224a]">
+                <h2 className="mt-3 text-center text-[clamp(1.5rem,3vw,2rem)] font-bold text-[#1C2B25]">
                     {title}
                 </h2>
-                <p className="mx-auto mt-3 max-w-2xl text-center text-xs leading-relaxed text-slate-500 @min-[640px]:text-sm">
+                <p className="mx-auto mt-3 max-w-2xl text-center text-xs leading-relaxed text-muted @min-[640px]:text-sm">
                     {intro}
                 </p>
 
                 {/* Hostel feature cards — flex-wrap keeps leftover rows centred */}
-                <h3 className="text-lg font-bold text-[#16224a]">
+                <h3 className="text-lg font-bold text-[#1C2B25]">
                     {featuresHeading}
                 </h3>
                 <div
                     aria-hidden="true"
-                    className="mt-2 h-px bg-[#16224a]/10"
+                    className="mt-2 h-px bg-[#1C2B25]/10"
                 />
                 <div className="mt-6 grid grid-cols-1 gap-6 @min-[640px]:grid-cols-2 @min-[1024px]:grid-cols-6">
                     {features.map((feature, index) => {
@@ -221,10 +221,10 @@ export default function HostelFacilitiesSection({
                                     />
                                 </div>
                                 <div className="p-4">
-                                    <h4 className="text-sm font-bold text-[#16224a]">
+                                    <h4 className="text-sm font-bold text-[#1C2B25]">
                                         {feature.title}
                                     </h4>
-                                    <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
+                                    <p className="mt-1.5 text-xs leading-relaxed text-muted">
                                         {feature.description}
                                     </p>
                                 </div>
@@ -239,10 +239,10 @@ export default function HostelFacilitiesSection({
                         <p className="text-[10px] font-bold uppercase tracking-wide text-red-500">
                             {messEyebrow}
                         </p>
-                        <h3 className="mt-2 text-2xl font-bold text-[#16224a]">
+                        <h3 className="mt-2 text-2xl font-bold text-[#1C2B25]">
                             {messTitle}
                         </h3>
-                        <p className="mt-4 text-xs leading-relaxed text-slate-500 @min-[640px]:text-sm">
+                        <p className="mt-4 text-xs leading-relaxed text-muted @min-[640px]:text-sm">
                             {messIntro}
                         </p>
                         <ul className="mt-5 flex flex-col gap-3">
@@ -253,9 +253,9 @@ export default function HostelFacilitiesSection({
                                 >
                                     <CircleCheck
                                         aria-hidden="true"
-                                        className="h-4 w-4 flex-none text-green-600"
+                                        className="h-4 w-4 flex-none text-brand-emerald-deep"
                                     />
-                                    <span className="text-xs font-medium text-[#16224a]">
+                                    <span className="text-xs font-medium text-[#1C2B25]">
                                         {point}
                                     </span>
                                 </li>
@@ -275,13 +275,13 @@ export default function HostelFacilitiesSection({
 
                 {/* Closing note */}
                 <div className="mt-8 flex flex-col items-center gap-2">
-                    <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full border border-blue-500/30">
+                    <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full border border-brand-emerald/30">
                         <Info
                             aria-hidden="true"
-                            className="h-4 w-4 text-blue-600"
+                            className="h-4 w-4 text-brand-emerald-deep"
                         />
                     </span>
-                    <p className="max-w-xl text-center text-xs font-normal text-[#16224a]">
+                    <p className="max-w-xl text-center text-xs font-normal text-[#1C2B25]">
                         {closingNote}
                     </p>
                 </div>

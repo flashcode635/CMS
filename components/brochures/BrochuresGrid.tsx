@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState, useMemo, ChangeEvent } from "react";
 import { Button } from "@/components/ui/Button";
 
-const BTN_GRAD = "linear-gradient(157.91deg, #00923f 12.704%, #3163ff 87.17%)";
+const BTN_GRAD = "linear-gradient(157.91deg, #0E8F5B 12.704%, #0B3B2E 87.17%)";
 const PER_PAGE = 9;
 
 export interface Brochure {
@@ -45,8 +45,8 @@ function DownloadIcon() {
 function SearchIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden className="shrink-0">
-      <circle cx="11" cy="11" r="7" stroke="#9aa3b2" strokeWidth="2" />
-      <path d="M16.5 16.5L21 21" stroke="#9aa3b2" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="11" cy="11" r="7" stroke="#7A857E" strokeWidth="2" />
+      <path d="M16.5 16.5L21 21" stroke="#7A857E" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -57,7 +57,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden
       className={`shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
     >
-      <path d="M6 9L12 15L18 9" stroke="#606c83" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 9L12 15L18 9" stroke="#4A554F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -81,7 +81,7 @@ function ChevronRightIcon() {
 function ClearIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path d="M18 6L6 18M6 6L18 18" stroke="#9aa3b2" strokeWidth="2" strokeLinecap="round" />
+      <path d="M18 6L6 18M6 6L18 18" stroke="#7A857E" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -92,13 +92,13 @@ function SkeletonCard() {
       className="bg-[rgba(160,183,255,0.1)] border border-brand-royal rounded-4xl flex h-full flex-col gap-3.5 p-4 xl:p-5 w-full animate-pulse"
       style={{ borderWidth: "1.167px" }}
     >
-      <div className="aspect-[16/10] w-full rounded-2xl bg-[#d1deff]" />
+      <div className="aspect-[16/10] w-full rounded-2xl bg-[#F1E3C8]" />
       <div className="flex flex-1 flex-col gap-2.5 w-full">
-        <div className="h-5 w-3/4 rounded-lg bg-[#d1deff]" />
-        <div className="h-3.5 w-full rounded bg-[#d1deff]" />
-        <div className="h-3.5 w-5/6 rounded bg-[#d1deff]" />
+        <div className="h-5 w-3/4 rounded-lg bg-[#F1E3C8]" />
+        <div className="h-3.5 w-full rounded bg-[#F1E3C8]" />
+        <div className="h-3.5 w-5/6 rounded bg-[#F1E3C8]" />
       </div>
-      <div className="h-11 md:h-12 w-full rounded-xl bg-[#d1deff]" />
+      <div className="h-11 md:h-12 w-full rounded-xl bg-[#F1E3C8]" />
     </div>
   );
 }
@@ -109,15 +109,15 @@ function EmptyState({ hasFilters }: { hasFilters: boolean }) {
       <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path
           d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"
-          stroke="#bacbff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+          stroke="#F1E3C8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
         />
         <path
           d="M14 2v6h6M16 13H8M16 17H8M10 9H8"
-          stroke="#bacbff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+          stroke="#F1E3C8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
         />
       </svg>
       <p
-        className="text-[#606c83] text-lg font-medium text-center"
+        className="text-[#4A554F] text-lg font-medium text-center"
         style={{ fontFamily: "'Inter', sans-serif" }}
       >
         {hasFilters
@@ -150,7 +150,7 @@ function BrochureCard({ brochure, index, visible }: { brochure: Brochure; index:
         e.currentTarget.style.translate = "0 0";
       }}
     >
-      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden rounded-2xl bg-[#eef4ff]">
+      <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden rounded-2xl bg-[#EFE9DE]">
         {coverFailed ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-5 text-center text-brand-blue/55">
             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -182,14 +182,14 @@ function BrochureCard({ brochure, index, visible }: { brochure: Brochure; index:
 
       <div className="flex flex-1 flex-col gap-2.5 w-full">
         <h3
-          className="text-[#00142d] text-[17px] md:text-[19px] font-semibold leading-[1.25] tracking-[-0.3px] m-0"
+          className="text-[#12211C] text-[17px] md:text-[19px] font-semibold leading-[1.25] tracking-[-0.3px] m-0"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {brochure.title}
         </h3>
         {brochure.description && (
           <p
-            className="text-[#777] text-[13px] md:text-[14px] font-normal leading-[1.45] tracking-[-0.2px] m-0"
+            className="text-[#4A554F] text-[13px] md:text-[14px] font-normal leading-[1.45] tracking-[-0.2px] m-0"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {brochure.description}
@@ -249,11 +249,11 @@ function FilterDropdown({
       </Button>
 
       {open && (
-        <div className="absolute left-0 top-[calc(100%+6px)] z-999 bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.10)] border border-[#e5e7eb] py-1.5 min-w-40 overflow-hidden">
+        <div className="absolute left-0 top-[calc(100%+6px)] z-999 bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.10)] border border-[#E4DDD0] py-1.5 min-w-40 overflow-hidden">
           {options.map((opt) => (
             <Button key={opt} variant="ghost" size="bare" shape="none" active={value === opt}
   onClick={() => { onChange(opt); setOpen(false); }}
-  className="w-full justify-start px-4 py-2.5 text-sm text-gray-700 data-[active=true]:bg-brand-royal/[0.07] data-[active=true]:text-brand-royal">
+  className="w-full justify-start px-4 py-2.5 text-sm text-body data-[active=true]:bg-brand-royal/[0.07] data-[active=true]:text-brand-royal">
               {opt}
             </Button>
           ))}
@@ -300,7 +300,7 @@ function Pagination({
 
       {pages.map((p, i) =>
         p === "…" ? (
-          <span key={`ellipsis-${i}`} className="w-10 h-10 flex items-center justify-center text-[#9aa3b2] text-sm select-none">
+          <span key={`ellipsis-${i}`} className="w-10 h-10 flex items-center justify-center text-[#7A857E] text-sm select-none">
             …
           </span>
         ) : (
@@ -400,7 +400,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
     <section
       ref={sectionRef}
       className="w-full px-5 md:px-10 lg:px-14 xl:px-20 pt-6 md:pt-10 pb-12 md:pb-16"
-      style={{ backgroundColor: "#e8f2f4" }}
+      style={{ backgroundColor: "#EFE9DE" }}
     >
       <div
         className="flex flex-col gap-2 items-center text-center mb-6 md:mb-8"
@@ -413,8 +413,8 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
         <h2
           className="text-[24px] md:text-[32px] lg:text-[38px] font-extrabold leading-[1.2] m-0 max-w-[960px] text-balance"
           style={{
-            fontFamily: "'Inter', sans-serif",
-            backgroundImage: "linear-gradient(156.24deg, #00923f 12.704%, #3163ff 87.17%)",
+            fontFamily: "'Playfair Display', serif",
+            backgroundImage: "linear-gradient(156.24deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -424,7 +424,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
         </h2>
         <p
           className="text-[#0b0b0b99] text-[13px] md:text-[15px] font-normal leading-[1.45] tracking-[-0.2px] m-0 max-w-[640px]"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           Together, we strengthen international connections and expand opportunities
           by combining global expertise with local insights.
@@ -449,7 +449,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
             value={search}
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleSearchChange(e.target.value)}
             placeholder="Search by college or university name…"
-            className="w-full h-11 pl-10 pr-11 rounded-full border border-[#d1d5db] bg-white text-sm text-[#374151] placeholder-[#9aa3b2]
+            className="w-full h-11 pl-10 pr-11 rounded-full border border-[#D6CCBA] bg-white text-sm text-[#2A3A33] placeholder-[#7A857E]
                        focus:outline-none focus:border-brand-royal focus:ring-2 focus:ring-brand-royal/10
                        transition-all duration-200"
             style={{ fontFamily: "'Inter', sans-serif" }}
@@ -459,7 +459,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
               type="button"
               onClick={handleClearFilters}
               aria-label="Clear search and filters"
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full hover:bg-black/5 transition-colors"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full hover:bg-[#072A21]/5 transition-colors"
             >
               <ClearIcon />
             </button>
@@ -477,7 +477,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
           <button
             type="button"
             onClick={handleClearFilters}
-            className="shrink-0 self-start sm:self-center px-1 text-sm text-[#606c83] hover:text-brand-royal transition-colors"
+            className="shrink-0 self-start sm:self-center px-1 text-sm text-[#4A554F] hover:text-brand-royal transition-colors"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Clear all
@@ -487,7 +487,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
 
       {!isLoading && visible && (
         <p
-          className="text-xs md:text-sm text-[#9aa3b2] mb-3 md:mb-4"
+          className="text-xs md:text-sm text-[#7A857E] mb-3 md:mb-4"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {filtered.length === 0
@@ -514,7 +514,7 @@ export default function BrochuresGrid({ brochures = [], isLoading = false }: Bro
         ) : paginated.length === 0 ? (
           <div className="sm:col-span-2 flex flex-col items-center justify-center py-16 gap-3">
             <p
-              className="text-[#606c83] text-base font-medium text-center"
+              className="text-[#4A554F] text-base font-medium text-center"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {hasFilters

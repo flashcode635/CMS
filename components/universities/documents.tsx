@@ -32,9 +32,9 @@ const ICONS: Record<string, LucideIcon> = {
 
 /* Colour tones for the icon chips, also referenced by NAME string. */
 const TONES: Record<string, string> = {
-    blue: "bg-blue-50 text-blue-600",
+    blue: "bg-brand-champagne-soft/50 text-brand-emerald-deep",
     red: "bg-red-50 text-red-600",
-    green: "bg-emerald-50 text-emerald-600",
+    green: "bg-brand-champagne-soft/60 text-brand-emerald-deep",
 };
 
 type DocumentItem = {
@@ -105,14 +105,14 @@ export default function DocumentsSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(120deg,#e6f3ec_0%,#eef4ef_50%,#edf0fa_100%)] py-16 @min-[1024px]:py-24"
+            className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
         >
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-4 px-4 @min-[640px]:px-6 @min-[1024px]:grid-cols-2 @min-[1024px]:gap-16">
                 {/* Left: capsule-clipped photo (rectangle, top & bottom fully rounded) */}
                 <div className="relative mx-auto aspect-3/4 w-64 @min-[640px]:w-80 @min-[768px]:h-full @min-[1024px]:max-w-md">
                     <div
                         aria-hidden="true"
-                        className="absolute -inset-3 rounded-t-full rounded-b-full border border-[#9db8d8]/50"
+                        className="absolute -inset-3 rounded-t-full rounded-b-full border border-[#A9B5AE]/50"
                     />
                     <div className="absolute inset-0 overflow-hidden rounded-t-full rounded-b-full">
                         <Image
@@ -132,11 +132,11 @@ export default function DocumentsSection({
                     <div className="flex gap-4">
                         <div
                             aria-hidden="true"
-                            className="w-1.5 flex-none rounded-full bg-green-600"
+                            className="w-1.5 flex-none rounded-full bg-brand-emerald"
                         />
                         <h2 className="text-2xl font-semibold leading-snug @min-[1024px]:text-3xl">
-                            <span className="text-green-700">{titleGreen}</span>{" "}
-                            <span className="text-blue-600">{titleBlue}</span>
+                            <span className="text-brand-emerald-deep">{titleGreen}</span>{" "}
+                            <span className="text-brand-emerald-deep">{titleBlue}</span>
                         </h2>
                     </div>
 
@@ -144,7 +144,7 @@ export default function DocumentsSection({
                         {paragraphs.map((paragraph) => (
                             <p
                                 key={paragraph}
-                                className="text-xs leading-relaxed text-slate-500 @min-[640px]:text-sm"
+                                className="text-xs leading-relaxed text-muted @min-[640px]:text-sm"
                             >
                                 {paragraph}
                             </p>
@@ -168,7 +168,7 @@ export default function DocumentsSection({
                                             className="h-4 w-4"
                                         />
                                     </span>
-                                    <span className="text-xs leading-relaxed text-slate-600">
+                                    <span className="text-xs leading-relaxed text-body">
                                         {item.title}
                                     </span>
                                 </li>

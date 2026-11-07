@@ -76,7 +76,7 @@ function MarqueeRow({ images, direction = "left", speed = 38 }: MarqueeRowProps)
               width: "clamp(150px, 17.71vw, 340px)",
               height: "clamp(120px, 14.58vw, 280px)",
               borderRadius: "clamp(10px, 1.25vw, 24px)",
-              backgroundColor: "#f1f3f7",
+              backgroundColor: "#EFE9DE",
             }}
           >
             <Image
@@ -111,7 +111,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
         width: "clamp(280px, 42.08vw, 808px)",
         height: "clamp(161px, 24.22vw, 465px)",
         borderRadius: "clamp(14px, 1.67vw, 32px)",
-        backgroundColor: "#000",
+        backgroundColor: "#072A21",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(32px) scale(0.97)",
         transition: `opacity 0.7s ease ${0.1 + index * 0.15}s, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${0.1 + index * 0.15}s`,
@@ -181,7 +181,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <p style={{
-                fontFamily: "'Roboto', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontWeight: 700,
                 fontSize: "clamp(11px,1.04vw,20px)",
                 color: "white",
@@ -192,7 +192,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
                 {video.title}
               </p>
               <p style={{
-                fontFamily: "'Roboto', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontWeight: 400,
                 fontSize: "clamp(9px,0.63vw,12px)",
                 color: "white",
@@ -218,7 +218,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             }}
           >
             <span style={{
-              fontFamily: "'Roboto', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 300,
               fontSize: "clamp(10px,0.94vw,18px)",
               color: "white",
@@ -294,7 +294,7 @@ export default function FreshersPartyHighlights() {
       <section
         ref={sectionRef}
         style={{
-          backgroundColor: "#e8f2f4",
+          backgroundColor: "#EFE9DE",
           padding: "clamp(32px,3.33vw,64px) 0",
           display: "flex",
           flexDirection: "column",
@@ -330,10 +330,10 @@ export default function FreshersPartyHighlights() {
           <h2
             className={`fph-heading${visible ? " in" : ""} font-bold text-center`}
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontSize: "clamp(28px,3.33vw,64px)",
               lineHeight: 1.15,
-              backgroundImage: "linear-gradient(135deg, #00923F 0%, #3163FF 100%)",
+              backgroundImage: "linear-gradient(135deg, #0E8F5B 0%, #0B3B2E 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",

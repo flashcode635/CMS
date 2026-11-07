@@ -3,7 +3,7 @@
  * Career page — 3rd component
  *
  * Desktop:
- *   - Gradient heading (Poppins Bold) + subtitle
+ *   - Gradient heading (Inter Bold) + subtitle
  *   - Large office photo (left ~67%), white card overlapping right side
  *
  * Mobile:
@@ -26,7 +26,7 @@ function ArrowRight() {
     >
       <path
         d="M3 8H13M13 8L9 4M13 8L9 12"
-        stroke="#0028a5"
+        stroke="#072A21"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -45,17 +45,17 @@ export default function JoinTeamSection() {
           <h2
             className="font-bold bg-clip-text text-transparent leading-tight"
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontSize: "clamp(32px, 4.17vw, 64px)",
               lineHeight: 1.2,
               backgroundImage:
-                "linear-gradient(167.98deg, #00923F 12.704%, #3163FF 87.17%)",
+                "linear-gradient(167.98deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
             }}
           >
             Join the My Study Hub Team
           </h2>
           <p
-            className="text-[#606c83] font-normal leading-relaxed"
+            className="text-[#4A554F] font-normal leading-relaxed"
             style={{
               fontFamily: "Inter, sans-serif",
               fontSize: "clamp(14px, 1.11vw, 21px)",
@@ -78,7 +78,7 @@ export default function JoinTeamSection() {
             style={{ width: "66.75%" }}
           >
             <Image
-              src="/home/about-graduation.jpg"
+              src="/home/about-graduation.png"
               alt="My Study Hub team collaborating in the office"
               fill
               className="object-cover object-center"
@@ -98,7 +98,7 @@ export default function JoinTeamSection() {
             {/* About text */}
             <div className="flex flex-col gap-3">
               <h3
-                className="font-extrabold text-[#00142d] leading-tight"
+                className="font-extrabold text-[#12211C] leading-tight"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontSize: "clamp(20px, 1.67vw, 32px)",
@@ -108,9 +108,9 @@ export default function JoinTeamSection() {
                 About My Study Hub
               </h3>
               <p
-                className="font-light text-[#6d758f] leading-relaxed"
+                className="font-light text-[#4A554F] leading-relaxed"
                 style={{
-                  fontFamily: "'Lexend', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontSize: "clamp(14px, 0.94vw, 18px)",
                   lineHeight: "25px",
                 }}
@@ -138,7 +138,7 @@ export default function JoinTeamSection() {
           {/* Photo full width */}
           <div className="relative w-full rounded-xl overflow-hidden" style={{ height: 260 }}>
             <Image
-              src="/home/about-graduation.jpg"
+              src="/home/about-graduation.png"
               alt="My Study Hub team collaborating in the office"
               fill
               className="object-cover object-center"

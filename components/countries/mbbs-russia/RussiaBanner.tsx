@@ -81,7 +81,7 @@ export default function RussiaBanner({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(0,0,0,0) 0.753%, #000 100.75%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0.753%, #072A21 100.75%)",
         }}
       />
     </div>
@@ -120,7 +120,7 @@ export default function RussiaBanner({
               <p
                 className="m-0 text-center text-white"
                 style={{
-                  fontFamily: "'Lexend', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontWeight: 300,
                   fontSize: "clamp(13px, 1.04cqw, 20px)",
                   lineHeight: 1.3,
@@ -164,7 +164,7 @@ export default function RussiaBanner({
             className="flex items-center justify-center gap-2 whitespace-nowrap text-white no-underline shadow-sm transition duration-200 hover:-translate-y-0.5 hover:opacity-90"
             style={{
               backgroundImage:
-                "linear-gradient(152.61deg, #00923F 12.704%, #3163FF 87.17%)",
+                "linear-gradient(152.61deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
               borderRadius: 8,
               padding: "clamp(12px, 0.83cqw, 16px) clamp(20px, 1.46cqw, 28px)",
               height: "clamp(44px, 2.71cqw, 52px)",
@@ -201,7 +201,7 @@ export default function RussiaBanner({
           <span
             className="text-white"
             style={{
-              fontFamily: "'Arial', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 700,
               fontSize: "clamp(11px, 0.89cqw, 17px)",
               lineHeight: "28px",
@@ -211,11 +211,11 @@ export default function RussiaBanner({
           </span>
           <span
             style={{
-              fontFamily: "'Arial', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
               fontSize: "clamp(11px, 0.89cqw, 17px)",
               lineHeight: "28px",
-              color: "#767676",
+              color: "#4A554F",
             }}
           >
             {languages}
@@ -231,7 +231,7 @@ export default function RussiaBanner({
           <span
             className="text-white"
             style={{
-              fontFamily: "'Arial', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 700,
               fontSize: "clamp(11px, 0.89cqw, 17px)",
               lineHeight: "28px",
@@ -241,11 +241,11 @@ export default function RussiaBanner({
           </span>
           <span
             style={{
-              fontFamily: "'Arial', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
               fontSize: "clamp(11px, 0.89cqw, 17px)",
               lineHeight: "28px",
-              color: "#767676",
+              color: "#4A554F",
             }}
           >
             {currency}

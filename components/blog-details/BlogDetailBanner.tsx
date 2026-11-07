@@ -7,7 +7,7 @@ import Image from "next/image";
  */
 export default function BlogDetailBanner() {
   return (
-    <section className="relative w-full h-72 sm:h-96 overflow-hidden bg-[#0d111c]" aria-label="Blog detail banner">
+    <section className="relative w-full h-72 sm:h-96 overflow-hidden bg-[#072A21]" aria-label="Blog detail banner">
       <Image
         src="/bg-doctor.jpg"
         alt=""
@@ -43,7 +43,7 @@ export default function BlogDetailBanner() {
         </h1>
         <p
           className="m-0 text-white/75"
-          style={{ fontFamily: "'Lexend', sans-serif", fontSize: "clamp(14px, 1.15vw, 18px)" }}
+          style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(14px, 1.15vw, 18px)" }}
         >
           Grow Together in Excellence
         </p>

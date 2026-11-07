@@ -65,7 +65,7 @@ export default function NewsletterCTA({
           unoptimized
           aria-hidden
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-[#072A21]/60" />
       </div>
 
       <div className="relative z-10 flex flex-col gap-7 px-6 py-10 sm:px-7 sm:py-12">
@@ -73,7 +73,7 @@ export default function NewsletterCTA({
           <h2
             id="newsletter-heading"
             className="text-white font-normal text-[24px] sm:text-[26px] tracking-normal leading-tight"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {content.heading}
           </h2>
@@ -87,7 +87,7 @@ export default function NewsletterCTA({
 
         {submitted ? (
           <p
-            className="text-green-300 text-[16px] font-semibold"
+            className="text-brand-champagne-soft text-[16px] font-semibold"
             style={{ fontFamily: "'Inter', sans-serif" }}
             role="alert"
           >
@@ -104,7 +104,7 @@ export default function NewsletterCTA({
                   Replaced it with the "Join Now" button (the ACTIVE one), which now sits
                   INLINE on the right side of the email input, inside a shared white bar:
                     - label comes from DEFAULT_CONTENT_NewsletterCTA.submitLabel = "Join Now"
-                    - styling: turns BLACK on hover/click (hover:bg-black active:bg-black)
+                    - styling: turns BLACK on hover/click (hover:bg-[#072A21] active:bg-[#072A21])
                   Uncomment the commented block to restore the old Subscribe button. ── */}
               {/* <Button
                 type="submit"
@@ -112,7 +112,7 @@ export default function NewsletterCTA({
                 variant="outline"
                 size="bare"
                 shape="md"
-                className="w-full px-6 py-4 text-base font-normal text-[#6c757d] hover:bg-[#f0f4ff]"
+                className="w-full px-6 py-4 text-base font-normal text-[#4A554F] hover:bg-[#EFE9DE]"
               >
                 {content.submitLabel}
               </Button> */}
@@ -126,7 +126,7 @@ export default function NewsletterCTA({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={content.emailPlaceholder}
                   required
-                  className="min-w-0 flex-1 bg-transparent px-4 text-[16px] text-[#6c757d] placeholder:text-[#adb5bd] focus:outline-none"
+                  className="min-w-0 flex-1 bg-transparent px-4 text-[16px] text-[#4A554F] placeholder:text-[#7A857E] focus:outline-none"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 />
                 <Button
@@ -135,7 +135,7 @@ export default function NewsletterCTA({
                   variant="unstyled"
                   size="bare"
                   shape="md"
-                  className="shrink-0 px-6 py-3.5 text-base font-normal border border-[#e9ecef] bg-white text-[#6c757d] hover:bg-black hover:border-black hover:text-white active:bg-black active:border-black active:text-white disabled:opacity-50 disabled:pointer-events-none"
+                  className="shrink-0 px-6 py-3.5 text-base font-normal border border-[#E4DDD0] bg-white text-[#4A554F] hover:bg-brand-forest hover:border-brand-forest hover:text-white active:bg-brand-forest active:border-brand-forest active:text-white disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {content.submitLabel}
                 </Button>
@@ -163,7 +163,7 @@ export default function NewsletterCTA({
               >
                 <CheckSquare
                   className={`h-6 w-6 transition-colors ${
-                    agreed ? "text-green-400" : "text-white/60"
+                    agreed ? "text-brand-champagne" : "text-white/60"
                   }`}
                   aria-hidden
                 />

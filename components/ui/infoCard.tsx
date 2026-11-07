@@ -17,7 +17,7 @@ export default function InfoCard({ card, lgw=true, className="" }: InfoCardProps
               style={{
                 gap: 8,
                 backgroundColor: "#ffffff",
-                border: "1px solid #e6eef8",
+                border: "1px solid #EFE9DE",
                 borderRadius: 16,
                 boxShadow: "0px 1.5px 1.5px rgba(0, 0, 0, 0.05)",
               }}
@@ -25,7 +25,7 @@ export default function InfoCard({ card, lgw=true, className="" }: InfoCardProps
              
               <p
                 style={{
-                  fontFamily: "'Hanken Grotesk', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontWeight: 500,
                   fontSize: 0,       // container collapses; children set their own size
                   lineHeight: 0,
@@ -60,16 +60,16 @@ export default function InfoCard({ card, lgw=true, className="" }: InfoCardProps
               </p>
 
               {/*
-               * Body text: #485f84 (slate-blue) — DM Sans Regular 16/24
-               * Bold spans inside Card 1 keep the same #485f84 colour.
+               * Body text: #4A554F (slate-blue) — Inter Regular 16/24
+               * Bold spans inside Card 1 keep the same #4A554F colour.
                */}
               <p
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontWeight: 400,
                   fontSize: 16,
                   lineHeight: "24px",
-                  color: "#485f84",
+                  color: "#4A554F",
                   margin: 0,
                   width: "100%",
                 }}

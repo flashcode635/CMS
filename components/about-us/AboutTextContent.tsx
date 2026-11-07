@@ -1,7 +1,7 @@
 /**
  * AboutTextContent — Fourth section of the About Us / Overview page.
  * Figma node 7:432 — two stacked text blocks with Inter ExtraBold headings
- * and Lexend Light body copy.
+ * and Inter Light body copy.
  */
 
 export default function AboutTextContent() {
@@ -12,9 +12,9 @@ export default function AboutTextContent() {
         {/* ── Block 1 ─────────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-6">
           <h2
-            className="text-[#00142d]"
+            className="text-[#12211C]"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "Playfair Display, serif",
               fontWeight: 800,
               fontSize:   "clamp(22px, 2.5vw, 32px)",
               lineHeight: "1.5",
@@ -24,9 +24,9 @@ export default function AboutTextContent() {
           </h2>
 
           <div
-            className="flex flex-col gap-4 text-[#606c83]"
+            className="flex flex-col gap-4 text-[#4A554F]"
             style={{
-              fontFamily: "'Lexend', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 300,
               fontSize:   "clamp(15px, 1.1vw, 18px)",
               lineHeight: "1.65",
@@ -55,9 +55,9 @@ export default function AboutTextContent() {
         {/* ── Block 2 ─────────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-6">
           <h2
-            className="text-[#00142d]"
+            className="text-[#12211C]"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "Playfair Display, serif",
               fontWeight: 800,
               fontSize:   "clamp(22px, 2.5vw, 32px)",
               lineHeight: "1.5",
@@ -67,9 +67,9 @@ export default function AboutTextContent() {
           </h2>
 
           <div
-            className="flex flex-col gap-4 text-[#606c83]"
+            className="flex flex-col gap-4 text-[#4A554F]"
             style={{
-              fontFamily: "'Lexend', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 300,
               fontSize:   "clamp(15px, 1.1vw, 18px)",
               lineHeight: "1.65",

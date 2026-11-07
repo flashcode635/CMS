@@ -90,18 +90,18 @@ function GlobeSVG() {
     <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <radialGradient id="globeGrad" cx="38%" cy="35%" r="65%">
-          <stop offset="0%" stopColor="#4ADE80" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="#1E40AF" stopOpacity="0.15" />
+          <stop offset="0%" stopColor="#0E8F5B" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#0B3B2E" stopOpacity="0.15" />
         </radialGradient>
         <radialGradient id="globeCore" cx="38%" cy="35%" r="65%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.18)" />
-          <stop offset="100%" stopColor="rgba(49,99,255,0.08)" />
+          <stop offset="100%" stopColor="rgba(216,178,110,0.08)" />
         </radialGradient>
       </defs>
       <circle cx="160" cy="160" r="148" stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="url(#globeGrad)" />
       <circle cx="160" cy="160" r="148" stroke="rgba(74,222,128,0.2)" strokeWidth="0.5" fill="none" />
-      <circle cx="160" cy="160" r="155" stroke="rgba(0,146,63,0.1)" strokeWidth="1" fill="none" style={{ animation: "ringPulse 3s ease-in-out infinite" }} />
-      <circle cx="160" cy="160" r="162" stroke="rgba(49,99,255,0.07)" strokeWidth="1" fill="none" style={{ animation: "ringPulse 3.5s ease-in-out infinite", animationDelay: "0.5s" }} />
+      <circle cx="160" cy="160" r="155" stroke="rgba(14,143,91,0.1)" strokeWidth="1" fill="none" style={{ animation: "ringPulse 3s ease-in-out infinite" }} />
+      <circle cx="160" cy="160" r="162" stroke="rgba(216,178,110,0.07)" strokeWidth="1" fill="none" style={{ animation: "ringPulse 3.5s ease-in-out infinite", animationDelay: "0.5s" }} />
       <circle cx="160" cy="160" r="128" fill="url(#globeCore)" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
       {[40, 80, 110, 130, 145, 160, 175, 195, 220, 250, 280].map((cy, i) => {
         const r = Math.sqrt(Math.max(0, 128 * 128 - (cy - 160) * (cy - 160)));
@@ -113,17 +113,17 @@ function GlobeSVG() {
           stroke="rgba(255,255,255,0.07)" strokeWidth="0.8" fill="none" transform={`rotate(${deg}, 160, 160)`} />
       ))}
       <g opacity="0.38">
-        <ellipse cx="120" cy="130" rx="28" ry="18" fill="#00923F" transform="rotate(-15,120,130)" />
-        <ellipse cx="155" cy="125" rx="18" ry="14" fill="#00923F" transform="rotate(10,155,125)" />
-        <ellipse cx="195" cy="140" rx="22" ry="15" fill="#00923F" transform="rotate(-8,195,140)" />
-        <ellipse cx="130" cy="175" rx="20" ry="12" fill="#00923F" transform="rotate(20,130,175)" />
-        <ellipse cx="175" cy="165" rx="25" ry="10" fill="#00923F" transform="rotate(-5,175,165)" />
-        <ellipse cx="210" cy="170" rx="12" ry="8" fill="#00923F" />
+        <ellipse cx="120" cy="130" rx="28" ry="18" fill="#0E8F5B" transform="rotate(-15,120,130)" />
+        <ellipse cx="155" cy="125" rx="18" ry="14" fill="#0E8F5B" transform="rotate(10,155,125)" />
+        <ellipse cx="195" cy="140" rx="22" ry="15" fill="#0E8F5B" transform="rotate(-8,195,140)" />
+        <ellipse cx="130" cy="175" rx="20" ry="12" fill="#0E8F5B" transform="rotate(20,130,175)" />
+        <ellipse cx="175" cy="165" rx="25" ry="10" fill="#0E8F5B" transform="rotate(-5,175,165)" />
+        <ellipse cx="210" cy="170" rx="12" ry="8" fill="#0E8F5B" />
       </g>
       <ellipse cx="128" cy="118" rx="38" ry="22" fill="rgba(255,255,255,0.08)" transform="rotate(-25,128,118)" />
       <ellipse cx="160" cy="160" rx="148" ry="40" stroke="rgba(74,222,128,0.18)" strokeWidth="1" fill="none" strokeDasharray="4 6" transform="rotate(-20,160,160)" />
-      <circle cx="57" cy="130" r="5" fill="#00923F" opacity="0.85" />
-      <circle cx="57" cy="130" r="9" fill="#00923F" opacity="0.2" />
+      <circle cx="57" cy="130" r="5" fill="#0E8F5B" opacity="0.85" />
+      <circle cx="57" cy="130" r="9" fill="#0E8F5B" opacity="0.2" />
     </svg>
   );
 }
@@ -273,9 +273,9 @@ export default function MBBSHeroSection() {
     height: `${2 + (i % 5)}px`,
     background:
       i % 3 === 0
-        ? "rgba(0,146,63,0.55)"
+        ? "rgba(14,143,91,0.55)"
         : i % 3 === 1
-        ? "rgba(49,99,255,0.5)"
+        ? "rgba(216,178,110,0.5)"
         : "rgba(255,255,255,0.22)",
     animation: `particleDrift ${6 + (i % 8)}s ease-in-out infinite`,
     animationDelay: `${(i * 0.4) % 6}s`,
@@ -284,7 +284,7 @@ export default function MBBSHeroSection() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap');
 
         @keyframes floatY {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -314,8 +314,8 @@ export default function MBBSHeroSection() {
           100% { transform: translateX(200px) translateY(-32px) rotate(6deg); opacity: 0; }
         }
         @keyframes pulseGlow {
-          0%,100% { box-shadow: 0 0 0 0 rgba(0,146,63,0.5), 0 8px 32px rgba(0,146,63,0.4); }
-          50%      { box-shadow: 0 0 0 10px rgba(0,146,63,0), 0 12px 40px rgba(0,146,63,0.65); }
+          0%,100% { box-shadow: 0 0 0 0 rgba(14,143,91,0.5), 0 8px 32px rgba(14,143,91,0.4); }
+          50%      { box-shadow: 0 0 0 10px rgba(14,143,91,0), 0 12px 40px rgba(14,143,91,0.65); }
         }
         @keyframes shimmer {
           0%   { background-position: -300% center; }
@@ -351,10 +351,10 @@ export default function MBBSHeroSection() {
           50%      { box-shadow: 0 0 0 5px rgba(74,222,128,0); }
         }
 
-        .hero-section { font-family: 'Poppins', sans-serif; }
-        .dm-serif    { font-family: 'DM Serif Display', serif; }
+        .hero-section { font-family: 'Inter', sans-serif; }
+        .dm-serif    { font-family: 'Playfair Display', serif; }
         .shimmer-text {
-          background: linear-gradient(90deg,#ffffff 0%,#6ee7b7 25%,#ffffff 50%,#93c5fd 75%,#ffffff 100%);
+          background: linear-gradient(90deg,#ffffff 0%,#D8B26E 25%,#ffffff 50%,#E8D7B0 75%,#ffffff 100%);
           background-size: 300% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -369,14 +369,14 @@ export default function MBBSHeroSection() {
         style={{
           width: "1920px",
           height: "1009.33px",
-          background: "linear-gradient(130deg,#003d1a 0%,#00712f 18%,#00923F 35%,#1a4fa0 65%,#3163FF 100%)",
+          background: "linear-gradient(130deg,#072A21 0%,#0A6B44 18%,#0E8F5B 35%,#0B3B2E 65%,#0B3B2E 100%)",
           transform: `translateY(${scrollY * 0.3}px)`,
         }}
       >
         {/* ── Background radial overlays ── */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 80% at 10% 50%, rgba(0,146,63,0.3) 0%, transparent 70%)" }} />
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 55% 70% at 88% 40%, rgba(49,99,255,0.4) 0%, transparent 70%)" }} />
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 80% at 10% 50%, rgba(14,143,91,0.3) 0%, transparent 70%)" }} />
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 55% 70% at 88% 40%, rgba(216,178,110,0.4) 0%, transparent 70%)" }} />
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 40% 40% at 50% 95%, rgba(0,0,0,0.28) 0%, transparent 60%)" }} />
         </div>
 
@@ -409,13 +409,13 @@ export default function MBBSHeroSection() {
           <IconBubble icon={GraduationCap} size={56} bgColor="rgba(255,255,255,0.1)" strokeColor="rgba(255,255,255,0.28)" />
         </FloatingIcon>
         <FloatingIcon className="left-[3%] top-[57%]" delay={1.5}>
-          <IconBubble icon={Pill} size={46} bgColor="rgba(49,99,255,0.2)" strokeColor="rgba(49,99,255,0.4)" />
+          <IconBubble icon={Pill} size={46} bgColor="rgba(216,178,110,0.2)" strokeColor="rgba(216,178,110,0.4)" />
         </FloatingIcon>
         <FloatingIcon className="right-[5%] top-[16%]" delay={0.8}>
-          <IconBubble icon={Dna} size={46} bgColor="rgba(49,99,255,0.18)" strokeColor="rgba(49,99,255,0.38)" />
+          <IconBubble icon={Dna} size={46} bgColor="rgba(216,178,110,0.18)" strokeColor="rgba(216,178,110,0.38)" />
         </FloatingIcon>
         <FloatingIcon className="right-[3%] bottom-[22%]" delay={2}>
-          <IconBubble icon={Stethoscope} size={50} bgColor="rgba(0,146,63,0.2)" strokeColor="rgba(0,146,63,0.4)" />
+          <IconBubble icon={Stethoscope} size={50} bgColor="rgba(14,143,91,0.2)" strokeColor="rgba(14,143,91,0.4)" />
         </FloatingIcon>
         <FloatingIcon className="left-[13%] bottom-[18%]" delay={1.2}>
           <IconBubble icon={Globe} size={38} bgColor="rgba(255,255,255,0.08)" strokeColor="rgba(255,255,255,0.2)" />
@@ -479,7 +479,7 @@ export default function MBBSHeroSection() {
               style={{ animation: "fadeSlideUp 0.6s ease forwards", animationDelay: "0.3s", opacity: 0 }}
             >
               Join{" "}
-              <span className="text-green-300 font-semibold">10,000+ Indian students</span>{" "}
+              <span className="text-brand-champagne-soft font-semibold">10,000+ Indian students</span>{" "}
               who chose globally recognised universities across Russia, Kazakhstan, China,
               Philippines & beyond — with full NMC / WHO approval.
             </p>
@@ -492,12 +492,12 @@ export default function MBBSHeroSection() {
               <Button variant="brand"
                 className="relative overflow-hidden text-white font-bold text-base px-10 py-4 rounded-2xl transition-all duration-300 hover:scale-105 h-auto"
                 style={{
-                  background: "linear-gradient(135deg,#00923F,#00b84e)",
-                  boxShadow: "0 8px 32px rgba(0,146,63,0.45),inset 0 1px 0 rgba(255,255,255,0.2)",
+                  background: "linear-gradient(135deg,#0E8F5B,#0E8F5B)",
+                  boxShadow: "0 8px 32px rgba(14,143,91,0.45),inset 0 1px 0 rgba(255,255,255,0.2)",
                   animation: "pulseGlow 3.5s ease-in-out infinite",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 16px 48px rgba(0,146,63,0.65),inset 0 1px 0 rgba(255,255,255,0.2)")}
-                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,146,63,0.45),inset 0 1px 0 rgba(255,255,255,0.2)")}
+                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 16px 48px rgba(14,143,91,0.65),inset 0 1px 0 rgba(255,255,255,0.2)")}
+                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 8px 32px rgba(14,143,91,0.45),inset 0 1px 0 rgba(255,255,255,0.2)")}
               >
                 <span className="flex items-center gap-2.5">
                   <GraduationCap size={18} color="white" strokeWidth={2} />
@@ -535,9 +535,9 @@ export default function MBBSHeroSection() {
               className="flex flex-wrap items-stretch gap-4"
               style={{ animation: "fadeSlideUp 0.6s ease forwards", animationDelay: "0.7s", opacity: 0 }}
             >
-              <StatCard icon={Building2}   iconColor="rgba(0,146,63,0.55)"   value={450} suffix="+"  label="Partner Universities" delay={0.8} />
+              <StatCard icon={Building2}   iconColor="rgba(14,143,91,0.55)"   value={450} suffix="+"  label="Partner Universities" delay={0.8} />
               <StatCard icon={BadgeCheck}  iconColor="rgba(74,222,128,0.45)" value={98}  suffix="%"  label="NMC Approved"         delay={0.9} />
-              <StatCard icon={Users}       iconColor="rgba(49,99,255,0.5)"   value={10}  suffix="K+" label="Students Placed"      delay={1.0} />
+              <StatCard icon={Users}       iconColor="rgba(216,178,110,0.5)"   value={10}  suffix="K+" label="Students Placed"      delay={1.0} />
               <StatCard icon={IndianRupee} iconColor="rgba(251,191,36,0.5)"  value={3}   suffix="L+" label="Starting Fee/Yr"      delay={1.1} />
             </div>
           </div>
@@ -554,7 +554,7 @@ export default function MBBSHeroSection() {
                 width: "520px",
                 height: "520px",
                 borderRadius: "50%",
-                background: "radial-gradient(circle,rgba(0,146,63,0.22) 0%,rgba(49,99,255,0.14) 60%,transparent 80%)",
+                background: "radial-gradient(circle,rgba(14,143,91,0.22) 0%,rgba(216,178,110,0.14) 60%,transparent 80%)",
                 filter: "blur(42px)",
                 transform: `translate(${mouseX * 20}px,${mouseY * 15}px)`,
                 transition: "transform 0.3s ease",
@@ -579,20 +579,20 @@ export default function MBBSHeroSection() {
                   className="absolute rounded-full"
                   style={{
                     width: "10px", height: "10px",
-                    background: "#00923F",
+                    background: "#0E8F5B",
                     top: "-5px", left: "-5px",
                     animation: "orbitDot 6s linear infinite",
-                    boxShadow: "0 0 8px rgba(0,146,63,0.85)",
+                    boxShadow: "0 0 8px rgba(14,143,91,0.85)",
                   }}
                 />
                 <div
                   className="absolute rounded-full"
                   style={{
                     width: "7px", height: "7px",
-                    background: "#3163FF",
+                    background: "#0B3B2E",
                     top: "-3.5px", left: "-3.5px",
                     animation: "orbitDot2 8s linear infinite",
-                    boxShadow: "0 0 6px rgba(49,99,255,0.85)",
+                    boxShadow: "0 0 6px rgba(216,178,110,0.85)",
                   }}
                 />
               </div>
@@ -600,7 +600,7 @@ export default function MBBSHeroSection() {
               {/* Info cards pinned to globe */}
               <InfoCard
                 icon={ShieldCheck}
-                iconBg="rgba(0,146,63,0.35)"
+                iconBg="rgba(14,143,91,0.35)"
                 label="Recognised by"
                 value="NMC / WHO / MCI"
                 animDelay="1.1s"
@@ -608,7 +608,7 @@ export default function MBBSHeroSection() {
               />
               <InfoCard
                 icon={IndianRupee}
-                iconBg="rgba(49,99,255,0.35)"
+                iconBg="rgba(216,178,110,0.35)"
                 label="Fees Starting"
                 value="₹3 Lakh / Year"
                 animDelay="1.3s"
@@ -645,12 +645,12 @@ export default function MBBSHeroSection() {
               <div className="relative">
                 <div
                   className="w-11 h-11 rounded-full flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg,#22c55e,#15803d)" }}
+                  style={{ background: "linear-gradient(135deg,#0E8F5B,#0A6B44)" }}
                 >
                   <UserCheck size={20} color="white" strokeWidth={1.8} />
                 </div>
                 <div
-                  className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-green-400 border-2 border-white/30"
+                  className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-brand-emerald border-2 border-white/30"
                   style={{ animation: "onlinePulse 2s ease-in-out infinite" }}
                 />
               </div>
@@ -658,10 +658,10 @@ export default function MBBSHeroSection() {
                 <div className="text-xs text-white/60">Expert Counsellor</div>
                 <div className="text-sm font-semibold flex items-center gap-1.5">
                   Available Now
-                  <span className="inline-block w-2 h-2 rounded-full bg-green-400" style={{ animation: "onlinePulse 2s ease-in-out infinite" }} />
+                  <span className="inline-block w-2 h-2 rounded-full bg-brand-emerald" style={{ animation: "onlinePulse 2s ease-in-out infinite" }} />
                 </div>
               </div>
-              <Button variant="brandSolid" className="ml-2 bg-green-500 hover:bg-green-400 transition-colors text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 h-auto shadow-none">
+              <Button variant="brandSolid" className="ml-2 bg-brand-emerald hover:bg-brand-emerald-deep transition-colors text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 h-auto shadow-none">
                 <MessageCircle size={13} color="white" strokeWidth={2} />
                 Chat
               </Button>

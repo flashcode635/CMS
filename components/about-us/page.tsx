@@ -18,12 +18,12 @@ export const metadata = {
 
 export default function AboutUsPage() {
   return (
-    <div className="flex flex-col" style={{ backgroundColor: "#e1f0f9", width: "100%" }}>
+    <div className="flex flex-col" style={{ backgroundColor: "#F7F4EE", width: "100%" }}>
       {/* ── Page Banner ── */}
       <PageBanner
         title="About Us"
         subtitle="Learn more about who we are"
-        backgroundImage="/home/about-graduation.jpg"
+        backgroundImage="/home/about-graduation.png"
         overlayOpacity={0.5}
       />
 
@@ -32,8 +32,8 @@ export default function AboutUsPage() {
         (
           <>
             <div
-          className="flex flex-col text-[#606c83]"
-          style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 300 }}
+          className="flex flex-col text-[#4A554F]"
+          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
         >
           
           <p className="text-base flex justify-start items-end sm:text-lg leading-relaxed">

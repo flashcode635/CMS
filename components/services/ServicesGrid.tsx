@@ -205,9 +205,9 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
   // Multi-layer shadow: lift + coloured glow + deep ambient
   const hoverShadow = `
     0px 2px  8px  0px  rgba(0,0,0,0.06),
-    0px 8px  24px -4px rgba(49,99,255,0.18),
-    0px 24px 56px -8px rgba(0,146,63,0.22),
-    0px 40px 80px -12px rgba(49,99,255,0.28)
+    0px 8px  24px -4px rgba(216,178,110,0.18),
+    0px 24px 56px -8px rgba(14,143,91,0.22),
+    0px 40px 80px -12px rgba(216,178,110,0.28)
   `;
   const idleShadow = `0px 16px 40px -8px rgba(88,92,95,0.16)`;
 
@@ -242,7 +242,7 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
             sweepState === "in" ? "card-sweep-bg" : "card-sweep-bg-out",
           ].join(" ")}
           style={{
-            backgroundImage: "linear-gradient(102.49deg, #00923F 12.704%, #3163FF 87.17%)",
+            backgroundImage: "linear-gradient(102.49deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
           }}
         />
       )}
@@ -294,11 +294,11 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
         className={[
           "font-bold leading-snug relative z-10 min-h-[2em] flex items-center",
           "transition-colors duration-300",
-          isHovered ? "text-white" : "text-[#00142d]",
+          isHovered ? "text-white" : "text-[#12211C]",
           isVisible ? "text-enter" : "opacity-0",
         ].join(" ")}
         style={{
-          fontFamily: "'Poppins', sans-serif",
+          fontFamily: "'Inter', sans-serif",
           fontSize: "clamp(16px, 1.25vw, 22px)",
           animationDelay: isVisible ? `${cardDelay + 120}ms` : undefined,
         }}
@@ -314,7 +314,7 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
             className={[
               "leading-[1.55] font-normal",
               "transition-colors duration-300",
-              isHovered ? "text-white/85" : "text-[#1e1e1e]/75",
+              isHovered ? "text-white/85" : "text-[#12211C]/75",
               isVisible ? "text-enter" : "opacity-0",
             ].join(" ")}
             style={{

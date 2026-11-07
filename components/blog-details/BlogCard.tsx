@@ -45,12 +45,12 @@ export default function BlogCard({
         className="
           block
           bg-white
-          border border-[#e8e8ea]
+          border border-[#E4DDD0]
           rounded-xl
           overflow-hidden
           transition-shadow
-          hover:shadow-[0_8px_32px_-4px_rgba(75,107,251,0.18)]
-          focus-visible:outline-2 focus-visible:outline-[#4b6bfb]
+          hover:shadow-[0_8px_32px_-4px_rgba(216,178,110,0.18)]
+          focus-visible:outline-2 focus-visible:outline-[#0A6B44]
         "
         aria-label={`Read: ${title}`}
       >
@@ -73,7 +73,7 @@ export default function BlogCard({
             {/* Category badge */}
             <span
               className="inline-flex items-center justify-center px-2.5 py-1 rounded-md w-fit
-                         bg-[rgba(75,107,251,0.05)] text-[#4b6bfb] text-[6px] sm:text-[10px] font-medium leading-5"
+                         bg-[rgba(216,178,110,0.05)] text-[#0A6B44] text-[6px] sm:text-[10px] font-medium leading-5"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {category}
@@ -81,15 +81,15 @@ export default function BlogCard({
 
             {/* Title */}
             <h3
-              className="text-[#181a2a] text-2.5 sm:text-[16px] font-semibold leading-[1.4]"
-              style={{ fontFamily: "'Work Sans', sans-serif" }}
+              className="text-[#12211C] text-2.5 sm:text-[16px] font-semibold leading-[1.4]"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {title}
             </h3>
           </div>
 
           {/* Divider */}
-          <div className="h-px bg-[#f0f0f2]" />
+          <div className="h-px bg-[#EFE9DE]" />
 
           {/* Author + date row */}
           <div className="flex items-center gap-3">
@@ -108,7 +108,7 @@ export default function BlogCard({
                 </div>
               )}
               <span
-                className="text-[#97989f] text-[10px] sm:text-[12px] font-medium leading-6 truncate"
+                className="text-[#7A857E] text-[10px] sm:text-[12px] font-medium leading-6 truncate"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {author}
@@ -118,8 +118,8 @@ export default function BlogCard({
             {/* Date */}
             <time
               dateTime={date}
-              className="text-[#97989f] text-[10px] sm:text-[12px] font-normal leading-6 whitespace-nowrap shrink-0"
-              style={{ fontFamily: "'Work Sans', sans-serif" }}
+              className="text-[#7A857E] text-[10px] sm:text-[12px] font-normal leading-6 whitespace-nowrap shrink-0"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {date}
             </time>

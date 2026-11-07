@@ -53,7 +53,7 @@ const right= "right-2 top-1/2 "
           shape="pill"
           onClick={goToPrev}
           disabled={isTransitioning}
-          className={cn("absolute z-20 -translate-y-1/2 text-gray-100 hover:scale-110 sm:size-12", left)}
+          className={cn("absolute z-20 -translate-y-1/2 text-white hover:scale-110 sm:size-12", left)}
           aria-label="Previous"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,7 +67,7 @@ const right= "right-2 top-1/2 "
           shape="pill"
           onClick={goToNext}
           disabled={isTransitioning}
-          className={cn("absolute z-20 -translate-y-1/2 text-gray-100 hover:scale-110 sm:size-12", right)}
+          className={cn("absolute z-20 -translate-y-1/2 text-white hover:scale-110 sm:size-12", right)}
           aria-label="Next"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -119,7 +119,7 @@ const right= "right-2 top-1/2 "
               "h-2 rounded-full duration-300",
               idx === currentIndex
                 ? "w-8 bg-brand-green"
-                : "w-2 bg-gray-300 hover:bg-gray-400",
+                : "w-2 bg-line-strong hover:bg-muted",
             )}
           />
         ))}

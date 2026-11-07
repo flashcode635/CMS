@@ -128,16 +128,16 @@ export default function AdmissionProcessSection({
             />
             <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[#0a1828]/90"
+                className="absolute inset-0 bg-[#072A21]/90"
             />
 
             <div className="relative mx-auto max-w-7xl px-4 @min-[640px]:px-6">
                 <h2 className="text-center text-[clamp(1.5rem,3.5vw,2.25rem)] font-semibold leading-tight">
-                    <span className="bg-linear-to-r from-emerald-500 to-sky-400 bg-clip-text text-transparent">
+                    <span className="bg-linear-to-r from-brand-emerald to-brand-champagne bg-clip-text text-transparent">
                         {title}
                     </span>
                 </h2>
-                <p className="mx-auto mt-3 max-w-xl text-center text-sm text-gray-200">
+                <p className="mx-auto mt-3 max-w-xl text-center text-sm text-brand-champagne-soft/80">
                     {subtitle}
                 </p>
 
@@ -153,7 +153,7 @@ export default function AdmissionProcessSection({
                                 key={step.title}
                                 className="flex justify-center"
                             >
-                                <span className="relative z-10 block size-3 rounded-full border-2 border-white bg-[#0a1828]" />
+                                <span className="relative z-10 block size-3 rounded-full border-2 border-white bg-[#072A21]" />
                             </div>
                         ))}
                     </div>
@@ -173,13 +173,13 @@ export default function AdmissionProcessSection({
                                     className="h-6 w-6 text-white/90"
                                     strokeWidth={1.5}
                                 />
-                                <p className="mt-3 text-[10px] font-semibold tracking-wide text-emerald-400 uppercase">
+                                <p className="mt-3 text-[10px] font-semibold tracking-wide text-brand-champagne uppercase">
                                     {step.stepLabel ?? `Step ${index + 1}`}
                                 </p>
-                                <h3 className="mt-1 text-sm font-semibold text-emerald-300">
+                                <h3 className="mt-1 text-sm font-semibold text-brand-champagne-soft">
                                     {step.title}
                                 </h3>
-                                <p className="mt-2 text-xs leading-relaxed text-gray-300">
+                                <p className="mt-2 text-xs leading-relaxed text-brand-champagne-soft/70">
                                     {step.description}
                                 </p>
                             </li>
@@ -191,7 +191,7 @@ export default function AdmissionProcessSection({
                 <div className="mt-10 flex justify-center">
                     <Link
                         href={ctaHref}
-                        className="group inline-flex items-center gap-2 rounded-md bg-linear-to-r from-emerald-500 to-blue-600 px-6 py-3 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90"
+                        className="group inline-flex items-center gap-2 rounded-md bg-linear-to-r from-brand-emerald to-brand-forest px-6 py-3 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90"
                     >
                         {ctaLabel}
                         <ArrowRight

@@ -71,12 +71,12 @@ const BANNER_CSS =
   `@media(min-width:1024px){.icb{${decls(SCALE.lg)}}}`;
 
 const SIDE_WASH_LEFT =
-  "linear-gradient(90deg, rgba(0,132,58,0.97) 0%, rgba(0,146,63,0.92) 12%, " +
-  "rgba(0,146,63,0.64) 24%, rgba(0,146,63,0.30) 34%, rgba(0,146,63,0) 46%)";
+  "linear-gradient(90deg, rgba(10,107,68,0.97) 0%, rgba(14,143,91,0.92) 12%, " +
+  "rgba(14,143,91,0.64) 24%, rgba(14,143,91,0.30) 34%, rgba(14,143,91,0) 46%)";
 
 const SIDE_WASH_RIGHT =
-  "linear-gradient(270deg, rgba(40,88,240,0.97) 0%, rgba(49,99,255,0.92) 12%, " +
-  "rgba(49,99,255,0.64) 24%, rgba(49,99,255,0.30) 34%, rgba(49,99,255,0) 46%)";
+  "linear-gradient(270deg, rgba(7,42,33,0.97) 0%, rgba(216,178,110,0.92) 12%, " +
+  "rgba(216,178,110,0.64) 24%, rgba(216,178,110,0.30) 34%, rgba(216,178,110,0) 46%)";
 
 function CircleTick() {
   return (
@@ -126,7 +126,7 @@ function GlassBadge({
           width: "var(--icb-bt)",
           height: "var(--icb-bt)",
           borderRadius: "calc(var(--icb-bt) * var(--icb-bc))",
-          backgroundImage: "linear-gradient(108.93deg, #00923F 12.704%, #3163FF 87.17%)",
+          backgroundImage: "linear-gradient(108.93deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
           boxShadow: "inset 0 1px 1px rgba(255,255,255,0.25)",
         }}
       >
@@ -214,7 +214,7 @@ export default function ImageComboBanner({
         <div
           className="absolute inset-0 overflow-hidden bg-white"
           style={{
-            border: "var(--icb-f) solid #eef6fb",
+            border: "var(--icb-f) solid #EFE9DE",
             borderRadius: FRAME_RADIUS,
             // boxShadow: "0 22px 55px rgba(2,16,36,0.22)"
           }}

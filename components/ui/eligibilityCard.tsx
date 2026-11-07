@@ -17,7 +17,7 @@ export const EligibilityCards = ({key,img:Icon,title}:EligibilityCardProps)=>{
               style={{
                 gap: 8,
                 backgroundColor: "#ffffff",
-                border: "1px solid #e6eef8",
+                border: "1px solid #EFE9DE",
                 borderRadius: 16,
                 boxShadow: "0px 1.5px 1.5px rgba(0, 0, 0, 0.05)",
               }}
@@ -25,7 +25,7 @@ export const EligibilityCards = ({key,img:Icon,title}:EligibilityCardProps)=>{
             
               <p 
               className=" flex justify-center items-center leading-0 m-0
-              font-['Hanken_Grotesk',sans-serif]  gap-3 font-medium
+              font-['Inter',sans-serif]  gap-3 font-medium
                md:text-transparent  whitespace-nowrap 
                bg-clip-text text-transparent [-webkit-text-fill-color:transparent]"
                 style={{

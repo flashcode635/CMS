@@ -91,7 +91,7 @@ function TabShape({ flip = false }: { flip?: boolean }) {
       <polyline
         points="0,0 24,30 24,66 0,96"
         fill="none"
-        stroke="#3163ff"
+        stroke="#0B3B2E"
         strokeWidth="1.2"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
@@ -171,10 +171,10 @@ export default function WebStoriesCarousel() {
   const arrowBase =
     "absolute top-1/2 z-20 flex h-[112px] w-[36px] " +
     "-translate-y-1/2 items-center justify-center " +
-    "text-[#001d3d] cursor-pointer " +
+    "text-[#072A21] cursor-pointer " +
     "transition-[filter] duration-300 ease-out " +
     "hover:brightness-105 focus-visible:outline-2 " +
-    "focus-visible:outline-offset-2 focus-visible:outline-[#3163ff]";
+    "focus-visible:outline-offset-2 focus-visible:outline-[#0B3B2E]";
 
   return (
     <section
@@ -222,7 +222,7 @@ export default function WebStoriesCarousel() {
 
       {/* Main story card */}
       <div
-        className="relative overflow-hidden rounded-[28px] bg-[#001838]
+        className="relative overflow-hidden rounded-[28px] bg-[#072A21]
           shadow-[0_18px_42px_rgba(23,66,100,0.18)]"
         style={{
           height: "clamp(360px, 31.5vw, 440px)",
@@ -295,7 +295,7 @@ export default function WebStoriesCarousel() {
                 <h2
                   className="m-0 font-normal text-white"
                   style={{
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "'Playfair Display', serif",
                     fontSize: "clamp(22px, 2.1vw, 34px)",
                     lineHeight: 1.2,
                     letterSpacing: "-0.025em",

@@ -50,7 +50,7 @@ export default function EventGalleryGrid({ sectionTitle = "Seminar Gallery Highl
             <Camera size={16} />
             <span>Event Photo Collection</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#00142d] font-['Poppins',sans-serif]">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#12211C] font-['Inter',sans-serif]">
             {sectionTitle}
           </h2>
           <div className="h-1.5 w-28 rounded-full bg-linear-to-r from-brand-green to-brand-blue" />
@@ -62,7 +62,7 @@ export default function EventGalleryGrid({ sectionTitle = "Seminar Gallery Highl
             <div
               key={idx}
               onClick={() => openLightbox(idx)}
-              className="group relative h-65 sm:h-70 rounded-3xl overflow-hidden cursor-pointer bg-gray-100 border border-[#e2e8f0] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              className="group relative h-65 sm:h-70 rounded-3xl overflow-hidden cursor-pointer bg-surface-alt border border-[#E4DDD0] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
               <Image
                 src={src}
@@ -75,7 +75,7 @@ export default function EventGalleryGrid({ sectionTitle = "Seminar Gallery Highl
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-6">
-                <span className="text-white font-medium text-sm font-['Lexend',sans-serif]">
+                <span className="text-white font-medium text-sm font-['Inter',sans-serif]">
                   Photo #{idx + 1}
                 </span>
                 <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
@@ -89,7 +89,7 @@ export default function EventGalleryGrid({ sectionTitle = "Seminar Gallery Highl
         {/* ── Lightbox Modal ── */}
         {selectedIndex !== null && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-[#072A21]/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
             onClick={closeLightbox}
           >
             <Button variant="glass"

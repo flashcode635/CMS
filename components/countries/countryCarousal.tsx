@@ -14,7 +14,7 @@ const Country = [
 ];
     return (
         <>  
-        <div className="w-full bg-[#f9f9f9] py-10 lg:py-20">
+        <div className="w-full bg-[#F7F4EE] py-10 lg:py-20">
 
         <HeadingOfCard
                 prefix="Top Countries for "

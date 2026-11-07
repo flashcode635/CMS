@@ -10,19 +10,19 @@ const features = [
     title: "Top ranked partner Universities",
     description: "Lorem Ipsum Dolor Sit Amet Consectetur.",
     iconSrc: "/home/about-check-blue.svg",
-    iconBg: "#e4e8f3",
+    iconBg: "#EDF3EF",
   },
   {
     title: "Top ranked partner Universities",
     description: "Lorem Ipsum Dolor Sit Amet Consectetur.",
     iconSrc: "/home/about-check-green.svg",
-    iconBg: "#dff2e3",
+    iconBg: "#EDF3EF",
   },
   {
     title: "Top ranked partner Universities",
     description: "Lorem Ipsum Dolor Sit Amet Consectetur.",
     iconSrc: "/home/about-check-orange.svg",
-    iconBg: "#f2e9e0",
+    iconBg: "#F1E3C8",
   },
 ];
 
@@ -39,7 +39,7 @@ interface FeatureCardProps {
 function FeatureCard({ title, description, iconSrc, iconBg, visible, delay }: FeatureCardProps) {
   return (
     <div
-      className="flex items-center gap-4 overflow-hidden px-4 py-3 rounded-3 border border-[#e1e4ed] w-full"
+      className="flex items-center gap-4 overflow-hidden px-4 py-3 rounded-3 border border-[#E4DDD0] w-full"
       style={{
         height: 80,
         backgroundColor: "rgba(186,203,255,0.2)",
@@ -60,13 +60,13 @@ function FeatureCard({ title, description, iconSrc, iconBg, visible, delay }: Fe
       {/* Text */}
       <div className="flex flex-col gap-2">
         <p
-          className="font-semibold text-[#303e56] leading-none"
+          className="font-semibold text-[#2A3A33] leading-none"
           style={{ fontFamily: "'Inter', sans-serif", fontSize: 14 }}
         >
           {title}
         </p>
         <p
-          className="text-[#939fb3] capitalize"
+          className="text-[#66716A] capitalize"
           style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 500, lineHeight: 1.5 }}
         >
           {description}
@@ -146,7 +146,7 @@ export default function AboutSection() {
         .about-read-btn:hover {
           opacity: 0.88;
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(0,146,63,0.35), 0 4px 12px rgba(49,99,255,0.25);
+          box-shadow: 0 8px 28px rgba(14,143,91,0.35), 0 4px 12px rgba(216,178,110,0.25);
         }
         .about-read-btn:active {
           transform: scale(0.97);
@@ -165,7 +165,7 @@ export default function AboutSection() {
       {/* Outer section with the light bg matching project */}
       <section
         className="w-full px-[1.25vw] py-[1.25vw]"
-        style={{ backgroundColor: "#e8f2f4" }}
+        style={{ backgroundColor: "#EFE9DE" }}
         ref={sectionRef}
       >
         {/* White card with drop shadow — exact Figma spec */}
@@ -189,7 +189,7 @@ export default function AboutSection() {
               {/* Badge */}
               <div
                 className={`about-badge${visible ? " visible" : ""} inline-flex items-center gap-[0.56vw] px-[0.83vw] py-[0.31vw] rounded-full w-fit`}
-                style={{ backgroundColor: "rgba(49,99,255,0.1)", height: 38 }}
+                style={{ backgroundColor: "rgba(216,178,110,0.1)", height: 38 }}
               >
                 <div style={{ width: 16, height: 16, flexShrink: 0 }}>
                   <Image
@@ -203,9 +203,9 @@ export default function AboutSection() {
                 <span
                   className="uppercase tracking-wider font-normal"
                   style={{
-                    fontFamily: "'Lexend', sans-serif",
+                    fontFamily: "'Inter', sans-serif",
                     fontSize: "clamp(9px, 0.63vw, 12px)",
-                    color: "#7697ff",
+                    color: "#D8B26E",
                     letterSpacing: "0.08em",
                     whiteSpace: "nowrap",
                   }}
@@ -219,10 +219,10 @@ export default function AboutSection() {
                 <h2
                   className="font-bold leading-none bg-clip-text text-transparent"
                   style={{
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "'Playfair Display', serif",
                     fontSize: "clamp(28px, 3.33vw, 64px)",
                     lineHeight: 1.0,
-                    backgroundImage: "linear-gradient(149deg, #00923F 12.7%, #3163FF 87.2%)",
+                    backgroundImage: "linear-gradient(149deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
                   }}
                 >
                   About My Study Hub
@@ -237,10 +237,10 @@ export default function AboutSection() {
                   <p
                     className="font-light"
                     style={{
-                      fontFamily: "'Lexend', sans-serif",
+                      fontFamily: "'Inter', sans-serif",
                       fontSize: "clamp(13px, 0.94vw, 18px)",
                       lineHeight: "27px",
-                      color: "#828294",
+                      color: "#66716A",
                     }}
                   >
                     For over a decade, we have been a trusted name in MBBS abroad guidance,
@@ -300,7 +300,7 @@ export default function AboutSection() {
             }}
           >
             <Image
-              src="/home/about-graduation.jpg"
+              src="/home/about-graduation.png"
               alt="Graduates celebrating their medical degrees abroad"
               fill
               className="object-cover object-center"
@@ -327,7 +327,7 @@ export default function AboutSection() {
               >
                 <div
                   className="relative shrink-0 rounded-lg flex items-center justify-center"
-                  style={{ width: 48, height: 48, backgroundColor: "#e4e8f3" }}
+                  style={{ width: 48, height: 48, backgroundColor: "#EDF3EF" }}
                 >
                   <Image
                     src="/home/about-check-blue.svg"
@@ -339,13 +339,13 @@ export default function AboutSection() {
                 </div>
                 <div className="flex flex-col gap-1 min-w-0">
                   <p
-                    className="font-semibold text-[#303e56] leading-none"
+                    className="font-semibold text-[#2A3A33] leading-none"
                     style={{ fontFamily: "'Inter', sans-serif", fontSize: 14 }}
                   >
                     Elite Colleges
                   </p>
                   <p
-                    className="text-[#939fb3] truncate"
+                    className="text-[#66716A] truncate"
                     style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 500, maxWidth: 114 }}
                   >
                     Lorem Ipsum D...
@@ -373,7 +373,7 @@ export default function AboutSection() {
               >
                 <div
                   className="relative shrink-0 rounded-lg flex items-center justify-center"
-                  style={{ width: 48, height: 48, backgroundColor: "#e4e8f3" }}
+                  style={{ width: 48, height: 48, backgroundColor: "#EDF3EF" }}
                 >
                   <Image
                     src="/home/about-check-blue.svg"
@@ -385,13 +385,13 @@ export default function AboutSection() {
                 </div>
                 <div className="flex flex-col gap-1 min-w-0">
                   <p
-                    className="font-semibold text-[#303e56] leading-none"
+                    className="font-semibold text-[#2A3A33] leading-none"
                     style={{ fontFamily: "'Inter', sans-serif", fontSize: 14 }}
                   >
                     Elite Colleges
                   </p>
                   <p
-                    className="text-[#939fb3] truncate"
+                    className="text-[#66716A] truncate"
                     style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 500, maxWidth: 114 }}
                   >
                     Lorem Ipsum D...

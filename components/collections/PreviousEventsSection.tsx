@@ -220,11 +220,11 @@ function EventCard({ event, index, visible }: EventCardProps) {
       {/* Date badge — top-left, blue rounded-br pill */}
       <div
         className="absolute top-0 left-0 flex items-center px-4 py-2 rounded-br-[28px]"
-        style={{ backgroundColor: "#0039ea" }}
+        style={{ backgroundColor: "#0A6B44" }}
       >
         <span
           className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap"
-          style={{ fontFamily: "'Lexend', sans-serif" }}
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {event.date}
         </span>
@@ -272,11 +272,11 @@ function CompactEventCard({ event }: { event: EventCardData }) {
         />
         <div
           className="absolute top-0 left-0 flex items-center rounded-br-2xl px-3 py-1.5"
-          style={{ backgroundColor: "#0039ea" }}
+          style={{ backgroundColor: "#0A6B44" }}
         >
           <span
             className="text-[11px] leading-none font-semibold whitespace-nowrap text-white"
-            style={{ fontFamily: "'Lexend', sans-serif" }}
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {event.date}
           </span>
@@ -284,13 +284,13 @@ function CompactEventCard({ event }: { event: EventCardData }) {
       </div>
       <div className="flex items-center justify-between gap-3 px-4 py-3.5">
         <h3
-          className="m-0 min-w-0 truncate text-base leading-tight font-bold text-[#00142d]"
+          className="m-0 min-w-0 truncate text-base leading-tight font-bold text-[#12211C]"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {event.city}
         </h3>
         <p
-          className="m-0 max-w-[52%] min-w-0 shrink-0 truncate text-xs leading-tight font-medium text-[#68788e]"
+          className="m-0 max-w-[52%] min-w-0 shrink-0 truncate text-xs leading-tight font-medium text-[#4A554F]"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {event.venue}
@@ -331,9 +331,9 @@ function YearGroup({ year, events }: YearGroupProps) {
     <div ref={sectionRef} className="flex flex-col gap-8 md:gap-16">
       {/* Section heading */}
       <h2
-        className="pes-heading text-[#00142d] text-[28px] md:text-[36px] font-bold leading-tight m-0"
+        className="pes-heading text-[#12211C] text-[28px] md:text-[36px] font-bold leading-tight m-0"
         style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'Playfair Display', serif",
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(20px)",
           transition: "opacity 0.7s ease 0.05s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s",
@@ -344,7 +344,7 @@ function YearGroup({ year, events }: YearGroupProps) {
         {/* Year in green italic */}
         <span
           className="italic"
-          style={{ color: "#00923f", fontWeight: 700 }}
+          style={{ color: "#0E8F5B", fontWeight: 700 }}
         >
           {year}
         </span>
@@ -353,7 +353,7 @@ function YearGroup({ year, events }: YearGroupProps) {
         {/* "Successfully Conducted" in green italic */}
         <span
           className="italic"
-          style={{ color: "#00923f", fontWeight: 700 }}
+          style={{ color: "#0E8F5B", fontWeight: 700 }}
         >
           Successfully Conducted
         </span>

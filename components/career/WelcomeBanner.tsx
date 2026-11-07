@@ -26,7 +26,7 @@ export default function WelcomeBanner() {
           {/* Heading row */}
           <div className="self-stretch inline-flex justify-center items-center gap-2.5">
             <h1
-              className="text-center text-white text-[clamp(22px,3.33vw,64px)] font-extrabold font-['Inter'] leading-[1.2]"
+              className="text-center text-white text-[clamp(22px,3.33vw,64px)] font-extrabold font-serif leading-[1.2]"
               style={{ width: "clamp(300px, 55.67vw, 1068.91px)" }}
             >
               Welcome to My Study Hub!

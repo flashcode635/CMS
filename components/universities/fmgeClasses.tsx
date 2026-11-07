@@ -39,7 +39,7 @@ type FmgeClassesProps = {
     videoPoster?: StaticImageData | string;
 };
 
-const featureIcon = (Icon: LucideIcon) => <Icon className="h-4 w-4 text-teal-500" aria-hidden="true" />;
+const featureIcon = (Icon: LucideIcon) => <Icon className="h-4 w-4 text-brand-emerald-deep" aria-hidden="true" />;
 
 export const DEFAULT_CONTENT: Required<FmgeClassesProps> = {
     anchorId: "fmge-classes",
@@ -63,7 +63,7 @@ export const DEFAULT_CONTENT: Required<FmgeClassesProps> = {
     ],
     standardsLabel: "International standards",
     standardsIcon: (
-        <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-teal-500 text-white">
+        <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-brand-emerald text-white">
             <Globe className="h-4 w-4" aria-hidden="true" />
         </span>
     ),
@@ -103,14 +103,14 @@ export default function FmgeClassesSection({
                         <div className="flex gap-4">
                             <div
                                 aria-hidden="true"
-                                className="w-1.5 flex-none rounded-full bg-green-600"
+                                className="w-1.5 flex-none rounded-full bg-brand-emerald"
                             />
-                            <h2 className="text-2xl font-semibold leading-snug text-blue-600 @min-[1024px]:text-3xl">
+                            <h2 className="text-2xl font-semibold leading-snug text-brand-emerald-deep @min-[1024px]:text-3xl">
                                 {title}
                             </h2>
                         </div>
 
-                        <p className="mt-6 text-xs leading-relaxed text-slate-500 @min-[1024px]:pl-5.5">
+                        <p className="mt-6 text-xs leading-relaxed text-muted @min-[1024px]:pl-5.5">
                             {intro}
                         </p>
 
@@ -118,22 +118,22 @@ export default function FmgeClassesSection({
                             {features.map((feature) => (
                                 <div
                                     key={feature.label}
-                                    className="flex items-center gap-3 rounded-lg bg-[#eef0f7] px-4 py-3"
+                                    className="flex items-center gap-3 rounded-lg bg-[#EFE9DE] px-4 py-3"
                                 >
                                     {feature.icon}
-                                    <span className="text-xs font-medium text-slate-700">
+                                    <span className="text-xs font-medium text-body">
                                         {feature.label}
                                     </span>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="mt-6 flex items-start gap-3 rounded-lg bg-[#eaf1fd] p-4 @min-[1024px]:ml-5.5">
+                        <div className="mt-6 flex items-start gap-3 rounded-lg bg-[#EFE9DE] p-4 @min-[1024px]:ml-5.5">
                             <div
                                 aria-hidden="true"
-                                className="h-full w-1 flex-none rounded-full bg-green-600"
+                                className="h-full w-1 flex-none rounded-full bg-brand-emerald"
                             />
-                            <p className="text-sm font-medium italic text-blue-600">
+                            <p className="text-sm font-medium italic text-brand-emerald-deep">
                                 &ldquo;{quote}&rdquo;
                             </p>
                         </div>
@@ -160,7 +160,7 @@ export default function FmgeClassesSection({
                                 {/* TODO: replace with a real YouTube embed once videoUrl is provided */}
                                 <div
                                     aria-hidden="true"
-                                    className="absolute inset-0 bg-black/20"
+                                    className="absolute inset-0 bg-[#072A21]/25"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <span className="flex h-12 w-16 items-center justify-center rounded-[10px] bg-[#ff0000] shadow-md">
@@ -175,9 +175,9 @@ export default function FmgeClassesSection({
                         <div className="flex items-center gap-2 px-4 py-3">
                             <div
                                 aria-hidden="true"
-                                className="w-1 flex-none rounded-full bg-green-600"
+                                className="w-1 flex-none rounded-full bg-brand-emerald"
                             />
-                            <p className="text-sm font-medium text-blue-600">
+                            <p className="text-sm font-medium text-brand-emerald-deep">
                                 {videoCaption}
                             </p>
                         </div>
@@ -186,17 +186,17 @@ export default function FmgeClassesSection({
 
                 {/* Bottom: career pathways block */}
                 <div className="mt-12">
-                    <h3 className="text-lg font-semibold text-green-600">
+                    <h3 className="text-lg font-semibold text-brand-emerald-deep">
                         {pathwaysTitle}
                     </h3>
-                    <div className="mt-4 space-y-3 text-xs leading-relaxed text-slate-500">
+                    <div className="mt-4 space-y-3 text-xs leading-relaxed text-muted">
                         {pathwaysParagraphs.map((paragraph) => (
                             <p key={paragraph.slice(0, 24)}>{paragraph}</p>
                         ))}
                     </div>
                     <div className="mt-5 flex items-center gap-3">
                         {standardsIcon}
-                        <span className="text-xs font-bold uppercase tracking-[0.15em] text-teal-600">
+                        <span className="text-xs font-bold uppercase tracking-[0.15em] text-brand-emerald-deep">
                             {standardsLabel}
                         </span>
                     </div>

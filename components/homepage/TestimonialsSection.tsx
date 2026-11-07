@@ -102,7 +102,7 @@ function TestimonialCard({
           </span>
           <p
             className="line-clamp-3 text-sm leading-5.5 text-white/90"
-            style={{ fontFamily: "'Lexend', sans-serif" }}
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {quote}
           </p>
@@ -125,7 +125,7 @@ function TestimonialCard({
               >
                 {name[0]}
               </div>
-              <div className="absolute -right-0.5 -bottom-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-green-400" />
+              <div className="absolute -right-0.5 -bottom-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-brand-emerald" />
             </div>
             <div>
               <p className="text-base leading-5 font-semibold text-white">
@@ -133,7 +133,7 @@ function TestimonialCard({
               </p>
               <p
                 className="line-clamp-1 text-xs leading-4 text-white/60"
-                style={{ fontFamily: "'Lexend', sans-serif" }}
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {role}
               </p>
@@ -149,19 +149,19 @@ export default function TestimonialsSection3D() {
   return (
     <section
       className="relative w-full overflow-hidden py-16"
-      style={{ backgroundColor: "#e8f2f4", fontFamily: "'Inter', sans-serif" }}
+      style={{ backgroundColor: "#EFE9DE", fontFamily: "'Inter', sans-serif" }}
     >
       {/* ── Heading ── */}
       <div
         className="relative z-10 flex flex-col items-center gap-2 px-4"
         style={{ marginBottom: "48px" }}
       >
-        <h2 className="text-center text-4xl leading-tight font-bold bg-linear-to-r from-brand-green to-brand-blue bg-clip-text text-transparent sm:text-5xl">
+        <h2 className="text-center font-serif text-4xl leading-tight font-bold bg-linear-to-r from-brand-green to-brand-blue bg-clip-text text-transparent sm:text-5xl">
           What Our Students Say!
         </h2>
         <p
-          className="max-w-xl text-center text-sm leading-5 text-gray-500"
-          style={{ fontFamily: "'Lexend', sans-serif" }}
+          className="max-w-xl text-center text-sm leading-5 text-muted"
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           Hear from our happy students! See how we&apos;ve helped them achieve
           their goals and create lasting impact.

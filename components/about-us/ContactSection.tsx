@@ -57,12 +57,12 @@ const pad = "w-full px-5 sm:px-10 lg:px-16 xl:px-20";
 const card = "rounded-3xl border border-white/60 bg-white p-7 shadow-sm";
 const gradient = "bg-linear-to-r from-brand-green to-brand-blue";
 const fieldCls =
-  "w-full rounded-xl border border-[#d9dbde] bg-white px-5 text-sm font-medium outline-none transition-all placeholder:text-[#8fa3bf] focus:border-brand-blue focus:ring-2 focus:ring-blue-100";
-const inputCls = `${fieldCls} h-10 text-[#1a2c4e]`;
+  "w-full rounded-xl border border-[#D6CCBA] bg-white px-5 text-sm font-medium outline-none transition-all placeholder:text-[#6F7B74] focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft";
+const inputCls = `${fieldCls} h-10 text-[#1C2B25]`;
 
 // ── Small components ───────────────────────────────────────────────────────────
 const Label = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-xs font-bold uppercase tracking-widest text-[#0f2557]">{children}</p>
+  <p className="text-xs font-bold uppercase tracking-widest text-[#12211C]">{children}</p>
 );
 
 const Arrow = ({ className = "size-4.5" }) => (
@@ -82,7 +82,7 @@ const Flag = ({ colors, chakra, label }: { colors: string[]; chakra: boolean; la
     {colors.map((c, i) => (
       <div
         key={c}
-        className={`relative h-1.25 w-10 rounded-sm ${c === "#fff" ? "border border-gray-200" : ""}`}
+        className={`relative h-1.25 w-10 rounded-sm ${c === "#fff" ? "border border-line" : ""}`}
         style={{ background: c }}
       >
         {chakra && i === 1 && (
@@ -117,14 +117,14 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="w-full bg-linear-to-br from-[#e8f5f0] via-[#e4eef9] to-[#dce9f7] font-['Inter','DM_Sans',sans-serif]">
+    <div className="w-full bg-linear-to-br from-[#EDF3EF] via-[#EFE9DE] to-[#EFE9DE] font-['Inter','Inter',sans-serif]">
 
       {/* ── Section 1: Form + Illustration ── */}
       <section className={`${pad} pb-22 pt-26`}>
         <div className="mx-auto flex max-w-350 flex-col items-center gap-12 lg:flex-row lg:gap-12">
           <div className="flex w-full min-w-0 flex-col gap-6 lg:max-w-130 lg:shrink-0">
             <h2
-              className={`w-fit bg-clip-text text-[clamp(24px,2.6vw,40px)] leading-tight text-transparent ${gradient}`}
+              className={`w-fit font-serif bg-clip-text text-[clamp(24px,2.6vw,40px)] leading-tight text-transparent ${gradient}`}
             >
               <span className="font-bold">We&apos;d love to </span>
               <span className="italic">hear from you,</span>
@@ -136,11 +136,11 @@ export default function ContactSection() {
             {submitted ? (
               <div className="flex flex-col items-center gap-4 rounded-3xl bg-white px-8 py-12 text-center shadow-md">
                 <svg viewBox="0 0 56 56" fill="none" aria-hidden className="size-14">
-                  <circle cx="28" cy="28" r="28" fill="#e8f5f0" />
-                  <path d="M16 28l9 9L40 19" stroke="#00923F" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="28" cy="28" r="28" fill="#EDF3EF" />
+                  <path d="M16 28l9 9L40 19" stroke="#0E8F5B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <h3 className="text-xl font-bold text-[#0f2557]">Message Sent!</h3>
-                <p className="max-w-xs text-sm text-[#536782]">
+                <h3 className="text-xl font-bold text-[#12211C]">Message Sent!</h3>
+                <p className="max-w-xs text-sm text-[#4A554F]">
                   Thank you for reaching out. Our team will get back to you within 24 hours.
                 </p>
                
@@ -177,7 +177,7 @@ export default function ContactSection() {
                       value={form.branch}
                       onChange={onChange}
                       className={`${fieldCls} h-10 cursor-pointer appearance-none pr-12 ${
-                        form.branch ? "text-[#1a2c4e]" : "text-[#8fa3bf]"
+                        form.branch ? "text-[#1C2B25]" : "text-[#6F7B74]"
                       }`}
                     >
                       <option value="" disabled>NEAREST BRANCH</option>
@@ -191,7 +191,7 @@ export default function ContactSection() {
                       aria-hidden
                       className="pointer-events-none absolute right-4 top-1/2 w-3.5 -translate-y-1/2"
                     >
-                      <path d="M1 1L7 7L13 1" stroke="#8fa3bf" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M1 1L7 7L13 1" stroke="#6F7B74" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function ContactSection() {
                     value={form.message}
                     onChange={onChange}
                     rows={3}
-                    className={`${fieldCls} resize-none py-4 text-[#1a2c4e]`}
+                    className={`${fieldCls} resize-none py-4 text-[#1C2B25]`}
                   />
                 </div>
 
@@ -242,27 +242,27 @@ export default function ContactSection() {
             {OFFICES.map((o) => (
               <div key={o.title} className={`${card} relative overflow-hidden`}>
                 <div className="absolute right-5 top-5 flex gap-2">
-                  <Image className="text-gray-600" src="/svg/contact-us-route.svg" alt="" width={40} height={40} />
-                  <Image className="text-gray-600" src="/svg/contact-us-location.svg" alt="" width={40} height={40} />
+                  <Image className="text-body" src="/svg/contact-us-route.svg" alt="" width={40} height={40} />
+                  <Image className="text-body" src="/svg/contact-us-location.svg" alt="" width={40} height={40} />
                 </div>
                 <Flag colors={o.flag} chakra={o.chakra} label={`${o.title} flag`} />
-                <h3 className="mb-3 font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#0f2557]">
+                <h3 className="mb-3 font-['Playfair_Display',Georgia,serif] text-2xl font-bold text-[#12211C]">
                   {o.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#536782]">{o.address}</p>
+                <p className="text-sm leading-relaxed text-[#4A554F]">{o.address}</p>
               </div>
             ))}
           </div>
 
           <div className={card}>
-            <p className="mb-5 text-sm font-bold text-[#0f2557]">Reach us through</p>
+            <p className="mb-5 text-sm font-bold text-[#12211C]">Reach us through</p>
             <div className="flex flex-wrap items-center gap-8">
               {CONTACTS.map((c) => (
                 <a key={c.href} href={c.href} className="group flex items-center gap-3">
-                  <span className="flex size-10 items-center justify-center rounded-xl border border-[#2563eb]/30 transition-colors group-hover:bg-[#2563eb]/10">
+                  <span className="flex size-10 items-center justify-center rounded-xl border border-[#0A6B44]/30 transition-colors group-hover:bg-[#0A6B44]/10">
                     <Image src={c.icon} alt="" width={18} height={18} className="object-contain" />
                   </span>
-                  <span className="text-sm font-semibold text-[#0f2557] transition-colors group-hover:text-[#2563eb]">
+                  <span className="text-sm font-semibold text-[#12211C] transition-colors group-hover:text-[#0A6B44]">
                     {c.text}
                   </span>
                 </a>
@@ -271,7 +271,7 @@ export default function ContactSection() {
           </div>
 
           <div className={card}>
-            <p className="mb-5 text-sm font-bold text-[#0f2557]">Social Networks</p>
+            <p className="mb-5 text-sm font-bold text-[#12211C]">Social Networks</p>
             <div className="flex flex-wrap items-center justify-between gap-3 ">
               {SOCIALS.map((s) => (
                 <a
@@ -282,19 +282,19 @@ export default function ContactSection() {
                   aria-label={s.label}
                   className="group flex items-center gap-2 border-b-2 px-3 border-transparent bg-bottom bg-no-repeat pb-3 transition-opacity hover:opacity-75"
                   style={{
-                    backgroundImage: "linear-gradient(to right, #00923F, #3163FF)",
+                    backgroundImage: "linear-gradient(to right, #0E8F5B, #0B3B2E)",
                     backgroundSize: "100% 2px",
                   }}
                 > 
                   <Image src={s.icon} alt="" width={16} height={16} className="size-4 object-contain" />
-                  <span className="text-[10px] font-medium text-[#0f2557] transition-colors group-hover:text-[#2563eb]">
+                  <span className="text-[10px] font-medium text-[#12211C] transition-colors group-hover:text-[#0A6B44]">
                     {s.handle}
                   </span>
                   <svg
                     viewBox="0 0 12 12"
                     fill="none"
                     aria-hidden
-                    className="ml-1 size-3 text-[#0f2557] transition-colors group-hover:text-[#2563eb]"
+                    className="ml-1 size-3 text-[#12211C] transition-colors group-hover:text-[#0A6B44]"
                   >
                     <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -307,7 +307,7 @@ export default function ContactSection() {
 
       {/* ── Section 3: CTA ── */}
       <section className="relative w-full overflow-hidden" aria-label="Counselling CTA">
-        <div className="relative z-10 flex flex-col items-center gap-5 bg-[#022e78] px-6 pb-10 pt-14 text-center">
+        <div className="relative z-10 flex flex-col items-center gap-5 bg-[#0B3B2E] px-6 pb-10 pt-14 text-center">
           <Image
             src="/home/enroll-bg-pattern.png"
             alt=""
@@ -318,12 +318,12 @@ export default function ContactSection() {
           <p className="relative text-[clamp(10px,0.9vw,14px)] font-semibold uppercase tracking-[3.4px] text-brand-sky">
             My Study Hub
           </p>
-          <h2 className="relative max-w-190 font-['DM_Serif_Display','Playfair_Display',Georgia,serif] text-[clamp(24px,3.33vw,56px)] font-bold leading-[1.15] text-white">
+          <h2 className="relative max-w-190 font-['Playfair Display','Playfair_Display',Georgia,serif] text-[clamp(24px,3.33vw,56px)] font-bold leading-[1.15] text-white">
             Book Your FREE Counselling Session Today!
           </h2>
           <Link
             href="/contact-us"
-            className="relative inline-flex items-center gap-3 border border-white/60 px-10 py-3.5 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white hover:text-[#022e78]"
+            className="relative inline-flex items-center gap-3 border border-white/60 px-10 py-3.5 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white hover:text-[#0B3B2E]"
             onClick={(e) => {
               if (window.location.pathname === "/contact-us") {
                 e.preventDefault();
@@ -342,7 +342,7 @@ export default function ContactSection() {
               sizes="100vw"
             />
             <div
-              className="pointer-events-none absolute inset-0 bg-linear-to-b from-[#022e78] to-transparent to-30%"
+              className="pointer-events-none absolute inset-0 bg-linear-to-b from-[#0B3B2E] to-transparent to-30%"
               aria-hidden
             />
           </div>

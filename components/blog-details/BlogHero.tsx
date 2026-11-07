@@ -53,7 +53,7 @@ export default function BlogHero({
       {/* ── Cover image container ── */}
       <div className="relative w-full h-120 sm:h-140 lg:h-180 overflow-hidden">
         {/* Base black layer */}
-        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0 bg-[#072A21]" />
 
         {/* Cover photo */}
         <Image
@@ -67,7 +67,7 @@ export default function BlogHero({
         />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-[#072A21]/25" />
 
         {/* Bottom gradient fade */}
         <div
@@ -83,7 +83,7 @@ export default function BlogHero({
         <Link
           href="/collections/blog"
           className="absolute top-10 left-6 sm:left-16 flex items-center gap-2 px-6 py-3 rounded-xl bg-white/20 text-white font-bold text-base hover:bg-white/30 transition-colors"
-          style={{ fontFamily: "'Lexend', sans-serif" }}
+          style={{ fontFamily: "'Inter', sans-serif" }}
           aria-label="Back to blog listing"
         >
           <ChevronRight className="rotate-180 w-5 h-5" />
@@ -166,7 +166,7 @@ export default function BlogHero({
 
             {/* Category badge */}
             <span
-              className="bg-[#4b6bfb]/80 text-white px-3 py-1 rounded-md text-xs sm:text-sm font-medium"
+              className="bg-[#0A6B44]/80 text-white px-3 py-1 rounded-md text-xs sm:text-sm font-medium"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {category}
@@ -176,7 +176,7 @@ export default function BlogHero({
             <time
               dateTime={date}
               className="text-white/70 text-xs sm:text-sm"
-              style={{ fontFamily: "'Work Sans', sans-serif" }}
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {date}
             </time>

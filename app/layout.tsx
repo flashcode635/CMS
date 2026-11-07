@@ -1,22 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import type { ReactNode } from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// ALL project fonts loaded once here via next/font (zero render-blocking).
-// Do NOT use @import url(...) inside <style> tags in any component — that
-// causes duplicate network requests and blocks compilation + rendering.
+// Typography: Inter (UI/body) + Playfair Display (headings) are imported once
+// at the top of globals.css and exposed through the --font-sans / --font-serif
+// theme tokens. Keep component-level font stacks limited to those two families.
 // ─────────────────────────────────────────────────────────────────────────────
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "My Study Hub",
@@ -27,7 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scrollbar-thin`}
+      className="h-full antialiased scrollbar-thin"
     >
       <body className="min-h-full w-full flex flex-col scrollbar-thin">
         {children}

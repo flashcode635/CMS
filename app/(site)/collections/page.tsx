@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function CollectionsPage() {
   return (
-    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#f8fafc" }}>
+    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#F7F4EE" }}>
       <PageBanner
         title="Events & Collections"
         subtitle="Stay updated with our latest webinars, educational fairs, and events"
-        backgroundImage="/home/about-graduation.jpg"
+        backgroundImage="/home/about-graduation.png"
         overlayOpacity={0.6}
       />
       <div className="py-12">

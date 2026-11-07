@@ -91,7 +91,7 @@ export default function AboutRussia({
 
       <section className="relative z-10 -mt-20 @min-[768px]:-mt-28 px-4 @min-[768px]:px-8 @min-[1024px]:px-19 pb-12">
         <div className="container mx-auto">
-          <div className={`${CARD_STYLE} p-6 @min-[768px]:p-8 mb-6 text-sm leading-6 text-gray-700 space-y-4`}>
+          <div className={`${CARD_STYLE} p-6 @min-[768px]:p-8 mb-6 text-sm leading-6 text-body space-y-4`}>
             {paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
@@ -110,7 +110,7 @@ export default function AboutRussia({
                   </span>
                   <Icon className="w-6 h-6" stroke={`url(#${GRADIENT_ID})`} />
                 </div>
-                <p className="text-lg font-semibold text-gray-900">{value}</p>
+                <p className="text-lg font-semibold text-ink">{value}</p>
               </div>
               );
             })}

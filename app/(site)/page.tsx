@@ -28,7 +28,7 @@ const searchTags = ["Courses", "Services", "Nearby Counsellor", "Contact Us"];
 export default function Home() {
   const [searchValue, setSearchValue] = useState<string>("");
   return (
-    <div className="flex flex-col @container" style={{ backgroundColor: "#e8f0f9" }}>
+    <div className="flex flex-col @container" style={{ backgroundColor: "#F7F4EE" }}>
       {/* <MBBSHeroSection/> */}
       <HeroBanner />
 

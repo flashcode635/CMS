@@ -15,14 +15,14 @@ export default function UpcomingEventPage() {
             className="flex flex-col"
             style={{
                 background:
-                    "linear-gradient(90deg, #e4f4eb 0%, #e9f0fe 100%)",
+                    "linear-gradient(90deg, #EDF3EF 0%, #EFE9DE 100%)",
             }}
         >
             {/* ── Banner ── */}
             <PageBanner
                 title="Upcoming Events"
                 subtitle="Join us at an MBBS Admission Gateway seminar near you. Meet our counsellors, explore top universities, and take the first step towards your medical career abroad."
-                backgroundImage="/home/about-graduation.jpg"
+                backgroundImage="/home/about-graduation.png"
                 overlayOpacity={0.5}
             />
 

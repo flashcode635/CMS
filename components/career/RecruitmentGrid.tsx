@@ -71,7 +71,7 @@ const JOBS = [
   },
 ];
 
-const BRAND_GRADIENT = "linear-gradient(136.5deg, #00923F 12.704%, #3163FF 87.17%)";
+const BRAND_GRADIENT = "linear-gradient(136.5deg, #0E8F5B 12.704%, #0B3B2E 87.17%)";
 
 // ── Arrow icon (inherits color from parent via currentColor) ──────────────────
 function ArrowRight() {
@@ -127,16 +127,16 @@ function JobCard({ job }: { job: JobItem }) {
           "min-h-80 cursor-pointer transform-3d",
           "transition-[transform,background-color,box-shadow] duration-300 ease-out",
           // default
-          "bg-brand-blue/1 shadow-[0_8px_24px_rgba(0,0,0,0.08),0_3px_0_#bacbff]",
+          "bg-brand-blue/1 shadow-[0_8px_24px_rgba(0,0,0,0.08),0_3px_0_#F1E3C8]",
           // hover
-          "group-hover:bg-brand-blue group-hover:shadow-[0_20px_40px_-12px_rgba(0,40,165,0.5),0_4px_0_#0028a5]",
+          "group-hover:bg-brand-blue group-hover:shadow-[0_20px_40px_-12px_rgba(0,40,165,0.5),0_4px_0_#072A21]",
         ].join(" ")}
       >
         {/* Text */}
         <div className="flex flex-col gap-3 translate-z-10">
           <h3
-            className="font-bold text-xl sm:text-2xl leading-tight text-[#303044] transition-colors duration-300 group-hover:text-white"
-            style={{ fontFamily: "'Poppins', sans-serif" }}
+            className="font-bold text-xl sm:text-2xl leading-tight text-[#2A3A33] transition-colors duration-300 group-hover:text-white"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {job.title}
           </h3>
@@ -151,7 +151,7 @@ function JobCard({ job }: { job: JobItem }) {
           )}
 
           <p
-            className="font-normal text-sm leading-relaxed text-[#565661] transition-colors duration-300 group-hover:text-white/80"
+            className="font-normal text-sm leading-relaxed text-[#4A554F] transition-colors duration-300 group-hover:text-white/80"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             {job.body}
@@ -161,7 +161,7 @@ function JobCard({ job }: { job: JobItem }) {
         {/* Button: white base + gradient layer that fades out on card hover */}
         <div className="translate-z-16 cursor-pointer">
 <Button variant="unstyled" size="md" shape="xl"
-  className="group-hover:text-brand-navy relative isolate gap-2 overflow-hidden bg-white px-4 text-base text-white shadow-[0_3px_0_#006b2e] transition-[box-shadow,color,translate] duration-300 group-hover:shadow-[0_3px_0_#bacbff] active:translate-y-0.5">
+  className="group-hover:text-brand-navy relative isolate gap-2 overflow-hidden bg-white px-4 text-base text-white shadow-[0_3px_0_#0A6B44] transition-[box-shadow,color,translate] duration-300 group-hover:shadow-[0_3px_0_#F1E3C8] active:translate-y-0.5">
             <span
               aria-hidden
               className="absolute inset-0 text-white -z-10 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
@@ -188,16 +188,16 @@ export default function RecruitmentGrid() {
           <h2
             className="font-bold bg-clip-text text-transparent leading-tight"
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontSize: "clamp(32px, 4.17vw, 64px)",
               backgroundImage:
-                "linear-gradient(157.64deg, #00923F 12.704%, #3163FF 87.17%)",
+                "linear-gradient(157.64deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
             }}
           >
             Our Recruitment
           </h2>
           <p
-            className="text-[#606c83] font-normal"
+            className="text-[#4A554F] font-normal"
             style={{
               fontFamily: "Inter, sans-serif",
               fontSize: "clamp(14px, 1.11vw, 21px)",

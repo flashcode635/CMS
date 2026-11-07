@@ -3,7 +3,7 @@
 Primary Purpose: Sections for the B2B Partner With Us page (`/about-us/partner-with-us`): value proposition, benefit cards, partnership scope, photo mosaic, contact/inquiry band, and exclusive university showcase.
 
 Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page background `#e8f0f9`):
-`PageBanner` (title "Partner With Us", background `/home/about-graduation.jpg`, `overlayOpacity={0.5}`) → `PartnerBenefits` → `PartnershipScope` → `BenefitsGallery` → `PartnerContactSection` → `ExclusiveUniversities` → `FaqSection`.
+`PageBanner` (title "Partner With Us", background `/home/about-graduation.png`, `overlayOpacity={0.5}`) → `PartnerBenefits` → `PartnershipScope` → `BenefitsGallery` → `PartnerContactSection` → `ExclusiveUniversities` → `FaqSection`.
 `WhyPartnerWithUs` is imported and **commented out** (`{/* <WhyPartnerWithUs /> */}`), so it is currently unused at runtime.
 
 ## Files
@@ -117,7 +117,7 @@ Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page backgrou
     - "Helpline No." → `+91-9971944622, 011-40550609`
     - "Head Office" → `806, KLJ Tower, Pitampura, Delhi - 110034`
     - "Mail for info." → `contact@mystudyhub.com`
-    Icons are Figma MCP asset URLs.
+      Icons are Figma MCP asset URLs.
   - `SOCIALS` — 5 records `{ icon, handle, href }`: `mystudyhub0` → `https://facebook.com`; `mystudyhub.official` → `https://instagram.com`; `my-study-hub` → `https://linkedin.com`; `Mystudyhub12` → `https://pinterest.com`; `@MyStudyHub` → `https://youtube.com`. **All hrefs are bare platform homepages, not the actual profiles** — placeholder links.
   - `inputCls` — `w-full bg-white border border-[#d9dbde] rounded-lg px-6 text-[#536782] font-medium text-base placeholder-[#536782] outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 …`.
   - `interface ContactItem { icon: string; label: string; value: string }`, `interface SocialItem { icon: string; handle: string; href: string }`.
@@ -155,7 +155,7 @@ Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page backgrou
     4. Ural State Medical University — `#864b08`, `#ffedd4`, `russia`
     5. East European University — `#910b0b`, `#ffe1e1`, `georgia`
     6. International Black Sea University — `#2b62a6`, `#d6e1f0`, `kyrgyzstan`
-    `bg`, `logo`, `mobileLogo` are all Unsplash photo URLs (i.e. the "logos" are stock photos, not university crests).
+       `bg`, `logo`, `mobileLogo` are all Unsplash photo URLs (i.e. the "logos" are stock photos, not university crests).
   - `FILTERS` — `{ russia, "MBBS In Russia" }`, `{ georgia, "MBBS In Georgia" }`, `{ kyrgyzstan, "MBBS In Kyrgyzstan" }`.
   - No exported types.
 - **Data flow:** static array → filter by `active` → desktop grid `.map` and mobile grid `.map`.

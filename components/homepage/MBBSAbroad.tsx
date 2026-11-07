@@ -48,7 +48,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
   const [flagError, setFlagError] = useState(false);
 
   return (
-    <div className="group relative w-full sm:75 md:w-92 h-80 rounded-[36px] overflow-hidden shadow-2xl bg-black shrink-0 snap-center cursor-pointer">
+    <div className="group relative w-full sm:75 md:w-92 h-80 rounded-[36px] overflow-hidden shadow-2xl bg-[#072A21] shrink-0 snap-center cursor-pointer">
       
       {/* Background Image with Fallback */}
       <img 
@@ -93,17 +93,17 @@ const CountryCard = ({ country }: CountryCardProps) => {
         
           {/* Apply Now Button */}
           <Button
-            variant="unstyled"   // default primary ka bg-slate-900 / dark:bg-slate-50 hataane ke liye
+            variant="unstyled"   // default primary ka bg-slate-900 / dark:bg-surface hataane ke liye
             size="lg"             // px-6 aur [&_svg]:size-5 (w-5 h-5 se match) already milta hai
             fullWidth
             aria-label={`Apply for ${country.name}`}
             className="
               group/btn relative overflow-hidden
               h-auto! rounded-full! text-[17px]!
-              bg-black/40! backdrop-blur-md border border-white/20
+              bg-[#072A21]/40! backdrop-blur-md border border-white/20
               text-white font-semibold p-4
               transition-all duration-300 ease-out
-              hover:bg-cyan-500! hover:border-cyan-400 hover:text-white
+              hover:bg-brand-champagne! hover:border-brand-champagne hover:text-white
               hover:shadow-[0_0_25px_rgba(6,182,212,0.9)]
               active:scale-95
             "
@@ -154,7 +154,7 @@ export default function MBBSAbroad() {
       <section
         ref={sectionRef}
         style={{
-          backgroundColor: "#e8f2f4",
+          backgroundColor: "#EFE9DE",
           padding: "clamp(32px,3.33vw,64px) clamp(20px,4.17vw,80px)",
         }}
       >
@@ -166,10 +166,10 @@ export default function MBBSAbroad() {
             <h2
               className={`ma-title${visible ? " in" : ""} font-bold`}
               style={{
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(28px,3.33vw,64px)",
                 lineHeight: "clamp(32px,2.71vw,52px)",
-                backgroundImage: "linear-gradient(167deg, #00923F 12.7%, #3163FF 87.2%)",
+                backgroundImage: "linear-gradient(167deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -182,10 +182,10 @@ export default function MBBSAbroad() {
             <p
               className={`ma-sub${visible ? " in" : ""} font-normal`}
               style={{
-                fontFamily: "'Lexend', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: "clamp(12px,0.83vw,16px)",
                 lineHeight: "24px",
-                color: "#5a6777",
+                color: "#4A554F",
                 margin: 0,
               }}
             >
@@ -211,10 +211,10 @@ export default function MBBSAbroad() {
                     padding: "0 clamp(12px,0.69vw,13.333px)",
                     minWidth: "clamp(100px,10.16vw,195px)",
                     borderRadius: "200px",
-                    border: isActive ? "none" : "1.333px solid #00923f",
+                    border: isActive ? "none" : "1.333px solid #0E8F5B",
                     cursor: "pointer",
                     backgroundImage: isActive
-                      ? "linear-gradient(136deg, #00923F 12.7%, #3163FF 87.2%)"
+                      ? "linear-gradient(136deg, #0E8F5B 12.7%, #0B3B2E 87.2%)"
                       : "none",
                     backgroundColor: isActive ? "transparent" : "transparent",
                     transition: "all 0.25s ease",
@@ -238,7 +238,7 @@ export default function MBBSAbroad() {
                             fontFamily: "'Inter', sans-serif",
                             fontSize: "clamp(12px,1.11vw,21.333px)",
                             lineHeight: "clamp(18px,1.53vw,29.333px)",
-                            backgroundImage: "linear-gradient(162deg, #00923F 12.7%, #3163FF 87.2%)",
+                            backgroundImage: "linear-gradient(162deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             backgroundClip: "text",

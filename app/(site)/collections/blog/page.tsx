@@ -10,12 +10,12 @@ export const metadata = {
 
 export default function BlogPage() {
     return (
-        <div className="flex flex-col @container" style={{ backgroundColor: "#f6f7fb" }}>
+        <div className="flex flex-col @container" style={{ backgroundColor: "#F7F4EE" }}>
             {/* ── Banner ── */}
             <PageBanner
                 title="Blog"
                 subtitle="Insights, guides, and stories to help you navigate your journey of studying abroad."
-                backgroundImage="/home/about-graduation.jpg"
+                backgroundImage="/home/about-graduation.png"
                 overlayOpacity={0.5}
             />
 

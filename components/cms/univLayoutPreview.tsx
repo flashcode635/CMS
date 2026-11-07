@@ -64,14 +64,14 @@ function UniversitySection({ section, name }: { section: Section; name: string }
   } else {
     // "content" / unknown -> generic text block
     content = (
-      <section className="border-b border-slate-100 bg-white px-4 py-10 sm:px-8 lg:px-25">
+      <section className="border-b border-line bg-white px-4 py-10 sm:px-8 lg:px-25">
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-green">
           {section.label}
         </p>
-        <h2 className="mt-2 text-xl font-semibold text-[#14213d] lg:text-2xl">
+        <h2 className="mt-2 text-xl font-semibold text-[#12211C] lg:text-2xl">
           {String(section.data.heading || "Section heading")}
         </h2>
-        <p className="mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-500">
+        <p className="mt-2 whitespace-pre-wrap text-sm leading-7 text-muted">
           {String(section.data.body || "Section content preview.")}
         </p>
       </section>
@@ -117,7 +117,7 @@ export default function UnivLayoutPreview({ selected, sections }: UnivLayoutPrev
       ))}
 
       {visible.length === 0 && (
-        <p className="border-t border-slate-100 bg-white p-8 text-center text-sm text-slate-400">
+        <p className="border-t border-line bg-white p-8 text-center text-sm text-muted">
           Add sections in the editor to preview the page layout.
         </p>
       )}

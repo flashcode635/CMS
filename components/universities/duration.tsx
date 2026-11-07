@@ -38,14 +38,14 @@ export const DEFAULT_CONTENT: Required<DurationProps> = {
             title: "Theoretical + practical medical training",
             description: "Academic study",
             label: "Academic study",
-            color: "#2f6dff",
+            color: "#0B3B2E",
         },
         {
             duration: "1 YEAR",
             title: "Clinical practice",
             description: "Compulsory internship",
             label: "Compulsory internship",
-            color: "#ff7a18",
+            color: "#D8B26E",
         },
     ],
 };
@@ -66,18 +66,18 @@ export default function DurationSection({
         <section
             id={anchorId || undefined}
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(115deg,#e7f5ec_0%,#edf4f5_48%,#edf0ff_100%)] py-14 @min-[640px]:py-16 @min-[1024px]:py-20"
+            className="bg-[linear-gradient(115deg,#EDF3EF_0%,#EDF3EF_48%,#EFE9DE_100%)] py-14 @min-[640px]:py-16 @min-[1024px]:py-20"
         >
             <div className="mx-auto max-w-6xl px-5 @min-[640px]:px-8">
                 <h2 className="flex items-center gap-4 text-2xl font-medium leading-tight @min-[640px]:text-3xl @min-[1024px]:text-4xl">
                     <span
                         aria-hidden="true"
-                        className="h-14 w-1 flex-none rounded-full bg-[#139c61] @min-[640px]:h-16"
+                        className="h-14 w-1 flex-none rounded-full bg-[#0E8F5B] @min-[640px]:h-16"
                     />
                     <span>
-                        <span className="text-[#09965d]">{titleGreen}</span>
+                        <span className="text-[#0E8F5B]">{titleGreen}</span>
                         <br />
-                        <span className="text-[#2378d8]">{titleBlue}</span>
+                        <span className="text-[#0A6B44]">{titleBlue}</span>
                     </span>
                 </h2>
 
@@ -96,7 +96,7 @@ export default function DurationSection({
                         <h3 className="max-w-md font-serif text-base font-semibold leading-tight @min-[640px]:text-lg">
                             {cardTitle}
                         </h3>
-                        <p className="mt-2 text-[9px] text-slate-400 @min-[640px]:text-[10px]">
+                        <p className="mt-2 text-[9px] text-brand-champagne-soft/70 @min-[640px]:text-[10px]">
                             {cardIntro}
                         </p>
 
@@ -106,7 +106,7 @@ export default function DurationSection({
                                     key={`${stage.duration}-${stage.title}`}
                                     className={`grid grid-cols-[8px_1fr_auto] items-center gap-3 py-3 ${
                                         index > 0
-                                            ? "border-t border-slate-700/70"
+                                            ? "border-t border-white/15"
                                             : ""
                                     }`}
                                 >
@@ -122,11 +122,11 @@ export default function DurationSection({
                                         >
                                             {stage.duration}
                                         </p>
-                                        <p className="mt-1 text-[9px] text-slate-400">
+                                        <p className="mt-1 text-[9px] text-brand-champagne-soft/70">
                                             {stage.title}
                                         </p>
                                     </div>
-                                    <p className="text-right text-[8px] text-slate-300">
+                                    <p className="text-right text-[8px] text-brand-champagne-soft/60">
                                         {stage.label}
                                     </p>
                                 </div>

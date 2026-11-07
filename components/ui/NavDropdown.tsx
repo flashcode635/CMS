@@ -47,7 +47,7 @@ function DropdownPanel({ onEnter, onLeave, children }: DropdownPanelProps) {
         boxShadow:            "0 20px 50px -8px rgba(0,0,0,0.7)",
         padding:              16,
         animation:            "np-in 0.16s ease forwards",
-        fontFamily:           "'Plus Jakarta Sans','Inter',sans-serif",
+        fontFamily:           "'Inter','Inter',sans-serif",
         pointerEvents:        "auto",
       }}
     >
@@ -79,7 +79,7 @@ function DropdownLayout({ imageSrc, imageAlt, items, onClose }: DropdownLayoutPr
           flexShrink: 0,
           borderRadius: 12,
           overflow:   "hidden",
-          backgroundColor: "#bacbff",
+          backgroundColor: "#F1E3C8",
           position:   "relative",
           minHeight:  items.length > 2 ? 220 : 140,
         }}>
@@ -126,7 +126,7 @@ export function AboutDropdown({ onClose, onEnter, onLeave }: BaseDropdownProps) 
   return (
     <DropdownPanel onEnter={onEnter} onLeave={onLeave}>
       <DropdownLayout
-        imageSrc="/home/about-graduation.jpg"
+        imageSrc="/home/about-graduation.png"
         imageAlt="About My Study Hub"
         items={ABOUT_ITEMS}
         onClose={onClose}
@@ -139,7 +139,7 @@ export function CollectionsDropdown({ onClose, onEnter, onLeave }: BaseDropdownP
   return (
     <DropdownPanel onEnter={onEnter} onLeave={onLeave}>
       <DropdownLayout
-        imageSrc="/home/about-graduation.jpg"
+        imageSrc="/home/about-graduation.png"
         imageAlt="Collections"
         items={COLLECTIONS_ITEMS}
         onClose={onClose}
@@ -152,7 +152,7 @@ export function GalleryDropdown({ onClose, onEnter, onLeave }: BaseDropdownProps
   return (
     <DropdownPanel onEnter={onEnter} onLeave={onLeave}>
       <DropdownLayout
-        imageSrc="/home/about-graduation.jpg"
+        imageSrc="/home/about-graduation.png"
         imageAlt="Gallery"
         items={GALLERY_ITEMS}
         onClose={onClose}

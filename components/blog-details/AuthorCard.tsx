@@ -40,25 +40,25 @@ export default function AuthorCard({
       label: "LinkedIn",
       href: socials.linkedin ?? "#",
       Icon: Link2,
-      bg: "#0039ea",
+      bg: "#0A6B44",
     },
     {
       label: "GitHub",
       href: socials.github ?? "#",
       Icon: Share2,
-      bg: "#1b1f23",
+      bg: "#12211C",
     },
     {
       label: "Website",
       href: socials.website ?? "#",
       Icon: Globe,
-      bg: "#6d767e",
+      bg: "#4A554F",
     },
     {
       label: "Email",
       href: socials.email ? `mailto:${socials.email}` : "#",
       Icon: AtSign,
-      bg: "#000",
+      bg: "#072A21",
     },
   ];
 
@@ -68,25 +68,25 @@ export default function AuthorCard({
         className="w-full rounded-3xl p-10 flex flex-col gap-6"
         style={{
           background:
-            "linear-gradient(122.63deg, rgba(0,146,63,0.22) 12.7%, rgba(49,99,255,0.22) 87.17%)",
+            "linear-gradient(122.63deg, rgba(14,143,91,0.22) 12.7%, rgba(216,178,110,0.22) 87.17%)",
         }}
         aria-label={`Author: ${name}`}
       >
         <div className="flex flex-col gap-1">
           <p
-            className="text-[#121416] text-[13px] font-normal tracking-[2.5px] uppercase"
+            className="text-[#12211C] text-[13px] font-normal tracking-[2.5px] uppercase"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             AUTHOR
           </p>
           <p
-            className="text-[#121416] text-[20px] font-bold leading-tight"
+            className="text-[#12211C] text-[20px] font-bold leading-tight"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {name}
           </p>
           <p
-            className="text-[#121416] text-[15px] font-semibold"
+            className="text-[#12211C] text-[15px] font-semibold"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {designation}
@@ -130,14 +130,14 @@ export default function AuthorCard({
 
       <div className="flex flex-col gap-5 flex-1">
         <p
-          className="text-[#121416] text-[22px] sm:text-3xl  font-bold leading-tight"
+          className="text-[#12211C] text-[22px] sm:text-3xl  font-bold leading-tight"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {name}
         </p>
 
         <p
-          className="text-[#6d767e] text-[17px] sm:text-4.5 leading-[26.5px]"
+          className="text-[#4A554F] text-[17px] sm:text-4.5 leading-[26.5px]"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {bio}

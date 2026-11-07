@@ -61,12 +61,12 @@ export default function FacultySection({
     return (
         <section
             aria-label={sectionLabel}
-            className="relative overflow-hidden bg-[linear-gradient(150deg,#0e2438_0%,#0b1a2b_100%)] py-16 @min-[1024px]:py-24"
+            className="relative overflow-hidden bg-[linear-gradient(150deg,#0B3B2E_0%,#072A21_100%)] py-16 @min-[1024px]:py-24"
         >
             {/* Decorative circle (bottom-right, as in the design) */}
             <div
                 aria-hidden="true"
-                className="absolute -bottom-40 right-[-6rem] size-[26rem] rounded-full bg-blue-800/25"
+                className="absolute -bottom-40 right-[-6rem] size-[26rem] rounded-full bg-brand-forest/25"
             />
 
             <div className="relative mx-auto max-w-7xl px-4 @min-[640px]:px-6 @min-[1024px]:px-25">
@@ -77,7 +77,7 @@ export default function FacultySection({
                     aria-hidden="true"
                     className="mt-3 h-px bg-white/20"
                 />
-                <p className="mt-4 max-w-2xl text-xs leading-relaxed text-gray-300 @min-[640px]:text-sm">
+                <p className="mt-4 max-w-2xl text-xs leading-relaxed text-brand-champagne-soft/70 @min-[640px]:text-sm">
                     {intro}
                 </p>
 
@@ -90,19 +90,19 @@ export default function FacultySection({
                         >
                             <span
                                 aria-hidden="true"
-                                className="text-xs font-bold text-[#16224a]"
+                                className="text-xs font-bold text-[#1C2B25]"
                             >
                                 {index + 1}.
                             </span>
                             {item.href ? (
                                 <a
                                     href={item.href}
-                                    className="text-xs font-medium text-blue-600 hover:underline"
+                                    className="text-xs font-medium text-brand-emerald-deep hover:underline"
                                 >
                                     {item.label}
                                 </a>
                             ) : (
-                                <span className="text-xs font-medium text-blue-600">
+                                <span className="text-xs font-medium text-brand-emerald-deep">
                                     {item.label}
                                 </span>
                             )}

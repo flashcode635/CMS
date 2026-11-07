@@ -43,7 +43,7 @@ export default function DropdownItem({ href, icon: Icon, label, onClose }: Dropd
         style={{
           position:        "absolute",
           inset:           0,
-          backgroundImage: "linear-gradient(147.53deg,#00923F 12.704%,#3163FF 87.17%)",
+          backgroundImage: "linear-gradient(147.53deg,#0E8F5B 12.704%,#0B3B2E 87.17%)",
           opacity:         0,
           transition:      "opacity 0.18s ease",
           borderRadius:    "inherit",

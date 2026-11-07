@@ -48,21 +48,21 @@ export default function Footer() {
   const [searchValue, setSearchValue] = useState<string>("");
 
   return (
-    <footer className="w-full text-white relative overflow-hidden bg-[#020b18]">
+    <footer className="w-full text-white relative overflow-hidden bg-[#072A21]">
       {/* Background radial/linear shader gradients */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 20% 30%, rgba(0, 180, 200, 0.15) 0%, rgba(0, 20, 50, 0.9) 60%, rgba(2, 11, 24, 1) 100%)",
+              "radial-gradient(ellipse 90% 70% at 20% 30%, rgba(216, 178, 110, 0.14) 0%, rgba(7, 42, 33, 0.92) 60%, rgba(7, 42, 33, 1) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(0, 146, 63, 0.1) 0%, rgba(49, 99, 255, 0.15) 50%, rgba(0, 15, 35, 0.7) 100%)",
+              "linear-gradient(135deg, rgba(14, 143, 91, 0.16) 0%, rgba(216, 178, 110, 0.10) 50%, rgba(7, 42, 33, 0.75) 100%)",
           }}
         />
         {/* Slanted laser beam background overlay */}
@@ -70,7 +70,7 @@ export default function Footer() {
           className="absolute inset-0 opacity-25"
           style={{
             background:
-              "linear-gradient(125deg, transparent 0%, rgba(0,240,255,0.08) 40%, rgba(0,240,255,0.22) 50%, rgba(0,240,255,0.08) 60%, transparent 100%)",
+              "linear-gradient(125deg, transparent 0%, rgba(216,178,110,0.08) 40%, rgba(216,178,110,0.22) 50%, rgba(216,178,110,0.08) 60%, transparent 100%)",
           }}
         />
       </div>
@@ -80,8 +80,8 @@ export default function Footer() {
         <div className="mb-16">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 pb-6">
             <div className="flex items-center gap-4 flex-1">
-              <div className="relative flex items-center justify-center p-2 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                <Search className="w-6 h-6 text-[#22d3ee]" />
+              <div className="relative flex items-center justify-center p-2 rounded-full bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">
+                <Search className="w-6 h-6 text-[#D8B26E]" />
               </div>
               <input
                 type="text"
@@ -105,7 +105,7 @@ export default function Footer() {
             </div>
           </div>
           {/* Divider Line */}
-          <div className="h-px w-full bg-linear-to-r from-transparent via-cyan-500/30 to-transparent" />
+          <div className="h-px w-full bg-linear-to-r from-transparent via-brand-cyan/30 to-transparent" />
         </div>
 
         {/* 5 Main Grid Columns */}
@@ -114,7 +114,7 @@ export default function Footer() {
           <div className="lg:col-span-3 flex flex-col space-y-6">
             <h2
               className="text-2xl font-bold tracking-wide text-white"
-              style={{ fontFamily: "'Frank Ruhl Libre', serif" }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               My Study Hub
             </h2>
@@ -131,8 +131,8 @@ export default function Footer() {
               </Button>
             </div>
 
-            <div className="border-l-2 border-[#0092ff] pl-4 py-1 space-y-1">
-              <p className="text-[#3b82f6] text-sm font-semibold">
+            <div className="border-l-2 border-[#D8B26E] pl-4 py-1 space-y-1">
+              <p className="text-[#D8B26E] text-sm font-semibold">
                 International Office, Russia
               </p>
               <p className="text-white/60 text-xs leading-relaxed">
@@ -147,17 +147,17 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Frank Ruhl Libre', serif" }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Countries
             </h3>
             <ul className="space-y-2.5">
               {countries.map((country) => (
                 <li key={country} className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan inline-block" />
                   <Link
                     href="#"
-                    className="text-white/80 hover:text-cyan-300 text-sm transition-colors duration-200"
+                    className="text-white/80 hover:text-brand-cyan text-sm transition-colors duration-200"
                   >
                     {country}
                   </Link>
@@ -170,7 +170,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Frank Ruhl Libre', serif" }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Useful Links
             </h3>
@@ -179,7 +179,7 @@ export default function Footer() {
                 <li key={link}>
                   <Link
                     href="#"
-                    className="text-white/80 hover:text-cyan-300 text-sm transition-colors duration-200 block"
+                    className="text-white/80 hover:text-brand-cyan text-sm transition-colors duration-200 block"
                   >
                     {link}
                   </Link>
@@ -192,15 +192,15 @@ export default function Footer() {
           <div className="lg:col-span-3 flex flex-col space-y-4">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Frank Ruhl Libre', serif" }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Get in Touch
             </h3>
 
             {/* Helpline Card */}
-            <div className="p-4 rounded-xl border border-cyan-500/30 bg-[#06182e]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(0,180,255,0.06)] hover:border-cyan-400/50 transition-all">
-              <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-0.5">
-                <Phone className="w-4 h-4 text-cyan-400" />
+            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-[#0B3B2E]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(216,178,110,0.10)] hover:border-brand-cyan/50 transition-all">
+              <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
+                <Phone className="w-4 h-4 text-brand-cyan" />
               </div>
               <div>
                 <p className="text-xs text-white/50 font-medium">Helpline No.</p>
@@ -211,9 +211,9 @@ export default function Footer() {
             </div>
 
             {/* Head Office Card */}
-            <div className="p-4 rounded-xl border border-cyan-500/30 bg-[#06182e]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(0,180,255,0.06)] hover:border-cyan-400/50 transition-all">
-              <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-0.5">
-                <MapPin className="w-4 h-4 text-cyan-400" />
+            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-[#0B3B2E]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(216,178,110,0.10)] hover:border-brand-cyan/50 transition-all">
+              <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
+                <MapPin className="w-4 h-4 text-brand-cyan" />
               </div>
               <div>
                 <p className="text-xs text-white/50 font-medium">My Study Hub - Head Office</p>
@@ -224,9 +224,9 @@ export default function Footer() {
             </div>
 
             {/* Mail Card */}
-            <div className="p-4 rounded-xl border border-cyan-500/30 bg-[#06182e]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(0,180,255,0.06)] hover:border-cyan-400/50 transition-all">
-              <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 mt-0.5">
-                <Mail className="w-4 h-4 text-cyan-400" />
+            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-[#0B3B2E]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(216,178,110,0.10)] hover:border-brand-cyan/50 transition-all">
+              <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
+                <Mail className="w-4 h-4 text-brand-cyan" />
               </div>
               <div>
                 <p className="text-xs text-white/50 font-medium">Mail for info.</p>
@@ -241,7 +241,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4 relative">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Frank Ruhl Libre', serif" }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Our Socials
             </h3>
@@ -252,10 +252,10 @@ export default function Footer() {
                   <Link
                     key={social.label}
                     href={social.href}
-                    className="py-3 flex items-center justify-between group text-white/80 hover:text-cyan-300 transition-colors"
+                    className="py-3 flex items-center justify-between group text-white/80 hover:text-brand-cyan transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-1.5 rounded-md bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500/20 transition-colors relative w-6 h-6 flex items-center justify-center">
+                      <div className="p-1.5 rounded-md bg-brand-cyan/10 text-brand-cyan group-hover:bg-brand-cyan/20 transition-colors relative w-6 h-6 flex items-center justify-center">
                         <Image
                           src={social.icon}
                           alt={social.label}
@@ -266,7 +266,7 @@ export default function Footer() {
                       </div>
                       <span className="text-sm font-medium">{social.label}</span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-cyan-300 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-brand-cyan group-hover:translate-x-1 transition-all" />
                   </Link>
                 );
               })}
@@ -276,16 +276,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Sub-Footer Copyright & Legal Links Bar */}
-        <div className="mt-12 pt-6 border-t border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>© Copyright My Study Hub 2026-27 All Rights Reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="hover:text-cyan-300 transition-colors">
+            <Link href="#" className="hover:text-brand-cyan transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-cyan-300 transition-colors">
+            <Link href="#" className="hover:text-brand-cyan transition-colors">
               Refund Policy
             </Link>
-            <Link href="#" className="hover:text-cyan-300 transition-colors">
+            <Link href="#" className="hover:text-brand-cyan transition-colors">
               Social Awareness
             </Link>
           </div>

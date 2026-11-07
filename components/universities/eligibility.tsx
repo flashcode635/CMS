@@ -75,7 +75,7 @@ export default function EligibilitySection({
                     aria-hidden="true"
                     className="mt-2 h-0.5 w-full rounded-full bg-[#70ad52]"
                 />
-                <p className="mt-3 text-xs leading-relaxed text-blue-100/80 @min-[640px]:text-sm">
+                <p className="mt-3 text-xs leading-relaxed text-brand-champagne-soft/80 @min-[640px]:text-sm">
                     {intro}
                 </p>
 
@@ -83,24 +83,24 @@ export default function EligibilitySection({
                     {criteria.map((criterion, index) => (
                         <article
                             key={`${criterion.title}-${index}`}
-                            className="min-h-24 rounded-md bg-white px-4 py-4 text-[#142549] shadow-md @min-[640px]:min-h-28"
+                            className="min-h-24 rounded-md bg-white px-4 py-4 text-[#0B3B2E] shadow-md @min-[640px]:min-h-28"
                         >
                             <h3 className="flex items-baseline gap-1 text-base font-medium">
-                                <span className="text-2xl font-semibold text-[#159969]">
+                                <span className="text-2xl font-semibold text-[#0E8F5B]">
                                     {index + 1}.
                                 </span>
-                                <span className="text-[#2672ba]">
+                                <span className="text-brand-emerald-deep">
                                     {criterion.title}
                                 </span>
                             </h3>
-                            <p className="mt-2 text-[10px] leading-[1.4] text-slate-600 @min-[640px]:text-[11px]">
+                            <p className="mt-2 text-[10px] leading-[1.4] text-body @min-[640px]:text-[11px]">
                                 {criterion.description}
                             </p>
                         </article>
                     ))}
                 </div>
 
-                <p className="mt-6 max-w-3xl text-xs leading-relaxed text-blue-100/90 @min-[640px]:text-sm">
+                <p className="mt-6 max-w-3xl text-xs leading-relaxed text-brand-champagne-soft/90 @min-[640px]:text-sm">
                     {footer}
                 </p>
             </div>

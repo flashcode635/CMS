@@ -2,7 +2,7 @@
 
 Primary Purpose: Sections for the Career page (`/about-us/career`): welcome hero, "Join the team" photo/card block, and the open-positions grid with mouse-tilt cards.
 
-Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "Career - My Study Hub Pvt Ltd", background `/home/about-graduation.jpg`) → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (`components/about-us/lastsection`). The page background is `#ffffff`.
+Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "Career - My Study Hub Pvt Ltd", background `/home/about-graduation.png`) → `WelcomeBanner` → `JoinTeamSection` → `RecruitmentGrid` → `FaqSection` (`components/about-us/lastsection`). The page background is `#ffffff`.
 
 ## Files
 
@@ -38,7 +38,7 @@ Route composition (`app/(site)/about-us/career/page.tsx`): `PageBanner` (title "
 - **Handlers / functions:**
   - Local `ArrowRight()` — 16×16 SVG arrow whose `path` stroke is hard-coded `#0028a5`; parent button uses `group-hover:[&_path]:stroke-white` to recolour on hover.
 - **Constants & types:** none; inline gradient `linear-gradient(167.98deg, #00923F 12.704%, #3163FF 87.17%)`.
-- **Data flow:** static; photo `/home/about-graduation.jpg` used twice (desktop 67vw, mobile 100vw).
+- **Data flow:** static; photo `/home/about-graduation.png` used twice (desktop 67vw, mobile 100vw).
 - **Dependencies:** `next/image`, `@/components/ui/Button`.
 - **Consumers:** `app/(site)/about-us/career/page.tsx` (line 8 / rendered at line 33).
 - **Notes:**

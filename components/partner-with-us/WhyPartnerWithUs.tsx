@@ -4,7 +4,7 @@
  *
  * Centered section:
  *  - Gradient Inter ExtraBold heading "Why Partner With Us?"
- *  - Drop-cap "W" intro paragraph in Lexend Light
+ *  - Drop-cap "W" intro paragraph in Inter Light
  *  - "collaboration and mutual growth" bolded inline
  */
 
@@ -17,11 +17,11 @@ export default function WhyPartnerWithUs() {
         <h2
           className="font-extrabold bg-clip-text text-transparent"
           style={{
-            fontFamily: "Inter, sans-serif",
+            fontFamily: "Playfair Display, serif",
             fontSize: "clamp(28px, 3.33vw, 48px)",
             lineHeight: "1.3",
             backgroundImage:
-              "linear-gradient(165.04deg, #00923F 12.704%, #3163FF 87.17%)",
+              "linear-gradient(165.04deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
           }}
         >
           Why Partner With Us?
@@ -29,9 +29,9 @@ export default function WhyPartnerWithUs() {
 
         {/* ── Body with drop-cap W ── */}
         <p
-          className="text-[#606c83] text-center"
+          className="text-[#4A554F] text-center"
           style={{
-            fontFamily: "'Lexend', sans-serif",
+            fontFamily: "'Inter', sans-serif",
             fontWeight: 300,
             fontSize: "clamp(14px, 1.04vw, 18px)",
             lineHeight: "27px",
@@ -45,7 +45,7 @@ export default function WhyPartnerWithUs() {
               fontFamily: "Inter, sans-serif",
               fontWeight: 300,
               fontSize: "clamp(24px, 2.22vw, 32px)",
-              color: "#606c83",
+              color: "#4A554F",
               lineHeight: "48px",
             }}
           >
@@ -58,7 +58,7 @@ export default function WhyPartnerWithUs() {
           MBBS overseas opens up a world of opportunities for{" "}
           <strong
             style={{
-              fontFamily: "'Lexend', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 700,
             }}
           >

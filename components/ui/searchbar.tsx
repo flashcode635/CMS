@@ -62,7 +62,7 @@ export const SearchBar = ({
             handleSubmit();
           }}
           className="flex items-center gap-4 border-b 
-        border-[#b9c1cc] pb-5">
+        border-[#D6CCBA] pb-5">
           <Search className={`h-5.5 w-5.5 font-thin shrink-0 ${iconClassName}`} />
           <input
             ref={inputRef}
@@ -97,9 +97,9 @@ export const SearchBar = ({
               key={tag}
               type="button"
               onClick={() => onSearch?.(tag)}
-              className={`border-2 border-[#9098a580] hover:text-[#27282a] hover:cursor-pointer bg-transparent px-4 
-              py-2 text-xs font-normal ${darkMode ? 'text-white!' : 'text-[#222b3c]'} transition-all
-               hover:bg-[#afb6bf40]
+              className={`border-2 border-[#9098a580] hover:text-[#12211C] hover:cursor-pointer bg-transparent px-4 
+              py-2 text-xs font-normal ${darkMode ? 'text-white!' : 'text-[#2A3A33]'} transition-all
+               hover:bg-[#D6CCBA40]
               sm:px-4.25 h-auto shadow-none`}
             >
               {tag}

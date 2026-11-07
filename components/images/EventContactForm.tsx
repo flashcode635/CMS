@@ -23,7 +23,7 @@ const COURSES = [
 ];
 
 const inputCls =
-  "w-full bg-[#f8fafc] border border-[#e2e8f0] rounded-xl px-5 py-4 text-gray-800 font-medium text-base outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 transition-all font-['Inter',sans-serif]";
+  "w-full bg-[#F7F4EE] border border-[#E4DDD0] rounded-xl px-5 py-4 text-ink font-medium text-base outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft transition-all font-['Inter',sans-serif]";
 
 export default function EventContactForm() {
   const [form, setForm] = useState({
@@ -44,7 +44,7 @@ export default function EventContactForm() {
       className="w-full px-5 @min-[640px]:px-10 @min-[1024px]:px-16 @min-[1280px]:px-20 py-12 @min-[1024px]:py-20 font-['Inter',sans-serif]"
     >
       <div
-        className="max-w-[1640px] mx-auto rounded-3xl border border-[#e2e8f0] overflow-hidden flex flex-col @min-[1024px]:flex-row shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-white"
+        className="max-w-[1640px] mx-auto rounded-3xl border border-[#E4DDD0] overflow-hidden flex flex-col @min-[1024px]:flex-row shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-white"
       >
 
         {/* ── LEFT — blue gradient info panel ── */}
@@ -53,21 +53,21 @@ export default function EventContactForm() {
         >
           {/* Subtle background glow circles */}
           <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-white/10 pointer-events-none" />
-          <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full bg-green-500/10 pointer-events-none" />
+          <div className="absolute -bottom-10 -right-10 w-48 h-48 rounded-full bg-brand-emerald/10 pointer-events-none" />
 
           <div className="flex flex-col gap-8 relative z-10">
             {/* Heading */}
             <div>
-              <p className="text-green-300 text-xs font-bold uppercase tracking-widest mb-2 font-['Inter',sans-serif]">
+              <p className="text-brand-champagne-soft text-xs font-bold uppercase tracking-widest mb-2 font-['Inter',sans-serif]">
                 Get Expert Advice
               </p>
-              <h2 className="text-2xl @min-[640px]:text-4xl font-extrabold leading-tight font-['Poppins',sans-serif]">
+              <h2 className="text-2xl @min-[640px]:text-4xl font-extrabold leading-tight font-['Inter',sans-serif]">
                 Get Free Counseling
               </h2>
             </div>
 
             {/* Subtitle */}
-            <p className="text-white/80 font-light text-base @min-[640px]:text-lg leading-relaxed font-['Lexend',sans-serif]">
+            <p className="text-white/80 font-light text-base @min-[640px]:text-lg leading-relaxed font-['Inter',sans-serif]">
               Our expert consultants are ready to guide you through every step
               of your international medical education.
             </p>
@@ -108,10 +108,10 @@ export default function EventContactForm() {
 
           {/* Footer quote */}
           <div className="flex flex-col gap-2 pt-10 mt-8 border-t border-white/15 relative z-10">
-            <p className="text-green-300 font-bold text-xs uppercase tracking-wider">
+            <p className="text-brand-champagne-soft font-bold text-xs uppercase tracking-wider">
               Official University Contractor
             </p>
-            <p className="text-white/80 italic text-sm @min-[640px]:text-base font-['Lexend',sans-serif]">
+            <p className="text-white/80 italic text-sm @min-[640px]:text-base font-['Inter',sans-serif]">
               &ldquo;Turning medical dreams into global reality since 2014.&rdquo;
             </p>
           </div>
@@ -121,13 +121,13 @@ export default function EventContactForm() {
         <div className="bg-white flex-1 p-8 @min-[640px]:p-12 @min-[1024px]:p-16">
           {submitted ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-12 gap-4">
-              <div className="w-16 h-16 rounded-full bg-green-100 text-brand-green flex items-center justify-center font-bold text-3xl">
+              <div className="w-16 h-16 rounded-full bg-brand-champagne-soft text-brand-green flex items-center justify-center font-bold text-3xl">
                 <CheckCircle2 size={36} />
               </div>
-              <h3 className="text-2xl @min-[640px]:text-3xl font-bold text-gray-900 font-['Poppins',sans-serif]">
+              <h3 className="text-2xl @min-[640px]:text-3xl font-bold text-ink font-['Inter',sans-serif]">
                 Application Received!
               </h3>
-              <p className="text-gray-600 max-w-md text-base leading-relaxed font-['Lexend',sans-serif]">
+              <p className="text-body max-w-md text-base leading-relaxed font-['Inter',sans-serif]">
                 Thank you for reaching out. Our medical education counselor will get in touch with you within 24 hours.
               </p>
               <Button
@@ -144,10 +144,10 @@ export default function EventContactForm() {
               className="flex flex-col gap-6"
             >
               <div className="mb-2">
-                <h3 className="text-2xl font-bold text-[#00142d] font-['Poppins',sans-serif]">
+                <h3 className="text-2xl font-bold text-[#12211C] font-['Inter',sans-serif]">
                   Request Free Counseling
                 </h3>
-                <p className="text-gray-500 text-sm font-['Lexend',sans-serif] mt-1">
+                <p className="text-muted text-sm font-['Inter',sans-serif] mt-1">
                   Fill in your details below and our counseling expert will get in touch with you.
                 </p>
               </div>
@@ -155,7 +155,7 @@ export default function EventContactForm() {
               {/* Row 1: Name + Phone */}
               <div className="grid grid-cols-1 @min-[640px]:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-gray-700 font-semibold text-xs uppercase tracking-wider">
+                  <label className="text-body font-semibold text-xs uppercase tracking-wider">
                     Full Name *
                   </label>
                   <input
@@ -168,7 +168,7 @@ export default function EventContactForm() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-gray-700 font-semibold text-xs uppercase tracking-wider">
+                  <label className="text-body font-semibold text-xs uppercase tracking-wider">
                     Phone Number *
                   </label>
                   <input
@@ -185,7 +185,7 @@ export default function EventContactForm() {
               {/* Row 2: Email + Course */}
               <div className="grid grid-cols-1 @min-[640px]:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-gray-700 font-semibold text-xs uppercase tracking-wider">
+                  <label className="text-body font-semibold text-xs uppercase tracking-wider">
                     Email Address *
                   </label>
                   <input
@@ -198,7 +198,7 @@ export default function EventContactForm() {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-gray-700 font-semibold text-xs uppercase tracking-wider">
+                  <label className="text-body font-semibold text-xs uppercase tracking-wider">
                     Desired Country/Course
                   </label>
                   <div className="relative">
@@ -211,7 +211,7 @@ export default function EventContactForm() {
                         <option key={c} value={c}>{c}</option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+                    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-muted">
                       ▼
                     </div>
                   </div>
@@ -220,7 +220,7 @@ export default function EventContactForm() {
 
               {/* Message */}
               <div className="flex flex-col gap-2">
-                <label className="text-gray-700 font-semibold text-xs uppercase tracking-wider">
+                <label className="text-body font-semibold text-xs uppercase tracking-wider">
                   Your Message (Optional)
                 </label>
                 <textarea

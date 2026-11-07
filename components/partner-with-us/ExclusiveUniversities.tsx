@@ -23,7 +23,7 @@ const UNIVERSITIES = [
     bg:         "https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=300&q=80",
     footerBg:   "#1d6eb7",
-    mobileBg:   "#dfe7f1",
+    mobileBg:   "#E4DDD0",
     mobileLogo: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=200&q=80",
     filter: "russia",
   },
@@ -33,7 +33,7 @@ const UNIVERSITIES = [
     bg:         "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=300&q=80",
     footerBg:   "#77c043",
-    mobileBg:   "#e7fcd8",
+    mobileBg:   "#EDF3EF",
     mobileLogo: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=200&q=80",
     filter: "russia",
   },
@@ -43,7 +43,7 @@ const UNIVERSITIES = [
     bg:         "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&q=80",
     footerBg:   "#33588b",
-    mobileBg:   "#d6e1f0",
+    mobileBg:   "#D6CCBA",
     mobileLogo: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&q=80",
     filter: "russia",
   },
@@ -73,7 +73,7 @@ const UNIVERSITIES = [
     bg:         "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=300&q=80",
     footerBg:   "#2b62a6",
-    mobileBg:   "#d6e1f0",
+    mobileBg:   "#D6CCBA",
     mobileLogo: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=200&q=80",
     filter: "kyrgyzstan",
   },
@@ -101,14 +101,14 @@ export default function ExclusiveUniversities() {
         <div className="flex flex-col items-start sm:items-center gap-3 text-center sm:text-center">
           <p
             className="text-brand-royal font-normal tracking-[0.8533px] text-base sm:text-xl"
-            style={{ fontFamily: "'Lexend', sans-serif" }}
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Our Partners
           </p>
           <h2
             className="font-bold text-left sm:text-center text-black"
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontSize: "clamp(28px, 4.17vw, 64px)",
               lineHeight: 1.2,
             }}
@@ -116,8 +116,8 @@ export default function ExclusiveUniversities() {
             Our Exclusive Universities
           </h2>
           <p
-            className="text-[#5a6777] font-normal text-sm sm:text-base leading-relaxed max-w-160 text-left sm:text-center"
-            style={{ fontFamily: "'Lexend', sans-serif" }}
+            className="text-[#4A554F] font-normal text-sm sm:text-base leading-relaxed max-w-160 text-left sm:text-center"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Help us get to know you better. Fill in the details and our team will
             contact you within the next 24 hours!
@@ -141,7 +141,7 @@ export default function ExclusiveUniversities() {
                 style={{
                   fontFamily: "Inter, sans-serif",
                   ...(isActive
-                    ? { backgroundImage: "linear-gradient(140.2deg, #00923F 12.704%, #3163FF 87.17%)" }
+                    ? { backgroundImage: "linear-gradient(140.2deg, #0E8F5B 12.704%, #0B3B2E 87.17%)" }
                     : {}),
                 }}
               >
@@ -150,7 +150,7 @@ export default function ExclusiveUniversities() {
                 ) : (
                   <span
                     className="bg-clip-text text-transparent"
-                    style={{ backgroundImage: "linear-gradient(165deg, #00923F 12.704%, #3163FF 87.17%)" }}
+                    style={{ backgroundImage: "linear-gradient(165deg, #0E8F5B 12.704%, #0B3B2E 87.17%)" }}
                   >
                     {f.label}
                   </span>
@@ -247,7 +247,7 @@ export default function ExclusiveUniversities() {
               >
                 <p
                   className="text-white font-semibold text-[11px] text-center leading-snug"
-                  style={{ fontFamily: "'Lexend', sans-serif" }}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {u.name}
                 </p>

@@ -102,13 +102,13 @@ export default function UnivNav({
       )}
 
       <nav
-        className="sticky z-40 w-full bg-black"
+        className="sticky z-40 w-full bg-[#072A21]"
         style={{
           top: "calc(clamp(64px, 5.21vw, 100px) + 0.5rem)",
         }}
       >
         <ul className="flex min-h-11 items-stretch overflow-x-auto overscroll-x-contain
-          text-xs font-medium text-gray-100 scrollbar-none [&::-webkit-scrollbar]:hidden
+          text-xs font-medium text-white scrollbar-none [&::-webkit-scrollbar]:hidden
           @min-[1024px]:grid @min-[1024px]:min-h-10 @min-[1024px]:grid-flow-col @min-[1024px]:auto-cols-fr 
           @min-[1024px]:items-center @min-[1024px]:overflow-visible @min-[1024px]:text-[8px]">
 
@@ -116,7 +116,7 @@ export default function UnivNav({
             <li
               key={option.id}
               className={`h-auto shrink-0 text-center @min-[1024px]:h-full @min-[1024px]:shrink ${
-                index !== 0 ? "border-l-2 border-gray-700" : ""
+                index !== 0 ? "border-l-2 border-white/20" : ""
               }`}
             >
               <a

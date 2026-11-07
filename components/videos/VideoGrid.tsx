@@ -148,7 +148,7 @@ function YoutubeLogo({ className = "" }) {
       <text
         x="0"
         y="16"
-        fontFamily="Arial, sans-serif"
+        fontFamily="Inter, sans-serif"
         fontWeight="bold"
         fontSize="18"
         fill="white"
@@ -205,7 +205,7 @@ function FeaturedVideoCard({ video }: { video: VideoItem }) {
   const handlePlay = useCallback(() => setPlaying(true), []);
 
   return (
-    <div className="relative w-full rounded-4xl overflow-hidden bg-[#00142d]"
+    <div className="relative w-full rounded-4xl overflow-hidden bg-[#12211C]"
       style={{ aspectRatio: "16/7" }}
     >
       {/* Thumbnail / iframe */}
@@ -228,7 +228,7 @@ function FeaturedVideoCard({ video }: { video: VideoItem }) {
             />
           )}
           {!thumbUrl && (
-            <div className="absolute inset-0 bg-[#001a3d]" />
+            <div className="absolute inset-0 bg-[#072A21]" />
           )}
 
           {/* Gradient overlay */}
@@ -252,13 +252,13 @@ function FeaturedVideoCard({ video }: { video: VideoItem }) {
             <div className="flex flex-col">
               <span
                 className="text-white font-bold text-sm leading-tight line-clamp-1 max-w-50 sm:max-w-125"
-                style={{ fontFamily: "Roboto, sans-serif" }}
+                style={{ fontFamily: "Inter, sans-serif" }}
               >
                 {video.title}
               </span>
               <span
                 className="text-white/80 text-[11px] leading-tight"
-                style={{ fontFamily: "Roboto, sans-serif" }}
+                style={{ fontFamily: "Inter, sans-serif" }}
               >
                 {video.channel}
               </span>
@@ -270,20 +270,20 @@ function FeaturedVideoCard({ video }: { video: VideoItem }) {
             href={watchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute bottom-7 right-6 flex items-center gap-2 bg-black/30 hover:bg-black/50 transition-colors rounded-full h-12 px-6"
+            className="absolute bottom-7 right-6 flex items-center gap-2 bg-[#072A21]/40 hover:bg-[#072A21]/50 transition-colors rounded-full h-12 px-6"
           >
             <span
               className="text-white font-light text-lg leading-none"
-              style={{ fontFamily: "Roboto, sans-serif" }}
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               Watch on
             </span>
             {/* YouTube wordmark */}
             <svg width="80" height="18" viewBox="0 0 90 20" aria-label="YouTube">
-              <text x="0" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="17" fill="white">
+              <text x="0" y="16" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="17" fill="white">
                 You
               </text>
-              <text x="34" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="17" fill="#FF0000">
+              <text x="34" y="16" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="17" fill="#FF0000">
                 Tube
               </text>
             </svg>
@@ -309,7 +309,7 @@ function VideoCard({ video }: { video: VideoItem }) {
 
   return (
     <div
-      className="relative w-full rounded-3xl overflow-hidden bg-[#00142d] group cursor-pointer"
+      className="relative w-full rounded-3xl overflow-hidden bg-[#12211C] group cursor-pointer"
       style={{ aspectRatio: "16/9" }}
     >
       {playing ? (
@@ -331,7 +331,7 @@ function VideoCard({ video }: { video: VideoItem }) {
             />
           )}
           {!thumbUrl && (
-            <div className="absolute inset-0 bg-[#001a3d]" />
+            <div className="absolute inset-0 bg-[#072A21]" />
           )}
 
           {/* Gradient overlay */}
@@ -355,13 +355,13 @@ function VideoCard({ video }: { video: VideoItem }) {
             <div className="flex flex-col">
               <span
                 className="text-white font-bold text-[11px] leading-tight line-clamp-1 max-w-37.5"
-                style={{ fontFamily: "Roboto, sans-serif" }}
+                style={{ fontFamily: "Inter, sans-serif" }}
               >
                 {video.title}
               </span>
               <span
                 className="text-white/70 text-2.5 leading-tight"
-                style={{ fontFamily: "Roboto, sans-serif" }}
+                style={{ fontFamily: "Inter, sans-serif" }}
               >
                 {video.channel}
               </span>
@@ -374,19 +374,19 @@ function VideoCard({ video }: { video: VideoItem }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 bg-black/30 hover:bg-black/50 transition-colors rounded-full h-9 px-4"
+            className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 bg-[#072A21]/40 hover:bg-[#072A21]/50 transition-colors rounded-full h-9 px-4"
           >
             <span
               className="text-white font-light text-[13px] leading-none"
-              style={{ fontFamily: "Roboto, sans-serif" }}
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               Watch on
             </span>
             <svg width="56" height="13" viewBox="0 0 90 20" aria-label="YouTube">
-              <text x="0" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="17" fill="white">
+              <text x="0" y="16" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="17" fill="white">
                 You
               </text>
-              <text x="34" y="16" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="17" fill="#FF0000">
+              <text x="34" y="16" fontFamily="Inter, sans-serif" fontWeight="bold" fontSize="17" fill="#FF0000">
                 Tube
               </text>
             </svg>
@@ -444,10 +444,10 @@ export default function VideoGrid() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const BTN_GRAD = "linear-gradient(140.84deg, #00923F 12.704%, #3163FF 87.17%)";
+  const BTN_GRAD = "linear-gradient(140.84deg, #0E8F5B 12.704%, #0B3B2E 87.17%)";
 
   return (
-    <section className="w-full py-10 px-5 sm:px-25" style={{ backgroundColor: "#e8f0f9" }}>
+    <section className="w-full py-10 px-5 sm:px-25" style={{ backgroundColor: "#F7F4EE" }}>
 
       {/* ── Featured video — only on page 1 ── */}
       {page === 1 && (
@@ -475,8 +475,8 @@ export default function VideoGrid() {
             style={{
               fontFamily: "Inter, sans-serif",
               backgroundImage: page === 1 ? undefined : BTN_GRAD,
-              backgroundColor: page === 1 ? "#e0e8f4" : undefined,
-              color: page === 1 ? "#79859b" : "white",
+              backgroundColor: page === 1 ? "#EFE9DE" : undefined,
+              color: page === 1 ? "#66716A" : "white",
             }}
           >
             <ChevronIcon direction="left" />
@@ -496,8 +496,8 @@ export default function VideoGrid() {
                     fontFamily: "Inter, sans-serif",
                     backgroundImage: isActive ? BTN_GRAD : undefined,
                     backgroundColor: isActive ? undefined : "white",
-                    color: isActive ? "white" : "#1a1a1a",
-                    boxShadow: isActive ? "0 4px 16px rgba(49,99,255,0.25)" : "0 2px 8px rgba(0,0,0,0.06)",
+                    color: isActive ? "white" : "#12211C",
+                    boxShadow: isActive ? "0 4px 16px rgba(216,178,110,0.25)" : "0 2px 8px rgba(0,0,0,0.06)",
                   }}
                 >
                   {p}
@@ -514,8 +514,8 @@ export default function VideoGrid() {
             style={{
               fontFamily: "Inter, sans-serif",
               backgroundImage: page === totalPages ? undefined : BTN_GRAD,
-              backgroundColor: page === totalPages ? "#e0e8f4" : undefined,
-              color: page === totalPages ? "#79859b" : "white",
+              backgroundColor: page === totalPages ? "#EFE9DE" : undefined,
+              color: page === totalPages ? "#66716A" : "white",
             }}
           >
             Next

@@ -139,17 +139,17 @@ export default function FeeStructureSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(120deg,#e6f3ec_0%,#eef4ef_50%,#edf0fa_100%)] py-16 @min-[1024px]:py-24"
+            className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
         >
             <div className="mx-auto max-w-7xl px-4 @min-[640px]:px-6 @min-[1024px]:px-25">
                 <div className="flex gap-4">
                         <div
                             aria-hidden="true"
-                            className="w-1.5 flex-none rounded-full bg-green-600"
+                            className="w-1.5 flex-none rounded-full bg-brand-emerald"
                         />
                         <h2 className="text-2xl font-semibold leading-snug @min-[1024px]:text-3xl">
-                            <span className="text-green-700">{titleGreen}</span>{" "}
-                            <span className="text-blue-600">{titleBlue}</span>
+                            <span className="text-brand-emerald-deep">{titleGreen}</span>{" "}
+                            <span className="text-brand-emerald-deep">{titleBlue}</span>
                         </h2>
                     </div>
 
@@ -158,10 +158,10 @@ export default function FeeStructureSection({
                         {cards.map((card) => (
                             <div
                                 key={card.year}
-                                className={`flex w-52 flex-none flex-col rounded-xl bg-[#0b1a2b] p-4 text-white shadow-md @min-[1024px]:w-auto ${
+                                className={`flex w-52 flex-none flex-col rounded-xl bg-[#072A21] p-4 text-white shadow-md @min-[1024px]:w-auto ${
                                     card.highlight
                                         ? "border-2 border-orange-400"
-                                        : "border border-[#0b1a2b]"
+                                        : "border border-[#072A21]"
                                 }`}
                             >
                                 {card.tag && (
@@ -169,7 +169,7 @@ export default function FeeStructureSection({
                                         {card.tag}
                                     </p>
                                 )}
-                                <p className="text-[9px] uppercase tracking-wide text-slate-400">
+                                <p className="text-[9px] uppercase tracking-wide text-brand-champagne-soft/70">
                                     Year
                                 </p>
                                 <p className="text-sm font-bold">{card.year}</p>
@@ -180,7 +180,7 @@ export default function FeeStructureSection({
                                             key={row.label}
                                             className="flex items-baseline justify-between gap-2"
                                         >
-                                            <dt className="text-[10px] text-slate-400">
+                                            <dt className="text-[10px] text-brand-champagne-soft/70">
                                                 {row.label}
                                             </dt>
                                             <dd className="text-[10px] font-semibold text-white">
@@ -191,7 +191,7 @@ export default function FeeStructureSection({
                                 </dl>
 
                                 <div className="mt-4 border-t border-white/15 pt-3">
-                                    <p className="text-[9px] uppercase tracking-wide text-slate-400">
+                                    <p className="text-[9px] uppercase tracking-wide text-brand-champagne-soft/70">
                                         Total:
                                     </p>
                                     <p
@@ -210,13 +210,13 @@ export default function FeeStructureSection({
 
                     {/* Approx-total chip + mess-charge note */}
                     <div className="mt-6 flex flex-wrap items-center gap-4">
-                        <div className="flex items-center gap-3 rounded-lg bg-[#0b1a2b] py-3 pl-4 pr-5 shadow-md">
+                        <div className="flex items-center gap-3 rounded-lg bg-[#072A21] py-3 pl-4 pr-5 shadow-md">
                             <div
                                 aria-hidden="true"
-                                className="h-9 w-1 flex-none rounded-full bg-green-600"
+                                className="h-9 w-1 flex-none rounded-full bg-brand-emerald"
                             />
                             <div>
-                                <p className="text-[9px] font-semibold uppercase tracking-wide text-slate-400">
+                                <p className="text-[9px] font-semibold uppercase tracking-wide text-brand-champagne-soft/70">
                                     {approxLabel}
                                 </p>
                                 <p className="mt-0.5 text-sm font-bold text-white">
@@ -225,7 +225,7 @@ export default function FeeStructureSection({
                             </div>
                         </div>
 
-                        <p className="inline-flex items-center gap-2 text-xs font-medium text-slate-600">
+                        <p className="inline-flex items-center gap-2 text-xs font-medium text-body">
                             <Info
                                 aria-hidden="true"
                                 className="h-4 w-4 text-orange-500"

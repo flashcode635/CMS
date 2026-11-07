@@ -52,8 +52,7 @@ const DEFAULT_CONTENT = {
       <UnivSections universityName={name} />
 
       <StudentTestimonials />
-      {slug}
-           <Faq/>
+      <Faq/>
         </div>
     )
 }

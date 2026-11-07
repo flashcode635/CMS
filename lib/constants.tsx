@@ -99,7 +99,7 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
     </>,
     <>
       {"In 2026, studying MBBS abroad remains an affordable and practical choice due to "}
-      <strong style={{ fontWeight: 700, color: "#485f84" }}>
+      <strong style={{ fontWeight: 700, color: "#4A554F" }}>
         {"affordable fees, high-quality education, and global recognition"}
       </strong>
       {", with leading universities teaching in English."}
@@ -210,7 +210,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
       </>,
       <>
         {"In 2026, MBBS in Russia remains a popular choice due to "}
-        <strong style={{ fontWeight: 700, color: "#485f84" }}>
+        <strong style={{ fontWeight: 700, color: "#4A554F" }}>
           {"affordable fees, high-quality education, and global recognition"}
         </strong>
         {"."}
@@ -243,7 +243,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         }
         <Link
           href="/countries/mbbs-in-russia"
-          className="text-[#3B82F6] font-semibold hover:underline"
+          className="text-[#D8B26E] font-semibold hover:underline"
         >
           {"MBBS abroad"}
         </Link>
@@ -370,7 +370,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         "Discover the rich culture, history, and opportunities that await you in Russia.",
       paragraphs: [
         <>
-          <span className="text-green-600 font-semibold text-lg">Russia</span>
+          <span className="text-brand-emerald-deep font-semibold text-lg">Russia</span>
           {", the world's largest country, spans Eastern Europe & Northern Asia, offering a unique blend of rich cultural heritage and modern educational excellence. After gaining independence from the Soviet Union (USSR) in 1991, Russia now features diverse landscapes, from the frozen tundra of Siberia to the Volga, Europe's longest river. Today, it stands out as a top destination for medical education, particularly attracting international students with its affordable and high-quality MBBS programs."}
         </>,
         "Russian medical universities have gained global recognition, with degrees accredited by major medical bodies such as the WHO, NMC, and FAIMER. This accreditation ensures that graduates can practice medicine worldwide. What makes studying in Russia especially appealing is its combination of state-of-the-art medical facilities, English-taught programs, and tuition fees significantly lower than those of Western countries.",
@@ -417,7 +417,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         }
         <Link
           href="/countries/mbbs-in-russia"
-          className="text-[#3B82F6] font-semibold hover:underline"
+          className="text-[#D8B26E] font-semibold hover:underline"
         >
           {"MBBS abroad"}
         </Link>
@@ -544,7 +544,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         "Discover the rich culture, history, and opportunities that await you in Kyrgyzstan.",
       paragraphs: [
         <>
-          <span className="text-green-600 font-semibold text-lg">Kyrgyzstan</span>
+          <span className="text-brand-emerald-deep font-semibold text-lg">Kyrgyzstan</span>
           {", the world's largest country, spans Eastern Europe & Northern Asia, offering a unique blend of rich cultural heritage and modern educational excellence. After gaining independence from the Soviet Union (USSR) in 1991, Kyrgyzstan now features diverse landscapes, from the frozen tundra of Siberia to the Volga, Europe's longest river. Today, it stands out as a top destination for medical education, particularly attracting international students with its affordable and high-quality MBBS programs."}
         </>,
         "Kyrgyzstan's medical universities have gained global recognition, with degrees accredited by major medical bodies such as the WHO, NMC, and FAIMER. This accreditation ensures that graduates can practice medicine worldwide. What makes studying in Kyrgyzstan especially appealing is its combination of state-of-the-art medical facilities, English-taught programs, and tuition fees significantly lower than those of Western countries.",

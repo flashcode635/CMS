@@ -102,7 +102,7 @@ export default function EnrollNowSection() {
       <section
         ref={sectionRef}
         className="relative w-full overflow-hidden"
-        style={{ backgroundColor: "#022e78"}}
+        style={{ backgroundColor: "#0B3B2E"}}
         aria-label="Enroll Now Section"
       >
         {/* ── Background city skyline pattern ── */}
@@ -128,7 +128,7 @@ export default function EnrollNowSection() {
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: "clamp(11px, 1.11vw, 18px)",
-                color: "#bacbff",
+                color: "#F1E3C8",
                 letterSpacing: "3.41px",
               }}
             >
@@ -143,7 +143,7 @@ export default function EnrollNowSection() {
             <h2
               className="text-white text-center"
               style={{
-                fontFamily: "'DM Serif Display', serif",
+                fontFamily: "'Playfair Display', serif",
                 fontWeight: 400,
                 fontSize: "clamp(28px, 3.33vw, 64px)",
                 lineHeight: 1.2,
@@ -173,7 +173,7 @@ export default function EnrollNowSection() {
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: "clamp(12px, 1.11vw, 21px)",
-                  color: "#022e78",
+                  color: "#0B3B2E",
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -192,7 +192,7 @@ export default function EnrollNowSection() {
                 >
                   <path
                     d="M21.2578 12.9688L14.2969 19.9062L12.8672 18.5L17.4141 13.9531H4.00781V11.9609H17.4141L12.8672 7.41406L14.2969 6.00781L21.2578 12.9688Z"
-                    fill="#022E78"
+                    fill="#0B3B2E"
                   />
                 </svg>
               </span>

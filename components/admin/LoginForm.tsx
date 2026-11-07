@@ -41,10 +41,10 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto rounded-2xl border border-brand-sky/60 bg-[#f8fbff] p-8 shadow-xl shadow-brand-blue/10">
+    <div className="w-full max-w-md mx-auto rounded-2xl border border-brand-sky/60 bg-[#F7F4EE] p-8 shadow-xl shadow-brand-blue/10">
       <div className="mb-8 text-center">
-        <h1 className="font-['Poppins'] text-2xl font-bold text-brand-navy">Admin Portal</h1>
-        <p className="mt-2 font-['Lexend'] text-sm text-slate-500">
+        <h1 className="font-['Inter'] text-2xl font-bold text-brand-navy">Admin Portal</h1>
+        <p className="mt-2 font-['Inter'] text-sm text-muted">
           Sign in to access the My Study Hub dashboard
         </p>
       </div>

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 const slides = [
   {
     id: 1,
-    image: "/home/northcaucasiancontract.webp",
+    image: "/home/amurcontract.webp",
     title: "A Proud Milestone at North Caucasian State Academy",
     body: [
       { text: "A proud and significant moment at ", bold: false },
@@ -169,7 +169,7 @@ export default function BigNewsSection() {
         style={{
           // Figma: 940px tall at 1920w = 48.96vw
           height: "clamp(480px, 48.96vw, 940px)",
-          background: "linear-gradient(125deg, #00923F 12.7%, #3163FF 87.2%)",
+          background: "linear-gradient(125deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
           fontFamily: "'Inter', sans-serif",
         }}
       >
@@ -226,7 +226,7 @@ export default function BigNewsSection() {
               {/* "Big News" DM Serif heading */}
               <h2
                 style={{
-                  fontFamily: "'DM Serif Display', serif",
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 400,
                   fontSize: "clamp(32px, 3.33vw, 64px)",
                   lineHeight: "clamp(48px, 5vw, 96px)",
@@ -255,18 +255,18 @@ export default function BigNewsSection() {
 
                 <p
                   style={{
-                    fontFamily: "'Lexend', sans-serif",
+                    fontFamily: "'Inter', sans-serif",
                     fontWeight: 300,
                     fontSize: "clamp(12px, 0.94vw, 18px)",
                     lineHeight: "27px",
-                    color: "#bacbff",
+                    color: "#F1E3C8",
                     margin: 0,
                     maxWidth: "clamp(300px, 39.01vw, 749px)",
                   }}
                 >
                   {slide.body.map((seg, i) =>
                     seg.bold
-                      ? <strong key={i} style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 600, color: "white" }}>{seg.text}</strong>
+                      ? <strong key={i} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, color: "white" }}>{seg.text}</strong>
                       : <span key={i}>{seg.text}</span>
                   )}
                 </p>
@@ -290,17 +290,17 @@ export default function BigNewsSection() {
           >
             <p
               style={{
-                fontFamily: "'Lexend', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontWeight: 300,
                 fontSize: "clamp(12px, 0.94vw, 18px)",
                 lineHeight: "27px",
-                color: "#bacbff",
+                color: "#F1E3C8",
                 margin: 0,
               }}
             >
               {slide.footer.map((seg, i) =>
                 seg.bold
-                  ? <strong key={i} style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 600, color: "white" }}>{seg.text}</strong>
+                  ? <strong key={i} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, color: "white" }}>{seg.text}</strong>
                   : <span key={i}>{seg.text}</span>
               )}
             </p>
@@ -321,14 +321,14 @@ export default function BigNewsSection() {
   className="bn-nav-btn gap-[0.63vw] border-b border-brand-sky px-[clamp(12px,1.25vw,24px)] py-[clamp(8px,0.83vw,16px)]">
               {/* Chevron left — rotated chevron-right */}
               <svg width="9" height="15" viewBox="0 0 8.236 14.775" fill="none" style={{ transform: "rotate(180deg)" }}>
-                <path d="M0.424 0.424L7.387 7.387L0.424 14.351" stroke="#bacbff" strokeWidth="1.2" />
+                <path d="M0.424 0.424L7.387 7.387L0.424 14.351" stroke="#F1E3C8" strokeWidth="1.2" />
               </svg>
               <span
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 400,
                   fontSize: "clamp(11px, 0.83vw, 16px)",
-                  color: "#bacbff",
+                  color: "#F1E3C8",
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
                   whiteSpace: "nowrap",
@@ -429,21 +429,21 @@ export default function BigNewsSection() {
           >
             <p
               style={{
-                fontFamily: "'Lexend', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: "clamp(11px, 0.94vw, 18px)",
                 lineHeight: "clamp(18px, 1.41vw, 27px)",
-                color: "#79859b",
+                color: "#66716A",
                 textAlign: "justify",
                 margin: 0,
               }}
             >
               <span
                 style={{
-                  fontFamily: "'DM Serif Display', serif",
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 400,
                   fontSize: "clamp(13px, 1.25vw, 24px)",
                   lineHeight: "clamp(22px, 1.88vw, 36px)",
-                  color: "#0028a5",
+                  color: "#072A21",
                 }}
               >
                 Exclusive Bilateral Partnership:

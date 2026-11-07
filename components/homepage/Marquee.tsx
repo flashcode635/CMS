@@ -4,7 +4,7 @@ import Image from "next/image";
 
 // ── Partner logos — mapped to existing files in /public/home/partner/ ─────
 // Figma shows 11 logos in the marquee strip, each in a 222×100 card
-// bg=#f2f5ff, border=#bacbff, rounded=12px
+// bg=#EFE9DE, border=#F1E3C8, rounded=12px
 // We use all available SVGs for a richer, seamless loop
 const partners = [
   { name: "Novosibirsk State University",         src: "/home/partner/novosibirsk.svg"       },
@@ -57,15 +57,15 @@ export default function PartnersMarquee() {
         }
         .partner-card:hover {
           transform: translateY(-3px);
-          box-shadow: 0 8px 24px rgba(49,99,255,0.14);
-          border-color: #7697ff;
+          box-shadow: 0 8px 24px rgba(216,178,110,0.14);
+          border-color: #D8B26E;
         }
       `}</style>
 
       <section
         className="w-full flex flex-col items-center overflow-hidden"
         style={{
-          backgroundColor: "#e8f2f4",
+          backgroundColor: "#EFE9DE",
           gap: "clamp(24px, 2.5vw, 48px)",
           padding: "clamp(32px, 3.33vw, 64px) 0",
         }}
@@ -73,14 +73,14 @@ export default function PartnersMarquee() {
         {/* ── Header ── */}
         <div className="flex flex-col items-center" style={{ gap: "clamp(6px, 0.63vw, 12px)" }}>
 
-          {/* Title — Figma: Poppins Bold 64px, gradient 160deg #00923F→#3163FF */}
+          {/* Title — Figma: Inter Bold 64px, gradient 160deg #0E8F5B→#0B3B2E */}
           <h2
             className="font-bold text-center pt-19"
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontSize: "clamp(28px, 3.33vw, 64px)",
               lineHeight: "clamp(32px, 2.5vw, 48px)",
-              backgroundImage: "linear-gradient(160deg, #00923F 12.7%, #3163FF 87.2%)",
+              backgroundImage: "linear-gradient(160deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -90,14 +90,14 @@ export default function PartnersMarquee() {
             Our Partner
           </h2>
 
-          {/* Subtitle — Figma: Lexend Regular 16px #5a6777 */}
+          {/* Subtitle — Figma: Inter Regular 16px #4A554F */}
           <p
             className="text-center font-normal"
             style={{
-              fontFamily: "'Lexend', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: "clamp(12px, 0.83vw, 16px)",
               lineHeight: "24px",
-              color: "#5a6777",
+              color: "#4A554F",
               margin: 0,
             }}
           >
@@ -112,13 +112,13 @@ export default function PartnersMarquee() {
           <div
             aria-hidden
             className="pointer-events-none absolute left-0 top-0 h-full z-10"
-            style={{ width: "clamp(40px,6vw,120px)", background: "linear-gradient(to right, #e8f2f4, transparent)" }}
+            style={{ width: "clamp(40px,6vw,120px)", background: "linear-gradient(to right, #EFE9DE, transparent)" }}
           />
           {/* Right edge fade */}
           <div
             aria-hidden
             className="pointer-events-none absolute right-0 top-0 h-full z-10"
-            style={{ width: "clamp(40px,6vw,120px)", background: "linear-gradient(to left, #e8f2f4, transparent)" }}
+            style={{ width: "clamp(40px,6vw,120px)", background: "linear-gradient(to left, #EFE9DE, transparent)" }}
           />
 
           <div className="partners-track">
@@ -127,12 +127,12 @@ export default function PartnersMarquee() {
                 key={i}
                 className="partner-card shrink-0 relative overflow-hidden flex items-center justify-center"
                 style={{
-                  // Figma: w=222px h=100px, rounded=12px, bg=#f2f5ff, border=#bacbff
+                  // Figma: w=222px h=100px, rounded=12px, bg=#EFE9DE, border=#F1E3C8
                   width:  "clamp(120px, 11.56vw, 222px)",
                   height: "clamp(54px,  5.21vw, 100px)",
-                  backgroundColor: "#f2f5ff",
+                  backgroundColor: "#EFE9DE",
                   borderRadius: "clamp(6px, 0.63vw, 12px)",
-                  border: "1px solid #bacbff",
+                  border: "1px solid #F1E3C8",
                   padding: "clamp(8px, 0.63vw, 12px)",
                 }}
               >

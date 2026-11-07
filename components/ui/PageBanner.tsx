@@ -17,10 +17,10 @@ export default function PageBanner({
 }: PageBannerProps) {
   return (
     <section
-      className="relative w-full font-serif h-[90vh] overflow-hidden"
+      className="relative w-full font-serif h-[68vh] min-h-[420px] max-h-[720px] overflow-hidden bg-[#072A21]"
       aria-label={`${title} banner`}
     >
-      <div className="absolute inset-0 bg-black" />
+      <div className="absolute inset-0 bg-[#072A21]" />
 
       <div
         className="absolute inset-0 overflow-hidden"
@@ -40,8 +40,14 @@ export default function PageBanner({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)",
+            "linear-gradient(to bottom, rgba(7,42,33,0.15) 0%, rgba(7,42,33,0.55) 55%, rgba(7,42,33,1) 100%)",
         }}
+        aria-hidden
+      />
+
+      {/* champagne hairline keeps the banner in the premium family */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-brand-champagne/60 to-transparent"
         aria-hidden
       />
 

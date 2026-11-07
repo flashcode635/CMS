@@ -20,13 +20,13 @@ export const metadata = {
 
 export default function PartnerWithUsPage() {
   return (
-    <div className="flex flex-col" style={{ backgroundColor: "#e8f0f9" }}>
+    <div className="flex flex-col" style={{ backgroundColor: "#F7F4EE" }}>
 
       {/* ── Section 1: Banner ── */}
       <PageBanner
         title="Partner With Us"
         subtitle="Join us in empowering aspiring medical students to achieve their dreams of studying MBBS abroad."
-        backgroundImage="/home/about-graduation.jpg"
+        backgroundImage="/home/about-graduation.png"
         overlayOpacity={0.5}
       />
 

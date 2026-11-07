@@ -29,7 +29,7 @@ function ArrowRight({ size = 18 }: { size?: number }) {
 function ChevronDown() {
   return (
     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden>
-      <path d="M1 1L7 7L13 1" stroke="#536782" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1 1L7 7L13 1" stroke="#4A554F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -44,7 +44,7 @@ function ExtLink() {
 }
 
 // ── Shared input styles ───────────────────────────────────────────────────────
-const inputCls = "w-full h-12 xl:h-13 rounded-lg border border-[#d9dbde] bg-white px-4 text-sm font-medium text-[#1a2c4e] placeholder:text-[#8fa3bf] outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 transition-all";
+const inputCls = "w-full h-12 xl:h-13 rounded-lg border border-[#D6CCBA] bg-white px-4 text-sm font-medium text-[#1C2B25] placeholder:text-[#6F7B74] outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft transition-all";
 
 // ── Contact info data ─────────────────────────────────────────────────────────
 const CONTACT = [
@@ -81,7 +81,7 @@ function ContactCard({ item }: { item: ContactItem }) {
       className="flex items-start gap-3 rounded-xl border border-white/12 p-4"
       style={{
         backgroundImage:
-          "linear-gradient(145.45deg, rgba(0,146,63,0.10) 12.704%, rgba(49,99,255,0.10) 87.17%)",
+          "linear-gradient(145.45deg, rgba(14,143,91,0.10) 12.704%, rgba(216,178,110,0.10) 87.17%)",
       }}
     >
       <Image
@@ -141,7 +141,7 @@ function ContactForm() {
   if (submitted) {
     return (
       <div className={`${cardCls} flex min-h-100 flex-col items-center justify-center gap-4 text-center`}>
-        <div className="flex size-16 items-center justify-center rounded-full bg-green-100 text-3xl font-bold text-brand-green">
+        <div className="flex size-16 items-center justify-center rounded-full bg-brand-champagne-soft text-3xl font-bold text-brand-green">
           ✓
         </div>
         <h3 className="text-2xl font-bold text-white">Thank You for Reaching Out!</h3>
@@ -178,7 +178,7 @@ function ContactForm() {
           <select
             value={form.country}
             onChange={set("country")}
-            className={`${inputCls} cursor-pointer appearance-none pr-10 ${form.country ? "text-[#1a2c4e]" : "text-[#8fa3bf]"}`}
+            className={`${inputCls} cursor-pointer appearance-none pr-10 ${form.country ? "text-[#1C2B25]" : "text-[#6F7B74]"}`}
           >
             <option value="" disabled>Country</option>
             <option>India</option><option>Russia</option><option>Georgia</option>
@@ -203,7 +203,7 @@ function ContactForm() {
             value={form.message}
             onChange={set("message")}
             rows={4}
-            className="w-full min-h-28 resize-none rounded-lg border border-[#d9dbde] bg-white px-4 py-3 text-sm font-medium text-[#1a2c4e] placeholder:text-[#8fa3bf] outline-none transition-all focus:border-brand-blue focus:ring-2 focus:ring-blue-100"
+            className="w-full min-h-28 resize-none rounded-lg border border-[#D6CCBA] bg-white px-4 py-3 text-sm font-medium text-[#1C2B25] placeholder:text-[#6F7B74] outline-none transition-all focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft"
           />
         </div>
 
@@ -213,7 +213,7 @@ function ContactForm() {
           fullWidth
           rightIcon={<ArrowRight />}
           className="mt-1 h-14 rounded-lg text-sm font-semibold uppercase tracking-wide text-white transition-opacity hover:opacity-90 active:scale-[0.98]"
-          style={{ backgroundImage: "linear-gradient(163.77deg, #00923F 12.704%, #3163FF 87.17%)" }}
+          style={{ backgroundImage: "linear-gradient(163.77deg, #0E8F5B 12.704%, #0B3B2E 87.17%)" }}
         >
           SUBMIT
         </Button>
@@ -232,7 +232,7 @@ export default function PartnerContactSection() {
       <div
         id="partner-contact"
         className="relative w-full overflow-hidden"
-        style={{ backgroundColor: "#00142d" }}
+        style={{ backgroundColor: "#12211C" }}
       >
         {/* soft diagonal light streak (design background) */}
         <div
@@ -240,7 +240,7 @@ export default function PartnerContactSection() {
           className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(115deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 26%, rgba(255,255,255,0) 46%, rgba(49,99,255,0.10) 100%)",
+              "linear-gradient(115deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 26%, rgba(255,255,255,0) 46%, rgba(216,178,110,0.10) 100%)",
           }}
         />
 
@@ -268,7 +268,7 @@ export default function PartnerContactSection() {
 
                 {/* Contact info */}
                 <div className="flex min-w-0 flex-col gap-5">
-                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "Frank Ruhl Libre, serif" }}>
+                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "Playfair Display, serif" }}>
                     Reach us through
                   </h3>
                   <div className="flex flex-col gap-3">
@@ -278,7 +278,7 @@ export default function PartnerContactSection() {
 
                 {/* Social links */}
                 <div className="flex min-w-0 flex-col gap-5">
-                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "Frank Ruhl Libre, serif" }}>
+                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "Playfair Display, serif" }}>
                     Connect with us
                   </h3>
                   <div className="flex flex-col divide-y divide-white/10">
@@ -315,7 +315,7 @@ export default function PartnerContactSection() {
 
             {/* Contact info */}
             <div className="flex flex-col gap-5">
-              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "Frank Ruhl Libre, serif" }}>
+              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "Playfair Display, serif" }}>
                 Reach us through
               </h3>
               <div className="flex flex-col gap-3">
@@ -325,7 +325,7 @@ export default function PartnerContactSection() {
 
             {/* Social links */}
             <div className="flex flex-col gap-5">
-              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "Frank Ruhl Libre, serif" }}>
+              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "Playfair Display, serif" }}>
                 Connect with us
               </h3>
               <div className="flex flex-col divide-y divide-white/10">

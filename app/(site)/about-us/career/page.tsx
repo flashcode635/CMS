@@ -22,7 +22,7 @@ export default function ServicesPage() {
             <PageBanner
                 title="Career - My Study Hub Pvt Ltd"
                 subtitle="Celebrate individuals who have made a meaningful difference. Fill out the nomination form to bestow a prestigious title. Acknowledge exceptional leaders for their societal contributions. Nominate someone today!"
-                backgroundImage="/home/about-graduation.jpg"
+                backgroundImage="/home/about-graduation.png"
                 overlayOpacity={0.5}
             />
             

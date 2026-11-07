@@ -87,13 +87,13 @@ export default function ShareBar({
         aria-label={`${fmt(totalShares)} total shares`}
       >
         <span
-          className="text-[#121416] text-xl sm:text-2xl font-bold leading-tight"
+          className="text-[#12211C] text-xl sm:text-2xl font-bold leading-tight"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           {fmt(totalShares)}
         </span>
         <span
-          className="text-[#757d85] text-sm sm:text-base text-center"
+          className="text-[#4A554F] text-sm sm:text-base text-center"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           Shares
@@ -174,15 +174,15 @@ export default function ShareBar({
           size="bare"
           shape="md"
           aria-label={copied ? "Link copied!" : "Copy link"}
-          className="shrink-0 gap-1.5 px-3 py-2 hover:bg-gray-50"
+          className="shrink-0 gap-1.5 px-3 py-2 hover:bg-surface"
         >
           {copied ? (
-            <Check className="w-4 h-4 text-green-500" aria-hidden />
+            <Check className="w-4 h-4 text-brand-emerald" aria-hidden />
           ) : (
-            <LinkIcon className="w-4 h-4 text-[#4b6bfb]" aria-hidden />
+            <LinkIcon className="w-4 h-4 text-[#0A6B44]" aria-hidden />
           )}
           <span
-            className="text-[#4b6bfb] text-xs sm:text-sm font-medium"
+            className="text-[#0A6B44] text-xs sm:text-sm font-medium"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {copied ? "Copied!" : "Copy Link"}

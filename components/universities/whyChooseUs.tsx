@@ -76,17 +76,17 @@ export default function WhyChooseUsSection({
             <section
                 id={anchorId}
                 aria-label={sectionLabel}
-                className="bg-[linear-gradient(120deg,#e6f3ec_0%,#eef4ef_50%,#edf0fa_100%)] py-16 @min-[1024px]:py-24"
+                className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
             >
                 <div className="mx-auto max-w-6xl px-4 @min-[640px]:px-6">
                     {/* md+ pe single-line gradient (design) — mobile pe natural wrap, warna long
                         university names canvas se bahar nikal jaate hain */}
                     <h2 className="text-center text-[clamp(1.25rem,4vw,1.875rem)] font-semibold leading-tight @min-[768px]:whitespace-nowrap">
-                        <span className="inline-block bg-linear-to-r from-emerald-600 to-brand-navy bg-clip-text text-transparent">
+                        <span className="inline-block bg-linear-to-r from-brand-emerald-deep to-brand-navy bg-clip-text text-transparent">
                             {titleGreen} {titleBlue}
                         </span>
                     </h2>
-                    <p className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-slate-500">
+                    <p className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-muted">
                         {subtitle}
                     </p>
 
@@ -98,12 +98,12 @@ export default function WhyChooseUsSection({
                             >
                                 <div
                                     aria-hidden="true"
-                                    className="absolute bottom-3 left-0 top-3 w-1 rounded-r-full bg-green-600"
+                                    className="absolute bottom-3 left-0 top-3 w-1 rounded-r-full bg-brand-emerald"
                                 />
-                                <h3 className="text-base font-semibold text-[#16224a]">
+                                <h3 className="text-base font-semibold text-[#1C2B25]">
                                     {index + 1}. {reason.title}
                                 </h3>
-                                <p className="mt-3 text-xs leading-relaxed text-slate-500">
+                                <p className="mt-3 text-xs leading-relaxed text-muted">
                                     {reason.description}
                                 </p>
                             </div>

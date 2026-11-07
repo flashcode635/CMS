@@ -65,17 +65,17 @@ export default function ExpertCounsellingSection({type}: ExpertCounsellingSectio
 
             <section
                 ref={sectionRef}
-                className="relative w-full overflow-hidden bg-linear-to-b from-[#0e2c47] via-[#0f2858] to-[#143274] py-10 sm:py-14 lg:py-16"
+                className="relative w-full overflow-hidden bg-linear-to-b from-[#0B3B2E] via-[#0B3B2E] to-[#143274] py-10 sm:py-14 lg:py-16"
             >
                 {/* Background lighting accents */}
                 <div className="absolute inset-0 pointer-events-none z-0">
                     <div
                         className="absolute top-0 right-1/4 w-125 h-125 rounded-full blur-3xl opacity-25"
-                        style={{ background: "radial-gradient(circle, #00923F 0%, transparent 70%)" }}
+                        style={{ background: "radial-gradient(circle, #0E8F5B 0%, transparent 70%)" }}
                     />
                     <div
                         className="absolute bottom-0 right-0 w-150 h-100 rounded-full blur-3xl opacity-20"
-                        style={{ background: "radial-gradient(circle, #3163FF 0%, transparent 70%)" }}
+                        style={{ background: "radial-gradient(circle, #0B3B2E 0%, transparent 70%)" }}
                     />
                 </div>
 
@@ -91,7 +91,7 @@ export default function ExpertCounsellingSection({type}: ExpertCounsellingSectio
                         items-center lg:items-start relative">
                             {/* Heading above plane on mobile / top of left col */}
                             <div className={`w-full text-center lg:text-left mb-4 sm:mb-6 anim-title${visible ? " visible" : ""}`}>
-                                <p className="text-emerald-400 font-semibold
+                                <p className="text-brand-champagne font-semibold
                                  text-xs sm:text-sm tracking-widest
                                   uppercase mb-2">
                                     Admissions Open 2026-27
@@ -99,7 +99,7 @@ export default function ExpertCounsellingSection({type}: ExpertCounsellingSectio
                                 <h2
                                     className="text-white font-normal max-w-xl mx-auto lg:mx-0"
                                     style={{
-                                        fontFamily: "'DM Serif Display', serif",
+                                        fontFamily: "'Playfair Display', serif",
                                         fontSize: "clamp(26px, 2.7vw, 44px)",
                                         lineHeight: "1.2",
                                     }}
@@ -112,7 +112,7 @@ export default function ExpertCounsellingSection({type}: ExpertCounsellingSectio
                             <div className="relative w-full max-w-155lg:max-w-none flex items-center justify-center">
                                 {/* Soft flight glow background */}
                                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
-                                    <div className="w-[85%] h-[85%] rounded-full bg-cyan-400/20 blur-2xl" />
+                                    <div className="w-[85%] h-[85%] rounded-full bg-brand-champagne/20 blur-2xl" />
                                 </div>
 
                                 <div className={`w-full ml-10

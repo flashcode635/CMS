@@ -76,9 +76,9 @@ function BlogCard({ blog, index, visible }: BlogCardProps) {
         transform: cardTransform,
         transition: cardTransition,
         willChange: "transform, box-shadow",
-        border: hovered ? "1.5px solid rgba(75,107,251,0.2)" : "1.5px solid #e8e8ea",
+        border: hovered ? "1.5px solid rgba(216,178,110,0.2)" : "1.5px solid #E4DDD0",
         boxShadow: hovered
-          ? "0 24px 56px -8px rgba(75,107,251,0.2), 0 8px 24px -4px rgba(0,0,0,0.07)"
+          ? "0 24px 56px -8px rgba(216,178,110,0.2), 0 8px 24px -4px rgba(0,0,0,0.07)"
           : "0 1px 4px rgba(0,0,0,0.04)",
       }}
     >
@@ -101,7 +101,7 @@ function BlogCard({ blog, index, visible }: BlogCardProps) {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to top, rgba(75,107,251,0.14), transparent)",
+            background: "linear-gradient(to top, rgba(216,178,110,0.14), transparent)",
             opacity: hovered ? 1 : 0,
             transition: `opacity 0.4s ${EASE_OUT}`,
             borderRadius: "11px 11px 0 0",
@@ -117,12 +117,12 @@ function BlogCard({ blog, index, visible }: BlogCardProps) {
           <span
             className="inline-flex items-center justify-center px-1.5 py-0.5 rounded-md w-fit"
             style={{
-              backgroundColor: hovered ? "rgba(75,107,251,0.1)" : "rgba(75,107,251,0.05)",
+              backgroundColor: hovered ? "rgba(216,178,110,0.1)" : "rgba(216,178,110,0.05)",
               transition: `background-color 0.3s ease`,
             }}
           >
             <span
-              className="text-[#4b6bfb] text-[11px] font-medium leading-3 whitespace-nowrap"
+              className="text-[#0A6B44] text-[11px] font-medium leading-3 whitespace-nowrap"
             >
               {blog.category}
             </span>
@@ -137,7 +137,7 @@ function BlogCard({ blog, index, visible }: BlogCardProps) {
               fontWeight: 700,
               lineHeight: 1.3,
               letterSpacing: "-0.3px",
-              color: hovered ? "#4b6bfb" : "#000000",
+              color: hovered ? "#0A6B44" : "#000000",
               transition: `color 0.3s ease`,
             }}
           >
@@ -149,7 +149,7 @@ function BlogCard({ blog, index, visible }: BlogCardProps) {
         <div
           style={{
             height: "1px",
-            backgroundColor: hovered ? "rgba(75,107,251,0.15)" : "#f0f0f2",
+            backgroundColor: hovered ? "rgba(216,178,110,0.15)" : "#EFE9DE",
             transition: `background-color 0.3s ease`,
           }}
         />
@@ -160,7 +160,7 @@ function BlogCard({ blog, index, visible }: BlogCardProps) {
             <div
               className="relative w-5 h-5 rounded-full overflow-hidden shrink-0"
               style={{
-                outline: hovered ? "2px solid rgba(75,107,251,0.25)" : "2px solid transparent",
+                outline: hovered ? "2px solid rgba(216,178,110,0.25)" : "2px solid transparent",
                 outlineOffset: "1px",
                 transition: `outline-color 0.3s ease`,
               }}
@@ -168,14 +168,14 @@ function BlogCard({ blog, index, visible }: BlogCardProps) {
               <Image src={blog.authorImg} alt={blog.author} fill className="object-cover" unoptimized />
             </div>
             <span
-              className="text-[#97989f] text-[9px] font-medium leading-3 truncate"
+              className="text-[#7A857E] text-[9px] font-medium leading-3 truncate"
             >
               {blog.author}
             </span>
           </div>
           <span
-            className="text-[#b0b1b8] text-[8px] font-normal leading-3 whitespace-nowrap shrink-0"
-            style={{ fontFamily: "'Work Sans', sans-serif" }}
+            className="text-[#66716A] text-[8px] font-normal leading-3 whitespace-nowrap shrink-0"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {blog.date}
           </span>
@@ -215,7 +215,7 @@ function BlogCardMobile({ blog, index, visible }: BlogCardProps) {
         willChange: "transform, box-shadow",
         backgroundColor: "white",
         boxShadow: hovered
-          ? "0 16px 44px -8px rgba(75,107,251,0.18), 0 4px 16px -4px rgba(0,0,0,0.06)"
+          ? "0 16px 44px -8px rgba(216,178,110,0.18), 0 4px 16px -4px rgba(0,0,0,0.06)"
           : "0 1px 4px rgba(0,0,0,0.04)",
       }}
     >
@@ -237,7 +237,7 @@ function BlogCardMobile({ blog, index, visible }: BlogCardProps) {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to top, rgba(75,107,251,0.12), transparent)",
+            background: "linear-gradient(to top, rgba(216,178,110,0.12), transparent)",
             opacity: hovered ? 1 : 0,
             transition: `opacity 0.4s ${EASE_OUT}`,
           }}
@@ -249,13 +249,13 @@ function BlogCardMobile({ blog, index, visible }: BlogCardProps) {
         <span
           className="inline-flex items-center justify-center px-1.5 py-0.5 rounded-md w-fit"
           style={{
-            backgroundColor: hovered ? "rgba(75,107,251,0.1)" : "rgba(75,107,251,0.05)",
+            backgroundColor: hovered ? "rgba(216,178,110,0.1)" : "rgba(216,178,110,0.05)",
             transition: `background-color 0.3s ease`,
           }}
         >
           <span
-            className="text-[#4b6bfb] text-[9px] font-medium leading-3 whitespace-nowrap"
-            style={{ fontFamily: "'Work Sans', sans-serif" }}
+            className="text-[#0A6B44] text-[9px] font-medium leading-3 whitespace-nowrap"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {blog.category}
           </span>
@@ -264,8 +264,8 @@ function BlogCardMobile({ blog, index, visible }: BlogCardProps) {
         <h3
           className="text-[20px] font-semibold leading-7 m-0"
           style={{
-            fontFamily: "'Work Sans', sans-serif",
-            color: hovered ? "#4b6bfb" : "#181a2a",
+            fontFamily: "'Inter', sans-serif",
+            color: hovered ? "#0A6B44" : "#12211C",
             transition: `color 0.3s ease`,
           }}
         >
@@ -275,7 +275,7 @@ function BlogCardMobile({ blog, index, visible }: BlogCardProps) {
         <div
           style={{
             height: "1px",
-            backgroundColor: hovered ? "rgba(75,107,251,0.15)" : "#f0f0f2",
+            backgroundColor: hovered ? "rgba(216,178,110,0.15)" : "#EFE9DE",
             transition: `background-color 0.3s ease`,
           }}
         />
@@ -285,7 +285,7 @@ function BlogCardMobile({ blog, index, visible }: BlogCardProps) {
             <div
               className="relative w-9 h-9 rounded-full overflow-hidden shrink-0"
               style={{
-                outline: hovered ? "2px solid rgba(75,107,251,0.25)" : "2px solid transparent",
+                outline: hovered ? "2px solid rgba(216,178,110,0.25)" : "2px solid transparent",
                 outlineOffset: "1px",
                 transition: `outline-color 0.3s ease`,
               }}
@@ -293,15 +293,15 @@ function BlogCardMobile({ blog, index, visible }: BlogCardProps) {
               <Image src={blog.authorImg} alt={blog.author} fill className="object-cover" unoptimized />
             </div>
             <span
-              className="text-[#97989f] text-[14px] font-medium leading-6 whitespace-nowrap"
-              style={{ fontFamily: "'Work Sans', sans-serif" }}
+              className="text-[#7A857E] text-[14px] font-medium leading-6 whitespace-nowrap"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {blog.author}
             </span>
           </div>
           <span
-            className="text-[#b0b1b8] text-[12px] font-medium leading-4 whitespace-nowrap"
-            style={{ fontFamily: "'Work Sans', sans-serif" }}
+            className="text-[#66716A] text-[12px] font-medium leading-4 whitespace-nowrap"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {blog.date}
           </span>
@@ -368,15 +368,15 @@ export default function BlogsGrid({
       >
         <h2
           className="text-4xl  md:text-[48px] font-extrabold leading-none m-0 not-italic"
-          style={{ fontFamily: "'Inter', sans-serif", color: "#1e1e1e" }}
+          style={{ fontFamily: "'Playfair Display', serif", color: "#12211C" }}
         >
           {heading}{" "}
-          <span style={{ color: "#00923f" }}>{headingAccent}</span>
+          <span style={{ color: "#0E8F5B" }}>{headingAccent}</span>
         </h2>
         <p
           className="text-[14px] md:text-[16px] font-normal leading-normal m-0"
           style={{
-            fontFamily: "'DM Sans', sans-serif",
+            fontFamily: "'Inter', sans-serif",
             color: "rgba(11,11,11,0.6)",
             letterSpacing: "-0.2px",
           }}
@@ -430,10 +430,10 @@ export default function BlogsGrid({
             <div className="flex flex-col gap-4">
               {/* Badge */}
               <span className="inline-flex items-center justify-center px-2.5 py-1
-               rounded-md bg-[#4b6bfb] w-fit">
+               rounded-md bg-[#0A6B44] w-fit">
                 <span
                   className="text-white text-[14px] font-medium leading-5 whitespace-nowrap"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {featuredBlog.category}
                 </span>
@@ -443,7 +443,7 @@ export default function BlogsGrid({
               <h2
                 className="text-white text-[36px] font-semibold leading-10 m-0 
                 max-w-180"
-                style={{ fontFamily: "'Work Sans', sans-serif" }}
+                style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 {featuredBlog.title}
               </h2>
@@ -463,14 +463,14 @@ export default function BlogsGrid({
                 </div>
                 <span
                   className="text-white text-[16px] font-medium leading-6 whitespace-nowrap"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {featuredBlog.author}
                 </span>
               </div>
               <span
                 className="text-white text-[16px] font-normal leading-6 whitespace-nowrap"
-                style={{ fontFamily: "'Work Sans', sans-serif" }}
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {featuredBlog.date}
               </span>
@@ -519,10 +519,10 @@ export default function BlogsGrid({
               size="bare"
               shape="lg"
               className="gap-3 border border-[rgba(105,106,117,0.3)] px-6 py-3 text-base leading-6
-                text-[#696a75] hover:border-[#4b6bfb] hover:bg-[rgba(75,107,251,0.04)]
-                hover:text-[#4b6bfb] hover:shadow-[0_4px_16px_rgba(75,107,251,0.1)]
+                text-[#4A554F] hover:border-[#0A6B44] hover:bg-[rgba(216,178,110,0.04)]
+                hover:text-[#0A6B44] hover:shadow-[0_4px_16px_rgba(216,178,110,0.1)]
                 active:scale-[0.98]"
-              style={{ fontFamily: "'Work Sans', sans-serif" }}
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {showAll ? "Show Less" : "More Articles"}
             </Button>
@@ -570,10 +570,10 @@ export default function BlogsGrid({
           <div className="relative flex flex-col gap-3">
             {/* Badge */}
             <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-md
-             bg-[#4b6bfb] w-fit">
+             bg-[#0A6B44] w-fit">
               <span
                 className="text-white text-[14px] font-medium leading-5 whitespace-nowrap"
-                style={{ fontFamily: "'Work Sans', sans-serif" }}
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {featuredBlog.category}
               </span>
@@ -582,7 +582,7 @@ export default function BlogsGrid({
             {/* Title */}
             <h2
               className="text-white text-[28px] font-semibold leading-[1.15] m-0"
-              style={{ fontFamily: "'Work Sans', sans-serif" }}
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
               {featuredBlog.title}
             </h2>
@@ -601,14 +601,14 @@ export default function BlogsGrid({
                 </div>
                 <span
                   className="text-white text-[14px] font-medium leading-6 whitespace-nowrap"
-                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {featuredBlog.author}
                 </span>
               </div>
               <span
                 className="text-white text-[12px] font-medium leading-4 whitespace-nowrap"
-                style={{ fontFamily: "'Work Sans', sans-serif" }}
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {featuredBlog.date}
               </span>
@@ -630,10 +630,10 @@ export default function BlogsGrid({
               size="bare"
               shape="lg"
               className="gap-3 border border-[rgba(105,106,117,0.3)] px-6 py-3 text-base leading-6
-                text-[#696a75] hover:border-[#4b6bfb] hover:bg-[rgba(75,107,251,0.04)]
-                hover:text-[#4b6bfb] hover:shadow-[0_4px_16px_rgba(75,107,251,0.1)]
+                text-[#4A554F] hover:border-[#0A6B44] hover:bg-[rgba(216,178,110,0.04)]
+                hover:text-[#0A6B44] hover:shadow-[0_4px_16px_rgba(216,178,110,0.1)]
                 active:scale-[0.98]"
-              style={{ fontFamily: "'Work Sans', sans-serif" }}
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {showAll ? "Show Less" : "More Articles"}
             </Button>

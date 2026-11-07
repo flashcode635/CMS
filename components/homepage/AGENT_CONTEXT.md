@@ -1,10 +1,13 @@
 # Directory: components/homepage
+
 Primary Purpose: Every section rendered on the single-page marketing homepage (`app/page.tsx`), plus a few sections reused by `components/about-us/page.tsx` and `components/partner-with-us/`. The folder is dominated by self-contained "section" components: each one owns its own data arrays (copy, image paths, YouTube IDs), its own scroll-reveal animation (an `IntersectionObserver` that flips a `visible` boolean), a scoped `<style>` block with keyframes injected into the page, and Figma-derived `clamp(min, Nvw, max)` sizing. Only three files export reusable pieces (Button-like CTAs come from `@/components/ui/Button`): `univCard.tsx`, `ExpertCounsellingSection.tsx` (prop-driven `type`), and `GloballyRecognizedUniversities.tsx` (exports `Peck` + `UnivCardProps`). All sections except `univCard.tsx` declare `"use client"`. No file here fetches data, calls an API route, or performs auth.
 
 ## Files
 
 ### `AboutSection.tsx`
+
 [AboutSection.tsx]: Homepage "About My Study Hub" split card — gradient headline, body copy, three feature rows, "Read more" CTA and a full-height graduation photo with two floating "Elite Colleges" badges.
+
 - **Runtime:** client (`"use client"`); hooks `useRef`, `useState`, `useEffect`; no timers, no window listeners.
 - **Purpose:** Company-overview section on the homepage, rendered at `app/page.tsx:43` between `TestimonialsSection` and `PersonalisedServices`.
 - **Props:** none. `export default function AboutSection()`.
@@ -14,10 +17,12 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Data flow:** `visible` → CSS class suffix (`visible`) on `.about-badge/.about-title/.about-body/.about-btn/.about-image` plus inline styles for the two floating badges (top badge translateY(-16px) scale(.95), bottom (16px)) → keyframe/transition animations. Data is static module constants; no fetching.
 - **Dependencies:** `next/image`, `react`, `@/components/ui/Button` (named `Button`).
 - **Consumers:** `app/page.tsx`.
-- **Notes:** Section shell `bg #e8f2f4`, inner card `maxWidth: 88.54vw`, `minHeight: clamp(500px, 42.66vw, 819px)`, shadow `0px 16px 40px -8px rgba(88,92,95,0.16)`. Images: `/home/about-book-icon.svg` (badge), `/home/about-check-blue.svg` (reused by both floating badges), `/home/about-graduation.jpg` (`fill`, `sizes="(max-width:1024px) 60vw, 45vw"`, real alt text). The two floating cards are copy-pasted markup with the same hard-coded "Elite Colleges" / "Lorem Ipsum D..." text. Sizing mixes raw px (`height 80`, `width 188`), `vw` gaps and `clamp()`; left column width `clamp(300px, 34.27vw, 658px)` and the image column re-declares `minHeight` independently. `aria-hidden` on the arrow span; decorative icons use empty `alt`.
+- **Notes:** Section shell `bg #e8f2f4`, inner card `maxWidth: 88.54vw`, `minHeight: clamp(500px, 42.66vw, 819px)`, shadow `0px 16px 40px -8px rgba(88,92,95,0.16)`. Images: `/home/about-book-icon.svg` (badge), `/home/about-check-blue.svg` (reused by both floating badges), `/home/about-graduation.png` (`fill`, `sizes="(max-width:1024px) 60vw, 45vw"`, real alt text). The two floating cards are copy-pasted markup with the same hard-coded "Elite Colleges" / "Lorem Ipsum D..." text. Sizing mixes raw px (`height 80`, `width 188`), `vw` gaps and `clamp()`; left column width `clamp(300px, 34.27vw, 658px)` and the image column re-declares `minHeight` independently. `aria-hidden` on the arrow span; decorative icons use empty `alt`.
 
 ### `AmbassadorSection.tsx`
+
 [AmbassadorSection.tsx]: "Big Moment — Indian Ambassador at SamSMU" copy block beside a YouTube embed that starts muted-autoplay only after the section scrolls into view.
+
 - **Runtime:** client; hooks `useState`, `useRef`, `useEffect`; no timers or listeners.
 - **Purpose:** News/credibility section on the homepage (`app/page.tsx:41`), right after `BigNewsSection`.
 - **Props:** none.
@@ -30,7 +35,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Changing the iframe `src` remounts the player, so the video reloads instead of seamlessly autoplaying (and loses any user position). `title="Big Moment: Indian Ambassador at SamSMU"` is set; `allowFullScreen` + broad `allow` list; no `loading="lazy"`. Layout is 100 % `vw`-based with no `md:`/`lg:` breakpoints, so text scales down to unreadable sizes on phones and the fixed `2.5vw` headings do not reflow.
 
 ### `BigNewsSection.tsx`
+
 [BigNewsSection.tsx]: Three-slide "Big News" carousel — left campus photo (Ken Burns), right gradient copy column with rich-text segments, a floating white quote card, and Previous/Next text buttons.
+
 - **Runtime:** client; hooks `useState` ×4, `useRef`, `useEffect`; uses `setTimeout` inside `navigate`.
 - **Purpose:** Announcement/partnership news carousel, first section inside `app/page.tsx` after the hero stack (`app/page.tsx:40`).
 - **Props:** none.
@@ -43,7 +50,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** The slide image `alt` is hard-coded `"North Caucasian State Medical Academy"` for all three slides (wrong for Amur/Ural); first image uses `priority`. `setTimeout` is never stored/cleared, so unmounting mid-transition leaves a pending `setState`. Layout is a fragile absolute-positioning replica of Figma coordinates (`top: 77.32%` footer, card `left: 40.94% / top: 19.45vw / 39.58vw wide`) that overlaps the photo column; no swipe/keyboard navigation. Blocks use `aria-label` but no `aria-live` region announcing slide change.
 
 ### `EnrollNowSection.tsx`
+
 [EnrollNowSection.tsx]: Navy "Enroll Now!.. to study MBBS in Abroad Next Year 2026‑27!.." CTA band with a faded skyline pattern, a white `/contact-us` link styled as a button, and a full-width classroom photo.
+
 - **Runtime:** client; hooks `useRef`, `useState` ×2, `useEffect`.
 - **Purpose:** Closing enrollment CTA on the homepage (`app/page.tsx:52`), just before `MBBSCountries`.
 - **Props:** none.
@@ -56,7 +65,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Images `/home/enroll-bg-pattern.png` (`fill`, `opacity: 0.05`, `objectPosition: "center top"`) and `/contact-us/chairs.jpg` (`fill`, `object-cover object-center p-7` — padding on a `fill` image shrinks the painted box rather than insetting it). Background wrapper is `aria-hidden`. Arrow is drawn flipped with `transform: scaleY(-1)`, matching the Figma export. `btnHovered` is leftover cruft that will trip `no-unused-vars` style linting.
 
 ### `ExpertCounsellingSection.tsx`
+
 [ExpertCounsellingSection.tsx]: Counselling CTA that switches its left visual between an aeroplane illustration (`type="flight"`) and a static India location map (`type="location"`), with a floating graduation-cap graphic and the shared `FormCard` lead form on the right.
+
 - **Runtime:** client; hooks `useRef`, `useState` ×2, `useEffect` ×2; one `setTimeout` for the cap animation.
 - **Purpose:** Lead-generation band. Homepage renders `type="flight"` (`app/page.tsx:50`); the About Us page renders `type="location"` (`components/about-us/page.tsx:89`).
 - **Props:** `{ type }: ExpertCounsellingSectionProps`, where `export type ExpertCounsellingSectionProps = { type: "flight" | "location" }`. Required, no default; no other props.
@@ -69,7 +80,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** The heading/plane block is only rendered for `type="flight"`, so on About Us the right side is just the form beside the map (layout still reserves `lg:w-[46%]`). Tailwind v4 spacing shorthand (`w-125`, `h-150`, `max-w-145`, `bg-linear-to-b`) and a typo `max-w-155lg:max-w-none` (missing space, so both classes collapse into one invalid token). Form inputs are uncontrolled and unvalidated; nothing is persisted or posted.
 
 ### `FreshersPartyHighlights.tsx`
+
 [FreshersPartyHighlights.tsx]: "Fresher's Party Highlights" — two counter-scrolling photo marquees (16 event photos) plus two YouTube thumbnail cards that swap to an autoplay iframe on click.
+
 - **Runtime:** client; hooks `useRef`, `useState`, `useEffect`, plus `CSSProperties` type import. `VideoCard` has its own `playing` state.
 - **Purpose:** Social-proof/gallery section on the homepage (`app/page.tsx:51`).
 - **Props:** default export takes none. Subcomponents take props declared here: `MarqueeRowProps { images: string[]; direction?: "left" | "right" (default "left"); speed?: number (default 38) }`; `VideoCardProps { video: PartyVideo; visible: boolean; index: number }`.
@@ -82,7 +95,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** `MarqueeRow` and `VideoCard` are local (not exported); only the prop interfaces are exported. The "Watch on YouTube" pill is decorative (no link). `iframe title` uses `video.title`; no `sandbox`. Alt text for tiles is generated (`Party highlight N`), circular alt `My Study Hub`. "NCSA & SAMSu" should be "SamSMU". Section background `#e8f2f4`, `overflow: hidden`, gap `clamp(24px,2.5vw,48px)`.
 
 ### `GloballyRecognizedUniversities.tsx`
+
 [GloballyRecognizedUniversities.tsx]: "Globally Recognized Universities" header + WHO/NMC line, campus photo, and a 3×2 grid of `UnivCard` tiles; also exports the `Peck` folded-corner SVG and the `UnivCardProps` type consumed by `univCard.tsx`.
+
 - **Runtime:** client; hooks in the main component (`useRef`, `useState`, `useEffect`) and in `Peck` (`useRef`, `useState`, `useEffect` with `ResizeObserver`).
 - **Purpose:** University showcase on the homepage (`app/page.tsx:45`). It is **not** imported by `app/(site)/countries/mbbs-in-russia/page.tsx` (the older dependency listing was stale).
 - **Props:** none on the default export. `Peck` props: `{ color: string; show: boolean; width: string; height: string }`.
@@ -95,7 +110,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Colors are stored as Tailwind class strings and later parsed with a regex in `univCard.tsx` — easy to break. Campus image `/home/univ-campus.jpg` inside `aspect-808/774`, `md:flex-[0_0_49.3%]`. Header gradient uses `bg-linear-173 from-brand-green from-13% to-brand-blue to-87%`. Copy references "Study MBBS Abroad" span colored `text-brand-royal`; `&#8209;` non-breaking hyphens used repeatedly. No link to country/university detail pages — cards are non-navigating.
 
 ### `HeroBanner.tsx`
+
 [HeroBanner.tsx]: Full-viewport photo hero with two `<h1>` headlines ("Study In Abroad From" / "12+ Countries"), lorem-ipsum subtitle, and "Register Now" / "Explore Courses" CTAs.
+
 - **Runtime:** client (`"use client"`) but effectively stateless — `useState` is imported and never used; no hooks actually run.
 - **Purpose:** Top-of-page hero, first component in `app/page.tsx` (`app/page.tsx:33`). Note `app/page.tsx` overlays a separate `<SearchBar>` on top of it with `absolute ... top-123`.
 - **Props:** none.
@@ -108,7 +125,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Two `<h1>` elements in one hero is an SEO/a11y problem; the subtitle is placeholder "Lorem ipsum…". `max-w-262.5`, `max-w-270`, `leading-tighter` are Tailwind v4 arbitrary-spacing scale classes (valid but unusual). `text-center` is applied to a `flex flex-col items-start` container (`mx-0 px-16`), so the text is left-aligned despite the class. Everything is hard-coded; no image `alt` needed because the photo is CSS background.
 
 ### `LatestBlogs.tsx`
+
 [LatestBlogs.tsx]: "Our Latest Blogs" — a single-card horizontal carousel (slide track + dots) with category badge, title, description and a "Read Full Story" button.
+
 - **Runtime:** client; hooks `useState` ×3, `useRef`, `useEffect`; `setTimeout` inside `navigate`.
 - **Purpose:** Blog teaser carousel on the homepage (`app/page.tsx:47`, carries an inline `{/*PX TO VW VALUE CHANGE KRNI HAI*/}` TODO comment in the page).
 - **Props:** none.
@@ -121,7 +140,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Duplicate demo content and the same image for every slide; no links to `/blog` or slugs. `setTimeout` not cleared on unmount. The `.lb-track` CSS class is defined in the injected `<style>` but the track actually uses Tailwind classes, so `.lb-track` is dead CSS. Images render with `fill` + `sizes="(max-width:768px) 100vw, 50vw"`.
 
 ### `Marquee.tsx`
+
 [Marquee.tsx]: "Our Partner" heading plus an infinite, hover-pausable strip of 19 partner-university logos with faded edges.
+
 - **Runtime:** client directive present but **no hooks at all** — fully static render.
 - **Purpose:** Partner-logo social proof directly under the hero (`app/page.tsx:37`, imported as `PartnersMarquee`).
 - **Props:** none. `export default function PartnersMarquee()` (name differs from the filename).
@@ -134,7 +155,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** List keys are array indices (`key={i}`) — acceptable because the track is static. Logos are `next/image` (`width 180 height 80`, `object-contain`, `draggable={false}`, `maxWidth: 82%`) with the university name as `alt`. Heading carries `pt-19` (76px top padding) inside an already padded section. Left/right fade overlays are `aria-hidden` divs. Some file names are misspelled (`easteuropian.svg`, `europeanuniveristy.svg`) — do not rename without updating this array.
 
 ### `MBBSAbroad.tsx`
+
 [MBBSAbroad.tsx]: "Study MBBS Abroad" header, two pill tabs (MBBS Abroad / Study Abroad) and five country photo cards with an "Apply Now" glass overlay.
+
 - **Runtime:** client; hooks `useState`, `useRef`, `useEffect`; `CountryCard` adds `imgError`/`flagError`.
 - **Purpose:** Country-options grid on the homepage (`app/page.tsx:48`, also flagged with a `PX TO VW` TODO comment).
 - **Props:** none on the default export. Local `CountryCardProps = { country: { id: number; name: string; flag: string; image: string; flagImg: string | null }, visible: boolean, index: number }` — `visible`/`index` are passed but **not destructured or used**.
@@ -147,7 +170,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** All photos use raw `<img>` instead of `next/image` (no optimization/lazy loading), justified only by the manual fallback logic. Class `sm:75` is invalid Tailwind (probably meant `sm:w-75`), so the card is just `w-full` on ≥sm. The bottom "glassmorphism" panel is inert: `bg-white/0 backdrop-blur-none border-white/0` and its `group-hover:bg-white/0` also resolves to nothing. Uses `h-auto!`/`rounded-full!` important modifiers. The `img` fallback swaps the `src` after hydration (hydration-safe, but causes a network retry).
 
 ### `MBBSAbroadHero.tsx`
+
 [MBBSAbroadHero.tsx]: Navy skyline band with "Top Countries for Study in Abroad" copy, "Register Now" CTA, and five photo country cards (Russia, Georgia, Uzbekistan, Kazakhstan, Nepal) that lift on hover.
+
 - **Runtime:** client; hooks `useState`, `useEffect`, `useRef`.
 - **Purpose:** Destinations showcase on the homepage (`app/page.tsx:39`) directly after `OurStrength`.
 - **Props:** none.
@@ -157,10 +182,12 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Data flow:** `mounted` → staggered entrance via `opacity` + `transitionDelay: 0.55 + idx*0.08`s; `hoveredCard` → inline transform/shadow/photo scale. Copy is hard-coded ("MCI-approved", "Free counseling available!").
 - **Dependencies:** `react`, `next/image`, `@/components/ui/Button`.
 - **Consumers:** `app/page.tsx`.
-- **Notes:** Two competing hover mechanisms — inline `hoveredCard` styles *and* `.mbbs-card:hover` CSS rules — both animate the same properties. Because `transition`/`transitionDelay` are set on the card for the entrance animation, the hover transform also inherits that delay. "Register Now" has `aria-label` but no handler. Comment block still says "Section total height ~820px" although the code uses `clamp()`s. Description names Nepal but the Fee/NMC claims are not linked anywhere.
+- **Notes:** Two competing hover mechanisms — inline `hoveredCard` styles _and_ `.mbbs-card:hover` CSS rules — both animate the same properties. Because `transition`/`transitionDelay` are set on the card for the entrance animation, the hover transform also inherits that delay. "Register Now" has `aria-label` but no handler. Comment block still says "Section total height ~820px" although the code uses `clamp()`s. Description names Nepal but the Fee/NMC claims are not linked anywhere.
 
 ### `MBBSCountries.tsx`
+
 [MBBSCountries.tsx]: Centered "MBBS From 12+ Countries" heading, subtitle, gradient "Register Now" pill, and a large world-map image on a pale blue panel.
+
 - **Runtime:** client; hooks `useRef`, `useState`, `useEffect`.
 - **Purpose:** Closing map band on the homepage (`app/page.tsx:53`, last section).
 - **Props:** none.
@@ -173,7 +200,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Significant dead code: the `PINS` data, the `mcPinDrop` keyframes, an empty overlay div, an empty div with the typo class `insert-0` (should be `inset-0`), and a `mixBlendMode: "lighten"` layer that paints nothing. The map `Image` uses `fill` but the class sets `h-[50vh]`, which fights the `fill` sizing inside a `padding-bottom` box — expect cropping/stretching. Heading says 12+ countries while only 5 are listed (in the unused `PINS`).
 
 ### `MBBSHeroSection.tsx`
+
 [MBBSHeroSection.tsx]: Standalone, heavily animated alternate MBBS-abroad hero — 1920×1009 px gradient stage with parallax globe, floating medical icon bubbles, plane fly-bys, country badges, animated stat counters and "counsellor online" widget.
+
 - **Runtime:** client; main component uses `useState` ×3 (`mouseX`, `mouseY`, `scrollY`) and `useRef` (`heroRef`); subcomponent `AnimatedCounter` uses `useState`/`useRef` ×2/`useEffect`.
 - **Purpose:** Alternative hero for the MBBS-abroad landing experience. It is **not currently rendered**: `app/page.tsx:32` keeps it commented out (`{/* <MBBSHeroSection/> */}`), and no other file imports it.
 - **Props:** none on the default export. Subcomponent props: `AnimatedCounterProps { target: number; suffix?: string (""); duration?: number (2000) }`, `FloatingIconProps { children; className?: string (""); delay?: number (0) }`, `IconBubbleProps { icon: ComponentType<{size?;color?;strokeWidth?}>; bgColor; strokeColor; size?: number (52) }`, `CountryBadgeProps { code; name; delay }`, `StatCardProps { icon; iconColor; value: number; suffix?; label; delay }`, `InfoCardProps { icon; iconBg; label; value; animDelay: string; className?: string }`, `ParticleProps { style: CSSProperties }`.
@@ -186,7 +215,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Fixed `1920px × 1009.33px` with `overflow-hidden` means the design is cropped on anything narrower than 1920 px and never reflows (all inner sizes are px: 76 px headline, 480 px globe, 520 px blur orb). Mounting it would also cause a full section re-render on every `mousemove`/`scroll` event (`setState` in listeners), and the `@import` inside a component `<style>` is a render-blocking CSS request. Chat/Apply CTAs are non-functional. `AnimatedCounter`'s rAF loop lacks `cancelAnimationFrame` cleanup.
 
 ### `MeetOurTeam.tsx`
+
 [MeetOurTeam.tsx]: "People Behind Our Success" team grid — one featured 2×2 portrait, four side cards, then two rows of four, all with hover zoom, gradient scrim, accent bar and name/role.
+
 - **Runtime:** client; main uses `useRef`, `useState`, `useEffect`; `MemberCard` has local `hovered` state.
 - **Purpose:** Team section on the homepage (`app/page.tsx:49`) and on the About Us page (`components/about-us/page.tsx:83`).
 - **Props:** none on the default export. `MemberCard` props: `{ member: CustomTeamMember; visible: boolean; index: number; featured?: boolean (false) }`.
@@ -199,7 +230,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** `team-paul.jpg` is used twice (Ben Carter and Paul Quinn). The photo hover transition uses `duration-600ms`/`duration-400ms`, which are **not** valid Tailwind utilities (should be `duration-[600ms]`), so those transitions fall back to default timing. The green hover layer carries a leftover `style={{ backgroundImage: ' url("")' }}` — a dead empty URL. Grid is `grid-cols-2 md:grid-cols-4`; featured card is `col-span-2 md:row-span-2`; no social/LinkedIn links exist despite the old description (the `linkedin` field on `TeamMember` is unused). `alt={member.name}` is correct and meaningful.
 
 ### `OurStrength.tsx`
+
 [OurStrength.tsx]: "Our Strength in Numbers" — two rows of white stat tiles with gradient-stroked icons, count-up animation on scroll, decorative "ghost" tiles and edge fades.
+
 - **Runtime:** client; hooks `useState`, `useRef`, `useEffect`; custom hook `useCountUp` (state + `requestAnimationFrame`).
 - **Purpose:** Credibility stats on the homepage (`app/page.tsx:38`), right after the partner marquee.
 - **Props:** none on the default export. Exported types: `StatItem { icon: LucideIcon; value: number; suffix: string; label: string }`, `StatCardProps { item; iconSize; numSize; labelSize; playing; cardSize?: string }`, `StatRowProps { items: StatItem[]; ghostsBefore: number; ghostsAfter: number; offsetLeft: string; playing: boolean }`.
@@ -212,7 +245,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** `StatCardProps.cardSize` is accepted but ignored (`const cardSize` is recomputed inside `StatCard`), so callers cannot resize cards. Gradient IDs are derived from labels — safe today, but two identical labels would collide into one SVG gradient. `GhostCard` uses `shrink-0` with fixed clamp sizes and no `aria-hidden`. Rows are `overflow-visible` inside a section with `overflow-hidden`, so the ghosts are clipped at the section edge. Background `#e8f2f4`, `py-19`.
 
 ### `PersonalisedServices.tsx`
+
 [PersonalisedServices.tsx]: "Our Personalised Services" — a 3×3 grid of nine white service tiles with icon, title, hover border/glow/accent bar.
+
 - **Runtime:** client; main uses `useRef`, `useState`, `useEffect`; `ServiceCard` has local `hovered` state.
 - **Purpose:** Services overview on the homepage (`app/page.tsx:44`), between `AboutSection` and `GloballyRecognizedUniversities`.
 - **Props:** none on the default export. `ServiceCard` is inline-typed: `{ title: string; icon: string; visible: boolean; index: number }`.
@@ -225,7 +260,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** The grid is fixed to 3 columns with no responsive breakpoint (`gridTemplateColumns: "repeat(3, 1fr)"` inline), so tiles get very cramped on phones instead of stacking. `Image fill` inside the small icon box relies on the box's `relative`; `sizes="64px"` is set. No CTA, no `/services` link, and titles keep their literal trailing periods ("Admission Guidance."). Eyebrow "Tailored Guidance", subtitle "Services tailored to perfectly fit your needs."
 
 ### `SearchSection.tsx`
+
 [SearchSection.tsx]: Dark 50vh search band: full-width `SearchBar` (dark mode), recent-search pills, and a frosted-glass "Recent Searches" dropdown with per-item removal, "Clear all" and a Search action — all persisted to `localStorage["sph_recentSearches"]`.
+
 - **Runtime:** client; hooks `useState` ×5, `useRef` ×4, `useEffect` ×3, `useCallback` ×3; one `setTimeout` (dropdown close) tracked in a ref.
 - **Purpose:** Secondary search experience on the homepage (`app/page.tsx:46`, annotated `{/*PX TO VW VALUE CHANGE KRNI HAI*/}`). Note the page also renders a separate floating `SearchBar` over the hero.
 - **Props:** none.
@@ -235,10 +272,12 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Data flow:** localStorage ↔ `recentSearches` ↔ both the pill row and the dropdown; typing updates `searchValue` (controlled `SearchBar` via `value`/`onChange`). **No search is executed**: nothing navigates, no `/api/search`, no results list — the term is only stored.
 - **Dependencies:** `next/image`, `react` (incl. `KeyboardEvent`, `MouseEvent as ReactMouseEvent`), `lucide-react` (`Clock`, `X`), `@/components/ui/searchbar` (`SearchBar`), `@/components/ui/Button`.
 - **Consumers:** `app/page.tsx`.
-- **Notes:** Background is a remote Unsplash URL (`https://images.unsplash.com/photo-1576091160550-2173dba999ef...`) — allowed by `remotePatterns` in `next.config.ts`. Inner wrapper is `absolute w-screen h-screen z-200` inside a `h-[50vh]` container, so it overflows a full viewport (`z-200` is an off-scale z-index utility). `highlightMatch` uses a `/g` regex and then calls `regex.test(part)` in a loop — `lastIndex` state makes highlighting skip alternate matches (real bug). Recent searches are duplicated in the pill row *and* the dropdown. Keys are the search terms (duplicates filtered), `JSON.parse` result isn't validated (a non-array blob would break `.map`). No `aria-expanded`/`combobox` semantics on the input.
+- **Notes:** Background is a remote Unsplash URL (`https://images.unsplash.com/photo-1576091160550-2173dba999ef...`) — allowed by `remotePatterns` in `next.config.ts`. Inner wrapper is `absolute w-screen h-screen z-200` inside a `h-[50vh]` container, so it overflows a full viewport (`z-200` is an off-scale z-index utility). `highlightMatch` uses a `/g` regex and then calls `regex.test(part)` in a loop — `lastIndex` state makes highlighting skip alternate matches (real bug). Recent searches are duplicated in the pill row _and_ the dropdown. Keys are the search terms (duplicates filtered), `JSON.parse` result isn't validated (a non-array blob would break `.map`). No `aria-expanded`/`combobox` semantics on the input.
 
 ### `TestimonialsSection.tsx`
+
 [TestimonialsSection.tsx]: "What Our Students Say!" — homepage section wrapping the shared `<ThreeDCarousel>` with six student video cards (YouTube embed, quote, initial-avatar, name/role).
+
 - **Runtime:** client (`"use client"`). It has no hooks/state of its own, but the directive is required because it passes function props (`renderItem`, `getItemKey`, `getSlideLabel`) to the client `ThreeDCarousel`.
 - **Purpose:** Student testimonial carousel on the homepage (`app/page.tsx:42`). The default export is still named `TestimonialsSection3D`; the page imports it as `TestimonialsSection`.
 - **Props:** none.
@@ -251,7 +290,9 @@ Primary Purpose: Every section rendered on the single-page marketing homepage (`
 - **Notes:** Card layout after the readability pass: video is flush to the card's top/left/right edges (`top: 0`, `height: 55%` ≈ 231 px, `padding: 0`), with `borderRadius: 0` (square corners, no bottom curve) and a soft `0 8px 24px rgba(0,0,0,0.22)` shadow; the text area takes the bottom `45%` (≈189 px) with `padding: 11px 20px 15px` and `justify-between` (quote → divider → avatar/profile); the quote uses `text-sm leading-[22px]` (`line-clamp-3`, ≈66 px for three lines). This removed the old 12 px side padding + 16 px top gap around the video and made the card 400×420 instead of 360×450. All six YouTube iframes are still mounted simultaneously (heavy third-party payload); the active one autoplays muted and restarts whenever the active index changes because the `src` string changes. Duplicate testimonials/videos in the data remain. Compared with the old inline version, dot/card clicks now take the shortest rotation path, the radius follows the measured card width, and keyboard/swipe/reduced-motion/live-region support is inherited from the shared carousel. The quote's opening `"` is written as `&quot;` to satisfy `react/no-unescaped-entities`. `line-clamp-3` / `line-clamp-1` are core Tailwind v4 utilities.
 
 ### `univCard.tsx`
+
 [univCard.tsx]: Single university tile — colored card with a clipped/peck top-right corner, centered logo, and a colored name label; hover reveals the folded-corner accent and scales the card.
+
 - **Runtime:** **no `"use client"` directive**, yet it calls `useState` — it only works because every importer is a client component (`GloballyRecognizedUniversities`), so it is compiled into the client bundle. It cannot be imported by a server component as-is.
 - **Purpose:** Presentational card used by the university grid; exported default `UnivCard`.
 - **Props:** `UnivCardProps` imported (type-only) from `./GloballyRecognizedUniversities`: `{ univ: { id; name; logo; logoSize; cardBg; labelBg }; visible: boolean; index: number }`.

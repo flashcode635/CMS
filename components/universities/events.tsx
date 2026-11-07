@@ -55,21 +55,21 @@ export default function EventsSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="relative overflow-hidden bg-[linear-gradient(150deg,#0e2438_0%,#0b1a2b_100%)] py-16 @min-[1024px]:py-24">
+            className="relative overflow-hidden bg-[linear-gradient(150deg,#0B3B2E_0%,#072A21_100%)] py-16 @min-[1024px]:py-24">
             {/* Decorative corner slices */}
             <div
                 aria-hidden="true"
-                className="absolute left-0 top-0 h-40 w-14 bg-emerald-900/30 [clip-path:polygon(0_0,100%_0,0_100%)]"
+                className="absolute left-0 top-0 h-40 w-14 bg-brand-forest/30 [clip-path:polygon(0_0,100%_0,0_100%)]"
             />
             <div
                 aria-hidden="true"
-                className="absolute bottom-0 left-0 h-32 w-24 bg-[linear-gradient(135deg,#0f9b6c,#2b6cff)] opacity-20 [clip-path:polygon(0_100%,0_0,100%_100%)]"
+                className="absolute bottom-0 left-0 h-32 w-24 bg-[linear-gradient(135deg,#0E8F5B,#0B3B2E)] opacity-20 [clip-path:polygon(0_100%,0_0,100%_100%)]"
             />
 
             {/* Diagonal gradient stripe + event photo (desktop) */}
             <div
                 aria-hidden="true"
-                className="absolute inset-0 hidden @min-[1024px]:block bg-[linear-gradient(180deg,#00923f_0%,#3163ff_100%)] [clip-path:polygon(58.5%_0,60.2%_0,47.2%_100%,45.5%_100%)]"
+                className="absolute inset-0 hidden @min-[1024px]:block bg-[linear-gradient(180deg,#0E8F5B_0%,#0B3B2E_100%)] [clip-path:polygon(58.5%_0,60.2%_0,47.2%_100%,45.5%_100%)]"
             />
             <div
                 aria-hidden="true"
@@ -89,11 +89,11 @@ export default function EventsSection({
                     <div className="flex gap-4">
                         <div
                             aria-hidden="true"
-                            className="w-1.5 flex-none self-stretch rounded-full bg-linear-to-b from-green-400 to-blue-500"
+                            className="w-1.5 flex-none self-stretch rounded-full bg-linear-to-b from-brand-emerald to-brand-forest"
                         />
                         <h2 className="text-[clamp(1.35rem,3vw,1.9rem)] font-semibold leading-snug">
                             <span className="text-white">{titleMain}</span>{" "}
-                            <span className="text-blue-400">{titleAccent}</span>
+                            <span className="text-brand-champagne">{titleAccent}</span>
                         </h2>
                     </div>
 
@@ -101,7 +101,7 @@ export default function EventsSection({
                         {paragraphs.map((paragraph) => (
                             <p
                                 key={paragraph.slice(0, 32)}
-                                className="text-xs leading-relaxed text-gray-300 @min-[640px]:text-sm"
+                                className="text-xs leading-relaxed text-brand-champagne-soft/70 @min-[640px]:text-sm"
                             >
                                 {paragraph}
                             </p>

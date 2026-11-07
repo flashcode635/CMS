@@ -73,7 +73,7 @@ function InfoCard({ dark = false }) {
           width:  "clamp(48px, 5.21vw, 75px)",
           height: "clamp(48px, 5.21vw, 75px)",
           backgroundImage:
-            "linear-gradient(108.93deg, #00923F 12.704%, #3163FF 87.17%)",
+            "linear-gradient(108.93deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
         }}
       >
         <div
@@ -91,7 +91,7 @@ function InfoCard({ dark = false }) {
           style={{
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(13px, 1.04vw, 20px)",
-            color: dark ? "#ffffff" : "#00142d",
+            color: dark ? "#ffffff" : "#12211C",
           }}
         >
           Elite Colleges
@@ -101,7 +101,7 @@ function InfoCard({ dark = false }) {
           style={{
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(10px, 0.83vw, 14px)",
-            color: dark ? "#bacbff" : "#79859b",
+            color: dark ? "#F1E3C8" : "#66716A",
           }}
         >
           Top Ranked Universities

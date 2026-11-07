@@ -128,14 +128,14 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
       {/* Blue info panel — anchored to bottom-left, inset 20px */}
       <div
         className="relative z-10 m-4 lg:m-8 rounded-[20px] p-5 xl:p-8 flex flex-col gap-4 xl:gap-6"
-        style={{ backgroundColor: "#0039ea" }}
+        style={{ backgroundColor: "#0A6B44" }}
       >
         {/* Date + time row */}
         <div className="flex flex-col gap-1.5 xl:gap-3">
           <p
             className="text-white leading-none"
             style={{
-              fontFamily: "'Lexend', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: "clamp(22px, 2vw, 40px)",
               fontWeight: 300,
             }}
@@ -145,10 +145,10 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
           </p>
           <p
             style={{
-              fontFamily: "'Lexend', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontWeight: 300,
               fontSize: "clamp(12px, 0.83vw, 16px)",
-              color: "#bacbff",
+              color: "#F1E3C8",
             }}
           >
             {event.time}
@@ -179,7 +179,7 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
             <p
               className="text-white/90 font-light line-clamp-2"
               style={{
-                fontFamily: "'Lexend', sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 fontSize: "clamp(11px, 0.83vw, 15px)",
                 lineHeight: "1.4",
               }}
@@ -223,11 +223,11 @@ function MobileCard({ event, index, visible }: EventCardProps) {
       {/* Date badge — top-left pill */}
       <div
         className="absolute top-0 left-0 flex items-center px-4 py-2 rounded-br-3xl  z-10"
-        style={{ backgroundColor: "#0039ea" }}
+        style={{ backgroundColor: "#0A6B44" }}
       >
         <p
           className="text-white text-xs sm:text-sm leading-none whitespace-nowrap"
-          style={{ fontFamily: "'Lexend', sans-serif", fontWeight: 300 }}
+          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
         >
           <span>{event.date} </span>
           <span style={{ fontWeight: 700 }}>{event.month}</span>
@@ -237,7 +237,7 @@ function MobileCard({ event, index, visible }: EventCardProps) {
       {/* Info panel — bottom strip */}
       <div
         className="relative z-10 flex flex-col gap-2.5 p-5 rounded-b-3xl "
-        style={{ backgroundColor: "#0039ea", opacity: 0.97 }}
+        style={{ backgroundColor: "#0A6B44", opacity: 0.97 }}
       >
         <p
           className="text-brand-sky text-xs font-semibold leading-normal whitespace-nowrap"
@@ -326,7 +326,7 @@ export default function UpcomingEventsGrid() {
           transition: background 0.2s ease, color 0.2s ease;
         }
         .ueg-view-btn:hover {
-          background-color: #3163ff;
+          background-color: #0B3B2E;
           color: white;
         }
       `}</style>
@@ -343,14 +343,14 @@ export default function UpcomingEventsGrid() {
         {/* ── Section heading ── */}
         {/*
           Desktop: "UPCOMING MBBS " ExtraBold + "ADMISSION GATEWAY - 2026" Medium Italic
-          Gradient: 170.75deg, #00923F 12.7% → #3163FF 87.17%
+          Gradient: 170.75deg, #0E8F5B 12.7% → #0B3B2E 87.17%
         */}
         <h2
           className={`ueg-heading${visible ? " in" : ""} w-full leading-none`}
           style={{
             fontSize: "clamp(28px, 2.5vw, 48px)",
             backgroundImage:
-              "linear-gradient(170.75deg, #00923F 12.704%, #3163FF 87.17%)",
+              "linear-gradient(170.75deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -359,7 +359,7 @@ export default function UpcomingEventsGrid() {
         >
           <span
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontWeight: 800,
               fontStyle: "normal",
             }}
@@ -368,7 +368,7 @@ export default function UpcomingEventsGrid() {
           </span>
           <span
             style={{
-              fontFamily: "'Poppins', sans-serif",
+              fontFamily: "'Playfair Display', serif",
               fontWeight: 500,
               fontStyle: "italic",
             }}
@@ -382,7 +382,7 @@ export default function UpcomingEventsGrid() {
           {FILTERS.map((f) => (
 <Button key={f} onClick={() => setActiveFilter(f)} variant="outline" size="bare" shape="pill"
   active={activeFilter === f}
-  className="ueg-filter-btn border-[#ddd] px-4 py-2 text-sm font-semibold text-[#79859b] data-[active=true]:border-brand-royal data-[active=true]:bg-brand-blue/10 data-[active=true]:text-brand-royal">
+  className="ueg-filter-btn border-[#D6CCBA] px-4 py-2 text-sm font-semibold text-[#66716A] data-[active=true]:border-brand-royal data-[active=true]:bg-brand-blue/10 data-[active=true]:text-brand-royal">
               {f}
             </Button>
           ))}

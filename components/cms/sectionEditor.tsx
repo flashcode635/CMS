@@ -29,7 +29,7 @@ type SectionEditorProps = {
 };
 
 const typeBadgeClass =
-  "shrink-0 rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-500";
+  "shrink-0 rounded-md bg-surface-alt px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted";
 
 export default function SectionEditor({ sections, onChange, active }: SectionEditorProps) {
   const [addOpen, setAddOpen] = useState(false);
@@ -80,9 +80,9 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
           <button
             onClick={() => setAddOpen((v) => !v)}
             aria-expanded={addOpen}
-            className="flex items-center gap-1 rounded-lg bg-[#e9f5ee]
+            className="flex items-center gap-1 rounded-lg bg-[#EDF3EF]
             px-3 py-1.5 text-xs font-semibold text-brand-green
-            transition hover:bg-[#d9eee1]"
+            transition hover:bg-[#D9EDE1]"
           >
             <Plus size={14} /> Add section
             <ChevronDown size={12} className={`transition ${addOpen ? "rotate-180" : ""}`} />
@@ -91,7 +91,7 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
           {addOpen && (
             <div
               className="absolute right-0 z-20 mt-2 max-h-80 w-64 overflow-y-auto rounded-xl border
-              border-slate-200 bg-white p-1.5 shadow-lg"
+              border-line bg-white p-1.5 shadow-lg"
               role="listbox"
               aria-label="Add a section"
             >
@@ -105,11 +105,11 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
                     setAddOpen(false);
                   }}
                   className="flex w-full items-center justify-between gap-2 rounded-lg px-3 py-2
-                  text-left transition hover:bg-slate-50"
+                  text-left transition hover:bg-surface"
                 >
                   <span className="text-sm font-medium">{option.name}</span>
                   {option.anchor && (
-                    <span className="text-[10px] text-slate-400">#{option.anchor}</span>
+                    <span className="text-[10px] text-muted">#{option.anchor}</span>
                   )}
                 </button>
               ))}
@@ -127,12 +127,12 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
             key={section.id}
             className={`rounded-xl border p-4 transition ${
               section.visible
-                ? "border-slate-200 bg-white"
-                : "border-dashed border-slate-200 bg-slate-50/70"
+                ? "border-line bg-white"
+                : "border-dashed border-line bg-surface/70"
             }`}
           >
             <div className="mb-3 flex items-center gap-2">
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-slate-100 text-xs font-semibold text-slate-500">
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-surface-alt text-xs font-semibold text-muted">
                 {index + 1}
               </span>
               <span className={typeBadgeClass}>{option?.name ?? "Text section"}</span>
@@ -141,14 +141,14 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
                 onChange={(e) => patch(index, { label: e.target.value })}
                 className="min-w-0 flex-1 rounded-lg border border-transparent bg-transparent
                 px-2 py-1.5 text-base font-semibold outline-none
-                hover:border-slate-200 focus:border-brand-green sm:text-sm"
+                hover:border-line focus:border-brand-green sm:text-sm"
               />
               <div className="flex shrink-0 items-center">
                 <button
                   onClick={() => move(index, -1)}
                   disabled={index === 0}
                   title="Move up"
-                  className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-600 disabled:pointer-events-none disabled:opacity-30"
+                  className="rounded-lg p-1.5 text-muted transition hover:bg-surface-alt hover:text-body disabled:pointer-events-none disabled:opacity-30"
                 >
                   <ArrowUp size={14} />
                 </button>
@@ -156,11 +156,11 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
                   onClick={() => move(index, 1)}
                   disabled={index === sections.length - 1}
                   title="Move down"
-                  className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-600 disabled:pointer-events-none disabled:opacity-30"
+                  className="rounded-lg p-1.5 text-muted transition hover:bg-surface-alt hover:text-body disabled:pointer-events-none disabled:opacity-30"
                 >
                   <ArrowDown size={14} />
                 </button>
-                <label className="ml-1 flex cursor-pointer items-center gap-1.5 text-xs text-slate-500">
+                <label className="ml-1 flex cursor-pointer items-center gap-1.5 text-xs text-muted">
                   <input
                     type="checkbox"
                     checked={section.visible}
@@ -187,9 +187,9 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
                   placeholder="Leave empty to keep the default heading"
                   value={String(section.data.heading ?? "")}
                   onChange={(e) => patchData(index, { heading: e.target.value })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5
-                  text-base text-[#17233d] outline-none transition sm:text-sm
-                  placeholder:text-slate-400 hover:border-slate-300
+                  className="w-full rounded-xl border border-line bg-white px-3.5 py-2.5
+                  text-base text-[#1C2B25] outline-none transition sm:text-sm
+                  placeholder:text-muted hover:border-line-strong
                   focus:border-brand-green focus:ring-4 focus:ring-brand-green/10"
                 />
               </Field>
@@ -206,9 +206,9 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
                   rows={3}
                   value={String(section.data.body ?? "")}
                   onChange={(e) => patchData(index, { body: e.target.value })}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5
-                  text-base text-[#17233d] outline-none transition sm:text-sm
-                  placeholder:text-slate-400 hover:border-slate-300
+                  className="w-full rounded-xl border border-line bg-white px-3.5 py-2.5
+                  text-base text-[#1C2B25] outline-none transition sm:text-sm
+                  placeholder:text-muted hover:border-line-strong
                   focus:border-brand-green focus:ring-4 focus:ring-brand-green/10 resize-y"
                 />
               </Field>
@@ -218,8 +218,8 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
       })}
 
       {sections.length === 0 && (
-        <p className="rounded-xl border border-dashed border-slate-200 bg-slate-50 p-5
-        text-center text-xs text-slate-400">
+        <p className="rounded-xl border border-dashed border-line bg-surface p-5
+        text-center text-xs text-muted">
           No sections yet — use “Add section” to build the page from the
           {active === "universities" ? " university" : " country"} layout options.
         </p>

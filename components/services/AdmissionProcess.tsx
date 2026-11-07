@@ -91,14 +91,14 @@ export default function AdmissionProcess() {
     "L 350 1000";
 
   return (
-    <div className="min-h-screen w-full bg-linear-to-br from-slate-50 via-white to-blue-50 py-16 px-4">
+    <div className="min-h-screen w-full bg-linear-to-br from-surface via-white to-surface-alt py-16 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-green-700 leading-tight mb-3 tracking-tight">
+          <h1 className="text-5xl font-extrabold text-brand-emerald-deep leading-tight mb-3 tracking-tight">
             Admission Process
           </h1>
-          <p className="text-gray-400 text-lg font-light">
+          <p className="text-muted text-lg font-light">
             A Step-by-Step Guide to How Nominations Are Made
           </p>
         </div>
@@ -114,8 +114,8 @@ export default function AdmissionProcess() {
           >
             <defs>
               <linearGradient id="lineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#15803d" />
-                <stop offset="100%" stopColor="#2563eb" />
+                <stop offset="0%" stopColor="#0A6B44" />
+                <stop offset="100%" stopColor="#0A6B44" />
               </linearGradient>
               <marker
                 id="arrowGhost"
@@ -125,7 +125,7 @@ export default function AdmissionProcess() {
                 refY="3.5"
                 orient="auto"
               >
-                <polygon points="0 0, 10 3.5, 0 7" fill="#c7d2fe" />
+                <polygon points="0 0, 10 3.5, 0 7" fill="#E8D7B0" />
               </marker>
               <marker
                 id="arrowFilled"
@@ -135,7 +135,7 @@ export default function AdmissionProcess() {
                 refY="3.5"
                 orient="auto"
               >
-                <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb" />
+                <polygon points="0 0, 10 3.5, 0 7" fill="#0A6B44" />
               </marker>
             </defs>
 
@@ -143,7 +143,7 @@ export default function AdmissionProcess() {
             <path
               d={PATH}
               fill="none"
-              stroke="#c7d2fe"
+              stroke="#E8D7B0"
               strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -169,7 +169,7 @@ export default function AdmissionProcess() {
               cx="350"
               cy="20"
               r="5"
-              fill={fillProgress > 0.01 ? "#15803d" : "#c7d2fe"}
+              fill={fillProgress > 0.01 ? "#0A6B44" : "#E8D7B0"}
             />
           </svg>
 
@@ -205,7 +205,7 @@ export default function AdmissionProcess() {
                   <div
                     className="shrink-0 w-16 h-16 rounded-full flex items-center justify-center shadow-[11px_15px_21px_rgba(0,0,0,0.18)] z-10"
                     style={{
-                      background: "linear-gradient(135deg, #15803d 0%, #2563eb 100%)",
+                      background: "linear-gradient(135deg, #0A6B44 0%, #0A6B44 100%)",
                       marginLeft: isLeft ? "-2.5rem" : "1rem",
                       marginRight: isLeft ? "1rem" : "-2.5rem",
                     }}
@@ -221,10 +221,10 @@ export default function AdmissionProcess() {
                       isLeft ? "text-left pl-2" : "text-right pr-2"
                     }`}
                   >
-                    <h3 className="text-lg font-bold text-blue-900 mb-1 font-['Poppins']">
+                    <h3 className="text-lg font-bold text-brand-forest mb-1 font-['Inter']">
                       {step.title}
                     </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed font-['Poppins']">
+                    <p className="text-muted text-sm leading-relaxed font-['Inter']">
                       {step.description}
                     </p>
                   </div>
@@ -237,7 +237,7 @@ export default function AdmissionProcess() {
         {/* Register Now */}
         <div className="flex justify-center -mt-4">
           <Button variant="brand" className="px-16 py-4 rounded-full text-white text-xl font-normal shadow-lg hover:opacity-90 active:scale-95 transition-all"
-            style={{ background: "linear-gradient(135deg, #15803d 0%, #2563eb 100%)" }}
+            style={{ background: "linear-gradient(135deg, #0A6B44 0%, #0A6B44 100%)" }}
           >
             Register Now
           </Button>

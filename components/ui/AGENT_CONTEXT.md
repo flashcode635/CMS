@@ -118,7 +118,7 @@ Primary Purpose: Shared design-system and site-chrome layer — the single `Butt
   - About: Overview → `/about-us` (`Building2`), Our Services → `/about-us/services` (`ConciergeBell`), Career → `/about-us/career` (`BriefcaseBusiness`), Partner With Us → `/about-us/partner-with-us` (`Handshake`).
   - Collections: Blog → `/collections/blog` (`Newspaper`), Upcoming Events → `/collections/upcoming-event` (`CalendarDays`), Brochures → `/collections/brochures` (`BookOpen`), Web Stories → `/web-stories` (`Film`).
   - Gallery: Images → `/gallery/images` (`ImageIcon`), Videos → `/gallery/videos` (`Video`).
-  - Every menu reuses the same image: `/home/about-graduation.jpg`.
+  - Every menu reuses the same image: `/home/about-graduation.png`.
 - **State & effects:** none in this file (state lives in `Navbar`). No timers/listeners.
 - **Handlers:** only the panel's `onMouseEnter`/`onMouseLeave` pass-through and each item's `onClick={onClose}` (closes the menu after navigation).
 - **Constants & types:** item arrays are inline literals (not module constants); `DropdownItemData` is imported from `./dditems`.
@@ -169,7 +169,7 @@ Primary Purpose: Shared design-system and site-chrome layer — the single `Butt
 - **Purpose:** Uniform inner-page hero used by 12 route pages plus the About page component.
 - **Props:** `PageBannerProps = { title: string; subtitle?: string; backgroundImage?: string; overlayOpacity?: number }` with defaults `backgroundImage = "/bd-doctor.jpg"`, `overlayOpacity = 0.5`.
   - The default image path **does not exist** in `public/` (only `public/bg-doctor.jpg` is present). Every current call site passes `backgroundImage` explicitly, so the broken default is latent; if you omit the prop you get a 404 image.
-  - Observed call-site values: `/home/about-graduation.jpg` (`overlayOpacity` 0.5–0.6) and `/bg-doctor.jpg` (`0.5` and `0.9` on the countries index).
+  - Observed call-site values: `/home/about-graduation.png` (`overlayOpacity` 0.5–0.6) and `/bg-doctor.jpg` (`0.5` and `0.9` on the countries index).
 - **State & effects:** none. No scroll listeners, no parallax.
 - **Handlers:** none.
 - **Constants & types:** `PageBannerProps` (exported interface). Inline styles only.

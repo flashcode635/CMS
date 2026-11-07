@@ -279,7 +279,7 @@ export function ThreeDCarousel<T>({
                   style={{
                     borderRadius: cardRadius,
                     background:
-                      "linear-gradient(135deg, #00923F 0%, #1a6fd4 55%, #3163FF 100%)",
+                      "linear-gradient(135deg, #0E8F5B 0%, #0A6B44 55%, #0B3B2E 100%)",
                     boxShadow: isActive
                       ? "0 22px 48px rgba(20, 52, 105, 0.3), 0 0 0 1px rgba(255,255,255,0.24)"
                       : "0 10px 24px rgba(20, 52, 105, 0.14)",
@@ -329,8 +329,8 @@ export function ThreeDCarousel<T>({
                     height: 8,
                     background:
                       activeIndex === index
-                        ? "linear-gradient(90deg, #00923F, #3163FF)"
-                        : "rgba(49,99,255,0.25)",
+                        ? "linear-gradient(90deg, #0E8F5B, #0B3B2E)"
+                        : "rgba(216,178,110,0.25)",
                   }}
                   aria-label={getDotLabel(index, total)}
                   aria-current={activeIndex === index ? "true" : undefined}
@@ -354,7 +354,7 @@ export function ThreeDCarousel<T>({
                 disabled={!canPrev}
                 className="pointer-events-auto flex size-10 items-center justify-center rounded-full border-0 transition-transform hover:scale-105 active:scale-95"
                 style={{
-                  background: "linear-gradient(135deg, #00923F, #3163FF)",
+                  background: "linear-gradient(135deg, #0E8F5B, #0B3B2E)",
                   boxShadow: "0 8px 18px rgba(25,75,170,0.22)",
                 }}
                 aria-label={previousLabel}
@@ -370,7 +370,7 @@ export function ThreeDCarousel<T>({
                 disabled={!canNext}
                 className="pointer-events-auto flex size-10 items-center justify-center rounded-full border-0 transition-transform hover:scale-105 active:scale-95"
                 style={{
-                  background: "linear-gradient(135deg, #00923F, #3163FF)",
+                  background: "linear-gradient(135deg, #0E8F5B, #0B3B2E)",
                   boxShadow: "0 8px 18px rgba(25,75,170,0.22)",
                 }}
                 aria-label={nextLabel}

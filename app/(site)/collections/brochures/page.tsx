@@ -31,12 +31,12 @@ export default async function BrochuresPage() {
     const brochures = await getBrochures();
 
     return (
-        <div className="flex flex-col" style={{ backgroundColor: "#e8f2f4" }}>
+        <div className="flex flex-col" style={{ backgroundColor: "#EFE9DE" }}>
             {/* ── Banner ── */}
             <PageBanner
                 title="Brochures"
                 subtitle="Download all official My Study Hub brochures and get complete information about studying MBBS abroad."
-                backgroundImage="/home/about-graduation.jpg"
+                backgroundImage="/home/about-graduation.png"
                 overlayOpacity={0.5}
             />
 

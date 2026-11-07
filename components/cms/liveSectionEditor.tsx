@@ -88,9 +88,9 @@ function FieldInput({
 }) {
   const stringValue = Array.isArray(value) ? value.join("\n") : value == null ? "" : String(value);
   const inputClass =
-    "w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-base text-[#17233d] sm:text-sm " +
-    "placeholder:text-slate-400 outline-none transition " +
-    "hover:border-slate-300 focus:border-brand-green focus:ring-4 focus:ring-brand-green/10";
+    "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-base text-[#1C2B25] sm:text-sm " +
+    "placeholder:text-muted outline-none transition " +
+    "hover:border-line-strong focus:border-brand-green focus:ring-4 focus:ring-brand-green/10";
 
   return (
     <Field label={field.label}>
@@ -153,8 +153,8 @@ export default function LiveSectionEditor({ active }: LiveSectionEditorProps) {
   if (!parsed) {
     return (
       <Card title="Edit section">
-        <p className="rounded-xl border border-dashed border-slate-200 bg-slate-50 p-5 text-center
-        text-sm text-slate-500">
+        <p className="rounded-xl border border-dashed border-line bg-surface p-5 text-center
+        text-sm text-muted">
           Select a university or country route, then <strong>click a section in the
           preview</strong> to load its content here for editing.
         </p>
@@ -177,16 +177,16 @@ export default function LiveSectionEditor({ active }: LiveSectionEditorProps) {
           {overrides[key] && (
             <button
               onClick={() => clearOverride(key)}
-              className="flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5
-              text-xs font-medium text-slate-600 transition hover:bg-slate-50"
+              className="flex items-center gap-1 rounded-lg border border-line px-2.5 py-1.5
+              text-xs font-medium text-body transition hover:bg-surface"
             >
               <RotateCcw size={12} /> Revert
             </button>
           )}
           <button
             onClick={() => setActiveSection(null)}
-            className="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100
-            hover:text-slate-600"
+            className="rounded-lg p-1.5 text-muted transition hover:bg-surface-alt
+            hover:text-body"
             title="Deselect section"
           >
             <EyeOff size={14} />
@@ -194,7 +194,7 @@ export default function LiveSectionEditor({ active }: LiveSectionEditorProps) {
         </div>
       }
     >
-      <p className="flex items-start gap-2 rounded-xl bg-[#e9f5ee] px-3 py-2.5 text-xs text-[#08743a]">
+      <p className="flex items-start gap-2 rounded-xl bg-[#EDF3EF] px-3 py-2.5 text-xs text-[#0A6B44]">
         <MessageSquareWarning size={14} className="mt-0.5 shrink-0" />
         <span>
           Editing <strong>{previewingUniversity ? selectedUniversity?.name : selectedCountry?.name}</strong>{" "}
@@ -203,8 +203,8 @@ export default function LiveSectionEditor({ active }: LiveSectionEditorProps) {
       </p>
 
       {schema.readOnly || schema.fields.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-slate-200 bg-slate-50 p-5 text-center
-        text-xs text-slate-400">
+        <p className="rounded-xl border border-dashed border-line bg-surface p-5 text-center
+        text-xs text-muted">
           This section uses fixed components (its copy isn't prop-driven yet), so it stays view-only
           for now.
         </p>
@@ -227,8 +227,8 @@ export default function LiveSectionEditor({ active }: LiveSectionEditorProps) {
             resetPageOverrides(`${kind}:${slug}`);
             setActiveSection(null);
           }}
-          className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium
-          text-slate-600 transition hover:bg-slate-50"
+          className="w-full rounded-xl border border-line px-4 py-2 text-sm font-medium
+          text-body transition hover:bg-surface"
         >
           Reset all edits for this page
         </button>

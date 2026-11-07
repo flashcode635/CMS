@@ -11,7 +11,7 @@ const universities = [
     name: "Samara State Medical University",
     logo: "/home/partner/logo-samara.png",
     logoSize: 157,
-    cardBg: "bg-[#cbd5e1]",
+    cardBg: "bg-[#D6CCBA]",
     labelBg: "bg-[#1d6eb7]",
   },
   {
@@ -19,7 +19,7 @@ const universities = [
     name: "Novosibirsk State University",
     logo: "/home/partner/logo-novosibirsk.png",
     logoSize: 157,
-    cardBg: "bg-[#f7fee7]",
+    cardBg: "bg-[#EDF3EF]",
     labelBg: "bg-[#77c043]",
   },
   {
@@ -27,7 +27,7 @@ const universities = [
     name: "Kabardino-Balkarian State University",
     logo: "/home/partner/logo-kbsu.png",
     logoSize: 117,
-    cardBg: "bg-[#e0e7f3]",
+    cardBg: "bg-[#EFE9DE]",
     labelBg: "bg-[#33588b]",
   },
   // Row 1
@@ -52,7 +52,7 @@ const universities = [
     name: "International Black Sea University",
     logo: "/home/partner/logo-ibsu.png",
     logoSize: 163,
-    cardBg: "bg-[#e0e7f3]",
+    cardBg: "bg-[#EFE9DE]",
     labelBg: "bg-[#2b62a6]",
   },
 ];
@@ -178,14 +178,14 @@ export default function GloballyRecognizedUniversities() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#e8f2f4] px-[clamp(20px,4.17vw,80px)] py-[clamp(32px,3.13vw,60px)]"
+      className="bg-white px-[clamp(20px,4.17vw,80px)] py-[clamp(32px,3.13vw,60px)]"
     >
       <div className="mx-auto max-w-[1640px]">
         {/* ── Header ── */}
         <div className="mb-[clamp(24px,2.5vw,48px)] flex flex-col gap-[clamp(12px,1.25vw,24px)]">
           {/* Title */}
           <h2
-            className={`m-0 font-bold font-['Poppins',sans-serif] text-[clamp(28px,3.33vw,64px)] leading-[1.1]
+            className={`m-0 font-bold font-serif text-[clamp(28px,3.33vw,64px)] leading-[1.1]
               bg-linear-173 from-brand-green from-13% to-brand-blue to-87%
               bg-clip-text text-transparent transition-all duration-700 ease-out
               ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
@@ -196,8 +196,9 @@ export default function GloballyRecognizedUniversities() {
 
           {/* Description */}
           <p
-            className={`m-0 max-w-[clamp(300px,52.87vw,1015px)] font-normal font-['Lexend',sans-serif]
-              text-[clamp(13px,1.04vw,20px)] leading-6 text-[#79859b]
+            className={`m-0 max-w-[clamp(300px,52.87vw,1015px)] font-normal font-['Inter',sans-serif]
+              text-[clamp(13px,1.04vw,20px)] leading-6
+               text-muted
               transition-all duration-700 ease-out
               ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
             style={{ transitionDelay: "0.15s" }}
@@ -209,7 +210,7 @@ export default function GloballyRecognizedUniversities() {
 
           {/* WHO & NMC line */}
           <p
-            className={`m-0 font-normal font-['DM_Serif_Display',serif]
+            className={`m-0 font-normal font-['Playfair Display',serif]
               text-[clamp(14px,1.25vw,24px)] leading-9 text-black
               transition-all duration-700 ease-out
               ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}

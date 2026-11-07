@@ -108,8 +108,8 @@ function PhotoTile({ photo, height = 260, width }: PhotoTileProps) {
         </p>
         {photo.subtitle && (
           <p
-            className="text-[#b3b3b3] text-xs leading-normal font-normal"
-            style={{ fontFamily: "'Open Sans', sans-serif" }}
+            className="text-[#7A857E] text-xs leading-normal font-normal"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {photo.subtitle}
           </p>
@@ -130,19 +130,19 @@ export default function BenefitsGallery() {
           <h2
             className="font-extrabold bg-clip-text text-transparent w-full"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: "Playfair Display, serif",
               fontSize: "clamp(28px, 3.33vw, 48px)",
               lineHeight: 1.3,
               backgroundImage:
-                "linear-gradient(169.49deg, #00923F 12.704%, #3163FF 87.17%)",
+                "linear-gradient(169.49deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
             }}
           >
             Benefits of Partnership
           </h2>
           <p
-            className="text-[#6d758f] font-light leading-relaxed max-w-128.5"
+            className="text-[#4A554F] font-light leading-relaxed max-w-128.5"
             style={{
-              fontFamily: "'Lexend', sans-serif",
+              fontFamily: "'Inter', sans-serif",
               fontSize: "clamp(14px, 1.04vw, 18px)",
               lineHeight: "27px",
             }}
@@ -177,7 +177,7 @@ export default function BenefitsGallery() {
             <div className="absolute bottom-11 left-6 right-6 flex flex-col gap-2">
               <p
                 className="text-white text-2xl leading-9"
-                style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 {PHOTOS.skillExchange.title}
               </p>
@@ -211,7 +211,7 @@ export default function BenefitsGallery() {
                   <p className="text-white font-bold text-base leading-snug" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                     {photo.title}
                   </p>
-                  <p className="text-[#b3b3b3] text-xs leading-normal" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+                  <p className="text-[#7A857E] text-xs leading-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
                     {photo.subtitle}
                   </p>
                 </div>
@@ -249,7 +249,7 @@ export default function BenefitsGallery() {
               <div className="absolute bottom-4 left-4">
                 <p
                   className="text-white font-bold text-base leading-relaxed"
-                  style={{ fontFamily: "'Lexend', sans-serif" }}
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {photo.title}
                 </p>
@@ -267,7 +267,7 @@ export default function BenefitsGallery() {
           style={{
             fontFamily: "Inter, sans-serif",
             backgroundImage:
-              "linear-gradient(142deg, #00923F 12.704%, #3163FF 87.17%)",
+              "linear-gradient(142deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
           }}
         >
           <span className="hidden sm:inline">Request Quote</span>

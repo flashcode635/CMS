@@ -11,7 +11,7 @@ function highlightMatch(text: string, query: string) {
   const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
   return text.split(regex).map((part, i) =>
     regex.test(part) ? (
-      <mark key={i} style={{ background: "linear-gradient(90deg, rgba(0,200,200,0.35), rgba(30,80,200,0.35))", color: "#7df9ff", borderRadius: "2px", padding: "0 1px" }}>
+      <mark key={i} style={{ background: "linear-gradient(90deg, rgba(216,178,110,0.35), rgba(30,80,200,0.35))", color: "#7df9ff", borderRadius: "2px", padding: "0 1px" }}>
         {part}
       </mark>
     ) : part
@@ -107,11 +107,11 @@ export default function SearchSection() {
         .ss-search-bar { transition: border-color 0.3s ease, box-shadow 0.3s ease; }
         .ss-search-bar:hover {
           border-color: rgba(0,220,220,0.45);
-          box-shadow: 0 0 0 1px rgba(0,200,200,0.12), 0 4px 24px rgba(0,180,200,0.12);
+          box-shadow: 0 0 0 1px rgba(216,178,110,0.12), 0 4px 24px rgba(0,180,200,0.12);
         }
         .ss-recent-pill { transition: all 0.22s ease; cursor: pointer; }
         .ss-recent-pill:hover {
-          border-color: rgba(0,200,200,0.5);
+          border-color: rgba(216,178,110,0.5);
           color: rgba(0,220,220,0.85);
           background: rgba(0,180,200,0.08);
         }
@@ -119,7 +119,7 @@ export default function SearchSection() {
         .ss-input { outline: none !important; box-shadow: none !important; }
       `}</style>
 
-      <div className="relative w-full h-[50vh] flex items-center overflow-hidden bg-[#0b1629]">
+      <div className="relative w-full h-[50vh] flex items-center overflow-hidden bg-[#072A21]">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&h=507&fit=crop&crop=center"
@@ -185,22 +185,22 @@ export default function SearchSection() {
                   background: "rgba(8, 16, 40, 0.82)",
                   backdropFilter: "blur(24px) saturate(1.6)",
                   WebkitBackdropFilter: "blur(24px) saturate(1.6)",
-                  border: "1px solid rgba(0,200,200,0.15)",
+                  border: "1px solid rgba(216,178,110,0.15)",
                   borderRadius: "12px",
                   boxShadow: "0 8px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05)",
                   overflow: "hidden",
                 }}
               >
-                <div style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(0,200,200,0.5), rgba(37,99,235,0.5), transparent)" }} />
+                <div style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(216,178,110,0.5), rgba(37,99,235,0.5), transparent)" }} />
                 <div style={{ padding: "16px 20px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
                     <p style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Recent Searches</p>
                     <Button variant="unstyled"
                       onClick={() => { setRecentSearches([]); try { localStorage.removeItem("sph_recentSearches"); } catch {} }}
                       className="shadow-none border-0 p-0 bg-transparent h-auto"
-                      style={{ fontSize: 11, color: "rgba(0,200,200,0.5)", cursor: "pointer", transition: "color 0.18s" }}
-                      onMouseEnter={(e: ReactMouseEvent<HTMLButtonElement>) => (e.currentTarget.style.color = "rgba(0,200,200,0.9)")}
-                      onMouseLeave={(e: ReactMouseEvent<HTMLButtonElement>) => (e.currentTarget.style.color = "rgba(0,200,200,0.5)")}
+                      style={{ fontSize: 11, color: "rgba(216,178,110,0.5)", cursor: "pointer", transition: "color 0.18s" }}
+                      onMouseEnter={(e: ReactMouseEvent<HTMLButtonElement>) => (e.currentTarget.style.color = "rgba(216,178,110,0.9)")}
+                      onMouseLeave={(e: ReactMouseEvent<HTMLButtonElement>) => (e.currentTarget.style.color = "rgba(216,178,110,0.5)")}
                     >
                       Clear all
                     </Button>
@@ -212,7 +212,7 @@ export default function SearchSection() {
                         onClick={() => { setSearchValue(term); inputRef.current?.focus(); setSearchFocused(false); }}
                         className="shadow-none h-auto"
                         style={{ display: "flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 6, border: "1px solid rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.65)", fontSize: 13, cursor: "pointer", transition: "all 0.18s ease" }}
-                        onMouseEnter={(e: ReactMouseEvent<HTMLButtonElement>) => { e.currentTarget.style.borderColor = "rgba(0,200,200,0.35)"; e.currentTarget.style.color = "rgba(0,220,220,0.85)"; e.currentTarget.style.background = "rgba(0,180,200,0.07)"; }}
+                        onMouseEnter={(e: ReactMouseEvent<HTMLButtonElement>) => { e.currentTarget.style.borderColor = "rgba(216,178,110,0.35)"; e.currentTarget.style.color = "rgba(0,220,220,0.85)"; e.currentTarget.style.background = "rgba(0,180,200,0.07)"; }}
                         onMouseLeave={(e: ReactMouseEvent<HTMLButtonElement>) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; e.currentTarget.style.background = "rgba(255,255,255,0.04)"; }}
                       >
                         <Clock size={12} style={{ opacity: 0.4 }} />

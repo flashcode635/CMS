@@ -35,14 +35,14 @@ type AccreditationProps = {
 };
 
 const WFME_ICON: ReactNode = (
-    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-100">
-        <BadgeCheck className="h-6 w-6 text-teal-500" aria-hidden="true" />
+    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft">
+        <BadgeCheck className="h-6 w-6 text-brand-emerald-deep" aria-hidden="true" />
     </span>
 );
 
 const IAAR_ICON: ReactNode = (
-    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-sky-100">
-        <Building2 className="h-6 w-6 text-sky-400" aria-hidden="true" />
+    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft">
+        <Building2 className="h-6 w-6 text-brand-champagne" aria-hidden="true" />
     </span>
 );
 
@@ -80,8 +80,8 @@ export const DEFAULT_CONTENT: Required<AccreditationProps> = {
     highlightText:
         "Accreditation also emphasizes the importance of qualifying your qualifications recognized in various countries. Furthermore, the WFME accreditation qualifies graduates to pursue the Educational Commission for Foreign Medical Graduates (ECFMG) certification, which is a prerequisite for medical careers in the USA and Canada. Graduates can also potentially apply for United States Medical Licensing Examination (USMLE), which is a crucial step for medical licensure in the USA.",
     highlightIcon: (
-        <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-teal-100">
-            <GraduationCap className="h-5 w-5 text-teal-500" aria-hidden="true" />
+        <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-brand-champagne-soft">
+            <GraduationCap className="h-5 w-5 text-brand-emerald-deep" aria-hidden="true" />
         </span>
     ),
 };
@@ -111,14 +111,14 @@ export default function AccreditationSection({
                 <div className="grid grid-cols-1 gap-12 @min-[1024px]:grid-cols-[6fr_5fr] @min-[1024px]:gap-16">
                     {/* Left: heading, paragraphs, quote, checklist */}
                     <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-teal-300">
+                        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-champagne">
                             {eyebrow}
                         </p>
                         <h2 className="mt-3 text-3xl font-semibold text-white @min-[1024px]:text-4xl">
                             {heading}
                         </h2>
 
-                        <div className="mt-8 space-y-5 text-sm leading-relaxed text-blue-100/80">
+                        <div className="mt-8 space-y-5 text-sm leading-relaxed text-brand-champagne-soft/80">
                             {paragraphs.map((paragraph) => (
                                 <p key={paragraph.slice(0, 24)}>{paragraph}</p>
                             ))}
@@ -128,15 +128,15 @@ export default function AccreditationSection({
                             {quote}
                         </p>
 
-                        <p className="mt-6 text-xs text-blue-100/70">{checklistLabel}</p>
+                        <p className="mt-6 text-xs text-brand-champagne-soft/70">{checklistLabel}</p>
                         <ul className="mt-3 space-y-2">
                             {checklist.map((item) => (
                                 <li
                                     key={item}
-                                    className="flex items-start gap-2 text-xs text-blue-100/90"
+                                    className="flex items-start gap-2 text-xs text-brand-champagne-soft/90"
                                 >
                                     <Check
-                                        className="mt-0.5 h-3.5 w-3.5 flex-none text-teal-400"
+                                        className="mt-0.5 h-3.5 w-3.5 flex-none text-brand-champagne"
                                         aria-hidden="true"
                                     />
                                     {item}
@@ -154,16 +154,16 @@ export default function AccreditationSection({
                             >
                                 <div
                                     aria-hidden="true"
-                                    className="absolute left-0 top-1/2 h-2/3 w-1.5 -translate-y-1/2 rounded-r-full bg-linear-to-b from-teal-400 to-blue-600"
+                                    className="absolute left-0 top-1/2 h-2/3 w-1.5 -translate-y-1/2 rounded-r-full bg-linear-to-b from-brand-emerald to-brand-forest"
                                 />
                                 <div className="flex items-center gap-4">
                                     {card.icon}
-                                    <h3 className="text-lg font-semibold text-[#0f1e46]">
+                                    <h3 className="text-lg font-semibold text-[#0B3B2E]">
                                         {card.title}
                                     </h3>
                                 </div>
-                                <div className="mt-3 border-t border-slate-200 pt-3">
-                                    <p className="text-xs leading-relaxed text-slate-500">
+                                <div className="mt-3 border-t border-line pt-3">
+                                    <p className="text-xs leading-relaxed text-muted">
                                         {card.description}
                                     </p>
                                 </div>
@@ -176,11 +176,11 @@ export default function AccreditationSection({
                 <div className="mt-12 rounded-2xl bg-white p-6 shadow-lg @min-[1024px]:p-8">
                     <div className="flex items-center gap-3">
                         {highlightIcon}
-                        <h3 className="text-lg font-semibold text-[#0f1e46]">
+                        <h3 className="text-lg font-semibold text-[#0B3B2E]">
                             {highlightTitle}
                         </h3>
                     </div>
-                    <p className="mt-4 text-sm leading-relaxed text-blue-600/80">
+                    <p className="mt-4 text-sm leading-relaxed text-brand-emerald-deep/80">
                         {highlightText}
                     </p>
                 </div>
