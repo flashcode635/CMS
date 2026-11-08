@@ -253,7 +253,7 @@ export function ThreeDCarousel<T>({
                 aria-current={isActive ? "true" : undefined}
                 data-active={isActive}
                 className={cn(
-                  "absolute top-0 left-1/2 h-full px-2",
+                  "absolute top-0 left-1/2 h-full px-3 py-6",
                   clickToFocus && !isActive && "cursor-pointer",
                   itemClassName,
                 )}

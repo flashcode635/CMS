@@ -59,7 +59,6 @@ const SOCIALS = [
   { icon: "/home/footer-instagram.svg", handle: "mystudyhub.official", href: "https://instagram.com" },
   { icon: "/home/footer-linkedin.svg", handle: "my-study-hub", href: "https://linkedin.com" },
   { icon: "/home/footer-pinterest.svg", handle: "Mystudyhub12", href: "https://pinterest.com" },
-  { icon: "/home/footer-youtube.svg", handle: "@MyStudyHub", href: "https://youtube.com" },
 ];
 
 interface ContactItem {
@@ -141,7 +140,7 @@ function ContactForm() {
   if (submitted) {
     return (
       <div className={`${cardCls} flex min-h-100 flex-col items-center justify-center gap-4 text-center`}>
-        <div className="flex size-16 items-center justify-center rounded-full bg-brand-champagne-soft text-3xl font-bold text-brand-green">
+        <div className="flex size-16 items-center justify-center rounded-full bg-brand-champagne-soft-bg text-3xl font-bold text-brand-green">
           ✓
         </div>
         <h3 className="text-2xl font-bold text-white">Thank You for Reaching Out!</h3>
@@ -203,7 +202,7 @@ function ContactForm() {
             value={form.message}
             onChange={set("message")}
             rows={4}
-            className="w-full min-h-28 resize-none rounded-lg border border-[#D6CCBA] bg-white px-4 py-3 text-sm font-medium text-[#1C2B25] placeholder:text-[#6F7B74] outline-none transition-all focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft"
+            className="w-full min-h-28 resize-none rounded-lg border border-line-strong bg-white px-4 py-3 text-sm font-medium text-[#1C2B25] placeholder:text-[#6F7B74] outline-none transition-all focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft"
           />
         </div>
 

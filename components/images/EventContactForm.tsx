@@ -121,7 +121,7 @@ export default function EventContactForm() {
         <div className="bg-white flex-1 p-8 @min-[640px]:p-12 @min-[1024px]:p-16">
           {submitted ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-12 gap-4">
-              <div className="w-16 h-16 rounded-full bg-brand-champagne-soft text-brand-green flex items-center justify-center font-bold text-3xl">
+              <div className="w-16 h-16 rounded-full bg-brand-champagne-soft-bg text-brand-green flex items-center justify-center font-bold text-3xl">
                 <CheckCircle2 size={36} />
               </div>
               <h3 className="text-2xl @min-[640px]:text-3xl font-bold text-ink font-['Inter',sans-serif]">

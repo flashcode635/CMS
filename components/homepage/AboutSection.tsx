@@ -141,12 +141,18 @@ export default function AboutSection() {
         }
 
         .about-read-btn {
-          transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+          border: 1.5px solid rgba(14, 143, 91, 0.55);
+          box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+          transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease,
+            border-color 0.25s ease;
         }
         .about-read-btn:hover {
           opacity: 0.88;
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(14,143,91,0.35), 0 4px 12px rgba(216,178,110,0.25);
+          border-color: rgba(14, 143, 91, 0.85);
+          box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.45) inset,
+            0 8px 28px rgba(14, 143, 91, 0.35);
         }
         .about-read-btn:active {
           transform: scale(0.97);
@@ -269,9 +275,12 @@ export default function AboutSection() {
 
             {/* Read More button */}
             <div className={`about-btn${visible ? " visible" : ""}`}>
-<Button variant="brand" size="bare" shape="pill"
-  className="about-read-btn h-[clamp(40px,2.92vw,56px)] gap-[0.63vw] px-[clamp(18px,1.67vw,32px)] 
-  text-[clamp(13px,1.11vw,21px)] font-normal tracking-[-0.02em]">
+              <Button
+                variant="brand"
+                size="bare"
+                shape="pill"
+                className="about-read-btn h-[clamp(40px,2.92vw,56px)] gap-[0.63vw] px-[clamp(18px,1.67vw,32px)] text-[clamp(13px,1.11vw,21px)] font-normal tracking-[-0.02em]"
+              >
                 Read more
                 <span className="about-btn-arrow" aria-hidden>
                   <svg

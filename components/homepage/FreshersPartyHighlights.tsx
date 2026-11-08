@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, CSSProperties } from "react";
-import { Button } from "@/components/ui/Button";
 
 const ROW_1 = [
   "/home/partyone.webp",
@@ -26,7 +25,6 @@ const ROW_2 = [
 ];
 
 export interface PartyVideo {
-  id: string;
   thumb: string;
   title: string;
   channel: string;
@@ -34,13 +32,11 @@ export interface PartyVideo {
 
 const VIDEOS: PartyVideo[] = [
   {
-    id: "f7kfU3T5yA0",
     thumb: "/home/party-video1.jpg",
     title: "Impulse NCSA",
     channel: "My Study Hub",
   },
   {
-    id: "dp7__dZmSU8",
     thumb: "/home/party-video2.jpg",
     title: "Fresher's Party Highlights",
     channel: "Rhythm 3.0 Samara",
@@ -101,9 +97,6 @@ export interface VideoCardProps {
 }
 
 function VideoCard({ video, visible, index }: VideoCardProps) {
-  const [playing, setPlaying] = useState<boolean>(false);
-  const embedSrc = `https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1`;
-
   return (
     <div
       className="relative shrink-0 overflow-hidden"
@@ -117,16 +110,6 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
         transition: `opacity 0.7s ease ${0.1 + index * 0.15}s, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${0.1 + index * 0.15}s`,
       }}
     >
-      {playing ? (
-        <iframe
-          src={embedSrc}
-          title={video.title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
-        />
-      ) : (
-        <>
           <Image
             src={video.thumb}
             alt={video.title}
@@ -139,9 +122,8 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
 
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.15)" }} />
 
-          <Button variant="unstyled"
-            size="icon"
-            onClick={() => setPlaying(true)}
+          <div
+            // size="icon"
             className="absolute shadow-none bg-transparent hover:bg-transparent border-0"
             style={{
               left: "50%", top: "50%",
@@ -151,13 +133,12 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
               padding: 0,
               zIndex: 3,
             }}
-            aria-label="Play video"
           >
             <svg viewBox="0 0 68 48" width="100%" height="100%">
               <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00" />
               <path d="M 45,24 27,14 27,34" fill="#fff" />
             </svg>
-          </Button>
+          </div>
 
           <div
             className="absolute flex items-center gap-2.5"
@@ -224,20 +205,19 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
               color: "white",
               whiteSpace: "nowrap",
             }}>
-              Watch on
+              Event highlight
             </span>
             <div style={{ position: "relative", width: "clamp(50px,4.69vw,90px)", height: "clamp(11px,1.04vw,20px)" }}>
               <Image
                 src="/home/party-yt-wordmark.svg"
-                alt="YouTube"
+                alt="Video platform"
                 fill
                 className="object-contain"
                 sizes="90px"
               />
             </div>
           </div>
-        </>
-      )}
+
     </div>
   );
 }
@@ -364,7 +344,7 @@ export default function FreshersPartyHighlights() {
           }}
         >
           {VIDEOS.map((video, i) => (
-            <VideoCard key={video.id} video={video} visible={visible} index={i} />
+            <VideoCard key={video.thumb} video={video} visible={visible} index={i} />
           ))}
         </div>
       </section>

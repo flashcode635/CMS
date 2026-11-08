@@ -1,49 +1,50 @@
 "use client";
 
 import ThreeDCarousel from "@/components/ui/threeDCarousel";
+import Image from "next/image";
 
 const testimonials = [
   {
     id: 1,
     name: "Rimjhim Chandra",
+    image: "/home/party-video1.jpg",
     role: "Student at Samara State Medical University, Russia",
     quote: "Hear directly from Indian students pursuing MBBS in Russia — their experiences, achievements, and the support they received from My Study Hub.",
-    video: "https://www.youtube.com/embed/GQE1qhbj-ag?rel=0&modestbranding=1",
   },
   {
     id: 2,
     name: "Pushpanjali",
+    image: "/home/party-video2.jpg",
     role: "Student at Kabardino-Balkarian State University, Russia",
     quote: "Follow the journeys of aspiring doctors from India as they study MBBS in Russia with trusted support from My Study Hub.",
-    video: "https://www.youtube.com/embed/pQTAnl8z6KQ?rel=0&modestbranding=1",
   },
   {
     id: 3,
     name: "Vanshika",
+    image: "/home/partyone.webp",
     role: "Student at Kabardino-Balkarian State University, Russia",
     quote: "Real stories from Indian students studying MBBS in Russia — their journey, challenges, and how My Study Hub supported them every step of the way.",
-    video: "https://www.youtube.com/embed/BmQz4m1kgEY?rel=0&modestbranding=1",
   },
   {
     id: 4,
     name: "S.K Sai Mandal",
+    image: "/home/partytwo.webp",
     role: "Student at Kabardino-Balkarian State University, Russia",
     quote: "Learn about the challenges, opportunities, and achievements of Indian students pursuing MBBS abroad with the guidance of My Study Hub.",
-    video: "https://www.youtube.com/embed/9wOFVvTJJ94?rel=0&modestbranding=1",
   },
   {
     id: 5,
     name: "Pushpanjali",
+    image: "/home/partyThree.webp",
     role: "Student at Kabardino-Balkarian State University, Russia",
     quote: "Follow the journeys of aspiring doctors from India as they study MBBS in Russia with trusted support from My Study Hub.",
-    video: "https://www.youtube.com/embed/pQTAnl8z6KQ?rel=0&modestbranding=1",
   },
   {
     id: 6,
     name: "Vanshika",
+    image: "/home/partyFour.webp",
     role: "Student at Kabardino-Balkarian State University, Russia",
     quote: "Real stories from Indian students studying MBBS in Russia — their journey, challenges, and how My Study Hub supported them every step of the way.",
-    video: "https://www.youtube.com/embed/BmQz4m1kgEY?rel=0&modestbranding=1",
   },
 ];
 
@@ -51,12 +52,10 @@ type Testimonial = (typeof testimonials)[number];
 
 function TestimonialCard({
   testimonial,
-  isActive,
 }: {
   testimonial: Testimonial;
-  isActive: boolean;
 }) {
-  const { name, role, quote, video } = testimonial;
+  const { name, role, quote } = testimonial;
 
   return (
     <>
@@ -72,14 +71,23 @@ function TestimonialCard({
             boxShadow: "0 8px 24px rgba(0,0,0,0.22)",
           }}
         >
-          <iframe
-            src={`${video}${isActive ? "&autoplay=1&mute=1" : ""}`}
-            title={name}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="h-full w-full border-0"
-            style={{ pointerEvents: isActive ? "auto" : "none" }}
-          />
+          <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-emerald-deep to-brand-blue">
+            <Image
+              src={testimonial.image}
+              alt={`${name} testimonial`}
+              fill
+              className="object-cover opacity-80"
+              sizes="400px"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-[#072A21]/75 via-transparent to-black/20" />
+            <Image
+              src="/home/party-yt-wordmark.svg"
+              alt="Video platform"
+              width={120}
+              height={27}
+              className="relative opacity-90"
+            />
+          </div>
         </div>
       </div>
 
@@ -174,8 +182,8 @@ export default function TestimonialsSection3D() {
       <ThreeDCarousel
         items={testimonials}
         getItemKey={(testimonial) => testimonial.id}
-        renderItem={(testimonial, { isActive }) => (
-          <TestimonialCard testimonial={testimonial} isActive={isActive} />
+        renderItem={(testimonial) => (
+          <TestimonialCard testimonial={testimonial} />
         )}
         cardWidth={400}
         cardHeight={360}

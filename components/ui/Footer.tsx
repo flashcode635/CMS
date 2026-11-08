@@ -41,7 +41,6 @@ const socials = [
   { label: "Facebook", icon: "/home/footer-facebook.svg", href: "#" },
   { label: "Instagram", icon: "/home/footer-instagram.svg", href: "#" },
   { label: "Twitter", icon: "/home/footer-twitter.svg", href: "#" },
-  { label: "YouTube", icon: "/home/footer-youtube.svg", href: "#" },
 ];
 
 export default function Footer() {
@@ -55,14 +54,14 @@ export default function Footer() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 20% 30%, rgba(216, 178, 110, 0.14) 0%, rgba(7, 42, 33, 0.92) 60%, rgba(7, 42, 33, 1) 100%)",
+              "radial-gradient(ellipse 90% 70% at 20% 30%, rgba(14, 143, 91, 0.18) 0%, rgba(7, 42, 33, 0.94) 60%, rgba(7, 42, 33, 1) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(14, 143, 91, 0.16) 0%, rgba(216, 178, 110, 0.10) 50%, rgba(7, 42, 33, 0.75) 100%)",
+              "linear-gradient(135deg, rgba(14, 143, 91, 0.22) 0%, rgba(14, 143, 91, 0.08) 50%, rgba(7, 42, 33, 0.8) 100%)",
           }}
         />
         {/* Slanted laser beam background overlay */}
@@ -70,7 +69,7 @@ export default function Footer() {
           className="absolute inset-0 opacity-25"
           style={{
             background:
-              "linear-gradient(125deg, transparent 0%, rgba(216,178,110,0.08) 40%, rgba(216,178,110,0.22) 50%, rgba(216,178,110,0.08) 60%, transparent 100%)",
+              "linear-gradient(125deg, transparent 0%, rgba(14, 143, 91, 0.04) 40%, rgba(14, 143, 91, 0.1) 50%, rgba(14, 143, 91, 0.04) 60%, transparent 100%)",
           }}
         />
       </div>

@@ -32,9 +32,9 @@ const ICONS: Record<string, LucideIcon> = {
 
 /* Colour tones for the icon chips, also referenced by NAME string. */
 const TONES: Record<string, string> = {
-    blue: "bg-brand-champagne-soft/50 text-brand-emerald-deep",
+    blue: "bg-brand-champagne-soft-bg/50 text-brand-emerald-deep",
     red: "bg-red-50 text-red-600",
-    green: "bg-brand-champagne-soft/60 text-brand-emerald-deep",
+    green: "bg-brand-champagne-soft-bg/60 text-brand-emerald-deep",
 };
 
 type DocumentItem = {

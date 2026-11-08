@@ -1,7 +1,7 @@
 "use client";
 
 import bgDoctorImg from "@/public/bg-doctor.jpg";
-import { BookOpen, CalendarCheck, Globe, Play, Target, type LucideIcon } from "lucide-react";
+import { BookOpen, CalendarCheck, Globe, Target, type LucideIcon } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
 import type { ReactNode } from "react";
 
@@ -23,9 +23,9 @@ type FmgeClassesProps = {
     features?: FmgeFeature[];
     /** Italic quote in the tinted box with green bar. */
     quote?: string;
-    /** YouTube watch/embed URL; when empty a placeholder thumbnail is shown. */
+    /** Optional video URL; when empty a placeholder thumbnail is shown. */
     videoUrl?: string;
-    /** Title of the video (used for the iframe title + caption link). */
+    /** Title of the video used for the caption. */
     videoTitle?: string;
     /** Small caption under the video card. */
     videoCaption?: string;
@@ -52,7 +52,7 @@ export const DEFAULT_CONTENT: Required<FmgeClassesProps> = {
         { label: "Revision & exam strategy", icon: featureIcon(Target) },
     ],
     quote: "Structured guidance for better FMGE results.",
-    videoUrl: "https://www.youtube.com/embed/GQE1qhbj-ag?rel=0&modestbranding=1", // TODO: paste the real YouTube watch/embed URL here (or pass via prop on the page)
+    videoUrl: "",
     videoTitle: "FMGE Classes at Samara State Medical University",
     videoCaption: "FMGE Classes at Samara State Medical University",
     videoPoster: bgDoctorImg,
@@ -76,7 +76,6 @@ export default function FmgeClassesSection({
     intro = DEFAULT_CONTENT.intro,
     features = DEFAULT_CONTENT.features,
     quote = DEFAULT_CONTENT.quote,
-    videoUrl = DEFAULT_CONTENT.videoUrl,
     videoTitle = DEFAULT_CONTENT.videoTitle,
     videoCaption = DEFAULT_CONTENT.videoCaption,
     videoPoster = DEFAULT_CONTENT.videoPoster,
@@ -85,10 +84,6 @@ export default function FmgeClassesSection({
     standardsLabel = DEFAULT_CONTENT.standardsLabel,
     standardsIcon = DEFAULT_CONTENT.standardsIcon,
 }: FmgeClassesProps) {
-    const embedSrc = videoUrl
-        ? videoUrl.replace("watch?v=", "embed/")
-        : "";
-
     return (
         <section
             id={anchorId}
@@ -139,17 +134,8 @@ export default function FmgeClassesSection({
                         </div>
                     </div>
 
-                    {/* Right: video card (placeholder until videoUrl is set) */}
+                    {/* Right: video card */}
                     <div className="self-center overflow-hidden rounded-2xl bg-white shadow-lg">
-                        {embedSrc ? (
-                            <iframe
-                                src={embedSrc}
-                                title={videoTitle}
-                                className="aspect-video w-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                            />
-                        ) : (
                             <div className="relative aspect-video">
                                 <Image
                                     src={videoPoster}
@@ -157,21 +143,18 @@ export default function FmgeClassesSection({
                                     className="h-full w-full object-cover"
                                     placeholder="blur"
                                 />
-                                {/* TODO: replace with a real YouTube embed once videoUrl is provided */}
                                 <div
                                     aria-hidden="true"
                                     className="absolute inset-0 bg-[#072A21]/25"
                                 />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="flex h-12 w-16 items-center justify-center rounded-[10px] bg-[#ff0000] shadow-md">
-                                        <Play
-                                            className="h-6 w-6 fill-white text-white"
-                                            aria-hidden="true"
-                                        />
-                                    </span>
-                                </div>
+                                <Image
+                                    src="/home/party-yt-wordmark.svg"
+                                    alt="Video platform"
+                                    width={120}
+                                    height={27}
+                                    className="absolute bottom-4 right-4"
+                                />
                             </div>
-                        )}
                         <div className="flex items-center gap-2 px-4 py-3">
                             <div
                                 aria-hidden="true"

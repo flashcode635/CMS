@@ -327,20 +327,30 @@ function ChevronDownIcon({ size = 20, color = "white", className }: { size?: num
 }
 
 export default function Navbar() {
-  const [mobileOpen,     setMobileOpen]     = useState<boolean>(false);
-  const [mobileSection,  setMobileSection]  = useState<string | null>(null);
-  const [countryQuery,   setCountryQuery]   = useState<string>("");
-  const [scrolled,       setScrolled]       = useState<boolean>(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [countryQuery, setCountryQuery] = useState<string>("");
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const navRef                              = useRef<HTMLElement | null>(null);
-  const dropTimer                           = useRef<NodeJS.Timeout | null>(null);
-  const pathname                            = usePathname();
+  const navRef = useRef<HTMLElement | null>(null);
+  const dropTimer = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
 
-  const openDrop   = (name: string) => { if (dropTimer.current) clearTimeout(dropTimer.current); setActiveDropdown(name); };
-  const closeDrop  = ()             => { dropTimer.current = setTimeout(() => setActiveDropdown(null), 150); };
-  const keepDrop   = ()             => { if (dropTimer.current) clearTimeout(dropTimer.current); };
+  const openDrop = (name: string) => {
+    if (dropTimer.current) clearTimeout(dropTimer.current);
+    setActiveDropdown(name);
+  };
+  const closeDrop = () => {
+    dropTimer.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
+  const keepDrop = () => {
+    if (dropTimer.current) clearTimeout(dropTimer.current);
+  };
 
-  const closeMobile = () => { setMobileOpen(false); setMobileSection(null); setCountryQuery(""); };
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileSection(null);
+    setCountryQuery("");
+  };
 
   // Section matching the current route, auto-expanded when the drawer opens.
   const sectionForPath = NAV_LINKS.find(
@@ -364,12 +374,6 @@ export default function Navbar() {
     setMobileSection(null);
     setCountryQuery("");
   }, [pathname]);
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", fn, { passive:true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
 
   // Mobile drawer: lock page scroll, close on Escape and when the viewport grows past `lg`.
   useEffect(() => {
@@ -503,12 +507,11 @@ export default function Navbar() {
           style={{
             height:          "clamp(64px,5.21vw,100px)",
             borderRadius:    "clamp(40px,5.73vw,110px)",
-            backgroundColor: scrolled ? "rgba(7,42,33,0.78)" : "rgba(7,42,33,0.46)",
+            backgroundColor: "rgba(7,42,33,0.46)",
             borderBottom:    "1px solid rgba(241, 227, 200, 0.4)",
             backdropFilter:  "blur(40px) saturate(2.4)",
             WebkitBackdropFilter: "blur(20px) saturate(1.4)",
-            boxShadow:       scrolled ? "0 8px 32px rgba(7,42,33,0.45)" : "none",
-            transition:      "background-color 0.3s ease,box-shadow 0.3s ease",
+            boxShadow:       "none",
             padding:         "0 clamp(20px,1.82vw,35px)",
             overflow:        "visible",
           }}
@@ -532,7 +535,15 @@ export default function Navbar() {
                         onClick={() => { if (dropTimer.current) clearTimeout(dropTimer.current);
                           setActiveDropdown(isOpen ? null : dropKey); }}
                           variant="nav"
-                        style={{ fontSize:"clamp(13px,0.83vw,16px)", lineHeight:"20px", padding:"8px clamp(8px,0.63vw,12px)", gap:4, whiteSpace:"nowrap", fontFamily:"'Inter',sans-serif", color: isOpen ? "#F1E3C8" : "white" /* scrolled ? "#12211C" : "white" */ }}
+                        style={{
+                          fontSize: "clamp(13px,0.83vw,16px)",
+                          lineHeight: "20px",
+                          padding: "8px clamp(8px,0.63vw,12px)",
+                          gap: 4,
+                          whiteSpace: "nowrap",
+                          fontFamily: "'Inter',sans-serif",
+                          color: isOpen ? "#F1E3C8" : "white",
+                        }}
                         aria-haspopup="true" aria-expanded={isOpen}
                         onMouseEnter={e => { if (!isOpen) e.currentTarget.style.color = "#F1E3C8"; }}
                         onMouseLeave={e => { if (!isOpen) e.currentTarget.style.color = "white"; }}
@@ -556,7 +567,14 @@ export default function Navbar() {
                     </>
                   ) : (
                     <Link href={href} className="nb-link flex items-center font-medium"
-                      style={{ fontSize:"clamp(13px,0.83vw,16px)", lineHeight:"20px", padding:"8px clamp(8px,0.63vw,12px)", gap:4, whiteSpace:"nowrap", color:"white" /* scrolled ? "#12211C" : "white" */ }}
+                      style={{
+                        fontSize: "clamp(13px,0.83vw,16px)",
+                        lineHeight: "20px",
+                        padding: "8px clamp(8px,0.63vw,12px)",
+                        gap: 4,
+                        whiteSpace: "nowrap",
+                        color: "white",
+                      }}
                       onMouseEnter={e => { e.currentTarget.style.color = "#F1E3C8"; }}
                       onMouseLeave={e => { e.currentTarget.style.color = "white"; }}>
                       {label}
@@ -569,7 +587,19 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center" style={{ gap:12, flexShrink:0 }}>
             <Link href="/admin/login" className="nb-login flex items-center justify-center gap-1 font-semibold border"
-              style={{ height:"clamp(36px,2.19vw,42px)", width:"clamp(100px,6.25vw,120px)", borderRadius:"60px", fontSize:"clamp(12px,0.73vw,14px)", background:"transparent", cursor:"pointer", whiteSpace:"nowrap", textDecoration:"none", color:"white" /* scrolled ? "#12211C" : "white" */, borderColor: scrolled ? "#12211C" : "white" }}>
+              style={{
+                height: "clamp(36px,2.19vw,42px)",
+                width: "clamp(100px,6.25vw,120px)",
+                borderRadius: "60px",
+                fontSize: "clamp(12px,0.73vw,14px)",
+                background: "transparent",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                textDecoration: "none",
+                color: "white",
+                borderColor: "white",
+              }}
+            >
               Login <ChevronDownIcon size={18} color="white" />
             </Link>
             <Link href="/contact-us" className="nb-contact text-white flex items-center justify-center font-semibold"

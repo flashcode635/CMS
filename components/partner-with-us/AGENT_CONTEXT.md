@@ -118,7 +118,7 @@ Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page backgrou
     - "Head Office" → `806, KLJ Tower, Pitampura, Delhi - 110034`
     - "Mail for info." → `contact@mystudyhub.com`
       Icons are Figma MCP asset URLs.
-  - `SOCIALS` — 5 records `{ icon, handle, href }`: `mystudyhub0` → `https://facebook.com`; `mystudyhub.official` → `https://instagram.com`; `my-study-hub` → `https://linkedin.com`; `Mystudyhub12` → `https://pinterest.com`; `@MyStudyHub` → `https://youtube.com`. **All hrefs are bare platform homepages, not the actual profiles** — placeholder links.
+  - `SOCIALS` — 4 records `{ icon, handle, href }` for Facebook, Instagram, LinkedIn, and Pinterest. **All hrefs are bare platform homepages, not the actual profiles** — placeholder links.
   - `inputCls` — `w-full bg-white border border-[#d9dbde] rounded-lg px-6 text-[#536782] font-medium text-base placeholder-[#536782] outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 …`.
   - `interface ContactItem { icon: string; label: string; value: string }`, `interface SocialItem { icon: string; handle: string; href: string }`.
   - Local icon components: `ArrowRight({ size = 16 })` (white stroke), `ChevronDown()` (`#536782`), `ExtLink()` (diagonal arrow, white).

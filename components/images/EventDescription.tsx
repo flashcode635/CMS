@@ -46,7 +46,7 @@ export default function EventDescription({
           <div className="absolute top-0 left-0 right-0 h-2 bg-linear-to-r from-brand-green via-[#0E8F5B] to-brand-blue" />
 
           <div className="flex flex-col gap-6 max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-champagne-soft/50 border border-brand-champagne-soft text-brand-blue text-xs sm:text-sm font-semibold w-fit">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-champagne-soft-bg/50 border border-brand-champagne-soft text-brand-blue text-xs sm:text-sm font-semibold w-fit">
               <Sparkles size={16} />
               <span>Seminar Highlights & Overview</span>
             </div>

@@ -95,7 +95,7 @@ Permissions/Auth: Public marketing content. No auth, no server actions, no DB ac
 - **Dependencies:** `next/image` (poster via static import of `@/public/bg-doctor.jpg`, `placeholder="blur"`), `lucide-react` (`BookOpen`, `CalendarCheck`, `Globe`, `Play`, `Target`).
 - **Consumers:** `app/(site)/universities/[slug]/page.tsx` (`<FmgeClassesSection />`, no props).
 - **Notes:**
-  - When `videoUrl` is set, `watch?v=` URLs are rewritten to `embed/` (a simple string replace — playlist/`youtu.be` short links are NOT handled); empty → placeholder thumbnail with TODO (also noted inline in the file).
+  - The section uses its local poster whenever no optional video URL is supplied.
   - The iframe renders only for a truthy `videoUrl`; the placeholder is intentionally non-functional (no link).
   - Feature bars `bg-[#eef0f7]`, quote box `bg-[#eaf1fd]`, caption/link text `text-blue-600`, pathways paragraphs `text-slate-500` — hard-coded, eyeballed from the screenshot.
   - Section carries `id="fmge-classes"` while the page ALSO wraps it in `<div id="#fmge-classes">` — same duplicate-id caveat as `accreditation.tsx` (page wrappers use a leading `#`, which anchor links can't jump to).

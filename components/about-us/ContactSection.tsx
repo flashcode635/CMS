@@ -49,7 +49,6 @@ const SOCIALS = [
   { label: "Instagram", handle: "mystudyhub.official", href: "https://www.instagram.com/mystudyhub.official", icon: "/home/footer-instagram.svg" },
   { label: "LinkedIn", handle: "my-study-hub", href: "https://www.linkedin.com/company/my-study-hub", icon: "/home/footer-linkedin.svg" },
   { label: "Pinterest", handle: "Mystudyhub12", href: "https://www.pinterest.com/mystudyhub12", icon: "/home/footer-pinterest.svg" },
-  { label: "YouTube", handle: "@MyStudyHub", href: "https://www.youtube.com/@MyStudyHub", icon: "/home/footer-youtube.svg" },
 ];
 
 // ── Shared classes ─────────────────────────────────────────────────────────────

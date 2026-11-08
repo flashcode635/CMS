@@ -1,13 +1,13 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
-import { GraduationCap, Play } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import univCampusImg from "@/public/home/univ-campus.jpg";
 
 /**
  * Benefits — "Benefits of Studying MBBS in <University>" section:
  * dark navy band with decorative circles; eyebrow line, green+blue two-tone
- * heading, a left stack of numbered white benefit cards and a right YouTube
+ * heading, a left stack of numbered white benefit cards and a right highlight
  * video card (embed when `videoUrl` is set, poster + play overlay otherwise).
  *
  * CMS compatibility (same approach as `admissionProcess.tsx` / `documents.tsx`):
@@ -35,13 +35,13 @@ type BenefitsProps = {
     titleBlue?: string;
     /** Numbered benefit cards (left column). */
     benefits?: BenefitItem[];
-    /** YouTube URL; empty string keeps the placeholder poster card. */
+    /** Optional video URL; empty string keeps the placeholder poster card. */
     videoUrl?: string;
     /** Title of the video (iframe title + overlay heading). */
     videoTitle?: string;
     /** Small line under the overlay title (channel/brand name). */
     videoBadge?: string;
-    /** Bottom-right pseudo-YouTube label on the placeholder card. */
+    /** Bottom-right label on the placeholder card. */
     watchLabel?: string;
     /** Placeholder thumbnail — URL string (CMS) or static image import. */
     videoPoster?: StaticImageData | string;
@@ -74,11 +74,10 @@ export const DEFAULT_CONTENT: Required<BenefitsProps> = {
                 "High-quality education at a fraction of the cost compared to private medical colleges in India or the West.",
         },
     ],
-    // TODO: set a real YouTube URL (watch?v=… links are rewritten to embed/)
     videoUrl: "",
     videoTitle: "FMGE Classes at Samara State Medical University",
     videoBadge: "My Study Hub",
-    watchLabel: "Watch on YouTube",
+    watchLabel: "Event highlight",
     videoPoster: univCampusImg,
 };
 
@@ -88,14 +87,10 @@ export default function BenefitsSection({
     titleGreen = DEFAULT_CONTENT.titleGreen,
     titleBlue = DEFAULT_CONTENT.titleBlue,
     benefits = DEFAULT_CONTENT.benefits,
-    videoUrl = DEFAULT_CONTENT.videoUrl,
     videoTitle = DEFAULT_CONTENT.videoTitle,
     videoBadge = DEFAULT_CONTENT.videoBadge,
-    watchLabel = DEFAULT_CONTENT.watchLabel,
     videoPoster = DEFAULT_CONTENT.videoPoster,
 }: BenefitsProps) {
-    const embedSrc = videoUrl ? videoUrl.replace("watch?v=", "embed/") : "";
-
     return (
         <section
             aria-label={sectionLabel}
@@ -137,7 +132,7 @@ export default function BenefitsSection({
                             >
                                 <span
                                     aria-hidden="true"
-                                    className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-brand-champagne-soft text-xs font-bold text-brand-emerald-deep"
+                                    className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-brand-champagne-soft-bg text-xs font-bold text-brand-emerald-deep"
                                 >
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
@@ -153,17 +148,8 @@ export default function BenefitsSection({
                         ))}
                     </ul>
 
-                    {/* Right: video card (placeholder until videoUrl is set) */}
+                    {/* Right: video card */}
                     <div className="self-center overflow-hidden rounded-2xl bg-[#072A21] shadow-lg ring-1 ring-white/10">
-                        {embedSrc ? (
-                            <iframe
-                                src={embedSrc}
-                                title={videoTitle}
-                                className="aspect-video w-full"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                            />
-                        ) : (
                             <div className="relative aspect-video">
                                 <Image
                                     src={videoPoster}
@@ -176,8 +162,15 @@ export default function BenefitsSection({
                                     aria-hidden="true"
                                     className="absolute inset-0 bg-[#072A21]/25"
                                 />
+                                <Image
+                                    src="/home/party-yt-wordmark.svg"
+                                    alt="Video platform"
+                                    width={120}
+                                    height={27}
+                                    className="absolute bottom-4 right-4"
+                                />
 
-                                {/* Top-left caption overlay (mimics the YouTube embed header) */}
+                                {/* Top-left caption overlay */}
                                 <div className="absolute inset-x-0 top-0 flex items-center gap-2 bg-[#072A21]/35 p-3">
                                     <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white/90">
                                         <GraduationCap
@@ -195,29 +188,7 @@ export default function BenefitsSection({
                                     </div>
                                 </div>
 
-                                {/* Center play pill (placeholder, TODO: remove once videoUrl is set) */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="flex h-12 w-16 items-center justify-center rounded-[10px] bg-[#ff0000] shadow-md">
-                                        <Play
-                                            aria-hidden="true"
-                                            className="h-6 w-6 fill-white text-white"
-                                        />
-                                    </span>
-                                </div>
-
-                                {/* Bottom-right watch label */}
-                                <p className="absolute bottom-2 right-4 text-[10px] text-white/90">
-                                    {watchLabel}
-                                </p>
-                                <div
-                                    aria-hidden="true"
-                                    className="absolute bottom-2 right-2 flex h-4 w-10 items-center justify-center rounded text-[8px] font-bold text-white"
-                                    style={{ background: "#ff0000" }}
-                                >
-                                    YouTube
-                                </div>
                             </div>
-                        )}
                     </div>
                 </div>
             </div>

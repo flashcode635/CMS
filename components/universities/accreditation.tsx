@@ -35,13 +35,13 @@ type AccreditationProps = {
 };
 
 const WFME_ICON: ReactNode = (
-    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft">
+    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft-bg">
         <BadgeCheck className="h-6 w-6 text-brand-emerald-deep" aria-hidden="true" />
     </span>
 );
 
 const IAAR_ICON: ReactNode = (
-    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft">
+    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft-bg">
         <Building2 className="h-6 w-6 text-brand-champagne" aria-hidden="true" />
     </span>
 );

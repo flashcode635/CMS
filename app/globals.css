@@ -11,6 +11,7 @@
   --color-brand-emerald-deep: #0A6B44;
   --color-brand-champagne: #D8B26E;
   --color-brand-champagne-soft: #F1E3C8;
+  --color-brand-champagne-soft-bg:#FEFDF9;
 
   /* Backwards-compatible aliases: existing brand-* classes inherit the new look */
   --color-brand-green: #0E8F5B;

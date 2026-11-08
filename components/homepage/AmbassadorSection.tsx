@@ -1,25 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function AmbassadorSection() {
-  const [autoplay, setAutoplay] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setAutoplay(true); observer.disconnect(); } },
+      ([entry]) => {       if (entry.isIntersecting) observer.disconnect(); },
       { threshold: 0.3 }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
-
-  const src = autoplay
-    ? "https://www.youtube.com/embed/65sJUo-Blqg?rel=0&modestbranding=1&autoplay=1&mute=1"
-    : "https://www.youtube.com/embed/65sJUo-Blqg?rel=0&modestbranding=1";
 
   return (
     <section ref={sectionRef} className="w-full bg-[#EFE9DE] px-[3.33vw] py-[3.33vw] flex justify-center">
@@ -46,18 +42,24 @@ export default function AmbassadorSection() {
           </div>
         </div>
 
-        {/* ── RIGHT: YouTube iframe ── */}
+        {/* ── RIGHT: event highlight placeholder ── */}
         <div
           className="w-[42.24vw] h-[23.96vw] shrink-0 relative rounded-[1.67vw] overflow-hidden"
           style={{ boxShadow: "21px 21px 0px 0px rgba(2,135,59,1)" }}
         >
-          <iframe
-            src={src}
-            title="Big Moment: Indian Ambassador at SamSMU"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full border-0"
+          <Image
+            src="/home/party-video1.jpg"
+            alt="Indian Ambassador visit at Samara State Medical University"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 42vw"
           />
+          <div className="absolute inset-0 flex items-center justify-center bg-[#072A21]/45 px-8 text-center">
+            <div className="relative flex flex-col items-center gap-4">
+              <p className="text-2xl font-semibold text-white">Big Moment at SamSMU</p>
+              <Image src="/home/party-yt-wordmark.svg" alt="Video platform" width={120} height={27} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
