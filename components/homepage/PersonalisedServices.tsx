@@ -30,11 +30,11 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
       onMouseLeave={() => setHovered(false)}
       style={{
         padding: "clamp(14px, 1.25vw, 22px)",
-        backgroundColor: "#ffffff",
-        border: `1.5px solid ${hovered ? "#0E8F5B" : "#EDF3EF"}`,
+        backgroundColor: "white",
+        border: `1.5px solid ${hovered ? "var(--color-brand-forest)" : "var(--color-surface-alt)"}`,
         boxShadow: hovered
-          ? "0 12px 28px -6px rgba(14, 143, 91, 0.18), 0 4px 12px rgba(0, 0, 0, 0.04)"
-          : "0 2px 10px rgba(0, 0, 0, 0.04)",
+          ? "0 12px 28px -6px color-mix(in srgb, var(--color-brand-forest) 18%, transparent), 0 4px 12px color-mix(in srgb, black 4%, transparent)"
+          : "0 2px 10px color-mix(in srgb, black 4%, transparent)",
         transform: hovered ? "translateY(-4px)" : "translateY(0)",
         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         opacity: visible ? 1 : 0,
@@ -45,7 +45,7 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
       <div
         className="absolute top-0 right-0 w-24 h-24 pointer-events-none transition-opacity duration-300"
         style={{
-          background: "radial-gradient(circle at top right, rgba(14, 143, 91, 0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle at top right, color-mix(in srgb, var(--color-brand-forest) 12%, transparent) 0%, transparent 70%)",
           opacity: hovered ? 1 : 0,
         }}
       />
@@ -55,7 +55,7 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
         className="absolute bottom-0 left-0 right-0 h-[2.5px] transition-all duration-300"
         style={{
           background: hovered
-            ? "linear-gradient(90deg, #0E8F5B 0%, #0E8F5B 50%, #0B3B2E 100%)"
+            ? "linear-gradient(90deg, var(--color-brand-forest) 0%, var(--color-brand-forest) 50%, var(--color-brand-forest-deep) 100%)"
             : "transparent",
         }}
       />
@@ -66,9 +66,9 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
         style={{
           width: "clamp(44px, 3.4vw, 60px)",
           height: "clamp(44px, 3.4vw, 60px)",
-          backgroundColor: hovered ? "#EDF3EF" : "#F1F6F2",
-          border: `1px solid ${hovered ? "#C9E6D6" : "#EDF3EF"}`,
-          boxShadow: hovered ? "0 4px 12px rgba(14, 143, 91, 0.12)" : "none",
+          backgroundColor: hovered ? "var(--color-surface-alt)" : "var(--color-surface)",
+          border: `1px solid ${hovered ? "var(--color-brand-sky)" : "var(--color-surface-alt)"}`,
+          boxShadow: hovered ? "0 4px 12px color-mix(in srgb, var(--color-brand-forest) 12%, transparent)" : "none",
         }}
       >
         <Image
@@ -82,9 +82,9 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
 
       {/* Title */}
       <p
-        className="font-medium text-[#0B3B2E] group-hover:text-brand-green transition-colors"
+        className="font-medium text-brand-forest-deep group-hover:text-brand-emerald-deep transition-colors"
         style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: 'var(--font-body)',
           fontSize: "clamp(13px, 0.88vw, 16px)",
           lineHeight: "clamp(20px, 1.45vw, 26px)",
           margin: 0,
@@ -117,19 +117,16 @@ export default function PersonalisedServices() {
   return (
     <>
       <style>{`
-        @keyframes psFadeUp {
-          0%   { opacity: 0; transform: translateY(22px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
+        
         .ps-title { opacity: 0; }
-        .ps-title.in { animation: psFadeUp 0.8s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
+        .ps-title.in { animation: sp-fade-up 0.8s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
         .ps-sub   { opacity: 0; }
-        .ps-sub.in   { animation: psFadeUp 0.7s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
+        .ps-sub.in   { animation: sp-fade-up 0.7s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
       `}</style>
 
       <section
         ref={sectionRef}
-        className="relative overflow-hidden bg-[#F1F6F2] text-[#0B3B2E]"
+        className="relative overflow-hidden bg-surface text-brand-forest-deep"
         style={{
           padding: "clamp(48px, 5.2vw, 96px) clamp(20px, 4.17vw, 80px)",
         }}
@@ -139,13 +136,13 @@ export default function PersonalisedServices() {
           <div
             className="absolute -top-24 right-0 w-125 h-125 rounded-full blur-3xl opacity-40"
             style={{
-              background: "radial-gradient(circle, rgba(167, 243, 208, 0.6) 0%, rgba(255, 255, 255, 0) 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--color-green-200) 60%, transparent) 0%, transparent 70%)",
             }}
           />
           <div
             className="absolute -bottom-24 -left-20 w-[450px] h-[450px] rounded-full blur-3xl opacity-35"
             style={{
-              background: "radial-gradient(circle, rgba(187, 247, 208, 0.5) 0%, rgba(219, 234, 254, 0) 70%)",
+              background: "radial-gradient(circle, color-mix(in srgb, var(--color-green-100) 50%, transparent) 0%, transparent 70%)",
             }}
           />
         </div>
@@ -173,9 +170,9 @@ export default function PersonalisedServices() {
           >
             {/* Tagline / Subtitle small */}
             <p
-              className="text-brand-green font-semibold tracking-[0.85px] uppercase"
+              className="text-brand-emerald-deep font-semibold tracking-[0.85px] uppercase"
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(12px, 0.83vw, 14px)",
                 margin: 0,
               }}
@@ -185,9 +182,9 @@ export default function PersonalisedServices() {
 
             {/* Title */}
             <h2
-              className={`ps-title${visible ? " in" : ""} font-bold text-center bg-linear-to-r from-brand-green via-[#0E8F5B] to-[#0B3B2E] bg-clip-text text-transparent`}
+              className={`ps-title${visible ? " in" : ""} font-bold text-center bg-linear-to-r from-brand-green via-brand-forest to-brand-forest-deep bg-clip-text text-transparent`}
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-sub)',
                 fontSize: "clamp(28px, 3.33vw, 52px)",
                 lineHeight: "clamp(34px, 3.6vw, 60px)",
                 margin: 0,
@@ -198,9 +195,9 @@ export default function PersonalisedServices() {
 
             {/* Subtitle */}
             <p
-              className={`ps-sub${visible ? " in" : ""} text-center font-normal text-[#4A554F]`}
+              className={`ps-sub${visible ? " in" : ""} text-center font-normal text-body`}
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(13px, 0.94vw, 17px)",
                 lineHeight: "26px",
                 margin: 0,

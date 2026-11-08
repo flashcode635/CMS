@@ -61,21 +61,21 @@ export default function ShareBar({
       label: "Facebook",
       count: facebookCount,
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-      bg: "#3b5998",
+      bg: "var(--color-brand-forest)",
       Icon: ThumbsUp,
     },
     {
       label: "Pinterest",
       count: pinterestCount,
       href: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}`,
-      bg: "#e60023",
+      bg: "var(--color-brand-forest)",
       Icon: Share2,
     },
     {
       label: "LinkedIn",
       count: linkedinCount,
       href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}`,
-      bg: "#007bb6",
+      bg: "var(--color-brand-forest)",
       Icon: Share2,
     },
   ];
@@ -87,14 +87,14 @@ export default function ShareBar({
         aria-label={`${fmt(totalShares)} total shares`}
       >
         <span
-          className="text-[#12211C] text-xl sm:text-2xl font-bold leading-tight"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="text-ink text-xl sm:text-2xl font-bold leading-tight"
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {fmt(totalShares)}
         </span>
         <span
-          className="text-[#4A554F] text-sm sm:text-base text-center"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="text-body text-sm sm:text-base text-center"
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           Shares
         </span>
@@ -119,13 +119,13 @@ export default function ShareBar({
             </span>
             <span
               className="text-white text-xs sm:text-sm font-bold"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               {label}
             </span>
             <span
               className="text-white/80 text-xs sm:text-sm whitespace-nowrap"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               {count}
             </span>
@@ -137,12 +137,12 @@ export default function ShareBar({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on WhatsApp"
-          className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-md bg-[#25d366] transition-opacity hover:opacity-90 shrink-0"
+          className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-md bg-brand-forest transition-opacity hover:opacity-90 shrink-0"
         >
           <MessageCircle className="w-4 h-4 text-white" aria-hidden />
           <span
             className="text-white text-xs sm:text-sm font-bold"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             WhatsApp
           </span>
@@ -155,13 +155,13 @@ export default function ShareBar({
           <Eye className="w-4 h-4 text-white shrink-0" aria-hidden />
           <span
             className="text-white text-xs sm:text-sm font-semibold"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             Views
           </span>
           <span
             className="text-white/80 text-xs sm:text-sm"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {fmt(views)}
           </span>
@@ -179,11 +179,11 @@ export default function ShareBar({
           {copied ? (
             <Check className="w-4 h-4 text-brand-emerald" aria-hidden />
           ) : (
-            <LinkIcon className="w-4 h-4 text-[#0A6B44]" aria-hidden />
+            <LinkIcon className="w-4 h-4 text-brand-royal" aria-hidden />
           )}
           <span
-            className="text-[#0A6B44] text-xs sm:text-sm font-medium"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="text-brand-royal text-xs sm:text-sm font-medium"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {copied ? "Copied!" : "Copy Link"}
           </span>

@@ -68,7 +68,7 @@ function UniversitySection({ section, name }: { section: Section; name: string }
         <p className="text-xs font-semibold uppercase tracking-widest text-brand-green">
           {section.label}
         </p>
-        <h2 className="mt-2 text-xl font-semibold text-[#12211C] lg:text-2xl">
+        <h2 className="mt-2 text-xl font-semibold text-ink lg:text-2xl">
           {String(section.data.heading || "Section heading")}
         </h2>
         <p className="mt-2 whitespace-pre-wrap text-sm leading-7 text-muted">

@@ -114,8 +114,8 @@ export default function AdmissionProcess() {
           >
             <defs>
               <linearGradient id="lineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0A6B44" />
-                <stop offset="100%" stopColor="#0A6B44" />
+                <stop offset="0%" stopColor="var(--color-brand-royal)" />
+                <stop offset="100%" stopColor="var(--color-brand-royal)" />
               </linearGradient>
               <marker
                 id="arrowGhost"
@@ -125,7 +125,7 @@ export default function AdmissionProcess() {
                 refY="3.5"
                 orient="auto"
               >
-                <polygon points="0 0, 10 3.5, 0 7" fill="#E8D7B0" />
+                <polygon points="0 0, 10 3.5, 0 7" fill="var(--color-brand-champagne-soft)" />
               </marker>
               <marker
                 id="arrowFilled"
@@ -135,7 +135,7 @@ export default function AdmissionProcess() {
                 refY="3.5"
                 orient="auto"
               >
-                <polygon points="0 0, 10 3.5, 0 7" fill="#0A6B44" />
+                <polygon points="0 0, 10 3.5, 0 7" fill="var(--color-brand-royal)" />
               </marker>
             </defs>
 
@@ -143,7 +143,7 @@ export default function AdmissionProcess() {
             <path
               d={PATH}
               fill="none"
-              stroke="#E8D7B0"
+              stroke="var(--color-brand-champagne-soft)"
               strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -169,7 +169,7 @@ export default function AdmissionProcess() {
               cx="350"
               cy="20"
               r="5"
-              fill={fillProgress > 0.01 ? "#0A6B44" : "#E8D7B0"}
+              fill={fillProgress > 0.01 ? "var(--color-brand-royal)" : "var(--color-brand-champagne-soft)"}
             />
           </svg>
 
@@ -203,9 +203,9 @@ export default function AdmissionProcess() {
                 >
                   {/* Number circle — sits on the edge of the card border */}
                   <div
-                    className="shrink-0 w-16 h-16 rounded-full flex items-center justify-center shadow-[11px_15px_21px_rgba(0,0,0,0.18)] z-10"
+                    className="shrink-0 w-16 h-16 rounded-full flex items-center justify-center shadow-lg shadow-black/18 z-10"
                     style={{
-                      background: "linear-gradient(135deg, #0A6B44 0%, #0A6B44 100%)",
+                      background: "linear-gradient(135deg, var(--color-brand-royal) 0%, var(--color-brand-royal) 100%)",
                       marginLeft: isLeft ? "-2.5rem" : "1rem",
                       marginRight: isLeft ? "1rem" : "-2.5rem",
                     }}
@@ -237,7 +237,7 @@ export default function AdmissionProcess() {
         {/* Register Now */}
         <div className="flex justify-center -mt-4">
           <Button variant="brand" className="px-16 py-4 rounded-full text-white text-xl font-normal shadow-lg hover:opacity-90 active:scale-95 transition-all"
-            style={{ background: "linear-gradient(135deg, #0A6B44 0%, #0A6B44 100%)" }}
+            style={{ background: "linear-gradient(135deg, var(--color-brand-royal) 0%, var(--color-brand-royal) 100%)" }}
           >
             Register Now
           </Button>

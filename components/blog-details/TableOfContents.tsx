@@ -43,14 +43,14 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
     <nav aria-label="Table of contents" className="w-full">
       {/* Header */}
       <p
-        className="text-[#12211C] font-bold text-base tracking-[3.6px] uppercase mb-6"
-        style={{ fontFamily: "'Inter', sans-serif" }}
+        className="text-ink font-bold text-base tracking-[3.6px] uppercase mb-6"
+        style={{ fontFamily: 'var(--font-body)' }}
       >
         Table of Contents
       </p>
 
       {/* Divider */}
-      <div className="h-px bg-[#E4DDD0] mb-6" />
+      <div className="h-px bg-line mb-6" />
 
       {/* Items */}
       <ol className="flex flex-col gap-3">
@@ -81,7 +81,7 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
                       "flex-none w-[30px] h-[30px] rounded-full flex items-center justify-center text-sm font-bold transition-colors",
                       isActive
                         ? "bg-brand-royal text-white"
-                        : "bg-[#F1E3C8] text-brand-royal",
+                        : "bg-brand-champagne-soft-bg text-brand-royal",
                     ].join(" ")}
                     aria-hidden
                   >
@@ -92,7 +92,7 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
                   <span
                     className={[
                       "flex-none w-[6px] h-[6px] rounded-full transition-colors",
-                      isActive ? "bg-brand-royal" : "bg-[#12211C]",
+                      isActive ? "bg-brand-royal" : "bg-ink",
                     ].join(" ")}
                     aria-hidden
                   />
@@ -104,9 +104,9 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
                     isTop ? "font-semibold" : "font-normal",
                     isActive
                       ? "text-brand-royal"
-                      : "text-[#12211C] group-hover:text-brand-royal",
+                      : "text-ink group-hover:text-brand-royal",
                   ].join(" ")}
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {item.label}
                 </span>
@@ -117,7 +117,7 @@ export default function TableOfContents({ items = DEFAULT_ITEMS }) {
       </ol>
 
       {/* Divider */}
-      <div className="h-px bg-[#E4DDD0] mt-6" />
+      <div className="h-px bg-line mt-6" />
     </nav>
   );
 }

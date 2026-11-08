@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function BlogPage() {
     return (
-        <div className="flex flex-col @container" style={{ backgroundColor: "#F7F4EE" }}>
+        <div className="flex flex-col @container" style={{ backgroundColor: "var(--color-surface)" }}>
             {/* ── Banner ── */}
             <PageBanner
                 title="Blog"

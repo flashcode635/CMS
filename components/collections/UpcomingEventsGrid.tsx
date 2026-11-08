@@ -120,7 +120,7 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
           className="absolute inset-0 rounded-4xl "
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 53.5%)",
+              "linear-gradient(to top, color-mix(in srgb, black 85%, transparent) 0%, transparent 53.5%)",
           }}
         />
       </div>
@@ -128,14 +128,14 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
       {/* Blue info panel — anchored to bottom-left, inset 20px */}
       <div
         className="relative z-10 m-4 lg:m-8 rounded-[20px] p-5 xl:p-8 flex flex-col gap-4 xl:gap-6"
-        style={{ backgroundColor: "#0A6B44" }}
+        style={{ backgroundColor: "var(--color-brand-royal)" }}
       >
         {/* Date + time row */}
         <div className="flex flex-col gap-1.5 xl:gap-3">
           <p
             className="text-white leading-none"
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(22px, 2vw, 40px)",
               fontWeight: 300,
             }}
@@ -145,10 +145,10 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
           </p>
           <p
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 300,
               fontSize: "clamp(12px, 0.83vw, 16px)",
-              color: "#F1E3C8",
+              color: "var(--color-brand-champagne-soft-bg)",
             }}
           >
             {event.time}
@@ -160,7 +160,7 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
           <p
             className="text-white leading-tight font-extrabold truncate"
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(24px, 2.5vw, 48px)",
             }}
           >
@@ -170,7 +170,7 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
             <p
               className="text-white font-bold truncate"
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(14px, 1.04vw, 20px)",
               }}
             >
@@ -179,7 +179,7 @@ function DesktopCard({ event, index, visible }: EventCardProps) {
             <p
               className="text-white/90 font-light line-clamp-2"
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(11px, 0.83vw, 15px)",
                 lineHeight: "1.4",
               }}
@@ -216,18 +216,18 @@ function MobileCard({ event, index, visible }: EventCardProps) {
         />
         <div
           className="absolute inset-0 rounded-3xl "
-          style={{ backgroundColor: "rgba(0,0,0,0.3)" }}
+          style={{ backgroundColor: "color-mix(in srgb, black 30%, transparent)" }}
         />
       </div>
 
       {/* Date badge — top-left pill */}
       <div
         className="absolute top-0 left-0 flex items-center px-4 py-2 rounded-br-3xl  z-10"
-        style={{ backgroundColor: "#0A6B44" }}
+        style={{ backgroundColor: "var(--color-brand-royal)" }}
       >
         <p
           className="text-white text-xs sm:text-sm leading-none whitespace-nowrap"
-          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 300 }}
         >
           <span>{event.date} </span>
           <span style={{ fontWeight: 700 }}>{event.month}</span>
@@ -237,30 +237,30 @@ function MobileCard({ event, index, visible }: EventCardProps) {
       {/* Info panel — bottom strip */}
       <div
         className="relative z-10 flex flex-col gap-2.5 p-5 rounded-b-3xl "
-        style={{ backgroundColor: "#0A6B44", opacity: 0.97 }}
+        style={{ backgroundColor: "var(--color-brand-royal)", opacity: 0.97 }}
       >
         <p
           className="text-brand-sky text-xs font-semibold leading-normal whitespace-nowrap"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.time}
         </p>
         <p
           className="text-white text-2xl sm:text-[28px] font-extrabold leading-tight truncate"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.city}
         </p>
         <div className="flex flex-col gap-1 text-white w-full">
           <p
             className="text-sm sm:text-base font-bold leading-tight truncate"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {event.venue}
           </p>
           <p
             className="text-xs sm:text-[13px] font-normal leading-relaxed opacity-90 line-clamp-2"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {event.address}
           </p>
@@ -304,19 +304,16 @@ export default function UpcomingEventsGrid() {
   return (
     <>
       <style>{`
-        @keyframes uegFadeUp {
-          0%   { opacity: 0; transform: translateY(24px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
+        
         .ueg-heading { opacity: 0; }
         .ueg-heading.in {
-          animation: uegFadeUp 0.9s 0.05s forwards cubic-bezier(0.22,1,0.36,1);
+          animation: sp-fade-up 0.9s 0.05s forwards cubic-bezier(0.22,1,0.36,1);
         }
         .ueg-card {
           transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .ueg-card:hover {
-          box-shadow: 0 24px 60px rgba(0,57,234,0.22);
+          box-shadow: 0 24px 60px color-mix(in srgb, var(--color-brand-blue) 22%, transparent);
           transform: translateY(-4px) scale(1.01) !important;
         }
         .ueg-filter-btn {
@@ -326,7 +323,7 @@ export default function UpcomingEventsGrid() {
           transition: background 0.2s ease, color 0.2s ease;
         }
         .ueg-view-btn:hover {
-          background-color: #0B3B2E;
+          background-color: var(--color-brand-forest-deep);
           color: white;
         }
       `}</style>
@@ -343,14 +340,14 @@ export default function UpcomingEventsGrid() {
         {/* ── Section heading ── */}
         {/*
           Desktop: "UPCOMING MBBS " ExtraBold + "ADMISSION GATEWAY - 2026" Medium Italic
-          Gradient: 170.75deg, #0E8F5B 12.7% → #0B3B2E 87.17%
+          Gradient: 170.75deg, var(--color-brand-forest) 12.7% → var(--color-brand-forest-deep) 87.17%
         */}
         <h2
           className={`ueg-heading${visible ? " in" : ""} w-full leading-none`}
           style={{
             fontSize: "clamp(28px, 2.5vw, 48px)",
             backgroundImage:
-              "linear-gradient(170.75deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+              "linear-gradient(170.75deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -359,7 +356,7 @@ export default function UpcomingEventsGrid() {
         >
           <span
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-heading)',
               fontWeight: 800,
               fontStyle: "normal",
             }}
@@ -368,7 +365,7 @@ export default function UpcomingEventsGrid() {
           </span>
           <span
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-heading)',
               fontWeight: 500,
               fontStyle: "italic",
             }}
@@ -382,7 +379,7 @@ export default function UpcomingEventsGrid() {
           {FILTERS.map((f) => (
 <Button key={f} onClick={() => setActiveFilter(f)} variant="outline" size="bare" shape="pill"
   active={activeFilter === f}
-  className="ueg-filter-btn border-[#D6CCBA] px-4 py-2 text-sm font-semibold text-[#66716A] data-[active=true]:border-brand-royal data-[active=true]:bg-brand-blue/10 data-[active=true]:text-brand-royal">
+  className="ueg-filter-btn border-line-strong px-4 py-2 text-sm font-semibold text-muted data-[active=true]:border-brand-royal data-[active=true]:bg-brand-blue/10 data-[active=true]:text-brand-royal">
               {f}
             </Button>
           ))}

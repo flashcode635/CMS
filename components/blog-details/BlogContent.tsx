@@ -31,8 +31,8 @@ export default function BlogContent({ children }: BlogContentProps) {
   if (children) {
     return (
       <article
-        className="w-full max-w-[225] text-[#12211C]"
-        style={{ fontFamily: "'Inter', sans-serif" }}
+        className="w-full max-w-[225] text-ink"
+        style={{ fontFamily: 'var(--font-body)' }}
       >
         {children}
       </article>
@@ -41,8 +41,8 @@ export default function BlogContent({ children }: BlogContentProps) {
 
   return (
     <article
-      className="w-full max-w-[1225] text-[#12211C]"
-      style={{ fontFamily: "'Inter', sans-serif" }}
+      className="w-full max-w-[1225] text-ink"
+      style={{ fontFamily: 'var(--font-body)' }}
     >
       <p className="text-4.5 sm:text-[20px] font-normal leading-normal mb-14">
         Embark on a transformative journey with our comprehensive guide to
@@ -52,11 +52,11 @@ export default function BlogContent({ children }: BlogContentProps) {
       </p>
 
       <section id="visa-requirements" className="mb-16">
-        <div className="h-px bg-[#E4DDD0] mb-14" />
+        <div className="h-px bg-line mb-14" />
 
         <h2
           className="text-4xl  sm:text-[40px] font-bold leading-tight tracking-normal mb-5"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: 'var(--font-heading)' }}
         >
           Visa Requirements and Application Tips
         </h2>
@@ -68,7 +68,7 @@ export default function BlogContent({ children }: BlogContentProps) {
           decision.
         </p>
 
-        <div className="h-px bg-[#E4DDD0] mb-8" />
+        <div className="h-px bg-line mb-8" />
 
         <div className="flex gap-6 sm:gap-12 mb-8">
           <CheckSquare
@@ -83,8 +83,8 @@ export default function BlogContent({ children }: BlogContentProps) {
               Stay open-minded and adapt to new environments.
             </p>
             <p
-              className="font-bold text-4.5 text-[#7A857E] text-center"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="font-bold text-4.5 text-muted text-center"
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               Cultural Immersion
             </p>
@@ -128,7 +128,7 @@ export default function BlogContent({ children }: BlogContentProps) {
       <section id="top-destinations" className="mb-16">
         <h2
           className="text-4xl  sm:text-[40px] font-bold leading-tight tracking-normal mb-5"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: 'var(--font-heading)' }}
         >
           Accommodation Options for Students Abroad
         </h2>
@@ -249,7 +249,7 @@ export default function BlogContent({ children }: BlogContentProps) {
       <section id="why-study-abroad" className="mb-16">
         <h2
           className="text-4xl  sm:text-[40px] font-bold leading-tight tracking-normal mb-5"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: 'var(--font-heading)' }}
         >
           Budgeting and Financial Planning for International Studies
         </h2>
@@ -273,8 +273,8 @@ export default function BlogContent({ children }: BlogContentProps) {
             />
           </div>
           <figcaption
-            className="text-[#7A857E] font-bold text-4.5 text-center mt-3"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="text-muted font-bold text-4.5 text-center mt-3"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             Embrace Diversity and Build Connections
           </figcaption>
@@ -291,7 +291,7 @@ export default function BlogContent({ children }: BlogContentProps) {
       <section id="application-process" className="mb-16">
         <h2
           className="text-4xl  sm:text-[40px] font-bold leading-tight tracking-normal mb-10"
-          style={{ fontFamily: "'Playfair Display', serif" }}
+          style={{ fontFamily: 'var(--font-heading)' }}
         >
           Health and Safety Tips for Students Abroad
         </h2>

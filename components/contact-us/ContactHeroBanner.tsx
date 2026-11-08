@@ -13,7 +13,7 @@ export default function ContactHeroBanner() {
   return (
     <section
       className="relative w-full overflow-hidden flex items-center justify-center"
-      style={{ height: "clamp(280px, 28vw, 420px)", background: "#072A21" }}
+      style={{ height: "clamp(280px, 28vw, 420px)", background: "var(--color-brand-forest-deep)" }}
       aria-label="Contact Us banner"
     >
       {/* Stethoscope background photo */}
@@ -37,7 +37,7 @@ export default function ContactHeroBanner() {
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         style={{
           height: "35%",
-          background: "linear-gradient(to bottom, transparent, #072A21)",
+          background: "linear-gradient(to bottom, transparent, var(--color-brand-forest-deep))",
         }}
         aria-hidden
       />
@@ -58,12 +58,12 @@ export default function ContactHeroBanner() {
         <h1
           className="text-white"
           style={{
-            fontFamily: "'Playfair Display', 'Playfair Display', Georgia, serif",
+            fontFamily: 'var(--font-heading)',
             fontWeight: 400,
             fontStyle: "normal",
             fontSize: "clamp(36px, 5.5vw, 88px)",
             lineHeight: 1.05,
-            textShadow: "0 2px 16px rgba(0,0,0,0.5)",
+            textShadow: "0 2px 16px color-mix(in srgb, black 50%, transparent)",
           }}
         >
           Contact Us

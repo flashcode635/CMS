@@ -43,10 +43,10 @@ function DropdownPanel({ onEnter, onLeave, children }: DropdownPanelProps) {
         backdropFilter:       "blur(24px) saturate(1.5)",
         WebkitBackdropFilter: "blur(24px) saturate(1.5)",
         borderRadius:         18,
-        border:               "1px solid rgba(186,203,255,0.14)",
-        boxShadow:            "0 20px 50px -8px rgba(0,0,0,0.7)",
+        border:               "1px solid color-mix(in srgb, var(--color-brand-sky) 14%, transparent)",
+        boxShadow:            "0 20px 50px -8px color-mix(in srgb, black 70%, transparent)",
         padding:              16,
-        animation:            "np-in 0.16s ease forwards",
+        animation:            "sp-center-in 0.16s ease forwards",
         fontFamily:           "'Inter','Inter',sans-serif",
         pointerEvents:        "auto",
       }}
@@ -79,7 +79,7 @@ function DropdownLayout({ imageSrc, imageAlt, items, onClose }: DropdownLayoutPr
           flexShrink: 0,
           borderRadius: 12,
           overflow:   "hidden",
-          backgroundColor: "#F1E3C8",
+          backgroundColor: "var(--color-brand-champagne-soft-bg)",
           position:   "relative",
           minHeight:  items.length > 2 ? 220 : 140,
         }}>

@@ -22,8 +22,8 @@ const UNIVERSITIES = [
     name: "Samara State Medical University",
     bg:         "https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=300&q=80",
-    footerBg:   "#1d6eb7",
-    mobileBg:   "#E4DDD0",
+    footerBg:   "var(--color-brand-royal)",
+    mobileBg:   "var(--color-line)",
     mobileLogo: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=200&q=80",
     filter: "russia",
   },
@@ -32,8 +32,8 @@ const UNIVERSITIES = [
     name: "Novosibirsk State University",
     bg:         "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=300&q=80",
-    footerBg:   "#77c043",
-    mobileBg:   "#EDF3EF",
+    footerBg:   "var(--color-brand-royal)",
+    mobileBg:   "var(--color-surface-alt)",
     mobileLogo: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=200&q=80",
     filter: "russia",
   },
@@ -42,8 +42,8 @@ const UNIVERSITIES = [
     name: "Kabardino-Balkarian State University",
     bg:         "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&q=80",
-    footerBg:   "#33588b",
-    mobileBg:   "#D6CCBA",
+    footerBg:   "var(--color-brand-royal)",
+    mobileBg:   "var(--color-line-strong)",
     mobileLogo: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&q=80",
     filter: "russia",
   },
@@ -52,8 +52,8 @@ const UNIVERSITIES = [
     name: "Ural State Medical University",
     bg:         "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80",
-    footerBg:   "#864b08",
-    mobileBg:   "#ffedd4",
+    footerBg:   "var(--color-brand-royal)",
+    mobileBg:   "var(--color-orange-100)",
     mobileLogo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&q=80",
     filter: "russia",
   },
@@ -62,8 +62,8 @@ const UNIVERSITIES = [
     name: "East European University",
     bg:         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=300&q=80",
-    footerBg:   "#910b0b",
-    mobileBg:   "#ffe1e1",
+    footerBg:   "var(--color-brand-royal)",
+    mobileBg:   "var(--color-red-100)",
     mobileLogo: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=200&q=80",
     filter: "georgia",
   },
@@ -72,8 +72,8 @@ const UNIVERSITIES = [
     name: "International Black Sea University",
     bg:         "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80",
     logo:       "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=300&q=80",
-    footerBg:   "#2b62a6",
-    mobileBg:   "#D6CCBA",
+    footerBg:   "var(--color-brand-royal)",
+    mobileBg:   "var(--color-line-strong)",
     mobileLogo: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=200&q=80",
     filter: "kyrgyzstan",
   },
@@ -101,14 +101,14 @@ export default function ExclusiveUniversities() {
         <div className="flex flex-col items-start sm:items-center gap-3 text-center sm:text-center">
           <p
             className="text-brand-royal font-normal tracking-[0.8533px] text-base sm:text-xl"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             Our Partners
           </p>
           <h2
             className="font-bold text-left sm:text-center text-black"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-sub)',
               fontSize: "clamp(28px, 4.17vw, 64px)",
               lineHeight: 1.2,
             }}
@@ -116,8 +116,8 @@ export default function ExclusiveUniversities() {
             Our Exclusive Universities
           </h2>
           <p
-            className="text-[#4A554F] font-normal text-sm sm:text-base leading-relaxed max-w-160 text-left sm:text-center"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="text-body font-normal text-sm sm:text-base leading-relaxed max-w-160 text-left sm:text-center"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             Help us get to know you better. Fill in the details and our team will
             contact you within the next 24 hours!
@@ -139,9 +139,9 @@ export default function ExclusiveUniversities() {
                     : "border border-brand-green bg-white text-transparent bg-clip-text",
                 ].join(" ")}
                 style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: 'var(--font-body)',
                   ...(isActive
-                    ? { backgroundImage: "linear-gradient(140.2deg, #0E8F5B 12.704%, #0B3B2E 87.17%)" }
+                    ? { backgroundImage: "linear-gradient(140.2deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)" }
                     : {}),
                 }}
               >
@@ -150,7 +150,7 @@ export default function ExclusiveUniversities() {
                 ) : (
                   <span
                     className="bg-clip-text text-transparent"
-                    style={{ backgroundImage: "linear-gradient(165deg, #0E8F5B 12.704%, #0B3B2E 87.17%)" }}
+                    style={{ backgroundImage: "linear-gradient(165deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)" }}
                   >
                     {f.label}
                   </span>
@@ -202,7 +202,7 @@ export default function ExclusiveUniversities() {
               >
                 <p
                   className="text-white font-semibold text-xs text-center leading-tight"
-                  style={{ fontFamily: "Inter, sans-serif" }}
+                  style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {u.name}
                 </p>
@@ -247,7 +247,7 @@ export default function ExclusiveUniversities() {
               >
                 <p
                   className="text-white font-semibold text-[11px] text-center leading-snug"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {u.name}
                 </p>

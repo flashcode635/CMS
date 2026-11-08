@@ -53,7 +53,7 @@ export default function BlogHero({
       {/* ── Cover image container ── */}
       <div className="relative w-full h-120 sm:h-140 lg:h-180 overflow-hidden">
         {/* Base black layer */}
-        <div className="absolute inset-0 bg-[#072A21]" />
+        <div className="absolute inset-0 bg-brand-forest-deep" />
 
         {/* Cover photo */}
         <Image
@@ -67,14 +67,14 @@ export default function BlogHero({
         />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-[#072A21]/25" />
+        <div className="absolute inset-0 bg-brand-forest-deep/25" />
 
         {/* Bottom gradient fade */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 100%)",
+              "linear-gradient(to bottom, transparent 0%, color-mix(in srgb, black 85%, transparent) 100%)",
           }}
           aria-hidden
         />
@@ -83,7 +83,7 @@ export default function BlogHero({
         <Link
           href="/collections/blog"
           className="absolute top-10 left-6 sm:left-16 flex items-center gap-2 px-6 py-3 rounded-xl bg-white/20 text-white font-bold text-base hover:bg-white/30 transition-colors"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
           aria-label="Back to blog listing"
         >
           <ChevronRight className="rotate-180 w-5 h-5" />
@@ -96,7 +96,7 @@ export default function BlogHero({
           <nav
             aria-label="Breadcrumb"
             className="flex items-center gap-1 text-white/70 text-sm mb-4"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -116,7 +116,7 @@ export default function BlogHero({
           {/* Brand subtitle */}
           <p
             className="text-white font-semibold tracking-[3px] uppercase text-sm sm:text-base mb-3"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             My Study Hub
           </p>
@@ -125,7 +125,7 @@ export default function BlogHero({
           <h1
             className="text-white font-semibold leading-tight mb-4 max-w-5xl"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-heading)',
               fontSize: "clamp(28px, 4.5vw, 72px)",
               letterSpacing: "-0.02em",
             }}
@@ -136,7 +136,7 @@ export default function BlogHero({
           {/* Subtitle / tagline */}
           <p
             className="text-white/80 text-base sm:text-lg mb-6"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             Grow Together in Excellence
           </p>
@@ -144,7 +144,7 @@ export default function BlogHero({
           {/* Meta row: author · read time · views */}
           <div
             className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-white text-sm sm:text-base"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             <span>by {author}</span>
 
@@ -166,8 +166,8 @@ export default function BlogHero({
 
             {/* Category badge */}
             <span
-              className="bg-[#0A6B44]/80 text-white px-3 py-1 rounded-md text-xs sm:text-sm font-medium"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="bg-brand-royal/80 text-white px-3 py-1 rounded-md text-xs sm:text-sm font-medium"
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               {category}
             </span>
@@ -176,7 +176,7 @@ export default function BlogHero({
             <time
               dateTime={date}
               className="text-white/70 text-xs sm:text-sm"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               {date}
             </time>

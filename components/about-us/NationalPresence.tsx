@@ -72,13 +72,13 @@ function AnimatedHeader() {
     >
       <h2
         className="text-brand-emerald-deep text-[46px] font-bold leading-[1.2] text-center m-0 max-sm:text-4xl "
-        style={{ fontFamily: "'Playfair Display', serif" }}
+        style={{ fontFamily: 'var(--font-heading)' }}
       >
         Our National Presence
       </h2>
       <p
         className="text-body text-base font-normal leading-6 text-center max-w-234.5 m-0 max-sm:text-sm"
-        style={{ fontFamily: "'Inter', sans-serif" }}
+        style={{ fontFamily: 'var(--font-body)' }}
       >
         Uncover more additional about us and how we help make your dreams a reality.
       </p>

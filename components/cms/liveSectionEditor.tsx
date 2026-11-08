@@ -88,7 +88,7 @@ function FieldInput({
 }) {
   const stringValue = Array.isArray(value) ? value.join("\n") : value == null ? "" : String(value);
   const inputClass =
-    "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-base text-[#1C2B25] sm:text-sm " +
+    "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-base text-ink sm:text-sm " +
     "placeholder:text-muted outline-none transition " +
     "hover:border-line-strong focus:border-brand-green focus:ring-4 focus:ring-brand-green/10";
 
@@ -194,7 +194,7 @@ export default function LiveSectionEditor({ active }: LiveSectionEditorProps) {
         </div>
       }
     >
-      <p className="flex items-start gap-2 rounded-xl bg-[#EDF3EF] px-3 py-2.5 text-xs text-[#0A6B44]">
+      <p className="flex items-start gap-2 rounded-xl bg-surface-alt px-3 py-2.5 text-xs text-brand-royal">
         <MessageSquareWarning size={14} className="mt-0.5 shrink-0" />
         <span>
           Editing <strong>{previewingUniversity ? selectedUniversity?.name : selectedCountry?.name}</strong>{" "}

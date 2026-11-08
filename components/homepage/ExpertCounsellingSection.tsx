@@ -36,46 +36,34 @@ export default function ExpertCounsellingSection({type}: ExpertCounsellingSectio
     return (
         <>
             <style>{`
-        @keyframes slideInLeft {
-                    from { transform: translateX(-80px); opacity: 0; }
-                    to   { transform: translateX(0);     opacity: 1; }
-                }
-                @keyframes slideInBottom {
-                    from { transform: translateY(60px); opacity: 0; }
-                    to   { transform: translateY(0);    opacity: 1; }
-                }
-                @keyframes slideInRight {
-                    from { transform: translateX(80px); opacity: 0; }
-                    to   { transform: translateX(0);    opacity: 1; }
-                }
-                @keyframes dropInRight {
-                    from { transform: translateX(60px) rotate(-5.28deg); opacity: 0; }
-                    to   { transform: translateX(0)    rotate(-5.28deg); opacity: 1; }
-                }
+        
+                
+                
+                
                 .anim-flight { opacity: 0; }
-                .anim-flight.visible { animation: slideInLeft 1.6s
+                .anim-flight.visible { animation: sp-slide-left 1.6s
                  cubic-bezier(0.16, 1, 0.3, 1) forwards; }
                 .anim-form { opacity: 0; }
-                .anim-form.visible { animation: slideInBottom 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards; }
+                .anim-form.visible { animation: sp-slide-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards; }
                 .anim-title { opacity: 0; }
-                .anim-title.visible { animation: slideInRight 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; }
+                .anim-title.visible { animation: sp-slide-right 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; }
                 .anim-cap { opacity: 0; }
-                .anim-cap.visible { animation: dropInRight 1.1s cubic-bezier(0.34, 1.4, 0.64, 1) forwards; }
+                .anim-cap.visible { animation: sp-drop-rotate 1.1s cubic-bezier(0.34, 1.4, 0.64, 1) forwards; }
             `}</style>
 
             <section
                 ref={sectionRef}
-                className="relative w-full overflow-hidden bg-linear-to-b from-[#0B3B2E] via-[#0B3B2E] to-[#143274] py-10 sm:py-14 lg:py-16"
+                className="relative w-full overflow-hidden bg-linear-to-b from-brand-forest-deep via-brand-forest-deep to-brand-forest-deep py-10 sm:py-14 lg:py-16"
             >
                 {/* Background lighting accents */}
                 <div className="absolute inset-0 pointer-events-none z-0">
                     <div
                         className="absolute top-0 right-1/4 w-125 h-125 rounded-full blur-3xl opacity-25"
-                        style={{ background: "radial-gradient(circle, #0E8F5B 0%, transparent 70%)" }}
+                        style={{ background: "radial-gradient(circle, var(--color-brand-forest) 0%, transparent 70%)" }}
                     />
                     <div
                         className="absolute bottom-0 right-0 w-150 h-100 rounded-full blur-3xl opacity-20"
-                        style={{ background: "radial-gradient(circle, #0B3B2E 0%, transparent 70%)" }}
+                        style={{ background: "radial-gradient(circle, var(--color-brand-forest-deep) 0%, transparent 70%)" }}
                     />
                 </div>
 
@@ -99,7 +87,7 @@ export default function ExpertCounsellingSection({type}: ExpertCounsellingSectio
                                 <h2
                                     className="text-white font-normal max-w-xl mx-auto lg:mx-0"
                                     style={{
-                                        fontFamily: "'Playfair Display', serif",
+                                        fontFamily: 'var(--font-sub)',
                                         fontSize: "clamp(26px, 2.7vw, 44px)",
                                         lineHeight: "1.2",
                                     }}

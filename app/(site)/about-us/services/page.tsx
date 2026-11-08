@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col" style={{ backgroundColor: "#F7F4EE" }}>
+    <div className="flex flex-col" style={{ backgroundColor: "var(--color-surface)" }}>
       {/* ── Banner ── */}
       <PageBanner
         title="Our Services"
@@ -32,14 +32,14 @@ export default function ServicesPage() {
         (
           <>
              <div
-          className="flex flex-col text-[#4A554F]"
-          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
+          className="flex flex-col text-body"
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 300 }}
         >
           
           <p className="text-base flex justify-start items-end sm:text-lg leading-relaxed">
             <span
               className="float-left font-normal text-[1.25rem] sm:text-[1.8rem] leading-none "
-              style={{ fontFamily: "Inter, sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               A
             </span>

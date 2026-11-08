@@ -285,7 +285,7 @@ Primary Purpose: Shared design-system and site-chrome layer — the single `Butt
 
 ### `threeDCarousel.tsx`
 
-[threeDCarousel.tsx]: Generic 3D ring carousel — the reusable extraction of the homepage testimonials carousel's transform maths, card shell and controls, with a render-prop body.
+[threeDCarousel.tsx]: Generic flat carousel — the reusable extraction of the homepage testimonials carousel's transform maths, card shell and controls, with a render-prop body.
 
 - **Runtime:** client (`"use client"`). Exports default `ThreeDCarousel` and a named `ThreeDCarousel`; types `ThreeDCarouselProps<T>` and `ThreeDCarouselItemState` are exported.
 - **Purpose:** Reusable carousel for any card content. It owns the perspective scene, the preserve-3d rotator, active/inactive card styling, arrows, dots, keyboard and swipe handling; the caller only renders card contents through `renderItem(item, { index, isActive, total })`.
@@ -304,7 +304,7 @@ Primary Purpose: Shared design-system and site-chrome layer — the single `Butt
 - **Accessibility:** outer `role="region"`, `aria-roledescription="carousel"`, `aria-label={regionLabel}`, focusable when keyboard navigation is on; each card is `role="group"` + `aria-roledescription="slide"` + `aria-label={getSlideLabel(...)}` and the active one gets `aria-current="true"`; an `sr-only` `aria-live="polite"` line announces `Slide X of N`; every icon-only control passes an `aria-label`; `prefers-reduced-motion` disables transitions. Unlike the original testimonials code it also supports keyboard + swipe.
 - **Dependencies:** `react` (`useEffect`, `useRef`, `useState`, `useSyncExternalStore`, types `CSSProperties`, `KeyboardEvent`, `Key`, `ReactNode`, `TouchEvent`), `@/components/ui/Button`, `@/lib/utils` (`cn`).
 - **Consumers:** `components/homepage/TestimonialsSection.tsx` (items = 6 testimonials, `getItemKey`, `renderItem` with `TestimonialCard`, `regionLabel="Student testimonials"` and a custom `getSlideLabel`). That page overrides the geometry to `cardWidth={400}`, `cardHeight={420}` (scene `440`, ring radius `450` at desktop); the component defaults stay `360×450` / scene `470`.
-- **Notes:** Deliberate differences from the original inline implementation: radius follows the measured `min(360px, 85vw, 100%)` width; dot/card jumps take the shortest rotation path instead of one step / absolute index jumps; `loop`, control visibility, labels, geometry and card chrome are configurable; keyboard, swipe, live-region and reduced-motion support are new. The card shell (gradient, radius, shadows, decorative blobs) is applied by default; pass `cardStyle`/`cardClassName` or set `showDecorations={false}` for a different look. `renderItem` should fill the card (the original testimonial body uses absolute top/bottom sections). Because inline styles beat utility classes, visual overrides must go through the `*Style` props. No autoplay.
+- **Notes:** Deliberate differences from the original inline implementation: cards use a flat horizontal track, active cards have no vertical item padding while inactive cards retain `py-6`, and `loop`, control visibility, labels, geometry and card chrome are configurable; keyboard, swipe, live-region and reduced-motion support are new. The card shell (gradient and radius/shadows) is applied by default; pass `cardStyle`/`cardClassName` for a different look. `renderItem` should fill the card. Because inline styles beat utility classes, visual overrides must go through the `*Style` props. No autoplay.
 
 ## Cross-file notes
 

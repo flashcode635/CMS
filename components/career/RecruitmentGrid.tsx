@@ -71,7 +71,7 @@ const JOBS = [
   },
 ];
 
-const BRAND_GRADIENT = "linear-gradient(136.5deg, #0E8F5B 12.704%, #0B3B2E 87.17%)";
+const BRAND_GRADIENT = "linear-gradient(136.5deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)";
 
 // ── Arrow icon (inherits color from parent via currentColor) ──────────────────
 function ArrowRight() {
@@ -127,16 +127,16 @@ function JobCard({ job }: { job: JobItem }) {
           "min-h-80 cursor-pointer transform-3d",
           "transition-[transform,background-color,box-shadow] duration-300 ease-out",
           // default
-          "bg-brand-blue/1 shadow-[0_8px_24px_rgba(0,0,0,0.08),0_3px_0_#F1E3C8]",
+          "bg-brand-blue/1 shadow-md shadow-black/8",
           // hover
-          "group-hover:bg-brand-blue group-hover:shadow-[0_20px_40px_-12px_rgba(0,40,165,0.5),0_4px_0_#072A21]",
+          "group-hover:bg-brand-blue group-hover:shadow-md shadow-brand-blue/50",
         ].join(" ")}
       >
         {/* Text */}
         <div className="flex flex-col gap-3 translate-z-10">
           <h3
-            className="font-bold text-xl sm:text-2xl leading-tight text-[#2A3A33] transition-colors duration-300 group-hover:text-white"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="font-bold text-xl sm:text-2xl leading-tight text-ink transition-colors duration-300 group-hover:text-white"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {job.title}
           </h3>
@@ -144,15 +144,15 @@ function JobCard({ job }: { job: JobItem }) {
           {job.subRole && (
             <p
               className="font-normal text-sm leading-relaxed text-brand-royal transition-colors duration-300 group-hover:text-brand-sky"
-              style={{ fontFamily: "Inter, sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               {job.subRole}
             </p>
           )}
 
           <p
-            className="font-normal text-sm leading-relaxed text-[#4A554F] transition-colors duration-300 group-hover:text-white/80"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="font-normal text-sm leading-relaxed text-body transition-colors duration-300 group-hover:text-white/80"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {job.body}
           </p>
@@ -161,7 +161,7 @@ function JobCard({ job }: { job: JobItem }) {
         {/* Button: white base + gradient layer that fades out on card hover */}
         <div className="translate-z-16 cursor-pointer">
 <Button variant="unstyled" size="md" shape="xl"
-  className="group-hover:text-brand-navy relative isolate gap-2 overflow-hidden bg-white px-4 text-base text-white shadow-[0_3px_0_#0A6B44] transition-[box-shadow,color,translate] duration-300 group-hover:shadow-[0_3px_0_#F1E3C8] active:translate-y-0.5">
+  className="group-hover:text-brand-navy relative isolate gap-2 overflow-hidden bg-white px-4 text-base text-white shadow-[0_3px_0_var(--color-brand-royal)] transition-[box-shadow,color,translate] duration-300 group-hover:shadow-[0_3px_0_var(--color-brand-champagne-soft-bg)] active:translate-y-0.5">
             <span
               aria-hidden
               className="absolute inset-0 text-white -z-10 opacity-100 transition-opacity duration-300 group-hover:opacity-0"
@@ -188,18 +188,18 @@ export default function RecruitmentGrid() {
           <h2
             className="font-bold bg-clip-text text-transparent leading-tight"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-sub)',
               fontSize: "clamp(32px, 4.17vw, 64px)",
               backgroundImage:
-                "linear-gradient(157.64deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+                "linear-gradient(157.64deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
             }}
           >
             Our Recruitment
           </h2>
           <p
-            className="text-[#4A554F] font-normal"
+            className="text-body font-normal"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(14px, 1.11vw, 21px)",
             }}
           >

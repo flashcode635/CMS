@@ -53,12 +53,12 @@ export default function AdvancedTrainingSection({
         <section
             id={anchorId}
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
+            className="bg-[linear-gradient(120deg,var(--color-surface-alt)_0%,var(--color-surface-alt)_50%,var(--color-surface-alt)_100%)] py-16 @min-[1024px]:py-24"
         >
             <div className="mx-auto max-w-7xl px-4 @min-[640px]:px-6">
                 <div className="grid overflow-hidden rounded-2xl shadow-xl @min-[1024px]:grid-cols-2">
                     {/* Left: dark navy panel */}
-                    <div className="bg-[#0B3B2E] p-8 @min-[1024px]:p-12">
+                    <div className="bg-brand-forest-deep p-8 @min-[1024px]:p-12">
                         <h2 className="text-2xl font-semibold leading-snug @min-[1024px]:text-3xl">
                             <span className="text-brand-champagne">{titleGreen}</span>{" "}
                             <span className="block text-brand-champagne">{titleBlue}</span>

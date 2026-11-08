@@ -15,7 +15,7 @@ export default function UpcomingEventPage() {
             className="flex flex-col"
             style={{
                 background:
-                    "linear-gradient(90deg, #EDF3EF 0%, #EFE9DE 100%)",
+                    "linear-gradient(90deg, var(--color-surface-alt) 0%, var(--color-surface-alt) 100%)",
             }}
         >
             {/* ── Banner ── */}

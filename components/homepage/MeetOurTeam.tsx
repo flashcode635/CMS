@@ -78,7 +78,7 @@ function MemberCard({ member, visible, index, featured = false }: MemberCardProp
       />
 
       {/* Black gradient overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.45)_28%,rgba(0,0,0,0)_58%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_srgb,_black_90%,_transparent)_0%,color-mix(in_srgb,_black_45%,_transparent)_28%,transparent_58%)]" />
 
       {/* Green hover tint */}
       <div
@@ -92,7 +92,7 @@ function MemberCard({ member, visible, index, featured = false }: MemberCardProp
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-[clamp(2px,0.4vw,6px)] p-[clamp(10px,1.2vw,20px)]">
         {/* accent bar on hover */}
         <div
-          className={`h-0.75 rounded-full bg-[#D8B26E] transition-all duration-400ms
+          className={`h-0.75 rounded-full bg-brand-champagne transition-all duration-400ms
             ${hovered ? "w-[clamp(20px,2vw,36px)]" : "w-0"}`}
         />
 
@@ -142,12 +142,12 @@ export default function MeetOurTeam() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-linear-to-r from-[#EDF3EF] via-[#EFE9DE] to-[#EFE9DE]">
+    <section ref={sectionRef} className="bg-linear-to-r from-surface-alt via-surface-alt to-surface-alt">
       {/* ── Header ── */}
       <div className="flex flex-col items-center gap-[clamp(6px,0.42vw,8px)] px-[clamp(20px,4.17vw,80px)] pt-[clamp(32px,3.33vw,64px)]
        pb-[clamp(34px,2.08vw,40px)]">
         <p
-          className={`m-0 text-center font-normal uppercase tracking-widest text-[#D8B26E]
+          className={`m-0 text-center font-normal uppercase tracking-widest text-brand-champagne-rich
             font-['Inter',sans-serif] text-[clamp(11px,1.04vw,20px)] leading-8
             transition-all duration-700
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
@@ -157,7 +157,7 @@ export default function MeetOurTeam() {
         </p>
 
         <h2
-          className={`m-0 text-center font-serif font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)]
+          className={`m-0 text-center font-sub font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)]
             bg-linear-to-br from-brand-green to-brand-blue bg-clip-text text-transparent
             transition-all duration-700  
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}

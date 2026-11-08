@@ -48,7 +48,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
   const [flagError, setFlagError] = useState(false);
 
   return (
-    <div className="group relative w-full sm:75 md:w-92 h-80 rounded-[36px] overflow-hidden shadow-2xl bg-[#072A21] shrink-0 snap-center cursor-pointer">
+    <div className="group relative w-full sm:75 md:w-92 h-80 rounded-[36px] overflow-hidden shadow-2xl bg-brand-forest-deep shrink-0 snap-center cursor-pointer">
       
       {/* Background Image with Fallback */}
       <img 
@@ -66,7 +66,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
       
       {/* Country Name (Moved to Top Left) */}
       <div className="absolute top-8 left-6 z-10 pointer-events-none pr-6">
-        <h3 className="text-white text-3xl font-bold tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]">
+        <h3 className="text-white text-3xl font-bold tracking-tight drop-shadow-lg shadow-black/40">
           {country.name}
         </h3>
          {/* Flag Handling (Image vs Emoji) */}
@@ -85,7 +85,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
       </div>
 
       {/* Apple-style Whiteish Translucent Glassmorphism Bottom Panel */}
-      <div className="absolute bottom-4 left-4 right-4 rounded-full bg-white/0 backdrop-blur-none border border-white/0 p-0 flex flex-col items-center shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-300 group-hover:bg-white/0 z-10">
+      <div className="absolute bottom-4 left-4 right-4 rounded-full bg-white/0 backdrop-blur-none border border-white/0 p-0 flex flex-col items-center shadow-lg shadow-black/15 overflow-hidden transition-all duration-300 group-hover:bg-white/0 z-10">
         
         {/* Content Container */}
         <div className="flex flex-col items-center text-center gap-3 w-full transform transition-transform duration-500 group-hover:-translate-y-1">
@@ -100,11 +100,11 @@ const CountryCard = ({ country }: CountryCardProps) => {
             className="
               group/btn relative overflow-hidden
               h-auto! rounded-full! text-[17px]!
-              bg-[#072A21]/40! backdrop-blur-md border border-white/20
+              bg-brand-forest-deep/40! backdrop-blur-md border border-white/20
               text-white font-semibold p-4
               transition-all duration-300 ease-out
-              hover:bg-brand-champagne! hover:border-brand-champagne hover:text-white
-              hover:shadow-[0_0_25px_rgba(6,182,212,0.9)]
+              hover:bg-brand-champagne-rich! hover:border-brand-champagne-rich hover:text-white
+              hover:shadow-lg shadow-cyan-500/90
               active:scale-95
             "
           >
@@ -139,22 +139,19 @@ export default function MBBSAbroad() {
   return (
     <>
       <style>{`
-        @keyframes maFadeUp {
-          0%   { opacity: 0; transform: translateY(24px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
+        
         .ma-title { opacity: 0; }
-        .ma-title.in { animation: maFadeUp 0.8s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
+        .ma-title.in { animation: sp-fade-up 0.8s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
         .ma-sub { opacity: 0; }
-        .ma-sub.in { animation: maFadeUp 0.7s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
+        .ma-sub.in { animation: sp-fade-up 0.7s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
         .ma-tabs { opacity: 0; }
-        .ma-tabs.in { animation: maFadeUp 0.7s 0.28s forwards cubic-bezier(0.22,1,0.36,1); }
+        .ma-tabs.in { animation: sp-fade-up 0.7s 0.28s forwards cubic-bezier(0.22,1,0.36,1); }
       `}</style>
 
       <section
         ref={sectionRef}
         style={{
-          backgroundColor: "#EFE9DE",
+          backgroundColor: "var(--color-surface-alt)",
           padding: "clamp(32px,3.33vw,64px) clamp(20px,4.17vw,80px)",
         }}
       >
@@ -166,10 +163,10 @@ export default function MBBSAbroad() {
             <h2
               className={`ma-title${visible ? " in" : ""} font-bold`}
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-heading)',
                 fontSize: "clamp(28px,3.33vw,64px)",
                 lineHeight: "clamp(32px,2.71vw,52px)",
-                backgroundImage: "linear-gradient(167deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
+                backgroundImage: "linear-gradient(167deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -182,10 +179,10 @@ export default function MBBSAbroad() {
             <p
               className={`ma-sub${visible ? " in" : ""} font-normal`}
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(12px,0.83vw,16px)",
                 lineHeight: "24px",
-                color: "#4A554F",
+                color: "var(--color-body)",
                 margin: 0,
               }}
             >
@@ -211,10 +208,10 @@ export default function MBBSAbroad() {
                     padding: "0 clamp(12px,0.69vw,13.333px)",
                     minWidth: "clamp(100px,10.16vw,195px)",
                     borderRadius: "200px",
-                    border: isActive ? "none" : "1.333px solid #0E8F5B",
+                    border: isActive ? "none" : "1.333px solid var(--color-brand-forest)",
                     cursor: "pointer",
                     backgroundImage: isActive
-                      ? "linear-gradient(136deg, #0E8F5B 12.7%, #0B3B2E 87.2%)"
+                      ? "linear-gradient(136deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)"
                       : "none",
                     backgroundColor: isActive ? "transparent" : "transparent",
                     transition: "all 0.25s ease",
@@ -228,17 +225,17 @@ export default function MBBSAbroad() {
                     style={
                       isActive
                         ? {
-                            fontFamily: "'Inter', sans-serif",
+                            fontFamily: 'var(--font-body)',
                             fontSize: "clamp(12px,1.11vw,21.333px)",
                             lineHeight: "clamp(18px,1.53vw,29.333px)",
                             color: "white",
                             whiteSpace: "nowrap",
                           }
                         : {
-                            fontFamily: "'Inter', sans-serif",
+                            fontFamily: 'var(--font-body)',
                             fontSize: "clamp(12px,1.11vw,21.333px)",
                             lineHeight: "clamp(18px,1.53vw,29.333px)",
-                            backgroundImage: "linear-gradient(162deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
+                            backgroundImage: "linear-gradient(162deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)",
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                             backgroundClip: "text",

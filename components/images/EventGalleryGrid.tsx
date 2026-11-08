@@ -46,11 +46,11 @@ export default function EventGalleryGrid({ sectionTitle = "Seminar Gallery Highl
 
         {/* ── Section Title ── */}
         <div className="flex flex-col items-center gap-3 text-center">
-          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-green/10 text-brand-green font-semibold text-xs sm:text-sm">
+          <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-emerald-deep/10 text-brand-emerald-deep font-semibold text-xs sm:text-sm">
             <Camera size={16} />
             <span>Event Photo Collection</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#12211C] font-['Inter',sans-serif]">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-ink font-['Inter',sans-serif]">
             {sectionTitle}
           </h2>
           <div className="h-1.5 w-28 rounded-full bg-linear-to-r from-brand-green to-brand-blue" />
@@ -62,7 +62,7 @@ export default function EventGalleryGrid({ sectionTitle = "Seminar Gallery Highl
             <div
               key={idx}
               onClick={() => openLightbox(idx)}
-              className="group relative h-65 sm:h-70 rounded-3xl overflow-hidden cursor-pointer bg-surface-alt border border-[#E4DDD0] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+              className="group relative h-65 sm:h-70 rounded-3xl overflow-hidden cursor-pointer bg-surface-alt border border-line shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
               <Image
                 src={src}
@@ -89,7 +89,7 @@ export default function EventGalleryGrid({ sectionTitle = "Seminar Gallery Highl
         {/* ── Lightbox Modal ── */}
         {selectedIndex !== null && (
           <div
-            className="fixed inset-0 z-50 bg-[#072A21]/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-brand-forest-deep/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
             onClick={closeLightbox}
           >
             <Button variant="glass"

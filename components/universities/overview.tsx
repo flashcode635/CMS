@@ -58,7 +58,7 @@ export default function UniversityOverview({
     badgeText = DEFAULT_CONTENT.badgeText,
 }: OverviewProps) {
     return (
-        <section aria-label={sectionLabel} className="bg-[#F1F6F2] py-16 @min-[1024px]:py-24">
+        <section aria-label={sectionLabel} className="bg-surface py-16 @min-[1024px]:py-24">
             <div className="mx-auto grid max-w-7xl grid-cols-1
              items-center gap-12 px-4 @min-[640px]:px-8 @min-[1024px]:px-25 @min-[1024px]:grid-cols-[5fr_6fr] @min-[1024px]:gap-16">
                 {/* Left: heading + paragraphs + CTA */}
@@ -100,7 +100,7 @@ export default function UniversityOverview({
                         />
                     </div>
 
-                    <div className="absolute bottom-4 left-4 rounded-xl bg-[#12211C] px-6 py-5 shadow-xl @min-[1024px]:-bottom-4 @min-[1024px]:-left-10">
+                    <div className="absolute bottom-4 left-4 rounded-xl bg-ink px-6 py-5 shadow-xl @min-[1024px]:-bottom-4 @min-[1024px]:-left-10">
                         <p className="text-xl font-bold text-white">{badgeCount}</p>
                         <p className="mt-1 text-xs text-brand-champagne-soft">{badgeText}</p>
                     </div>

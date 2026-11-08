@@ -82,32 +82,26 @@ export default function MBBSAbroadHero({
   return (
     <>
       <style>{`
-        @keyframes mbbsFadeUp {
-          0%   { opacity: 0; transform: translateY(28px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes mbbsCardUp {
-          0%   { opacity: 0; transform: translateY(52px) scale(0.97); }
-          100% { opacity: 1; transform: translateY(0)   scale(1); }
-        }
+        
+        
 
         .mbbs-subtitle { opacity: 0; }
-        .mbbs-subtitle.in { animation: mbbsFadeUp 0.7s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
+        .mbbs-subtitle.in { animation: sp-fade-up 0.7s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
 
         .mbbs-title { opacity: 0; }
-        .mbbs-title.in { animation: mbbsFadeUp 0.8s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
+        .mbbs-title.in { animation: sp-fade-up 0.8s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
 
         .mbbs-desc { opacity: 0; }
-        .mbbs-desc.in { animation: mbbsFadeUp 0.8s 0.3s forwards cubic-bezier(0.22,1,0.36,1); }
+        .mbbs-desc.in { animation: sp-fade-up 0.8s 0.3s forwards cubic-bezier(0.22,1,0.36,1); }
 
         .mbbs-btn { opacity: 0; }
-        .mbbs-btn.in { animation: mbbsFadeUp 0.7s 0.44s forwards cubic-bezier(0.22,1,0.36,1); }
+        .mbbs-btn.in { animation: sp-fade-up 0.7s 0.44s forwards cubic-bezier(0.22,1,0.36,1); }
 
         .mbbs-register-btn {
           transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
         .mbbs-register-btn:hover {
-          box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+          box-shadow: 0 0 0 3px color-mix(in srgb, white 30%, transparent);
           transform: translateY(-2px);
         }
         .mbbs-register-btn:active { transform: scale(0.97); }
@@ -125,7 +119,7 @@ export default function MBBSAbroadHero({
           position: absolute;
           top: 0; left: 15%; right: 15%;
           height: 2px;
-          background: linear-gradient(to right, #0E8F5B, #0B3B2E);
+          background: linear-gradient(to right, var(--color-brand-forest), var(--color-brand-forest-deep));
           border-radius: 999px;
           opacity: 0;
           transform: scaleX(0);
@@ -138,10 +132,10 @@ export default function MBBSAbroadHero({
         }
         .mbbs-card-label {
           transition: color 0.3s ease;
-          color: #072A21;
+          color: var(--color-brand-forest-deep);
         }
         .mbbs-card:hover .mbbs-card-label {
-          color: #0c2461;
+          color: var(--color-brand-forest-deep);
         }
       `}</style>
 
@@ -153,7 +147,7 @@ export default function MBBSAbroadHero({
           // Blue band height: 618px at 1920 = 32.19cqw
           // Cards overflow below, total visible ~42.71cqw
           paddingBottom: "clamp(200px, 21cqw, 400px)",
-          backgroundColor: "#fff",
+          backgroundColor: "white",
         }}
       >
 
@@ -164,7 +158,7 @@ export default function MBBSAbroadHero({
           aria-hidden
         >
           {/* Base navy */}
-          <div className="absolute inset-0" style={{ backgroundColor: "#0B3B2E" }} />
+          <div className="absolute inset-0" style={{ backgroundColor: "var(--color-brand-forest-deep)" }} />
 
           {/* City skyline texture at 10% opacity */}
           <div className="absolute inset-0 overflow-hidden" style={{ opacity: 0.1 }}>
@@ -182,7 +176,7 @@ export default function MBBSAbroadHero({
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to top, #ffffff 0%, rgba(7,42,33,0) 55%)",
+              background: "linear-gradient(to top, white 0%, transparent 55%)",
             }}
           />
         </div>
@@ -194,9 +188,9 @@ export default function MBBSAbroadHero({
         >
           {/* Subtitle */}
           <p
-            className={`mbbs-subtitle${mounted ? " in" : ""} uppercase font-normal text-[#E8D7B0] text-center`}
+            className={`mbbs-subtitle${mounted ? " in" : ""} uppercase font-normal text-brand-champagne-soft text-center`}
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(13px, 1.25cqw, 24px)",
               letterSpacing: "0.05em",
             }}
@@ -209,13 +203,13 @@ export default function MBBSAbroadHero({
             <h2
               className="font-bold text-white"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-sub)',
                 fontSize: "clamp(28px, 3.33cqw, 64px)",
                 lineHeight: 1.15,
               }}
             >
               {titlePrefix}{" "}
-              <span style={{ color: "#0E8F5B" }}>{titleAccent}</span>
+              <span style={{ color: "var(--color-brand-forest)" }}>{titleAccent}</span>
             </h2>
           </div>
 
@@ -223,21 +217,21 @@ export default function MBBSAbroadHero({
           <p
             className={`mbbs-desc${mounted ? " in" : ""} text-center font-normal`}
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(12px, 0.83cqw, 16px)",
               lineHeight: "26px",
-              color: "#E8D7B0",
+              color: "var(--color-brand-champagne-soft)",
               maxWidth: "clamp(300px, 66.36cqw, 1274px)",
             }}
           >
             {description}{" "}
             <strong
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, color: "#E8D7B0" }}
+              style={{ fontFamily: 'var(--font-body)', fontWeight: 700, color: "var(--color-brand-champagne-soft)" }}
             >
               {descriptionEmphasis}{" "}
             </strong>
             like{" "}
-            <strong style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, color: "#E8D7B0" }}>
+            <strong style={{ fontFamily: 'var(--font-body)', fontWeight: 700, color: "var(--color-brand-champagne-soft)" }}>
               {countriesDescription}
             </strong>
             {descriptionSuffix}
@@ -248,7 +242,7 @@ export default function MBBSAbroadHero({
             <Button
               variant="unstyled"
               className="mbbs-register-btn flex items-center justify-center gap-[0.63cqw]
-              bg-white shadow-none"
+              bg-brand-champagne-rich shadow-none"
               style={{
                 height: "clamp(44px, 3.33cqw, 64px)",
                 padding: "0 clamp(20px, 1.67cqw, 32px)",
@@ -258,9 +252,9 @@ export default function MBBSAbroadHero({
               <span
                 className="uppercase font-normal"
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontSize: "clamp(13px, 1.11cqw, 21px)",
-                  color: "#0B3B2E",
+                  color: "var(--color-brand-sky)",
                   letterSpacing: "-0.02em",
                   whiteSpace: "nowrap",
                 }}
@@ -276,7 +270,7 @@ export default function MBBSAbroadHero({
                 >
                   <path
                     d="M21.2578 12.9688L14.2969 19.9062L12.8672 18.5L17.4141 13.9531H4.00781V11.9609H17.4141L12.8672 7.41406L14.2969 6.00781L21.2578 12.9688Z"
-                    fill="#0B3B2E"
+                    fill="var(--color-brand-sky)"
                   />
                 </svg>
               </span>
@@ -289,7 +283,7 @@ export default function MBBSAbroadHero({
             Figma: cards start at top=440px (22.92cqw), centered horizontally.
             Cards: w=338px (17.6cqw), h=364px (18.96cqw), image-area=277px (14.43cqw)
             gap=24px (1.25cqw), rounded-3xl 
-            shadow: 0px 56px 120px 0px rgba(0,0,0,0.15)
+            shadow: 0px 56px 120px 0px color-mix(in srgb, black 15%, transparent)
         */}
         <div
           className="relative z-10 flex items-end justify-start w-full overflow-x-auto @min-[1024px]:justify-center"
@@ -314,12 +308,12 @@ export default function MBBSAbroadHero({
                   style={{
                     width:  "clamp(140px, 17.6cqw, 338px)",
                     height: "clamp(155px, 18.96cqw, 364px)",
-                    backgroundColor: "#EFE9DE",
+                    backgroundColor: "var(--color-surface-alt)",
                     borderRadius: "clamp(12px, 1.25cqw, 24px)",
                     boxShadow:
                       hoveredCard === idx
-                        ? "0px 32px 80px rgba(216,178,110,0.22), 0px 56px 120px rgba(0,0,0,0.15)"
-                        : "0px 56px 120px rgba(0,0,0,0.15)",
+                        ? "0px 32px 80px color-mix(in srgb, var(--color-brand-champagne) 22%, transparent), 0px 56px 120px color-mix(in srgb, black 15%, transparent)"
+                        : "0px 56px 120px color-mix(in srgb, black 15%, transparent)",
                     transform: hoveredCard === idx
                       ? "translateY(-10px) scale(1.025)"
                       : "translateY(0) scale(1)",
@@ -351,7 +345,7 @@ export default function MBBSAbroadHero({
                     <div
                       className="absolute inset-0"
                       style={{
-                        background: "linear-gradient(to bottom, transparent 60%, rgba(216,178,110,0.12) 100%)",
+                        background: "linear-gradient(to bottom, transparent 60%, color-mix(in srgb, var(--color-brand-champagne) 12%, transparent) 100%)",
                         opacity: hoveredCard === idx ? 1 : 0,
                         transition: "opacity 0.4s ease",
                       }}
@@ -361,7 +355,7 @@ export default function MBBSAbroadHero({
                   {/* Label area — bottom 23.9% of card */}
                   <div
                     className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center"
-                    style={{ height: "23.9%", backgroundColor: "#EFE9DE" }}
+                    style={{ height: "23.9%", backgroundColor: "var(--color-surface-alt)" }}
                   >
                     {/* Gradient divider line — appears on hover */}
                     <div className="mbbs-card-divider" />
@@ -369,7 +363,7 @@ export default function MBBSAbroadHero({
                     <span
                       className="mbbs-card-label font-medium text-center"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: 'var(--font-body)',
                         fontSize: "clamp(12px, 1.25cqw, 24px)",
                         lineHeight: 1,
                       }}

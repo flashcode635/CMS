@@ -165,7 +165,7 @@ export default function HostelFacilitiesSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
+            className="bg-[linear-gradient(120deg,var(--color-surface-alt)_0%,var(--color-surface-alt)_50%,var(--color-surface-alt)_100%)] py-16 @min-[1024px]:py-24"
         >
             <div className="mx-auto max-w-7xl px-4 @min-[640px]:px-6 @min-[1024px]:px-25">
                 {/* Eyebrow + centered heading + intro */}
@@ -182,7 +182,7 @@ export default function HostelFacilitiesSection({
                         className="h-px flex-none w-4 bg-brand-emerald/60"
                     />
                 </div>
-                <h2 className="mt-3 text-center text-[clamp(1.5rem,3vw,2rem)] font-bold text-[#1C2B25]">
+                <h2 className="mt-3 text-center text-[clamp(1.5rem,3vw,2rem)] font-bold text-ink">
                     {title}
                 </h2>
                 <p className="mx-auto mt-3 max-w-2xl text-center text-xs leading-relaxed text-muted @min-[640px]:text-sm">
@@ -190,12 +190,12 @@ export default function HostelFacilitiesSection({
                 </p>
 
                 {/* Hostel feature cards — flex-wrap keeps leftover rows centred */}
-                <h3 className="text-lg font-bold text-[#1C2B25]">
+                <h3 className="text-lg font-bold text-ink">
                     {featuresHeading}
                 </h3>
                 <div
                     aria-hidden="true"
-                    className="mt-2 h-px bg-[#1C2B25]/10"
+                    className="mt-2 h-px bg-ink/10"
                 />
                 <div className="mt-6 grid grid-cols-1 gap-6 @min-[640px]:grid-cols-2 @min-[1024px]:grid-cols-6">
                     {features.map((feature, index) => {
@@ -221,7 +221,7 @@ export default function HostelFacilitiesSection({
                                     />
                                 </div>
                                 <div className="p-4">
-                                    <h4 className="text-sm font-bold text-[#1C2B25]">
+                                    <h4 className="text-sm font-bold text-ink">
                                         {feature.title}
                                     </h4>
                                     <p className="mt-1.5 text-xs leading-relaxed text-muted">
@@ -239,7 +239,7 @@ export default function HostelFacilitiesSection({
                         <p className="text-[10px] font-bold uppercase tracking-wide text-red-500">
                             {messEyebrow}
                         </p>
-                        <h3 className="mt-2 text-2xl font-bold text-[#1C2B25]">
+                        <h3 className="mt-2 text-2xl font-bold text-ink">
                             {messTitle}
                         </h3>
                         <p className="mt-4 text-xs leading-relaxed text-muted @min-[640px]:text-sm">
@@ -255,7 +255,7 @@ export default function HostelFacilitiesSection({
                                         aria-hidden="true"
                                         className="h-4 w-4 flex-none text-brand-emerald-deep"
                                     />
-                                    <span className="text-xs font-medium text-[#1C2B25]">
+                                    <span className="text-xs font-medium text-ink">
                                         {point}
                                     </span>
                                 </li>
@@ -281,7 +281,7 @@ export default function HostelFacilitiesSection({
                             className="h-4 w-4 text-brand-emerald-deep"
                         />
                     </span>
-                    <p className="max-w-xl text-center text-xs font-normal text-[#1C2B25]">
+                    <p className="max-w-xl text-center text-xs font-normal text-ink">
                         {closingNote}
                     </p>
                 </div>

@@ -47,7 +47,7 @@ function FaqItem({ question, answer, isOpen, onToggle, visible, index }: FaqItem
     <div
       className={`overflow-hidden rounded-2xl bg-white/20 shadow-sm border-b border-b-gray-500 transition-all
          duration-700 ease-out
-        ${isOpen ? "shadow-md ring-[#D8B26E]/30" : "hover:shadow-md"}
+        ${isOpen ? "shadow-md ring-brand-champagne/30" : "hover:shadow-md"}
         ${visible ? "translate-y-0 opacity-100" : "translate-y-7 opacity-0"}`}
       style={{ transitionDelay: `${0.05 + index * 0.08}s` }}
     >
@@ -56,7 +56,7 @@ function FaqItem({ question, answer, isOpen, onToggle, visible, index }: FaqItem
   className="flex w-full items-start justify-between gap-4 px-[clamp(16px,2vw,28px)] py-[clamp(14px,1.6vw,22px)] text-left">
         <span
           className={`font-semibold font-['Inter',sans-serif] text-[clamp(14px,1.25vw,20px)] leading-[1.35] transition-colors duration-300
-            ${isOpen ? "text-brand-green" : "text-ink"}`}
+            ${isOpen ? "text-brand-emerald-deep" : "text-ink"}`}
         >
           {question}
         </span>
@@ -66,7 +66,7 @@ function FaqItem({ question, answer, isOpen, onToggle, visible, index }: FaqItem
           className={`flex h-[clamp(28px,2.4vw,38px)] w-[clamp(28px,2.4vw,38px)] shrink-0 items-center justify-center rounded-full transition-all duration-300
             ${isOpen
               ? "rotate-45 bg-linear-to-br from-brand-green to-brand-blue text-white"
-              : "bg-[#EFE9DE] text-[#D8B26E]"}`}
+              : "bg-surface-alt text-brand-champagne-rich"}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -119,12 +119,12 @@ export default function FaqSection({slim=true}: {slim?: boolean}) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#F7F4EE]">
+    <section ref={sectionRef} className="bg-surface">
       <div className={`mx-auto flex max-w-225 flex-col items-center gap-[clamp(6px,0.42vw,8px)]
          ${slim?  "px-[clamp(20px,4.17vw,80px)]":""} pt-[clamp(32px,3.33vw,64px)] pb-[clamp(32px,3.33vw,64px)]`}>
         {/* Eyebrow */}
         <p
-          className={`m-0 text-center font-normal uppercase tracking-widest text-[#D8B26E] font-['Inter',sans-serif] text-[clamp(11px,1.04vw,20px)] leading-8 transition-all duration-700
+          className={`m-0 text-center font-normal uppercase tracking-widest text-brand-champagne-rich font-['Inter',sans-serif] text-[clamp(11px,1.04vw,20px)] leading-8 transition-all duration-700
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
           style={{ transitionDelay: "0.05s" }}
         >
@@ -133,7 +133,7 @@ export default function FaqSection({slim=true}: {slim?: boolean}) {
 
         {/* linear title */}
         <h2
-          className={`m-0 text-center font-serif font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)] bg-linear-to-br from-brand-green to-brand-blue bg-clip-text text-transparent transition-all duration-700
+          className={`m-0 text-center font-sub font-bold leading-[1.15] text-[clamp(28px,3.13vw,60px)] bg-linear-to-br from-brand-green to-brand-blue bg-clip-text text-transparent transition-all duration-700
             ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
           style={{ transitionDelay: "0.12s" }}
         >

@@ -104,7 +104,7 @@ export default function AccreditationSection({
         <section
             id={anchorId}
             aria-label={sectionLabel}
-            className="bg-[radial-gradient(120%_140%_at_88%_35%,#2b4fd8_0%,#17307f_45%,#0a1740_100%)] py-9 @min-[1024px]:py-15"
+            className="bg-[radial-gradient(120%_140%_at_88%_35%,var(--color-brand-royal)_0%,var(--color-brand-royal)_45%,var(--color-brand-forest-deep)_100%)] py-9 @min-[1024px]:py-15"
         >
             <div className="mx-auto max-w-7xl px-6 @min-[640px]:px-8 @min-[1024px]:px-15">
                 {/* Top: left copy + right cards */}
@@ -158,7 +158,7 @@ export default function AccreditationSection({
                                 />
                                 <div className="flex items-center gap-4">
                                     {card.icon}
-                                    <h3 className="text-lg font-semibold text-[#0B3B2E]">
+                                    <h3 className="text-lg font-semibold text-brand-forest-deep">
                                         {card.title}
                                     </h3>
                                 </div>
@@ -176,7 +176,7 @@ export default function AccreditationSection({
                 <div className="mt-12 rounded-2xl bg-white p-6 shadow-lg @min-[1024px]:p-8">
                     <div className="flex items-center gap-3">
                         {highlightIcon}
-                        <h3 className="text-lg font-semibold text-[#0B3B2E]">
+                        <h3 className="text-lg font-semibold text-brand-forest-deep">
                             {highlightTitle}
                         </h3>
                     </div>

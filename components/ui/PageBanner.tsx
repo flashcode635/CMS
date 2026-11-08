@@ -17,10 +17,10 @@ export default function PageBanner({
 }: PageBannerProps) {
   return (
     <section
-      className="relative w-full font-serif h-[68vh] min-h-[420px] max-h-[720px] overflow-hidden bg-[#072A21]"
+      className="relative w-full font-heading h-[68vh] min-h-[420px] max-h-[720px] overflow-hidden bg-brand-forest-deep"
       aria-label={`${title} banner`}
     >
-      <div className="absolute inset-0 bg-[#072A21]" />
+      <div className="absolute inset-0 bg-brand-forest-deep" />
 
       <div
         className="absolute inset-0 overflow-hidden"
@@ -40,7 +40,7 @@ export default function PageBanner({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(7,42,33,0.15) 0%, rgba(7,42,33,0.55) 55%, rgba(7,42,33,1) 100%)",
+            "linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-forest-deep) 15%, transparent) 0%, color-mix(in srgb, var(--color-brand-forest-deep) 55%, transparent) 55%, var(--color-brand-forest-deep) 100%)",
         }}
         aria-hidden
       />
@@ -52,7 +52,7 @@ export default function PageBanner({
       />
 
       <div
-        className="relative w-full z-10 font-serif flex flex-col items-center 
+        className="relative w-full z-10 font-heading flex flex-col items-center 
         justify-center px-4 text-center h-full gap-2"
         
       >
@@ -60,7 +60,7 @@ export default function PageBanner({
           className="text-white w-3/4 font-bold leading-tight"
           style={{
             fontSize: "clamp(30px, 3.9vw, 54px)",
-            textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+            textShadow: "0 2px 12px color-mix(in srgb, black 60%, transparent)",
           }}
         >
           {title}
@@ -71,7 +71,7 @@ export default function PageBanner({
             className="mt-2 text-white/80 font-sans tracking-wider font-medium"
             style={{
               fontSize: "clamp(13px, 1.1vw, 18px)",
-              textShadow: "0 1px 6px rgba(0,0,0,0.5)",
+              textShadow: "0 1px 6px color-mix(in srgb, black 50%, transparent)",
               maxWidth: "680px",
             }}
           >

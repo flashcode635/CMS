@@ -108,7 +108,7 @@ const EVENTS = [
 
 const TABS = ["All Images", "Medical Seminars", "Academic Fests", "Workshops"];
 const LOCATION = "A-456, C Block, Sector 12, Greater Noida, Uttar Pradesh 201310";
-const BTN_GRAD = "linear-gradient(140.84deg, #0E8F5B 12.704%, #0B3B2E 87.17%)";
+const BTN_GRAD = "linear-gradient(140.84deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)";
 
 const SORT_OPTIONS = [
   { value: "newest", label: "Newest First" },
@@ -142,8 +142,8 @@ function SortDropdown({ value, onChange }: SortDropdownProps) {
     <div ref={ref} className="relative select-none">
       <Button variant="outline"
         onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-2 bg-white rounded-full h-10 px-4.5 cursor-pointer hover:bg-surface transition-colors border border-transparent hover:border-[#D6CCBA] text-black font-medium text-base shadow-none"
-        style={{ fontFamily: "Inter, sans-serif" }}
+        className="flex items-center gap-2 bg-white rounded-full h-10 px-4.5 cursor-pointer hover:bg-surface transition-colors border border-transparent hover:border-line-strong text-black font-medium text-base shadow-none"
+        style={{ fontFamily: 'var(--font-body)' }}
       >
         <FilterIcon />
         <span className="text-black font-medium text-base whitespace-nowrap">
@@ -154,12 +154,12 @@ function SortDropdown({ value, onChange }: SortDropdownProps) {
           width="12" height="8" viewBox="0 0 12 8" fill="none"
           className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         >
-          <path d="M1 1L6 7L11 1" stroke="#4A554F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M1 1L6 7L11 1" stroke="var(--color-body)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </Button>
 
       {open && (
-        <div className="absolute right-0 top-[calc(100%+8px)] z-50 bg-white rounded-2xl shadow-[0px_16px_48px_rgba(0,0,0,0.12)] border border-[#E4DDD0] py-2 min-w-45 overflow-hidden">
+        <div className="absolute right-0 top-[calc(100%+8px)] z-50 bg-white rounded-2xl shadow-xl shadow-black/12 border border-line py-2 min-w-45 overflow-hidden">
           {SORT_OPTIONS.map((opt) => (
             <Button variant="unstyled"
               key={opt.value}
@@ -168,12 +168,12 @@ function SortDropdown({ value, onChange }: SortDropdownProps) {
                 "w-full text-left px-5 py-3 text-sm font-medium transition-colors justify-start rounded-none h-auto shadow-none",
                 value === opt.value
                   ? "text-white"
-                  : "text-[#12211C] hover:bg-[#EFE9DE] bg-transparent",
+                  : "text-ink hover:bg-surface-alt bg-transparent",
               ].join(" ")}
               style={
                 value === opt.value
-                  ? { backgroundImage: BTN_GRAD, fontFamily: "Inter, sans-serif" }
-                  : { fontFamily: "Inter, sans-serif" }
+                  ? { backgroundImage: BTN_GRAD, fontFamily: 'var(--font-body)' }
+                  : { fontFamily: 'var(--font-body)' }
               }
             >
               {opt.label}
@@ -189,7 +189,7 @@ function PinIcon({ size = 20 }) {
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-        fill="#66716A"
+        fill="var(--color-muted)"
       />
     </svg>
   );
@@ -199,9 +199,9 @@ function PinIcon({ size = 20 }) {
 function FilterIcon() {
   return (
     <div className="flex flex-col gap-1 w-4.5 h-3.5 justify-center shrink-0">
-      <div className="bg-[#4A554F] h-0.5 w-4.5 rounded-full" />
-      <div className="bg-[#4A554F] h-0.5 w-3 rounded-full" />
-      <div className="bg-[#4A554F] h-0.5 w-3 rounded-full" />
+      <div className="bg-body h-0.5 w-4.5 rounded-full" />
+      <div className="bg-body h-0.5 w-3 rounded-full" />
+      <div className="bg-body h-0.5 w-3 rounded-full" />
     </div>
   );
 }
@@ -254,9 +254,9 @@ function DesktopCard({ event, delay = 0 }: EventCardProps) {
           
           className="group bg-white flex flex-col justify-between rounded-2xl overflow-hidden
                     cursor-pointer h-full
-                    shadow-[15px_21px_11.75px_rgba(0,0,0,0.05)]
+                    shadow-md shadow-black/5
                     hover:-translate-y-3
-                    hover:shadow-[0px_32px_64px_rgba(216,178,110,0.18)]
+                    hover:shadow-2xl shadow-brand-champagne/18
                     transition-all hover:duration-700 ease-out"
          
         >
@@ -272,35 +272,35 @@ function DesktopCard({ event, delay = 0 }: EventCardProps) {
                 sizes="33vw"
               />
               {/* Subtle gradient overlay on hover */}
-              <div className="absolute inset-0 bg-linear-to-t from-[rgba(216,178,110,0.15)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              <div className="absolute inset-0 bg-linear-to-t from-brand-champagne/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
             </div>
 
             {/* Text */}
             <div className="flex flex-col gap-2 px-6 pt-4 pb-4">
               <p
-                className="text-brand-blue font-bold text-2xl lg:text-[28px] xl:text-4xl  leading-tight tracking-[-0.60px] transition-colors duration-300 group-hover:text-brand-green"
-                style={{ fontFamily: "Inter, sans-serif" }}
+                className="text-brand-blue font-bold text-2xl lg:text-[28px] xl:text-4xl  leading-tight tracking-[-0.60px] transition-colors duration-300 group-hover:text-brand-emerald-deep"
+                style={{ fontFamily: 'var(--font-body)' }}
               >
                 {event.year}
               </p>
-              <p className="text-[#4A554F] font-normal text-sm lg:text-base leading-normal line-clamp-3" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-body font-normal text-sm lg:text-base leading-normal line-clamp-3" style={{ fontFamily: 'var(--font-body)' }}>
                 {event.body}
               </p>
             </div>
           </div>
 
           {/* Footer */}
-          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 px-6 pb-6 pt-2 border-t border-[#EFE9DE]">
+          <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 px-6 pb-6 pt-2 border-t border-surface-alt">
             <div className="flex items-center gap-2 flex-1 min-w-0">
               <PinIcon size={20} />
-              <p className="text-[#66716A] font-medium text-xs lg:text-sm leading-5 truncate" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-muted font-medium text-xs lg:text-sm leading-5 truncate" style={{ fontFamily: 'var(--font-body)' }}>
                 {LOCATION}
               </p>
             </div>
             <Link
               href={`/gallery/images/${event.slug || event.year.toLowerCase().replace(/\s+/g, "-")}`}
               className="shrink-0 flex items-center justify-center px-6 h-10 rounded-lg text-white font-semibold text-sm whitespace-nowrap hover:opacity-90 transition-opacity active:scale-[0.98] w-full xl:w-auto"
-              style={{ backgroundImage: BTN_GRAD, fontFamily: "Inter, sans-serif" }}
+              style={{ backgroundImage: BTN_GRAD, fontFamily: 'var(--font-body)' }}
             >
               View Gallery
             </Link>
@@ -319,9 +319,9 @@ function MobileCard({ event, delay = 0 }: EventCardProps) {
     <div
       ref={ref}
       className="group bg-white flex flex-col rounded-3xl overflow-hidden w-full
-                 shadow-[0px_12px_24px_rgba(0,0,0,0.05)]
+                 shadow-lg shadow-black/5
                  hover:-translate-y-2
-                 hover:shadow-[0px_20px_40px_rgba(216,178,110,0.15)]
+                 hover:shadow-xl shadow-brand-champagne/15
                  transition-all duration-500 ease-out"
       style={{
         opacity:   visible ? 1 : 0,
@@ -340,25 +340,25 @@ function MobileCard({ event, delay = 0 }: EventCardProps) {
         />
       </div>
       <div className="flex flex-col gap-4 p-5">
-        <div className="flex flex-col gap-2 pb-4 border-b border-[#E4DDD0]">
-          <p className="text-brand-blue font-bold text-xl sm:text-2xl transition-colors duration-300 group-hover:text-brand-green" style={{ fontFamily: "Inter, sans-serif" }}>
+        <div className="flex flex-col gap-2 pb-4 border-b border-line">
+          <p className="text-brand-blue font-bold text-xl sm:text-2xl transition-colors duration-300 group-hover:text-brand-emerald-deep" style={{ fontFamily: 'var(--font-body)' }}>
             {event.year}
           </p>
-          <p className="text-[#4A554F] font-normal text-xs sm:text-sm leading-relaxed line-clamp-3" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-body font-normal text-xs sm:text-sm leading-relaxed line-clamp-3" style={{ fontFamily: 'var(--font-body)' }}>
             {event.body}
           </p>
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
             <PinIcon size={18} />
-            <p className="text-[#66716A] text-xs sm:text-sm truncate flex-1 min-w-0" style={{ fontFamily: "Inter, sans-serif" }}>
+            <p className="text-muted text-xs sm:text-sm truncate flex-1 min-w-0" style={{ fontFamily: 'var(--font-body)' }}>
               {LOCATION}
             </p>
           </div>
           <Link
             href={`/gallery/images/${event.slug || event.year.toLowerCase().replace(/\s+/g, "-")}`}
             className="flex items-center justify-center px-6 py-2.5 rounded-lg text-white font-semibold text-sm w-full hover:opacity-90 transition-opacity active:scale-[0.98]"
-            style={{ backgroundImage: BTN_GRAD, fontFamily: "Inter, sans-serif" }}
+            style={{ backgroundImage: BTN_GRAD, fontFamily: 'var(--font-body)' }}
           >
             View Gallery
           </Link>
@@ -397,7 +397,7 @@ export default function GalleryGrid() {
   const mobileVisible = showAll ? sorted : sorted.slice(0, 3);
 
   return (
-    <section className="w-full" style={{ backgroundColor: "#F7F4EE" }}>
+    <section className="w-full" style={{ backgroundColor: "var(--color-surface)" }}>
 
       {/* ══════════════════════════════════════════
           DESKTOP (hidden on mobile)
@@ -421,8 +421,8 @@ export default function GalleryGrid() {
                   ].join(" ")}
                   style={
                     activeTab === tab
-                      ? { backgroundImage: "linear-gradient(134.38deg, #0E8F5B 12.704%, #0B3B2E 87.17%)", fontFamily: "Inter, sans-serif" }
-                      : { fontFamily: "Inter, sans-serif" }
+                      ? { backgroundImage: "linear-gradient(134.38deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)", fontFamily: 'var(--font-body)' }
+                      : { fontFamily: 'var(--font-body)' }
                   }
                 >
                   {tab}
@@ -447,7 +447,7 @@ export default function GalleryGrid() {
             ))
           ) : (
             <div className="col-span-3 flex items-center justify-center py-24">
-              <p className="text-[#66716A] text-xl font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-muted text-xl font-medium" style={{ fontFamily: 'var(--font-body)' }}>
                 No events found for this category.
               </p>
             </div>
@@ -461,7 +461,7 @@ export default function GalleryGrid() {
       <div className="flex sm:hidden flex-col">
 
         {/* Sticky filter bar */}
-        <div className="sticky top-0 z-20 bg-white border-b border-[#D6CCBA]">
+        <div className="sticky top-0 z-20 bg-white border-b border-line-strong">
           <div className="flex items-center gap-3 px-4 py-3 overflow-x-auto scrollbar-hide">
             <div className="flex items-center gap-2 shrink-0">
               {TABS.map((tab) => (
@@ -472,26 +472,26 @@ export default function GalleryGrid() {
                     "h-9 px-4 rounded-full text-[13px] whitespace-nowrap shrink-0 transition-all duration-200 shadow-none",
                     activeTab === tab
                       ? "text-white font-semibold"
-                      : "bg-white border border-[#D6CCBA] text-[#12211C] font-medium hover:bg-surface",
+                      : "bg-white border border-line-strong text-ink font-medium hover:bg-surface",
                   ].join(" ")}
                   style={
                     activeTab === tab
-                      ? { backgroundImage: "linear-gradient(133.03deg, #0E8F5B 12.704%, #0B3B2E 87.17%)", fontFamily: "Inter, sans-serif" }
-                      : { fontFamily: "Inter, sans-serif" }
+                      ? { backgroundImage: "linear-gradient(133.03deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)", fontFamily: 'var(--font-body)' }
+                      : { fontFamily: 'var(--font-body)' }
                   }
                 >
                   {tab === "Medical Seminars" ? "Medical" : tab === "Academic Fests" ? "Academic" : tab}
                 </Button>
               ))}
             </div>
-            <div className="w-px h-6 bg-[#D6CCBA] shrink-0" />
+            <div className="w-px h-6 bg-line-strong shrink-0" />
             {/* Mobile sort — compact pill */}
             <div className="relative shrink-0">
               <select
                 value={sortBy}
                 onChange={(e) => handleSortChange(e.target.value)}
-                className="appearance-none bg-white border border-[#D6CCBA] rounded-full h-9 pl-3 pr-8 text-[#12211C] font-medium text-[13px] cursor-pointer outline-none"
-                style={{ fontFamily: "Inter, sans-serif" }}
+                className="appearance-none bg-white border border-line-strong rounded-full h-9 pl-3 pr-8 text-ink font-medium text-[13px] cursor-pointer outline-none"
+                style={{ fontFamily: 'var(--font-body)' }}
               >
                 {SORT_OPTIONS.map(o => (
                   <option key={o.value} value={o.value}>{o.label}</option>
@@ -499,7 +499,7 @@ export default function GalleryGrid() {
               </select>
               <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden>
-                  <path d="M1 1L5 5L9 1" stroke="#4A554F" strokeWidth="1.5" strokeLinecap="round"/>
+                  <path d="M1 1L5 5L9 1" stroke="var(--color-body)" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               </div>
             </div>
@@ -518,7 +518,7 @@ export default function GalleryGrid() {
             ))
           ) : (
             <div className="flex items-center justify-center py-16">
-              <p className="text-[#66716A] text-base font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-muted text-base font-medium" style={{ fontFamily: 'var(--font-body)' }}>
                 No events found.
               </p>
             </div>
@@ -530,7 +530,7 @@ export default function GalleryGrid() {
               onClick={() => setShowAll(true)}
               fullWidth
               className="h-12 flex items-center justify-center rounded-full border border-brand-blue text-brand-blue font-semibold text-sm hover:bg-brand-blue hover:text-white transition-all duration-200 bg-transparent shadow-none"
-              style={{ fontFamily: "Inter, sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               View All ({sorted.length - 3} more)
             </Button>

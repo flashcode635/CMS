@@ -72,7 +72,7 @@ function MarqueeRow({ images, direction = "left", speed = 38 }: MarqueeRowProps)
               width: "clamp(150px, 17.71vw, 340px)",
               height: "clamp(120px, 14.58vw, 280px)",
               borderRadius: "clamp(10px, 1.25vw, 24px)",
-              backgroundColor: "#EFE9DE",
+              backgroundColor: "var(--color-surface-alt)",
             }}
           >
             <Image
@@ -104,7 +104,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
         width: "clamp(280px, 42.08vw, 808px)",
         height: "clamp(161px, 24.22vw, 465px)",
         borderRadius: "clamp(14px, 1.67vw, 32px)",
-        backgroundColor: "#072A21",
+        backgroundColor: "var(--color-brand-forest-deep)",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(32px) scale(0.97)",
         transition: `opacity 0.7s ease ${0.1 + index * 0.15}s, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${0.1 + index * 0.15}s`,
@@ -120,7 +120,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             priority={index === 0}
           />
 
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.15)" }} />
+          <div className="absolute inset-0" style={{ backgroundColor: "color-mix(in srgb, black 15%, transparent)" }} />
 
           <div
             // size="icon"
@@ -135,8 +135,8 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             }}
           >
             <svg viewBox="0 0 68 48" width="100%" height="100%">
-              <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00" />
-              <path d="M 45,24 27,14 27,34" fill="#fff" />
+              <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="var(--color-red-600)" />
+              <path d="M 45,24 27,14 27,34" fill="white" />
             </svg>
           </div>
 
@@ -162,7 +162,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <p style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontWeight: 700,
                 fontSize: "clamp(11px,1.04vw,20px)",
                 color: "white",
@@ -173,7 +173,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
                 {video.title}
               </p>
               <p style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontWeight: 400,
                 fontSize: "clamp(9px,0.63vw,12px)",
                 color: "white",
@@ -191,7 +191,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             style={{
               bottom: "clamp(12px,1.25vw,24px)",
               right: "clamp(12px,1.27vw,24.3px)",
-              backgroundColor: "rgba(0,0,0,0.3)",
+              backgroundColor: "color-mix(in srgb, black 30%, transparent)",
               borderRadius: "clamp(14px,1.25vw,24px)",
               padding: "0 clamp(10px,1.25vw,24px)",
               height: "clamp(30px,2.5vw,48px)",
@@ -199,7 +199,7 @@ function VideoCard({ video, visible, index }: VideoCardProps) {
             }}
           >
             <span style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 300,
               fontSize: "clamp(10px,0.94vw,18px)",
               color: "white",
@@ -240,41 +240,32 @@ export default function FreshersPartyHighlights() {
   return (
     <>
       <style>{`
-        @keyframes fphLeft {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
-        @keyframes fphRight {
-          0%   { transform: translateX(-33.333%); }
-          100% { transform: translateX(0); }
-        }
+        
+        
 
         .fph-row-left {
-          animation: fphLeft var(--speed, 38s) linear infinite;
+          animation: sp-marquee-third var(--speed, 38s) linear infinite;
         }
         .fph-row-left:hover { animation-play-state: paused; }
 
         .fph-row-right {
-          animation: fphRight var(--speed, 42s) linear infinite;
+          animation: sp-marquee-third-rev var(--speed, 42s) linear infinite;
         }
         .fph-row-right:hover { animation-play-state: paused; }
 
-        @keyframes fphFadeUp {
-          0%   { opacity: 0; transform: translateY(24px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
+        
         .fph-heading { opacity: 0; }
-        .fph-heading.in { animation: fphFadeUp 0.8s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
+        .fph-heading.in { animation: sp-fade-up 0.8s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
         .fph-sub     { opacity: 0; }
-        .fph-sub.in     { animation: fphFadeUp 0.7s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
+        .fph-sub.in     { animation: sp-fade-up 0.7s 0.18s forwards cubic-bezier(0.22,1,0.36,1); }
         .fph-marquee { opacity: 0; }
-        .fph-marquee.in { animation: fphFadeUp 0.8s 0.28s forwards cubic-bezier(0.22,1,0.36,1); }
+        .fph-marquee.in { animation: sp-fade-up 0.8s 0.28s forwards cubic-bezier(0.22,1,0.36,1); }
       `}</style>
 
       <section
         ref={sectionRef}
         style={{
-          backgroundColor: "#EFE9DE",
+          backgroundColor: "var(--color-surface-alt)",
           padding: "clamp(32px,3.33vw,64px) 0",
           display: "flex",
           flexDirection: "column",
@@ -295,10 +286,10 @@ export default function FreshersPartyHighlights() {
           <p
             className={`fph-sub${visible ? " in" : ""} text-center font-normal`}
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(12px,0.83vw,16px)",
               lineHeight: "24px",
-              color: "#6366F1",
+              color: "var(--color-indigo-500)",
               margin: 0,
               textTransform: "uppercase",
               letterSpacing: "0.05em",
@@ -310,10 +301,10 @@ export default function FreshersPartyHighlights() {
           <h2
             className={`fph-heading${visible ? " in" : ""} font-bold text-center`}
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-sub)',
               fontSize: "clamp(28px,3.33vw,64px)",
               lineHeight: 1.15,
-              backgroundImage: "linear-gradient(135deg, #0E8F5B 0%, #0B3B2E 100%)",
+              backgroundImage: "linear-gradient(135deg, var(--color-brand-forest) 0%, var(--color-brand-forest-deep) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",

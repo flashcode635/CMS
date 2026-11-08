@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function GalleryVideosPage() {
   return (
-    <div className="flex flex-col" style={{ backgroundColor: "#F7F4EE" }}>
+    <div className="flex flex-col" style={{ backgroundColor: "var(--color-surface)" }}>
       {/* ── Section 1: Banner ── */}
       <PageBanner
         title="Gallery"

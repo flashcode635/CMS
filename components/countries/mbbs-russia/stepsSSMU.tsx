@@ -56,7 +56,7 @@ const REQUIRED_DOCUMENT_ICONS: LucideIcon[] = [
 ];
 
 const SECTION_BG =
-  "linear-gradient(115deg, #EDF3EF 0%, #F7F4EE 45%, #EFE9DE 100%)";
+  "linear-gradient(115deg, var(--color-surface-alt) 0%, var(--color-surface) 45%, var(--color-surface-alt) 100%)";
 
 const PHOTO_SHAPE = "rounded-[1.5rem_999px_999px_1.5rem]";
 
@@ -69,7 +69,7 @@ export default function StepsSSMU({
     <section
       aria-labelledby="ssmu-documents-heading"
       className="relative w-full overflow-hidden py-10 @min-[640px]:py-14 @min-[1024px]:py-16"
-      style={{ backgroundColor: "#F7F4EE", backgroundImage: SECTION_BG }}
+      style={{ backgroundColor: "var(--color-surface)", backgroundImage: SECTION_BG }}
     >
             <div className="pointer-events-none absolute inset-y-12 inset-x-0 z-0 flex flex-col gap-4">
             <div
@@ -131,14 +131,14 @@ export default function StepsSSMU({
               <div className="flex items-stretch gap-3 @min-[640px]:gap-4">
                 <span
                   aria-hidden="true"
-                  className="w-1.25 shrink-0 rounded-full bg-[#0E8F5B]"
+                  className="w-1.25 shrink-0 rounded-full bg-brand-forest"
                 />
                 <h2
                   id="ssmu-documents-heading"
                   className="font-['Inter',sans-serif] text-[26px] leading-[1.15] font-semibold tracking-[-0.01em] @min-[640px]:text-[32px] @min-[1024px]:text-[36px] @min-[1280px]:text-[40px]"
                   style={{
                     backgroundImage:
-                      "linear-gradient(149.75deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
+                      "linear-gradient(149.75deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
@@ -152,7 +152,7 @@ export default function StepsSSMU({
                 {intro.map((paragraph, i) => (
                   <p
                     key={i}
-                    className={`max-w-190 font-['Inter',sans-serif] text-[13px] leading-[1.55] text-[#4A554F] @min-[640px]:text-sm ${i > 0 ? "mt-2" : ""}`}
+                    className={`max-w-190 font-['Inter',sans-serif] text-[13px] leading-[1.55] text-body @min-[640px]:text-sm ${i > 0 ? "mt-2" : ""}`}
                   >
                     {paragraph}
                   </p>
@@ -168,20 +168,20 @@ export default function StepsSSMU({
                 return (
                 <li
                   key={label}
-                  className={`flex w-full shrink-0 @min-[640px]:w-auto items-center gap-3 rounded-2xl border border-[#E4DDD0] bg-white px-4 py-3.5 shadow-[0px_1.5px_1.5px_rgba(16,24,40,0.05)] @min-[640px]:px-5 ${
+                  className={`flex w-full shrink-0 @min-[640px]:w-auto items-center gap-3 rounded-2xl border border-line bg-white px-4 py-3.5 shadow-md shadow-black/5 @min-[640px]:px-5 ${
                     wide ? "@min-[640px]:col-span-2" : ""
                   }`}
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EFE9DE]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-surface-alt">
                     <Icon
                       aria-hidden="true"
                       className={`h-5 w-5 ${
-                        tone === "red" ? "text-[#F04438]" : "text-[#0B3B2E]"
+                        tone === "red" ? "text-red-500" : "text-brand-forest-deep"
                       }`}
                       strokeWidth={1.9}
                     />
                   </span>
-                  <span className="font-['Inter',sans-serif] text-[12.5px] leading-[1.4] font-medium text-[#2A3A33] @min-[640px]:text-[13.5px]">
+                  <span className="font-['Inter',sans-serif] text-[12.5px] leading-[1.4] font-medium text-ink @min-[640px]:text-[13.5px]">
                     {label}
                   </span>
                 </li>

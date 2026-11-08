@@ -68,7 +68,7 @@ function TestimonialCard({
           className="h-full w-full overflow-hidden"
           style={{
             borderRadius: 0,
-            boxShadow: "0 8px 24px rgba(0,0,0,0.22)",
+            boxShadow: "0 8px 24px color-mix(in srgb, black 22%, transparent)",
           }}
         >
           <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-emerald-deep to-brand-blue">
@@ -79,7 +79,7 @@ function TestimonialCard({
               className="object-cover opacity-80"
               sizes="400px"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-[#072A21]/75 via-transparent to-black/20" />
+            <div className="absolute inset-0 bg-linear-to-t from-brand-forest-deep/75 via-transparent to-black/20" />
             <Image
               src="/home/party-yt-wordmark.svg"
               alt="Video platform"
@@ -94,7 +94,7 @@ function TestimonialCard({
       {/* Text Area */}
       <div
         className="absolute bottom-0 left-0 right-0 flex flex-col justify-between"
-        style={{ height: "43%", padding: "8px 20px 15px" }}
+        style={{ height: "43%", padding: "8px 20px 24px" }}
       >
         <div className="flex items-start gap-2">
           <span
@@ -110,7 +110,7 @@ function TestimonialCard({
           </span>
           <p
             className="line-clamp-3 text-sm leading-5.5 text-white/90"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {quote}
           </p>
@@ -118,7 +118,7 @@ function TestimonialCard({
 
         <div
           className="my-2 h-px w-full"
-          style={{ background: "rgba(255,255,255,0.2)" }}
+          style={{ background: "color-mix(in srgb, white 20%, transparent)" }}
         />
 
         <div className="flex items-center justify-between">
@@ -127,8 +127,8 @@ function TestimonialCard({
               <div
                 className="flex h-11 w-11 items-center justify-center rounded-full text-lg font-bold text-white"
                 style={{
-                  background: "rgba(255,255,255,0.2)",
-                  border: "2px solid rgba(255,255,255,0.5)",
+                  background: "color-mix(in srgb, white 20%, transparent)",
+                  border: "2px solid color-mix(in srgb, white 50%, transparent)",
                 }}
               >
                 {name[0]}
@@ -141,7 +141,7 @@ function TestimonialCard({
               </p>
               <p
                 className="line-clamp-1 text-xs leading-4 text-white/60"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: 'var(--font-body)' }}
               >
                 {role}
               </p>
@@ -157,19 +157,19 @@ export default function TestimonialsSection3D() {
   return (
     <section
       className="relative w-full overflow-hidden py-16"
-      style={{ backgroundColor: "#EFE9DE", fontFamily: "'Inter', sans-serif" }}
+      style={{ backgroundColor: "var(--color-surface-alt)", fontFamily: 'var(--font-body)' }}
     >
       {/* ── Heading ── */}
       <div
         className="relative z-10 flex flex-col items-center gap-2 px-4"
         style={{ marginBottom: "48px" }}
       >
-        <h2 className="text-center font-serif text-4xl leading-tight font-bold bg-linear-to-r from-brand-green to-brand-blue bg-clip-text text-transparent sm:text-5xl">
+        <h2 className="text-center font-sub text-4xl leading-tight font-bold bg-linear-to-r from-brand-green to-brand-blue bg-clip-text text-transparent sm:text-5xl">
           What Our Students Say!
         </h2>
         <p
           className="max-w-xl text-center text-sm leading-5 text-muted"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           Hear from our happy students! See how we&apos;ve helped them achieve
           their goals and create lasting impact.

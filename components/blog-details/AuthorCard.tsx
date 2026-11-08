@@ -40,25 +40,25 @@ export default function AuthorCard({
       label: "LinkedIn",
       href: socials.linkedin ?? "#",
       Icon: Link2,
-      bg: "#0A6B44",
+      bg: "var(--color-brand-royal)",
     },
     {
       label: "GitHub",
       href: socials.github ?? "#",
       Icon: Share2,
-      bg: "#12211C",
+      bg: "var(--color-ink)",
     },
     {
       label: "Website",
       href: socials.website ?? "#",
       Icon: Globe,
-      bg: "#4A554F",
+      bg: "var(--color-body)",
     },
     {
       label: "Email",
       href: socials.email ? `mailto:${socials.email}` : "#",
       Icon: AtSign,
-      bg: "#072A21",
+      bg: "var(--color-brand-forest-deep)",
     },
   ];
 
@@ -68,26 +68,26 @@ export default function AuthorCard({
         className="w-full rounded-3xl p-10 flex flex-col gap-6"
         style={{
           background:
-            "linear-gradient(122.63deg, rgba(14,143,91,0.22) 12.7%, rgba(216,178,110,0.22) 87.17%)",
+            "linear-gradient(122.63deg, color-mix(in srgb, var(--color-brand-forest) 22%, transparent) 12.7%, color-mix(in srgb, var(--color-brand-champagne) 22%, transparent) 87.17%)",
         }}
         aria-label={`Author: ${name}`}
       >
         <div className="flex flex-col gap-1">
           <p
-            className="text-[#12211C] text-[13px] font-normal tracking-[2.5px] uppercase"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="text-ink text-[13px] font-normal tracking-[2.5px] uppercase"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             AUTHOR
           </p>
           <p
-            className="text-[#12211C] text-[20px] font-bold leading-tight"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="text-ink text-[20px] font-bold leading-tight"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {name}
           </p>
           <p
-            className="text-[#12211C] text-[15px] font-semibold"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="text-ink text-[15px] font-semibold"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {designation}
           </p>
@@ -130,15 +130,15 @@ export default function AuthorCard({
 
       <div className="flex flex-col gap-5 flex-1">
         <p
-          className="text-[#12211C] text-[22px] sm:text-3xl  font-bold leading-tight"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="text-ink text-[22px] sm:text-3xl  font-bold leading-tight"
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {name}
         </p>
 
         <p
-          className="text-[#4A554F] text-[17px] sm:text-4.5 leading-[26.5px]"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="text-body text-[17px] sm:text-4.5 leading-[26.5px]"
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {bio}
         </p>

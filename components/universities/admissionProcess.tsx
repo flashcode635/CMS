@@ -128,7 +128,7 @@ export default function AdmissionProcessSection({
             />
             <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[#072A21]/90"
+                className="absolute inset-0 bg-brand-forest-deep/90"
             />
 
             <div className="relative mx-auto max-w-7xl px-4 @min-[640px]:px-6">
@@ -153,7 +153,7 @@ export default function AdmissionProcessSection({
                                 key={step.title}
                                 className="flex justify-center"
                             >
-                                <span className="relative z-10 block size-3 rounded-full border-2 border-white bg-[#072A21]" />
+                                <span className="relative z-10 block size-3 rounded-full border-2 border-white bg-brand-forest-deep" />
                             </div>
                         ))}
                     </div>

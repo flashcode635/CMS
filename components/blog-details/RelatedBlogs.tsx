@@ -42,8 +42,8 @@ export default function RelatedBlogs({
     <aside aria-label="Related blog posts" className="w-full flex flex-col gap-10">
       {/* Section heading */}
       <h2
-        className="text-[#12211C] text-[20px] sm:text-3xl  font-bold leading-tight uppercase"
-        style={{ fontFamily: "'Playfair Display', serif" }}
+        className="text-ink text-[20px] sm:text-3xl  font-bold leading-tight uppercase"
+        style={{ fontFamily: 'var(--font-sub)' }}
       >
         {heading}
       </h2>

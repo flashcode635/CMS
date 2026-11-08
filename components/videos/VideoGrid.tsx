@@ -54,7 +54,7 @@ function VideoCard({ title, image }: (typeof videos)[number]) {
 
 export default function VideoGrid() {
   return (
-    <section className="bg-[#e8f0f9] px-5 py-10 sm:px-25">
+    <section className="bg-brand-sky px-5 py-10 sm:px-25">
       <article className="relative mb-6 aspect-video w-full overflow-hidden rounded-4xl bg-ink sm:aspect-16/7">
         <Image
           src={videos[0].image}

@@ -42,7 +42,7 @@ const blankEntry = (type: ContentType): Entry => ({
 
 /* ---------- shared styles ---------- */
 const inputClass =
-  "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-base text-[#1C2B25] sm:text-sm " +
+  "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-base text-ink sm:text-sm " +
   "placeholder:text-muted outline-none transition " +
   "hover:border-line-strong focus:border-brand-green focus:ring-4 focus:ring-brand-green/10";
 
@@ -219,14 +219,14 @@ export default function DashboardPage() {
   const canSave = !saving && selected.title.trim() && selected.slug.trim();
 
   return (
-    <div className="flex h-dvh overflow-hidden bg-[#EFE9DE] text-[#1C2B25]">
+    <div className="flex h-dvh overflow-hidden bg-surface-alt text-ink">
       {/* ---------- toast ---------- */}
       {toast && (
         <div
           role="status"
           className={`fixed inset-x-4 top-4 z-50 flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium shadow-lg ring-1 sm:inset-x-auto sm:right-5 sm:top-5 sm:max-w-sm ${
             toast.kind === "success"
-              ? "bg-white text-[#0A6B44] ring-[#0A6B44]/20"
+              ? "bg-white text-brand-royal ring-brand-royal/20"
               : "bg-white text-red-600 ring-red-200"
           }`}
         >
@@ -240,7 +240,7 @@ export default function DashboardPage() {
 
       {/* ---------- icon rail ---------- */}
       <aside
-        className={`${railOpen ? "fixed inset-y-0 left-0 z-40 flex" : "hidden"} w-17 shrink-0 flex-col items-center bg-linear-to-b from-[#072A21] to-[#052b20] py-5 text-white
+        className={`${railOpen ? "fixed inset-y-0 left-0 z-40 flex" : "hidden"} w-17 shrink-0 flex-col items-center bg-linear-to-b from-brand-forest-deep to-brand-forest-deep py-5 text-white
          shadow-xl md:flex`}
       >
         <div className="mb-8 grid h-10 w-10 place-items-center rounded-xl bg-brand-green text-sm font-bold shadow-md shadow-black/20">
@@ -274,7 +274,7 @@ export default function DashboardPage() {
         </div>
       </aside>
       {railOpen && (
-        <button aria-label="Close navigation" onClick={() => setRailOpen(false)} className="fixed inset-0 z-30 bg-[#072A21]/45 backdrop-blur-sm md:hidden" />
+        <button aria-label="Close navigation" onClick={() => setRailOpen(false)} className="fixed inset-0 z-30 bg-brand-forest-deep/45 backdrop-blur-sm md:hidden" />
       )}
 
       {/* ---------- list pane ---------- */}
@@ -326,7 +326,7 @@ export default function DashboardPage() {
                   <div
                     key={route.href}
                     className={`grid grid-cols-4 mb-1 rounded-xl transition ${
-                      previewing ? "bg-[#EDF3EF] ring-1 ring-[#0A6B44]/10" : "hover:bg-surface"
+                      previewing ? "bg-surface-alt ring-1 ring-brand-royal/10" : "hover:bg-surface"
                     }`}
                   >
                     <button onClick={() => previewRoute(route)} className="min-w-0 col-span-3 px-3 py-2.5 text-left">
@@ -356,7 +356,7 @@ export default function DashboardPage() {
                 key={entry.id}
                 onClick={() => chooseEntry(entry)}
                 className={`mb-1 flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-left transition ${
-                  on ? "bg-[#EDF3EF] text-[#0A6B44] ring-1 ring-[#0A6B44]/10" : "hover:bg-surface"
+                  on ? "bg-surface-alt text-brand-royal ring-1 ring-brand-royal/10" : "hover:bg-surface"
                 }`}
               >
                 <span className="min-w-0">
@@ -485,7 +485,7 @@ export default function DashboardPage() {
       </main>
 
       {/* ---------- preview pane ---------- */}
-      <aside className={`${mobilePane === "preview" ? "flex" : "hidden"} min-w-0 flex-1 flex-col bg-[#EFE9DE] md:flex`}>
+      <aside className={`${mobilePane === "preview" ? "flex" : "hidden"} min-w-0 flex-1 flex-col bg-surface-alt md:flex`}>
         <header className="flex items-center justify-between gap-3 border-b border-line bg-white px-4 py-3 sm:px-6 sm:py-4">
           <div>
             <p className="flex items-center gap-1.5 text-xs text-muted">

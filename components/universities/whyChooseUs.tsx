@@ -76,7 +76,7 @@ export default function WhyChooseUsSection({
             <section
                 id={anchorId}
                 aria-label={sectionLabel}
-                className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
+                className="bg-[linear-gradient(120deg,var(--color-surface-alt)_0%,var(--color-surface-alt)_50%,var(--color-surface-alt)_100%)] py-16 @min-[1024px]:py-24"
             >
                 <div className="mx-auto max-w-6xl px-4 @min-[640px]:px-6">
                     {/* md+ pe single-line gradient (design) — mobile pe natural wrap, warna long
@@ -100,7 +100,7 @@ export default function WhyChooseUsSection({
                                     aria-hidden="true"
                                     className="absolute bottom-3 left-0 top-3 w-1 rounded-r-full bg-brand-emerald"
                                 />
-                                <h3 className="text-base font-semibold text-[#1C2B25]">
+                                <h3 className="text-base font-semibold text-ink">
                                     {index + 1}. {reason.title}
                                 </h3>
                                 <p className="mt-3 text-xs leading-relaxed text-muted">

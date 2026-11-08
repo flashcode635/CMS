@@ -253,7 +253,8 @@ export function ThreeDCarousel<T>({
                 aria-current={isActive ? "true" : undefined}
                 data-active={isActive}
                 className={cn(
-                  "absolute top-0 left-1/2 h-full px-3 py-6",
+                  "absolute top-0 left-1/2 h-full px-3",
+                  isActive ? "py-0" : "py-6",
                   clickToFocus && !isActive && "cursor-pointer",
                   itemClassName,
                 )}
@@ -279,10 +280,10 @@ export function ThreeDCarousel<T>({
                   style={{
                     borderRadius: cardRadius,
                     background:
-                      "linear-gradient(135deg, #0E8F5B 0%, #0A6B44 55%, #0B3B2E 100%)",
+                      "linear-gradient(135deg, var(--color-brand-forest) 0%, var(--color-brand-royal) 55%, var(--color-brand-forest-deep) 100%)",
                     boxShadow: isActive
-                      ? "0 22px 48px rgba(20, 52, 105, 0.3), 0 0 0 1px rgba(255,255,255,0.24)"
-                      : "0 10px 24px rgba(20, 52, 105, 0.14)",
+                      ? "0 22px 48px color-mix(in srgb, var(--color-brand-forest-deep) 30%, transparent), 0 0 0 1px color-mix(in srgb, white 24%, transparent)"
+                      : "0 10px 24px color-mix(in srgb, var(--color-brand-forest-deep) 14%, transparent)",
                     transition: reducedMotion
                       ? "none"
                       : `box-shadow ${transitionDuration}ms ease`,
@@ -329,8 +330,8 @@ export function ThreeDCarousel<T>({
                     height: 8,
                     background:
                       activeIndex === index
-                        ? "linear-gradient(90deg, #0E8F5B, #0B3B2E)"
-                        : "rgba(216,178,110,0.25)",
+                        ? "linear-gradient(90deg, var(--color-brand-forest), var(--color-brand-forest-deep))"
+                        : "color-mix(in srgb, var(--color-brand-champagne) 25%, transparent)",
                   }}
                   aria-label={getDotLabel(index, total)}
                   aria-current={activeIndex === index ? "true" : undefined}
@@ -354,8 +355,8 @@ export function ThreeDCarousel<T>({
                 disabled={!canPrev}
                 className="pointer-events-auto flex size-10 items-center justify-center rounded-full border-0 transition-transform hover:scale-105 active:scale-95"
                 style={{
-                  background: "linear-gradient(135deg, #0E8F5B, #0B3B2E)",
-                  boxShadow: "0 8px 18px rgba(25,75,170,0.22)",
+                  background: "linear-gradient(135deg, var(--color-brand-forest), var(--color-brand-forest-deep))",
+                  boxShadow: "0 8px 18px color-mix(in srgb, var(--color-brand-royal) 22%, transparent)",
                 }}
                 aria-label={previousLabel}
               >
@@ -370,8 +371,8 @@ export function ThreeDCarousel<T>({
                 disabled={!canNext}
                 className="pointer-events-auto flex size-10 items-center justify-center rounded-full border-0 transition-transform hover:scale-105 active:scale-95"
                 style={{
-                  background: "linear-gradient(135deg, #0E8F5B, #0B3B2E)",
-                  boxShadow: "0 8px 18px rgba(25,75,170,0.22)",
+                  background: "linear-gradient(135deg, var(--color-brand-forest), var(--color-brand-forest-deep))",
+                  boxShadow: "0 8px 18px color-mix(in srgb, var(--color-brand-royal) 22%, transparent)",
                 }}
                 aria-label={nextLabel}
               >

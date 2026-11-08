@@ -71,12 +71,12 @@ const BANNER_CSS =
   `@media(min-width:1024px){.icb{${decls(SCALE.lg)}}}`;
 
 const SIDE_WASH_LEFT =
-  "linear-gradient(90deg, rgba(10,107,68,0.97) 0%, rgba(14,143,91,0.92) 12%, " +
-  "rgba(14,143,91,0.64) 24%, rgba(14,143,91,0.30) 34%, rgba(14,143,91,0) 46%)";
+  "linear-gradient(90deg, color-mix(in srgb, var(--color-brand-royal) 97%, transparent) 0%, color-mix(in srgb, var(--color-brand-forest) 92%, transparent) 12%, " +
+  "color-mix(in srgb, var(--color-brand-forest) 64%, transparent) 24%, color-mix(in srgb, var(--color-brand-forest) 30%, transparent) 34%, transparent 46%)";
 
 const SIDE_WASH_RIGHT =
-  "linear-gradient(270deg, rgba(7,42,33,0.97) 0%, rgba(216,178,110,0.92) 12%, " +
-  "rgba(216,178,110,0.64) 24%, rgba(216,178,110,0.30) 34%, rgba(216,178,110,0) 46%)";
+  "linear-gradient(270deg, color-mix(in srgb, var(--color-brand-forest-deep) 97%, transparent) 0%, color-mix(in srgb, var(--color-brand-champagne) 92%, transparent) 12%, " +
+  "color-mix(in srgb, var(--color-brand-champagne) 64%, transparent) 24%, color-mix(in srgb, var(--color-brand-champagne) 30%, transparent) 34%, transparent 46%)";
 
 function CircleTick() {
   return (
@@ -110,12 +110,12 @@ function GlassBadge({
         padding: "var(--icb-bp)",
         gap: "var(--icb-bg)",
         borderRadius: "var(--icb-br)",
-        background: "rgba(9,22,42,0.30)",
+        background: "color-mix(in srgb, var(--color-brand-forest-deep) 30%, transparent)",
         backdropFilter: "blur(16px) saturate(1.4)",
         WebkitBackdropFilter: "blur(16px) saturate(1.4)",
-        border: "1px solid rgba(255,255,255,0.42)",
+        border: "1px solid color-mix(in srgb, white 42%, transparent)",
         boxShadow:
-          "0 10px 26px rgba(0,14,32,0.3), 0 0 0 1px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.3)",
+          "0 10px 26px color-mix(in srgb, var(--color-brand-forest-deep) 30%, transparent), 0 0 0 1px color-mix(in srgb, white 12%, transparent), inset 0 1px 0 color-mix(in srgb, white 30%, transparent)",
         ...style,
       }}
     >
@@ -126,8 +126,8 @@ function GlassBadge({
           width: "var(--icb-bt)",
           height: "var(--icb-bt)",
           borderRadius: "calc(var(--icb-bt) * var(--icb-bc))",
-          backgroundImage: "linear-gradient(108.93deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
-          boxShadow: "inset 0 1px 1px rgba(255,255,255,0.25)",
+          backgroundImage: "linear-gradient(108.93deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
+          boxShadow: "inset 0 1px 1px color-mix(in srgb, white 25%, transparent)",
         }}
       >
         <span className="block h-[64%] w-[64%]">
@@ -140,10 +140,10 @@ function GlassBadge({
         <span
           className="overflow-hidden text-ellipsis whitespace-nowrap font-semibold text-white"
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: 'var(--font-body)',
             fontSize: "var(--icb-b1)",
             lineHeight: 1.2,
-            textShadow: "0 1px 2px rgba(0,10,25,0.35)",
+            textShadow: "0 1px 2px color-mix(in srgb, var(--color-brand-forest-deep) 35%, transparent)",
           }}
         >
           {title}
@@ -151,11 +151,11 @@ function GlassBadge({
         <span
           className="overflow-hidden text-ellipsis whitespace-nowrap"
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: 'var(--font-body)',
             fontWeight: 500,
             fontSize: "var(--icb-b2)",
             lineHeight: 1.25,
-            color: "rgba(255,255,255,0.72)",
+            color: "color-mix(in srgb, white 72%, transparent)",
           }}
         >
           {subtitle}
@@ -200,7 +200,7 @@ export default function ImageComboBanner({
         />
         <div className="absolute inset-0" style={{ background: SIDE_WASH_LEFT }} />
         <div className="absolute inset-0" style={{ background: SIDE_WASH_RIGHT }} />
-        <div className="absolute inset-0" style={{ background: "rgba(3,16,34,0.24)" }} />
+        <div className="absolute inset-0" style={{ background: "color-mix(in srgb, var(--color-brand-forest-deep) 24%, transparent)" }} />
       </div>
 
       {/* ================= FRAMED PHOTO =========================================
@@ -214,9 +214,9 @@ export default function ImageComboBanner({
         <div
           className="absolute inset-0 overflow-hidden bg-white"
           style={{
-            border: "var(--icb-f) solid #EFE9DE",
+            border: "var(--icb-f) solid var(--color-surface-alt)",
             borderRadius: FRAME_RADIUS,
-            // boxShadow: "0 22px 55px rgba(2,16,36,0.22)"
+            // boxShadow: "0 22px 55px color-mix(in srgb, var(--color-brand-forest-deep) 22%, transparent)"
           }}
         >
           <Image

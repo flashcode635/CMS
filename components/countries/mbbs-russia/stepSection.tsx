@@ -30,7 +30,7 @@ export default function AdmissionProcess({
         {/* gradient overlay, image ke upar */}
         <div
             aria-hidden="true"
-            className="absolute inset-0 z-0 bg-linear-to-l from-[#072A21] via-[#00050cfc] to-[#072a2161]"
+            className="absolute inset-0 z-0 bg-linear-to-l from-brand-forest-deep via-brand-forest-deep/95 to-brand-forest-deep/40"
         />
         <div className="relative z-10 left-5 top-5 h-20 w-20
          shrink-0 overflow-y-hidden rounded-full bg-white ring-2 ring-white/30">
@@ -46,14 +46,14 @@ export default function AdmissionProcess({
             <div className="flex items-stretch gap-3 @min-[640px]:gap-4">
                 <span
                 aria-hidden="true"
-                className="w-1.25 shrink-0 rounded-full bg-[#0E8F5B]"
+                className="w-1.25 shrink-0 rounded-full bg-brand-forest"
                 />
                 <h2
                 id="ssmu-documents-heading"
                 className="font-['Inter',sans-serif] text-[26px] leading-[1.15] tracking-[-0.01em] @min-[640px]:text-[30px] @min-[1024px]:text-[34px] @min-[1280px]:text-[36px]"
                 style={{
                     backgroundImage:
-                    "linear-gradient(149.75deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
+                    "linear-gradient(149.75deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",

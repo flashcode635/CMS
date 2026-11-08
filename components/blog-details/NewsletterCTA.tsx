@@ -65,7 +65,7 @@ export default function NewsletterCTA({
           unoptimized
           aria-hidden
         />
-        <div className="absolute inset-0 bg-[#072A21]/60" />
+        <div className="absolute inset-0 bg-brand-forest-deep/60" />
       </div>
 
       <div className="relative z-10 flex flex-col gap-7 px-6 py-10 sm:px-7 sm:py-12">
@@ -73,13 +73,13 @@ export default function NewsletterCTA({
           <h2
             id="newsletter-heading"
             className="text-white font-normal text-[24px] sm:text-[26px] tracking-normal leading-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: 'var(--font-sub)' }}
           >
             {content.heading}
           </h2>
           <p
             className="text-white text-[15px] sm:text-[16px] leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {content.subtext}
           </p>
@@ -88,7 +88,7 @@ export default function NewsletterCTA({
         {submitted ? (
           <p
             className="text-brand-champagne-soft text-[16px] font-semibold"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
             role="alert"
           >
             {content.successMessage}
@@ -104,7 +104,7 @@ export default function NewsletterCTA({
                   Replaced it with the "Join Now" button (the ACTIVE one), which now sits
                   INLINE on the right side of the email input, inside a shared white bar:
                     - label comes from DEFAULT_CONTENT_NewsletterCTA.submitLabel = "Join Now"
-                    - styling: turns BLACK on hover/click (hover:bg-[#072A21] active:bg-[#072A21])
+                    - styling: turns BLACK on hover/click (hover:bg-brand-forest-deep active:bg-brand-forest-deep)
                   Uncomment the commented block to restore the old Subscribe button. ── */}
               {/* <Button
                 type="submit"
@@ -112,7 +112,7 @@ export default function NewsletterCTA({
                 variant="outline"
                 size="bare"
                 shape="md"
-                className="w-full px-6 py-4 text-base font-normal text-[#4A554F] hover:bg-[#EFE9DE]"
+                className="w-full px-6 py-4 text-base font-normal text-body hover:bg-surface-alt"
               >
                 {content.submitLabel}
               </Button> */}
@@ -126,8 +126,8 @@ export default function NewsletterCTA({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={content.emailPlaceholder}
                   required
-                  className="min-w-0 flex-1 bg-transparent px-4 text-[16px] text-[#4A554F] placeholder:text-[#7A857E] focus:outline-none"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  className="min-w-0 flex-1 bg-transparent px-4 text-[16px] text-body placeholder:text-muted focus:outline-none"
+                  style={{ fontFamily: 'var(--font-body)' }}
                 />
                 <Button
                   type="submit"
@@ -135,7 +135,7 @@ export default function NewsletterCTA({
                   variant="unstyled"
                   size="bare"
                   shape="md"
-                  className="shrink-0 px-6 py-3.5 text-base font-normal border border-[#E4DDD0] bg-white text-[#4A554F] hover:bg-brand-forest hover:border-brand-forest hover:text-white active:bg-brand-forest active:border-brand-forest active:text-white disabled:opacity-50 disabled:pointer-events-none"
+                  className="shrink-0 px-6 py-3.5 text-base font-normal border border-line bg-white text-body hover:bg-brand-forest hover:border-brand-forest hover:text-white active:bg-brand-forest active:border-brand-forest active:text-white disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {content.submitLabel}
                 </Button>
@@ -171,7 +171,7 @@ export default function NewsletterCTA({
               <label
                 htmlFor="newsletter-consent"
                 className="cursor-pointer text-[13px] leading-snug text-white sm:text-[14px]"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: 'var(--font-body)' }}
               >
                 {content.consentText}
               </label>

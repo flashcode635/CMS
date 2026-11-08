@@ -86,26 +86,20 @@ export default function MBBSCountries() {
   return (
     <>
       <style>{`
-        @keyframes mcFadeUp {
-          0%   { opacity: 0; transform: translateY(28px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes mcPinDrop {
-          0%   { opacity: 0; transform: translateY(-20px) scale(0.7); }
-          100% { opacity: 1; transform: translateY(0)    scale(1); }
-        }
+        
+        
 
         .mc-title { opacity: 0; }
-        .mc-title.in { animation: mcFadeUp 0.9s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
+        .mc-title.in { animation: sp-fade-up 0.9s 0.05s forwards cubic-bezier(0.22,1,0.36,1); }
         .mc-sub   { opacity: 0; }
-        .mc-sub.in   { animation: mcFadeUp 0.8s 0.2s  forwards cubic-bezier(0.22,1,0.36,1); }
+        .mc-sub.in   { animation: sp-fade-up 0.8s 0.2s  forwards cubic-bezier(0.22,1,0.36,1); }
         .mc-btn   { opacity: 0; }
-        .mc-btn.in   { animation: mcFadeUp 0.7s 0.35s forwards cubic-bezier(0.22,1,0.36,1); }
+        .mc-btn.in   { animation: sp-fade-up 0.7s 0.35s forwards cubic-bezier(0.22,1,0.36,1); }
         .mc-map   { opacity: 0; }
-        .mc-map.in   { animation: mcFadeUp 1.0s 0.15s forwards cubic-bezier(0.22,1,0.36,1); }
+        .mc-map.in   { animation: sp-fade-up 1.0s 0.15s forwards cubic-bezier(0.22,1,0.36,1); }
 
         .mc-pin { opacity: 0; }
-        .mc-pin.in { animation: mcPinDrop 0.6s forwards cubic-bezier(0.34,1.56,0.64,1); }
+        .mc-pin.in { animation: sp-pin-drop 0.6s forwards cubic-bezier(0.34,1.56,0.64,1); }
 
         .mc-reg-btn {
           transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -113,7 +107,7 @@ export default function MBBSCountries() {
         .mc-reg-btn:hover {
           opacity: 0.9;
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(216,178,110,0.35);
+          box-shadow: 0 8px 28px color-mix(in srgb, var(--color-brand-champagne) 35%, transparent);
         }
         .mc-reg-btn:active { transform: scale(0.97); }
         .mc-reg-btn:hover .mc-reg-arrow {
@@ -132,7 +126,7 @@ export default function MBBSCountries() {
         ref={sectionRef}
         style={{
           // Figma bg: light blue gradient
-          background: "#EFE9DE",
+          background: "var(--color-surface-alt)",
           width: "100%",
           overflow: "hidden",
           position: "relative",
@@ -154,16 +148,16 @@ export default function MBBSCountries() {
             zIndex: 5,
           }}
         >
-          {/* Heading — Figma: Playfair Display Regular 64px #0B3B2E */}
+          {/* Heading — Figma: Playfair Display Regular 64px var(--color-brand-forest-deep) */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "clamp(10px, 1.25vw, 24px)", textAlign: "center" }}>
             <h2
               className={`mc-title${visible ? " in" : ""}`}
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-sub)',
                 fontWeight: 400,
                 fontSize: "clamp(28px, 3.33vw, 64px)",
                 lineHeight: "clamp(32px, 2.5vw, 48px)",
-                color: "#0B3B2E",
+                color: "var(--color-brand-forest-deep)",
                 margin: 0,
                 textTransform: "capitalize",
               }}
@@ -171,15 +165,15 @@ export default function MBBSCountries() {
               MBBS From 12+ Countries
             </h2>
 
-            {/* Subtitle — Figma: Inter 16px rgba(2,46,120,0.61) */}
+            {/* Subtitle — Figma: Inter 16px color-mix(in srgb, var(--color-brand-blue) 61%, transparent) */}
             <p
               className={`mc-sub${visible ? " in" : ""}`}
               style={{
-                fontFamily: "Inter, Inter, sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontWeight: 400,
                 fontSize: "clamp(12px, 0.83vw, 16px)",
                 lineHeight: "22px",
-                color: "rgba(2,46,120,0.61)",
+                color: "color-mix(in srgb, var(--color-brand-blue) 61%, transparent)",
                 margin: 0,
                 maxWidth: "clamp(260px, 24.91vw, 478px)",
                 textAlign: "center",
@@ -197,10 +191,10 @@ export default function MBBSCountries() {
               style={{
                 height: "clamp(40px, 2.92vw, 56px)",
                 padding: "0 clamp(18px, 1.67vw, 32px)",
-                backgroundImage: "linear-gradient(147deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
+                backgroundImage: "linear-gradient(147deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)",
                 border: "none",
                 cursor: "pointer",
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontWeight: 400,
                 fontSize: "clamp(12px, 1.11vw, 21.333px)",
                 letterSpacing: "-0.02em",

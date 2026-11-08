@@ -55,7 +55,7 @@ export default function EventsSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="relative overflow-hidden bg-[linear-gradient(150deg,#0B3B2E_0%,#072A21_100%)] py-16 @min-[1024px]:py-24">
+            className="relative overflow-hidden bg-[linear-gradient(150deg,var(--color-brand-forest-deep)_0%,var(--color-brand-forest-deep)_100%)] py-16 @min-[1024px]:py-24">
             {/* Decorative corner slices */}
             <div
                 aria-hidden="true"
@@ -63,13 +63,13 @@ export default function EventsSection({
             />
             <div
                 aria-hidden="true"
-                className="absolute bottom-0 left-0 h-32 w-24 bg-[linear-gradient(135deg,#0E8F5B,#0B3B2E)] opacity-20 [clip-path:polygon(0_100%,0_0,100%_100%)]"
+                className="absolute bottom-0 left-0 h-32 w-24 bg-[linear-gradient(135deg,var(--color-brand-forest),var(--color-brand-forest-deep))] opacity-20 [clip-path:polygon(0_100%,0_0,100%_100%)]"
             />
 
             {/* Diagonal gradient stripe + event photo (desktop) */}
             <div
                 aria-hidden="true"
-                className="absolute inset-0 hidden @min-[1024px]:block bg-[linear-gradient(180deg,#0E8F5B_0%,#0B3B2E_100%)] [clip-path:polygon(58.5%_0,60.2%_0,47.2%_100%,45.5%_100%)]"
+                className="absolute inset-0 hidden @min-[1024px]:block bg-[linear-gradient(180deg,var(--color-brand-forest)_0%,var(--color-brand-forest-deep)_100%)] [clip-path:polygon(58.5%_0,60.2%_0,47.2%_100%,45.5%_100%)]"
             />
             <div
                 aria-hidden="true"

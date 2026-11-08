@@ -64,7 +64,7 @@ export function getOptions(universityName?: string): UnivOption[] {
 
     return [
         { id: 1, name: "Overview", href: "#overview", component: <UniversityOverview {...overview} /> },
-        { id: 2, name: "Accreditation", href: "#accreditation", component: <AccreditationSection {...accreditation} /> },
+        { id: 2, name: "Accreditation", href: "var(--color-muted)reditation", component: <AccreditationSection {...accreditation} /> },
         { id: 3, name: "FMGE Classes", href: "#fmge-classes", component: <FmgeClassesSection {...fmge} /> },
         { id: 4, name: "Why Choose Us", href: "#why-choose-us", component: <WhyChooseUsSection {...whyChooseUs} /> },
         { id: 5, name: "Eligibility", href: "#eligibility", component: <EligibilitySection {...eligibility} /> },
@@ -72,8 +72,8 @@ export function getOptions(universityName?: string): UnivOption[] {
         { id: 7, name: "Admission Process", href: "#admission-process", component: <AdmissionProcessSection {...admissionProcess} /> },
         { id: 8, name: "Documents", href: "#documents", component: <DocumentsSection {...documents} /> },
         { id: 9, name: "Benefits", href: "#benefits", component: <BenefitsSection {...benefits} /> },
-        { id: 10, name: "Fee Structure", href: "#fees-structure", component: <FeeStructureSection {...fees} /> },
-        { id: 11, name: "Faculty", href: "#faculty", component: <FacultySection {...faculty} /> },
+        { id: 10, name: "Fee Structure", href: "var(--color-red-100)s-structure", component: <FeeStructureSection {...fees} /> },
+        { id: 11, name: "Faculty", href: "var(--color-red-100)ulty", component: <FacultySection {...faculty} /> },
         { id: 12, name: "Hostel & Facilities", href: "#hostel-facilities", component: <HostelFacilitiesSection {...hostel} /> },
         { id: 13, name: "Events", href: "#events", component: <EventsSection {...events} /> },
         { id: 14, name: "Free Counselling", href: "#free-counselling", component: <EventContactForm /> },
@@ -102,7 +102,7 @@ export default function UnivNav({
       )}
 
       <nav
-        className="sticky z-40 w-full bg-[#072A21]"
+        className="sticky z-40 w-full bg-brand-forest-deep"
         style={{
           top: "calc(clamp(64px, 5.21vw, 100px) + 0.5rem)",
         }}

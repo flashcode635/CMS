@@ -23,7 +23,7 @@ const COURSES = [
 ];
 
 const inputCls =
-  "w-full bg-[#F7F4EE] border border-[#E4DDD0] rounded-xl px-5 py-4 text-ink font-medium text-base outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft transition-all font-['Inter',sans-serif]";
+  "w-full bg-surface border border-line rounded-xl px-5 py-4 text-ink font-medium text-base outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft transition-all font-['Inter',sans-serif]";
 
 export default function EventContactForm() {
   const [form, setForm] = useState({
@@ -44,7 +44,7 @@ export default function EventContactForm() {
       className="w-full px-5 @min-[640px]:px-10 @min-[1024px]:px-16 @min-[1280px]:px-20 py-12 @min-[1024px]:py-20 font-['Inter',sans-serif]"
     >
       <div
-        className="max-w-[1640px] mx-auto rounded-3xl border border-[#E4DDD0] overflow-hidden flex flex-col @min-[1024px]:flex-row shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-white"
+        className="max-w-[1640px] mx-auto rounded-3xl border border-line overflow-hidden flex flex-col @min-[1024px]:flex-row shadow-lg shadow-black/8 bg-white"
       >
 
         {/* ── LEFT — blue gradient info panel ── */}
@@ -144,7 +144,7 @@ export default function EventContactForm() {
               className="flex flex-col gap-6"
             >
               <div className="mb-2">
-                <h3 className="text-2xl font-bold text-[#12211C] font-['Inter',sans-serif]">
+                <h3 className="text-2xl font-bold text-ink font-['Inter',sans-serif]">
                   Request Free Counseling
                 </h3>
                 <p className="text-muted text-sm font-['Inter',sans-serif] mt-1">

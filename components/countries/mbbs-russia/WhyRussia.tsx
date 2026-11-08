@@ -33,9 +33,9 @@ export default function WhyRussia({
     <section
       className="relative w-full overflow-hidden py-14 @min-[640px]:py-20 @min-[1024px]:py-24 px-5 @min-[640px]:px-8 @min-[768px]:px-2"
       style={{
-        backgroundColor: "#072A21",
+        backgroundColor: "var(--color-brand-forest-deep)",
         backgroundImage:
-          "linear-gradient(135deg, rgba(14, 143, 91, 0.05) 0%, rgba(216, 178, 110, 0.08) 100%), #072A21",
+          "linear-gradient(135deg, color-mix(in srgb, var(--color-brand-forest) 5%, transparent) 0%, color-mix(in srgb, var(--color-brand-champagne) 8%, transparent) 100%), var(--color-brand-forest-deep)",
       }}
       aria-label={heading}
     >
@@ -74,7 +74,7 @@ export default function WhyRussia({
             <img
               src="/countries/russia/russia-map.svg"
               alt="Illustrated Russia map sticker"
-              className="w-full h-auto object-contain drop-shadow-[0_12px_32px_rgba(0,0,0,0.6)] opacity-100"
+              className="w-full h-auto object-contain drop-shadow-lg shadow-black/60 opacity-100"
             />
           </div>
         </div>
@@ -89,9 +89,9 @@ export default function WhyRussia({
               className="font-semibold tracking-tight text-[26px] 
               @min-[640px]:text-[34px] @min-[1024px]:text-[40px] @min-[1280px]:text-[44px] leading-[1.18] m-0"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-heading)',
                 backgroundImage:
-                  "linear-gradient(136.47deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+                  "linear-gradient(136.47deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -101,7 +101,7 @@ export default function WhyRussia({
             </h2>
             <div
               className="h-0.5 w-full rounded-full"
-              style={{ backgroundColor: "rgba(14, 143, 91, 0.45)" }}
+              style={{ backgroundColor: "color-mix(in srgb, var(--color-brand-forest) 45%, transparent)" }}
               aria-hidden="true"
             />
           </div>
@@ -112,7 +112,7 @@ export default function WhyRussia({
             key={index}
             className="text-white text-[13.5px] @min-[640px]:text-[14.5px]
              @min-[1024px]:text-[15.5px] leading-[1.6] m-0 font-normal"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {point}
           </p>
@@ -130,7 +130,7 @@ export default function WhyRussia({
                 />
                 <span
                   className="text-white text-[13.5px] @min-[640px]:text-[14.5px] font-normal"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {exam}
                 </span>
@@ -143,7 +143,7 @@ export default function WhyRussia({
             className="text-white text-[13.5px] @min-[640px]:text-[14.5px]
              @min-[1024px]:text-[15.5px]
              font-normal m-0 pt-1"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {additionalLabel}
           </p>
@@ -161,7 +161,7 @@ export default function WhyRussia({
                   className="absolute left-0 top-0 bottom-0 w-1.25 @min-[640px]:w-1.5"
                   style={{
                     backgroundImage:
-                      "linear-gradient(152.61deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+                      "linear-gradient(152.61deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
                   }}
                   aria-hidden="true"
                 />
@@ -169,7 +169,7 @@ export default function WhyRussia({
                   className="m-0 pl-1.5 @min-[640px]:pl-2 text-white
                    font-semibold text-[12.5px] @min-[640px]:text-[13px]
                    @min-[1024px]:text-[14px] leading-snug"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {text}
                 </p>
@@ -180,7 +180,7 @@ export default function WhyRussia({
           {/* Paragraph 3 */}
           <p
             className="text-white text-[13.5px] @min-[640px]:text-[14.5px] @min-[1024px]:text-[15.5px] leading-[1.6] m-0 font-normal pt-1"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {outro}
           </p>

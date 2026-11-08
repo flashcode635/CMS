@@ -17,11 +17,11 @@ export default function WhyPartnerWithUs() {
         <h2
           className="font-extrabold bg-clip-text text-transparent"
           style={{
-            fontFamily: "Playfair Display, serif",
+            fontFamily: "var(--font-sub)",
             fontSize: "clamp(28px, 3.33vw, 48px)",
             lineHeight: "1.3",
             backgroundImage:
-              "linear-gradient(165.04deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+              "linear-gradient(165.04deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
           }}
         >
           Why Partner With Us?
@@ -29,9 +29,9 @@ export default function WhyPartnerWithUs() {
 
         {/* ── Body with drop-cap W ── */}
         <p
-          className="text-[#4A554F] text-center"
+          className="text-body text-center"
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: 'var(--font-body)',
             fontWeight: 300,
             fontSize: "clamp(14px, 1.04vw, 18px)",
             lineHeight: "27px",
@@ -42,10 +42,10 @@ export default function WhyPartnerWithUs() {
           <span
             className="float-left mr-0.5 mt-1 leading-none"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 300,
               fontSize: "clamp(24px, 2.22vw, 32px)",
-              color: "#4A554F",
+              color: "var(--color-body)",
               lineHeight: "48px",
             }}
           >
@@ -58,7 +58,7 @@ export default function WhyPartnerWithUs() {
           MBBS overseas opens up a world of opportunities for{" "}
           <strong
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 700,
             }}
           >

@@ -29,22 +29,10 @@ export default function EnrollNowSection() {
   return (
     <>
       <style>{`
-        @keyframes enrollFadeUp {
-          0%   { opacity: 0; transform: translateY(32px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes enrollFadeIn {
-          0%   { opacity: 0; }
-          100% { opacity: 1; }
-        }
-        @keyframes enrollSlideUp {
-          0%   { opacity: 0; transform: translateY(48px) scale(0.98); }
-          100% { opacity: 1; transform: translateY(0)   scale(1); }
-        }
-        @keyframes arrowSlide {
-          0%   { transform: translateX(-5px) scaleY(-1); opacity: 0; }
-          100% { transform: translateX(0)    scaleY(-1); opacity: 1; }
-        }
+        
+        
+        
+        
 
         .enroll-subtitle {
           opacity: 0;
@@ -52,7 +40,7 @@ export default function EnrollNowSection() {
           animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
         }
         .enroll-subtitle.visible {
-          animation: enrollFadeUp 0.8s 0.1s forwards cubic-bezier(0.22, 1, 0.36, 1);
+          animation: sp-fade-up 0.8s 0.1s forwards cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .enroll-title {
@@ -60,28 +48,28 @@ export default function EnrollNowSection() {
           animation-fill-mode: forwards;
         }
         .enroll-title.visible {
-          animation: enrollFadeUp 0.9s 0.25s forwards cubic-bezier(0.22, 1, 0.36, 1);
+          animation: sp-fade-up 0.9s 0.25s forwards cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .enroll-btn {
           opacity: 0;
         }
         .enroll-btn.visible {
-          animation: enrollFadeUp 0.8s 0.42s forwards cubic-bezier(0.22, 1, 0.36, 1);
+          animation: sp-fade-up 0.8s 0.42s forwards cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .enroll-image {
           opacity: 0;
         }
         .enroll-image.visible {
-          animation: enrollSlideUp 1.1s 0.55s forwards cubic-bezier(0.22, 1, 0.36, 1);
+          animation: sp-slide-up 1.1s 0.55s forwards cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .enroll-btn-inner {
           transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
         .enroll-btn-inner:hover {
-          box-shadow: 0 0 0 3px rgba(255,255,255,0.25);
+          box-shadow: 0 0 0 3px color-mix(in srgb, white 25%, transparent);
           transform: translateY(-2px);
         }
         .enroll-btn-inner:active {
@@ -102,7 +90,7 @@ export default function EnrollNowSection() {
       <section
         ref={sectionRef}
         className="relative w-full overflow-hidden"
-        style={{ backgroundColor: "#0B3B2E"}}
+        style={{ backgroundColor: "var(--color-brand-forest-deep)"}}
         aria-label="Enroll Now Section"
       >
         {/* ── Background city skyline pattern ── */}
@@ -126,9 +114,9 @@ export default function EnrollNowSection() {
             <p
               className="text-center uppercase tracking-[0.16em] font-semibold"
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(11px, 1.11vw, 18px)",
-                color: "#F1E3C8",
+                color: "var(--color-brand-champagne-soft-bg)",
                 letterSpacing: "3.41px",
               }}
             >
@@ -143,7 +131,7 @@ export default function EnrollNowSection() {
             <h2
               className="text-white text-center"
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: 'var(--font-sub)',
                 fontWeight: 400,
                 fontSize: "clamp(28px, 3.33vw, 64px)",
                 lineHeight: 1.2,
@@ -160,7 +148,7 @@ export default function EnrollNowSection() {
           <div className={`enroll-btn${visible ? " visible" : ""}`}>
             <Link
               href="/contact-us"
-              className="enroll-btn-inner flex items-center justify-center gap-[0.63vw] bg-white"
+              className="enroll-btn-inner flex items-center justify-center gap-[0.63vw] bg-brand-champagne-rich"
               style={{
                 height: "clamp(42px, 3.33vw, 64px)",
                 padding: "0 clamp(20px, 1.67vw, 32px)",
@@ -171,9 +159,9 @@ export default function EnrollNowSection() {
               <span
                 className="uppercase tracking-tight font-normal"
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontSize: "clamp(12px, 1.11vw, 21px)",
-                  color: "#0B3B2E",
+                  color: "var(--color-brand-sky)",
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -192,7 +180,7 @@ export default function EnrollNowSection() {
                 >
                   <path
                     d="M21.2578 12.9688L14.2969 19.9062L12.8672 18.5L17.4141 13.9531H4.00781V11.9609H17.4141L12.8672 7.41406L14.2969 6.00781L21.2578 12.9688Z"
-                    fill="#0B3B2E"
+                    fill="var(--color-brand-sky)"
                   />
                 </svg>
               </span>

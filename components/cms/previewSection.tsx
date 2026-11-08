@@ -218,7 +218,7 @@ export default function PreviewSection() {
     <div className="relative">
       <button
         onClick={clearPreview}
-        className="absolute left-4 top-4 z-50 rounded-lg bg-white/90 px-3 py-1.5 text-xs font-semibold text-[#1C2B25] shadow-sm ring-1 ring-line transition hover:bg-white"
+        className="absolute left-4 top-4 z-50 rounded-lg bg-white/90 px-3 py-1.5 text-xs font-semibold text-ink shadow-sm ring-1 ring-line transition hover:bg-white"
       >
         ← Back to editor
       </button>

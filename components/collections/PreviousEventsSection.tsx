@@ -212,7 +212,7 @@ function EventCard({ event, index, visible }: EventCardProps) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 53.515%)",
+              "linear-gradient(to top, color-mix(in srgb, black 85%, transparent) 0%, transparent 53.515%)",
           }}
         />
       </div>
@@ -220,11 +220,11 @@ function EventCard({ event, index, visible }: EventCardProps) {
       {/* Date badge — top-left, blue rounded-br pill */}
       <div
         className="absolute top-0 left-0 flex items-center px-4 py-2 rounded-br-[28px]"
-        style={{ backgroundColor: "#0A6B44" }}
+        style={{ backgroundColor: "var(--color-brand-royal)" }}
       >
         <span
           className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.date}
         </span>
@@ -235,21 +235,21 @@ function EventCard({ event, index, visible }: EventCardProps) {
         {/* City name */}
         <h3
           className="text-white text-xl sm:text-2xl lg:text-[28px] font-bold leading-tight m-0 line-clamp-2"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.city}
         </h3>
         {/* Venue */}
         <p
           className="text-white text-sm sm:text-base font-semibold leading-tight m-0 truncate"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.venue}
         </p>
         {/* Address */}
         <p
           className="text-white/90 text-xs sm:text-sm font-light leading-snug m-0 line-clamp-2"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.address}
         </p>
@@ -261,7 +261,7 @@ function EventCard({ event, index, visible }: EventCardProps) {
 // ── Mobile card — photo + white caption row ──────────────────────────────────
 function CompactEventCard({ event }: { event: EventCardData }) {
   return (
-    <article className="w-full overflow-hidden rounded-2xl bg-white shadow-[0_4px_16px_rgba(0,20,45,0.08)]">
+    <article className="w-full overflow-hidden rounded-2xl bg-white shadow-lg shadow-brand-forest-deep/8">
       <div className="relative aspect-[2/1] w-full">
         <Image
           src={event.image}
@@ -272,11 +272,11 @@ function CompactEventCard({ event }: { event: EventCardData }) {
         />
         <div
           className="absolute top-0 left-0 flex items-center rounded-br-2xl px-3 py-1.5"
-          style={{ backgroundColor: "#0A6B44" }}
+          style={{ backgroundColor: "var(--color-brand-royal)" }}
         >
           <span
             className="text-[11px] leading-none font-semibold whitespace-nowrap text-white"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             {event.date}
           </span>
@@ -284,14 +284,14 @@ function CompactEventCard({ event }: { event: EventCardData }) {
       </div>
       <div className="flex items-center justify-between gap-3 px-4 py-3.5">
         <h3
-          className="m-0 min-w-0 truncate text-base leading-tight font-bold text-[#12211C]"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="m-0 min-w-0 truncate text-base leading-tight font-bold text-ink"
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.city}
         </h3>
         <p
-          className="m-0 max-w-[52%] min-w-0 shrink-0 truncate text-xs leading-tight font-medium text-[#4A554F]"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="m-0 max-w-[52%] min-w-0 shrink-0 truncate text-xs leading-tight font-medium text-body"
+          style={{ fontFamily: 'var(--font-body)' }}
         >
           {event.venue}
         </p>
@@ -331,9 +331,9 @@ function YearGroup({ year, events }: YearGroupProps) {
     <div ref={sectionRef} className="flex flex-col gap-8 md:gap-16">
       {/* Section heading */}
       <h2
-        className="pes-heading text-[#12211C] text-[28px] md:text-[36px] font-bold leading-tight m-0"
+        className="pes-heading text-ink text-[28px] md:text-[36px] font-bold leading-tight m-0"
         style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: 'var(--font-heading)',
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(20px)",
           transition: "opacity 0.7s ease 0.05s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s",
@@ -344,7 +344,7 @@ function YearGroup({ year, events }: YearGroupProps) {
         {/* Year in green italic */}
         <span
           className="italic"
-          style={{ color: "#0E8F5B", fontWeight: 700 }}
+          style={{ color: "var(--color-brand-forest)", fontWeight: 700 }}
         >
           {year}
         </span>
@@ -353,7 +353,7 @@ function YearGroup({ year, events }: YearGroupProps) {
         {/* "Successfully Conducted" in green italic */}
         <span
           className="italic"
-          style={{ color: "#0E8F5B", fontWeight: 700 }}
+          style={{ color: "var(--color-brand-forest)", fontWeight: 700 }}
         >
           Successfully Conducted
         </span>
@@ -407,7 +407,7 @@ export default function PreviousEventsSection() {
           transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .pes-card:hover {
-          box-shadow: 0 20px 56px rgba(0, 57, 234, 0.20);
+          box-shadow: 0 20px 56px color-mix(in srgb, var(--color-brand-blue) 20%, transparent);
           transform: translateY(-4px) scale(1.01) !important;
         }
       `}</style>

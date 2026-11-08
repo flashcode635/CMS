@@ -27,7 +27,7 @@ export default function PostTitleCard({
   coverImage,
 }: PostTitleCardProps) {
   return (
-    <section className="relative w-full rounded-3xl overflow-hidden bg-[#0B3B2E]" aria-label="Blog post title">
+    <section className="relative w-full rounded-3xl overflow-hidden bg-brand-forest-deep" aria-label="Blog post title">
       {/* Cover */}
       <div className="relative inset-x-0" style={{ height: "clamp(300px, 34vw, 430px)" }}>
         <Image
@@ -44,7 +44,7 @@ export default function PostTitleCard({
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(240,246,255,0.97) 0%, rgba(240,246,255,0.82) 26%, rgba(240,246,255,0.25) 52%, rgba(240,246,255,0) 70%)",
+              "linear-gradient(to top, color-mix(in srgb, var(--color-brand-sky) 97%, transparent) 0%, color-mix(in srgb, var(--color-brand-sky) 82%, transparent) 26%, color-mix(in srgb, var(--color-brand-sky) 25%, transparent) 52%, transparent 70%)",
           }}
         />
 
@@ -53,23 +53,23 @@ export default function PostTitleCard({
           <div className="flex items-center gap-2.5">
             <span
               className="px-2.5 py-1 rounded-md text-white font-medium"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, background: "#0A6B44" }}
+              style={{ fontFamily: 'var(--font-body)', fontSize: 12, background: "var(--color-brand-royal)" }}
             >
               {category}
             </span>
             <time
               dateTime={date}
-              className="text-[#4A554F]"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, fontWeight: 500 }}
+              className="text-body"
+              style={{ fontFamily: 'var(--font-body)', fontSize: 12.5, fontWeight: 500 }}
             >
               {date}
             </time>
           </div>
 
           <h2
-            className="m-0 uppercase font-bold text-[#0B3B2E]"
+            className="m-0 uppercase font-bold text-brand-forest-deep"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-sub)',
               fontSize: "clamp(19px, 2.5vw, 31px)",
               lineHeight: 1.22,
               maxWidth: "34ch",
@@ -79,8 +79,8 @@ export default function PostTitleCard({
           </h2>
 
           <p
-            className="m-0 text-[#4A554F]"
-            style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(12.5px, 1.05vw, 15px)" }}
+            className="m-0 text-body"
+            style={{ fontFamily: 'var(--font-body)', fontSize: "clamp(12.5px, 1.05vw, 15px)" }}
           >
             {subtitle}
           </p>
@@ -90,18 +90,18 @@ export default function PostTitleCard({
       {/* Meta row under the card, light blue chip like the design */}
       <div
         className="flex items-center justify-between gap-4 px-5 sm:px-8 py-4 text-white"
-        style={{ background: "linear-gradient(93.86deg, rgba(14,143,91,0.85) 12.7%, rgba(216,178,110,0.85) 87.17%)" }}
+        style={{ background: "linear-gradient(93.86deg, color-mix(in srgb, var(--color-brand-forest) 85%, transparent) 12.7%, color-mix(in srgb, var(--color-brand-champagne) 85%, transparent) 87.17%)" }}
       >
         <span
           className="flex items-center gap-2.5 min-w-0"
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, fontWeight: 500 }}
+          style={{ fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 500 }}
         >
           <CalendarDays className="w-4 h-4 shrink-0" aria-hidden />
           by {author}
         </span>
         <span
           className="flex items-center gap-1.5 shrink-0 text-white/90"
-          style={{ fontFamily: "'Inter', sans-serif", fontSize: 13 }}
+          style={{ fontFamily: 'var(--font-body)', fontSize: 13 }}
         >
           <Clock className="w-4 h-4" aria-hidden />
           {readTime} minute read

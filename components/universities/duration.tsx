@@ -38,14 +38,14 @@ export const DEFAULT_CONTENT: Required<DurationProps> = {
             title: "Theoretical + practical medical training",
             description: "Academic study",
             label: "Academic study",
-            color: "#0B3B2E",
+            color: "var(--color-brand-forest-deep)",
         },
         {
             duration: "1 YEAR",
             title: "Clinical practice",
             description: "Compulsory internship",
             label: "Compulsory internship",
-            color: "#D8B26E",
+            color: "var(--color-brand-champagne)",
         },
     ],
 };
@@ -66,23 +66,23 @@ export default function DurationSection({
         <section
             id={anchorId || undefined}
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(115deg,#EDF3EF_0%,#EDF3EF_48%,#EFE9DE_100%)] py-14 @min-[640px]:py-16 @min-[1024px]:py-20"
+            className="bg-[linear-gradient(115deg,var(--color-surface-alt)_0%,var(--color-surface-alt)_48%,var(--color-surface-alt)_100%)] py-14 @min-[640px]:py-16 @min-[1024px]:py-20"
         >
             <div className="mx-auto max-w-6xl px-5 @min-[640px]:px-8">
                 <h2 className="flex items-center gap-4 text-2xl font-medium leading-tight @min-[640px]:text-3xl @min-[1024px]:text-4xl">
                     <span
                         aria-hidden="true"
-                        className="h-14 w-1 flex-none rounded-full bg-[#0E8F5B] @min-[640px]:h-16"
+                        className="h-14 w-1 flex-none rounded-full bg-brand-forest @min-[640px]:h-16"
                     />
                     <span>
-                        <span className="text-[#0E8F5B]">{titleGreen}</span>
+                        <span className="text-brand-forest">{titleGreen}</span>
                         <br />
-                        <span className="text-[#0A6B44]">{titleBlue}</span>
+                        <span className="text-brand-royal">{titleBlue}</span>
                     </span>
                 </h2>
 
-                <div className="mx-auto mt-10 flex max-w-3xl flex-col overflow-hidden rounded-xl ring-1 ring-white/60 shadow-[0_14px_24px_rgba(15,35,65,0.2)] @min-[640px]:flex-row">
-                    <div className="flex min-h-56 w-full flex-col justify-center bg-[linear-gradient(135deg,#078d4d_0%,#07926b_34%,#2d63f2_100%)] px-7 py-7 text-white @min-[640px]:min-h-64 @min-[640px]:w-[34%] @min-[640px]:px-6">
+                <div className="mx-auto mt-10 flex max-w-3xl flex-col overflow-hidden rounded-xl ring-1 ring-white/60 shadow-lg shadow-brand-forest-deep/20 @min-[640px]:flex-row">
+                    <div className="flex min-h-56 w-full flex-col justify-center bg-[linear-gradient(135deg,var(--color-brand-forest)_0%,var(--color-brand-forest)_34%,var(--color-brand-royal)_100%)] px-7 py-7 text-white @min-[640px]:min-h-64 @min-[640px]:w-[34%] @min-[640px]:px-6">
                         <p className="text-xs font-medium @min-[640px]:text-sm">{totalLabel}</p>
                         <div className="mt-1 flex items-end gap-3">
                             <span className="text-8xl font-light leading-none tracking-tight @min-[640px]:text-9xl">
@@ -92,8 +92,8 @@ export default function DurationSection({
                         </div>
                     </div>
 
-                    <div className="w-full bg-[linear-gradient(135deg,#171b2b_0%,#111522_52%,#0c1020_100%)] px-5 py-5 text-white @min-[640px]:w-[66%] @min-[640px]:px-7 @min-[640px]:py-6">
-                        <h3 className="max-w-md font-serif text-base font-semibold leading-tight @min-[640px]:text-lg">
+                    <div className="w-full bg-[linear-gradient(135deg,var(--color-ink)_0%,var(--color-ink)_52%,var(--color-ink)_100%)] px-5 py-5 text-white @min-[640px]:w-[66%] @min-[640px]:px-7 @min-[640px]:py-6">
+                        <h3 className="max-w-md font-sub text-base font-semibold leading-tight @min-[640px]:text-lg">
                             {cardTitle}
                         </h3>
                         <p className="mt-2 text-[9px] text-brand-champagne-soft/70 @min-[640px]:text-[10px]">

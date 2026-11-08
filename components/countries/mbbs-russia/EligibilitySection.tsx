@@ -21,12 +21,12 @@ export default function EligibilitySection({
   const eligibilityCards = cards;
   return (
     /*
-     * Section background: light blue-grey (#F7F4EE) — the Figma page canvas
+     * Section background: light blue-grey (var(--color-surface)) — the Figma page canvas
      * colour visible behind all the white cards in the screenshot.
      */
     <section
       className="w-full py-16 px-5 @min-[1024px]:px-24.75"
-      style={{ backgroundColor: "#F7F4EE" }}
+      style={{ backgroundColor: "var(--color-surface)" }}
     >
       <div
         className="flex flex-col w-full mx-auto"
@@ -35,18 +35,18 @@ export default function EligibilitySection({
         {/* ── Section Header ── */}
         <div className="flex flex-col w-full" style={{ gap: 16 }}>
           {/*
-           * Heading gradient: 172.68deg  →  left = #0E8F5B (green),
-           * right = #0B3B2E (blue).  Visually the left portion of the long
+           * Heading gradient: 172.68deg  →  left = var(--color-brand-forest) (green),
+           * right = var(--color-brand-forest-deep) (blue).  Visually the left portion of the long
            * heading text appears green and slides into teal/blue at the right.
            */}
           <h2
             className="w-full font-semibold"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-sub)',
               fontSize: "clamp(32px, 2.5cqw, 48px)",
               lineHeight: "clamp(38px, 2.92cqw, 56px)",
               backgroundImage:
-                "linear-gradient(172.684deg, rgb(0, 146, 63) 12.704%, rgb(49, 99, 255) 87.17%)",
+                "linear-gradient(172.684deg, var(--color-brand-forest) 12.704%, var(--color-blue-600) 87.17%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -61,7 +61,7 @@ export default function EligibilitySection({
             style={{
               height: 2,
               width: "100%",
-              backgroundColor: "#0E8F5B",
+              backgroundColor: "var(--color-brand-forest)",
               borderRadius: 9999,
             }}
           />

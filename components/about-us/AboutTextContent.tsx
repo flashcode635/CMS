@@ -12,9 +12,9 @@ export default function AboutTextContent() {
         {/* ── Block 1 ─────────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-6">
           <h2
-            className="text-[#12211C]"
+            className="text-ink"
             style={{
-              fontFamily: "Playfair Display, serif",
+              fontFamily: "var(--font-sub)",
               fontWeight: 800,
               fontSize:   "clamp(22px, 2.5vw, 32px)",
               lineHeight: "1.5",
@@ -24,9 +24,9 @@ export default function AboutTextContent() {
           </h2>
 
           <div
-            className="flex flex-col gap-4 text-[#4A554F]"
+            className="flex flex-col gap-4 text-body"
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 300,
               fontSize:   "clamp(15px, 1.1vw, 18px)",
               lineHeight: "1.65",
@@ -55,9 +55,9 @@ export default function AboutTextContent() {
         {/* ── Block 2 ─────────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-6">
           <h2
-            className="text-[#12211C]"
+            className="text-ink"
             style={{
-              fontFamily: "Playfair Display, serif",
+              fontFamily: "var(--font-sub)",
               fontWeight: 800,
               fontSize:   "clamp(22px, 2.5vw, 32px)",
               lineHeight: "1.5",
@@ -67,9 +67,9 @@ export default function AboutTextContent() {
           </h2>
 
           <div
-            className="flex flex-col gap-4 text-[#4A554F]"
+            className="flex flex-col gap-4 text-body"
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 300,
               fontSize:   "clamp(15px, 1.1vw, 18px)",
               lineHeight: "1.65",

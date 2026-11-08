@@ -105,14 +105,14 @@ export default function DocumentsSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
+            className="bg-[linear-gradient(120deg,var(--color-surface-alt)_0%,var(--color-surface-alt)_50%,var(--color-surface-alt)_100%)] py-16 @min-[1024px]:py-24"
         >
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-4 px-4 @min-[640px]:px-6 @min-[1024px]:grid-cols-2 @min-[1024px]:gap-16">
                 {/* Left: capsule-clipped photo (rectangle, top & bottom fully rounded) */}
                 <div className="relative mx-auto aspect-3/4 w-64 @min-[640px]:w-80 @min-[768px]:h-full @min-[1024px]:max-w-md">
                     <div
                         aria-hidden="true"
-                        className="absolute -inset-3 rounded-t-full rounded-b-full border border-[#A9B5AE]/50"
+                        className="absolute -inset-3 rounded-t-full rounded-b-full border border-muted/50"
                     />
                     <div className="absolute inset-0 overflow-hidden rounded-t-full rounded-b-full">
                         <Image

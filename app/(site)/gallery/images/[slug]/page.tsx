@@ -32,7 +32,7 @@ export default async function EventGalleryPage({ params }: { params: Promise<{ s
   const displayTitle = formatTitle(slug);
 
   return (
-    <div className="flex flex-col @container" style={{ backgroundColor: "#F7F4EE" }}>
+    <div className="flex flex-col @container" style={{ backgroundColor: "var(--color-surface)" }}>
 
       {/* ── Section 1: Banner ── */}
       <PageBanner

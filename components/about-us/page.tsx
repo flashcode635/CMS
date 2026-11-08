@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function AboutUsPage() {
   return (
-    <div className="flex flex-col" style={{ backgroundColor: "#F7F4EE", width: "100%" }}>
+    <div className="flex flex-col" style={{ backgroundColor: "var(--color-surface)", width: "100%" }}>
       {/* ── Page Banner ── */}
       <PageBanner
         title="About Us"
@@ -32,14 +32,14 @@ export default function AboutUsPage() {
         (
           <>
             <div
-          className="flex flex-col text-[#4A554F]"
-          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
+          className="flex flex-col text-body"
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 300 }}
         >
           
           <p className="text-base flex justify-start items-end sm:text-lg leading-relaxed">
             <span
               className="float-left font-normal text-[2rem] sm:text-[2.3rem] leading-none "
-              style={{ fontFamily: "Inter, sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               W
             </span>

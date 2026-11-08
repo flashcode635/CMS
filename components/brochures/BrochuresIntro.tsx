@@ -34,7 +34,7 @@ export default function BrochuresIntro() {
     <section
       ref={sectionRef}
       className="w-full px-5 md:px-10 lg:px-14 xl:px-20 py-10 md:py-12 lg:py-14"
-      style={{ backgroundColor: "#EFE9DE" }}
+      style={{ backgroundColor: "var(--color-surface-alt)" }}
     >
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10 xl:gap-16 justify-between w-full">
 
@@ -50,8 +50,8 @@ export default function BrochuresIntro() {
           <h2
             className="text-[32px] md:text-[42px] lg:text-[46px] font-semibold leading-[1.15] tracking-[-0.9px] capitalize m-0"
             style={{
-              fontFamily: "'Playfair Display', serif",
-              backgroundImage: "linear-gradient(164.48deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+              fontFamily: 'var(--font-sub)',
+              backgroundImage: "linear-gradient(164.48deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -63,11 +63,11 @@ export default function BrochuresIntro() {
           <div
             className="flex flex-col gap-4"
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 400,
               fontSize: "clamp(15px, 1.05vw, 18px)",
               lineHeight: 1.55,
-              color: "#4A554F",
+              color: "var(--color-body)",
             }}
           >
             <p className="m-0">

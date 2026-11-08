@@ -192,8 +192,8 @@ const LOAD_MORE_COUNT = 5;
 
 // colour tokens per variant
 const VARIANT: Record<string, { bg: string; border: string }> = {
-  blue:  { bg: "bg-[#F1E3C8]", border: "border-[rgba(216,178,110,0.5)]"  },
-  green: { bg: "bg-[#EDF3EF]", border: "border-[rgba(10,107,68,0.5)]"    },
+  blue:  { bg: "bg-brand-champagne-soft-bg", border: "border-brand-champagne/50"  },
+  green: { bg: "bg-surface-alt", border: "border-brand-royal/50"    },
 };
 
     const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
@@ -217,13 +217,13 @@ const VARIANT: Record<string, { bg: string; border: string }> = {
                                 VARIANT[p.variant].border,
                                 /* asymmetric radius: tl normal, tr large pill */
                                 "rounded-lg rounded-tr-[55px] ",
-                                "shadow-[0px_16px_40px_-8px_rgba(88,92,95,0.16)]",
+                                "shadow-xl shadow-black/16",
                                 "transition-all duration-300",
-                                "hover:-translate-y-2 hover:shadow-[0px_24px_48px_rgba(216,178,110,0.15)]",
+                                "hover:-translate-y-2 hover:shadow-xl shadow-brand-champagne/15",
                               ].join(" ")}
                             >
                               {/* Icon 64px */}
-                              <div className="relative w-12 h-12 rounded-lg bg-[#F1E3C8] overflow-hidden shrink-0">
+                              <div className="relative w-12 h-12 rounded-lg bg-brand-champagne-soft-bg overflow-hidden shrink-0">
                                 <Image
                                   src={p.desktopIcon}
                                   alt={p.title??"picture"}
@@ -238,15 +238,15 @@ const VARIANT: Record<string, { bg: string; border: string }> = {
                               <div className="flex flex-col items-center  h-full 
                               justify-center gap-1">
                                 <p
-                                  className="text-[#12211C] text-xs leading-4"
+                                  className="text-ink text-xs leading-4"
                                   style={{ fontFamily: "sans-serif" }}
                                 >
                                   {p.title}
                                 </p>
                                 {/* <p
-                                  className="text-[#66716A] text-[9px] leading-4
+                                  className="text-muted text-[9px] leading-4
                                    font-normal"
-                                  style={{ fontFamily: "'Inter', sans-serif" }}
+                                  style={{ fontFamily: 'var(--font-body)' }}
                                 >
                                   {p.subtitle??""}
                                 </p> */}
@@ -269,7 +269,7 @@ const VARIANT: Record<string, { bg: string; border: string }> = {
                               )
                             }
                             disabled={!hasMorePartners}
-                            className="bg-brand-blue px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0B3B2E] disabled:cursor-not-allowed disabled:bg-[#D8B26E]"
+                            className="bg-brand-blue px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-forest-deep disabled:cursor-not-allowed disabled:bg-brand-champagne-rich"
                           >
                             Load More
                           </Button>

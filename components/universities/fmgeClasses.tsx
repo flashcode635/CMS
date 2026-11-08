@@ -113,7 +113,7 @@ export default function FmgeClassesSection({
                             {features.map((feature) => (
                                 <div
                                     key={feature.label}
-                                    className="flex items-center gap-3 rounded-lg bg-[#EFE9DE] px-4 py-3"
+                                    className="flex items-center gap-3 rounded-lg bg-surface-alt px-4 py-3"
                                 >
                                     {feature.icon}
                                     <span className="text-xs font-medium text-body">
@@ -123,7 +123,7 @@ export default function FmgeClassesSection({
                             ))}
                         </div>
 
-                        <div className="mt-6 flex items-start gap-3 rounded-lg bg-[#EFE9DE] p-4 @min-[1024px]:ml-5.5">
+                        <div className="mt-6 flex items-start gap-3 rounded-lg bg-surface-alt p-4 @min-[1024px]:ml-5.5">
                             <div
                                 aria-hidden="true"
                                 className="h-full w-1 flex-none rounded-full bg-brand-emerald"
@@ -145,7 +145,7 @@ export default function FmgeClassesSection({
                                 />
                                 <div
                                     aria-hidden="true"
-                                    className="absolute inset-0 bg-[#072A21]/25"
+                                    className="absolute inset-0 bg-brand-forest-deep/25"
                                 />
                                 <Image
                                     src="/home/party-yt-wordmark.svg"

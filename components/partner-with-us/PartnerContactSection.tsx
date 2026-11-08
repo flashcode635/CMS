@@ -29,7 +29,7 @@ function ArrowRight({ size = 18 }: { size?: number }) {
 function ChevronDown() {
   return (
     <svg width="14" height="8" viewBox="0 0 14 8" fill="none" aria-hidden>
-      <path d="M1 1L7 7L13 1" stroke="#4A554F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1 1L7 7L13 1" stroke="var(--color-body)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -44,7 +44,7 @@ function ExtLink() {
 }
 
 // ── Shared input styles ───────────────────────────────────────────────────────
-const inputCls = "w-full h-12 xl:h-13 rounded-lg border border-[#D6CCBA] bg-white px-4 text-sm font-medium text-[#1C2B25] placeholder:text-[#6F7B74] outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft transition-all";
+const inputCls = "w-full h-12 xl:h-13 rounded-lg border border-line-strong bg-white px-4 text-sm font-medium text-ink placeholder:text-muted outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft transition-all";
 
 // ── Contact info data ─────────────────────────────────────────────────────────
 const CONTACT = [
@@ -80,7 +80,7 @@ function ContactCard({ item }: { item: ContactItem }) {
       className="flex items-start gap-3 rounded-xl border border-white/12 p-4"
       style={{
         backgroundImage:
-          "linear-gradient(145.45deg, rgba(14,143,91,0.10) 12.704%, rgba(216,178,110,0.10) 87.17%)",
+          "linear-gradient(145.45deg, color-mix(in srgb, var(--color-brand-forest) 10%, transparent) 12.704%, color-mix(in srgb, var(--color-brand-champagne) 10%, transparent) 87.17%)",
       }}
     >
       <Image
@@ -135,7 +135,7 @@ function ContactForm() {
   };
 
   const cardCls =
-    "rounded-3xl border border-white/10 bg-white/[0.06] p-5 shadow-[0px_21px_30px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:p-6 xl:p-8";
+    "rounded-3xl border border-white/10 bg-white/[0.06] p-5 shadow-lg shadow-black/18 backdrop-blur-sm sm:p-6 xl:p-8";
 
   if (submitted) {
     return (
@@ -177,7 +177,7 @@ function ContactForm() {
           <select
             value={form.country}
             onChange={set("country")}
-            className={`${inputCls} cursor-pointer appearance-none pr-10 ${form.country ? "text-[#1C2B25]" : "text-[#6F7B74]"}`}
+            className={`${inputCls} cursor-pointer appearance-none pr-10 ${form.country ? "text-ink" : "text-muted"}`}
           >
             <option value="" disabled>Country</option>
             <option>India</option><option>Russia</option><option>Georgia</option>
@@ -202,7 +202,7 @@ function ContactForm() {
             value={form.message}
             onChange={set("message")}
             rows={4}
-            className="w-full min-h-28 resize-none rounded-lg border border-line-strong bg-white px-4 py-3 text-sm font-medium text-[#1C2B25] placeholder:text-[#6F7B74] outline-none transition-all focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft"
+            className="w-full min-h-28 resize-none rounded-lg border border-line-strong bg-white px-4 py-3 text-sm font-medium text-ink placeholder:text-muted outline-none transition-all focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft"
           />
         </div>
 
@@ -212,7 +212,7 @@ function ContactForm() {
           fullWidth
           rightIcon={<ArrowRight />}
           className="mt-1 h-14 rounded-lg text-sm font-semibold uppercase tracking-wide text-white transition-opacity hover:opacity-90 active:scale-[0.98]"
-          style={{ backgroundImage: "linear-gradient(163.77deg, #0E8F5B 12.704%, #0B3B2E 87.17%)" }}
+          style={{ backgroundImage: "linear-gradient(163.77deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)" }}
         >
           SUBMIT
         </Button>
@@ -231,7 +231,7 @@ export default function PartnerContactSection() {
       <div
         id="partner-contact"
         className="relative w-full overflow-hidden"
-        style={{ backgroundColor: "#12211C" }}
+        style={{ backgroundColor: "var(--color-ink)" }}
       >
         {/* soft diagonal light streak (design background) */}
         <div
@@ -239,7 +239,7 @@ export default function PartnerContactSection() {
           className="pointer-events-none absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(115deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 26%, rgba(255,255,255,0) 46%, rgba(216,178,110,0.10) 100%)",
+              "linear-gradient(115deg, color-mix(in srgb, white 7%, transparent) 0%, color-mix(in srgb, white 2%, transparent) 26%, transparent 46%, color-mix(in srgb, var(--color-brand-champagne) 10%, transparent) 100%)",
           }}
         />
 
@@ -267,7 +267,7 @@ export default function PartnerContactSection() {
 
                 {/* Contact info */}
                 <div className="flex min-w-0 flex-col gap-5">
-                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "Playfair Display, serif" }}>
+                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "var(--font-sub)" }}>
                     Reach us through
                   </h3>
                   <div className="flex flex-col gap-3">
@@ -277,7 +277,7 @@ export default function PartnerContactSection() {
 
                 {/* Social links */}
                 <div className="flex min-w-0 flex-col gap-5">
-                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "Playfair Display, serif" }}>
+                  <h3 className="text-xl font-bold text-white xl:text-2xl" style={{ fontFamily: "var(--font-sub)" }}>
                     Connect with us
                   </h3>
                   <div className="flex flex-col divide-y divide-white/10">
@@ -314,7 +314,7 @@ export default function PartnerContactSection() {
 
             {/* Contact info */}
             <div className="flex flex-col gap-5">
-              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "Playfair Display, serif" }}>
+              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "var(--font-sub)" }}>
                 Reach us through
               </h3>
               <div className="flex flex-col gap-3">
@@ -324,7 +324,7 @@ export default function PartnerContactSection() {
 
             {/* Social links */}
             <div className="flex flex-col gap-5">
-              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "Playfair Display, serif" }}>
+              <h3 className="text-[22px] font-bold text-white" style={{ fontFamily: "var(--font-sub)" }}>
                 Connect with us
               </h3>
               <div className="flex flex-col divide-y divide-white/10">

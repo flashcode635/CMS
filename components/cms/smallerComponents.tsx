@@ -15,7 +15,7 @@ export const StatusBadge = ({ status }: { status: Status }) => {
   return (
     <span
       className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${
-        published ? "bg-[#EDF3EF] text-[#0A6B44]" : "bg-amber-50 text-amber-600"
+        published ? "bg-surface-alt text-brand-royal" : "bg-amber-50 text-amber-600"
       }`}
     >
       {published ? "Live" : "Draft"}
@@ -25,7 +25,7 @@ export const StatusBadge = ({ status }: { status: Status }) => {
 
 export const Card = ({ title, action, children }: { title: string; action?: ReactNode; children: ReactNode }) => {
   return (
-    <section className="rounded-2xl border border-line bg-white p-5 shadow-[0_1px_2px_rgba(16,24,40,0.04)]">
+    <section className="rounded-2xl border border-line bg-white p-5 shadow-lg shadow-black/4">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-sm font-semibold tracking-tight">{title}</h3>
         {action}

@@ -16,10 +16,10 @@ export const EligibilityCards = ({key,img:Icon,title}:EligibilityCardProps)=>{
               px-4 py-4 sm:px-6 lg:px-8"
               style={{
                 gap: 8,
-                backgroundColor: "#ffffff",
-                border: "1px solid #EFE9DE",
+                backgroundColor: "white",
+                border: "1px solid var(--color-surface-alt)",
                 borderRadius: 16,
-                boxShadow: "0px 1.5px 1.5px rgba(0, 0, 0, 0.05)",
+                boxShadow: "0px 1.5px 1.5px color-mix(in srgb, black 5%, transparent)",
               }}
             >
             

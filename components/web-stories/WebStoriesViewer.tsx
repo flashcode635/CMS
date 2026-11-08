@@ -50,19 +50,19 @@ export default function WebStoriesViewer() {
 
   const story: WebStory = WEB_STORIES[active];
 const buttonStyles=`flex size-10 items-center justify-center 
-                rounded-full border border-white/15 bg-[#0B3B2E]/5
+                rounded-full border border-white/15 bg-brand-forest-deep/5
                 text-white backdrop-blur-sm transition-all duration-200
-                  hover:bg-[#0B3B2E] hover:scale-105 active:scale-95 cursor-pointer`;
+                  hover:bg-brand-forest-deep hover:scale-105 active:scale-95 cursor-pointer`;
   return (
     <section
       className=" p-3 sm:p-9 lg:p-12"
-      style={{ background: "linear-gradient(160deg, #072A21 0%, #0B3B2E 100%)" }}
+      style={{ background: "linear-gradient(160deg, var(--color-brand-forest-deep) 0%, var(--color-brand-forest-deep) 100%)" }}
       aria-label="Web stories viewer"
     >
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
         {/* ── Story viewer (first on mobile; moved to the right on desktop) ── */}
         <div
-          className="order-1 lg:order-2 lg:col-span-3 relative rounded-2xl overflow-hidden bg-[#072A21]"
+          className="order-1 lg:order-2 lg:col-span-3 relative rounded-2xl overflow-hidden bg-brand-forest-deep"
           style={{ height: "clamp(380px, 52vw, 520px)" }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
@@ -126,9 +126,9 @@ const buttonStyles=`flex size-10 items-center justify-center
                       "w-full rounded-xl p-3 text-left transition-all duration-300 cursor-pointer",
                       isActive
                         ? "text-white shadow-md"
-                        : "border border-line bg-white hover:border-[#C9E6D6] hover:bg-[#F1F6F2]",
+                        : "border border-line bg-white hover:border-brand-sky hover:bg-surface",
                     )}
-                    style={isActive ? { backgroundImage: "linear-gradient(135deg, #0E8F5B 0%, #0B3B2E 100%)" } : undefined}
+                    style={isActive ? { backgroundImage: "linear-gradient(135deg, var(--color-brand-forest) 0%, var(--color-brand-forest-deep) 100%)" } : undefined}
                   >
                     <span className="mb-1.5 flex items-center justify-between gap-2">
                       <Image
@@ -140,7 +140,7 @@ const buttonStyles=`flex size-10 items-center justify-center
                       />
                       <span
                         className="text-[11.5px] font-medium"
-                        style={{ fontFamily: "'Inter', sans-serif", color: isActive ? "rgba(255,255,255,0.85)" : "#7A857E" }}
+                        style={{ fontFamily: 'var(--font-body)', color: isActive ? "color-mix(in srgb, white 85%, transparent)" : "var(--color-muted)" }}
                       >
                         {s.date}
                       </span>
@@ -149,10 +149,10 @@ const buttonStyles=`flex size-10 items-center justify-center
                     <span
                       className="block font-semibold"
                       style={{
-                        fontFamily: "'Inter', sans-serif",
+                        fontFamily: 'var(--font-body)',
                         fontSize: "clamp(13.5px, 1.15vw, 15.5px)",
                         lineHeight: 1.4,
-                        color: isActive ? "#fff" : "#0B3B2E",
+                        color: isActive ? "white" : "var(--color-brand-forest-deep)",
                       }}
                     >
                       {s.title}
@@ -160,7 +160,7 @@ const buttonStyles=`flex size-10 items-center justify-center
 
                     <span
                       className="mt-1.5 block text-[12.5px] leading-[1.55]"
-                      style={{ fontFamily: "'Inter', sans-serif", color: isActive ? "rgba(255,255,255,0.88)" : "#4A554F" }}
+                      style={{ fontFamily: 'var(--font-body)', color: isActive ? "color-mix(in srgb, white 88%, transparent)" : "var(--color-body)" }}
                     >
                       {s.description}
                     </span>
@@ -176,11 +176,11 @@ const buttonStyles=`flex size-10 items-center justify-center
       <style>{`
         .wsv-list {
           scrollbar-width: thin;
-          scrollbar-color: rgba(216,178,110,0.22) transparent;
+          scrollbar-color: color-mix(in srgb, var(--color-brand-champagne) 22%, transparent) transparent;
         }
         .wsv-list::-webkit-scrollbar       { width:3px; }
         .wsv-list::-webkit-scrollbar-track { background:transparent; }
-        .wsv-list::-webkit-scrollbar-thumb { background:rgba(216,178,110,0.22); border-radius:99px; }
+        .wsv-list::-webkit-scrollbar-thumb { background:color-mix(in srgb, var(--color-brand-champagne) 22%, transparent); border-radius:99px; }
         @media (max-width: 767px) {
           .wsv-list { scrollbar-width: none; -ms-overflow-style: none; }
           .wsv-list::-webkit-scrollbar { width:0; height:0; display:none; }

@@ -16,8 +16,8 @@ export default function HeadingOfCard({
   type = "bold",
 }: HeadingOfCardProps) {
   const gradientStyle = {
-    fontFamily: "Inter, sans-serif",
-    backgroundImage: "linear-gradient(169deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+    fontFamily: 'var(--font-body)',
+    backgroundImage: "linear-gradient(169deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
   };
 
 const size = "text-3xl lg:text-[40px]";

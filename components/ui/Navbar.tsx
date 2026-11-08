@@ -54,18 +54,18 @@ function FlagIcon({ src, emoji, alt, size = 26 }: FlagIconProps) {
   const [err, setErr] = useState<boolean>(false);
   if (err) {
     return (
-      <span style={{ display:"flex", alignItems:"center", justifyContent:"center", width:size, height:size, borderRadius:5, background:"#F1E3C8", fontSize:size*0.52, flexShrink:0, userSelect:"none" }} aria-label={alt}>
+      <span style={{ display:"flex", alignItems:"center", justifyContent:"center", width:size, height:size, borderRadius:5, background:"var(--color-brand-champagne-soft-bg)", fontSize:size*0.52, flexShrink:0, userSelect:"none" }} aria-label={alt}>
         {emoji || "🏳️"}
       </span>
     );
   }
   return (
-    <div style={{ position:"relative", width:size, height:size, borderRadius:5, background:"#F1E3C8", flexShrink:0, overflow:"hidden" }}>
+    <div style={{ position:"relative", width:size, height:size, borderRadius:5, background:"var(--color-brand-champagne-soft-bg)", flexShrink:0, overflow:"hidden" }}>
       <Image src={src} alt={alt} fill style={{ objectFit:"cover" }} onError={() => setErr(true)} sizes={`${size}px`} />
     </div>
   );
 }
-export const bgColor= "bg-[#072A21]/96";
+export const bgColor= "bg-brand-forest-deep/96";
 
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
@@ -117,10 +117,10 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
         backdropFilter:       "blur(24px) saturate(1.5)",
         WebkitBackdropFilter: "blur(24px) saturate(1.5)",
         borderRadius:         18,
-        border:               "1px solid rgba(241, 227, 200, 0.13)",
-        boxShadow:            "0 20px 50px -8px rgba(7,42,33,0.7)",
+        border:               "1px solid color-mix(in srgb, var(--color-brand-champagne-soft) 13%, transparent)",
+        boxShadow:            "0 20px 50px -8px color-mix(in srgb, var(--color-brand-forest-deep) 70%, transparent)",
         padding:              16,
-        animation:            "np-in 0.17s ease forwards",
+        animation:            "sp-center-in 0.17s ease forwards",
         fontFamily:           "'Inter','Inter',sans-serif",
         pointerEvents:        "auto",
       }}
@@ -128,21 +128,21 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
       <div style={{ display:"flex", gap:12, alignItems:"stretch" }}>
 
         <div style={{ display:"flex", flexDirection:"column", gap:8, width:185, flexShrink:0 }}>
-          <div style={{ display:"flex", alignItems:"center", gap:10, height:44, padding:"0 11px", borderRadius:11, background:"rgba(255,255,255,0.07)", border:"1px solid rgba(255,255,255,0.12)", cursor:"pointer", position:"relative", overflow:"hidden" }}>
-            <span style={{ width:28, height:28, borderRadius:6, background:"rgba(255,255,255,0.15)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, color:"white" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:10, height:44, padding:"0 11px", borderRadius:11, background:"color-mix(in srgb, white 7%, transparent)", border:"1px solid color-mix(in srgb, white 12%, transparent)", cursor:"pointer", position:"relative", overflow:"hidden" }}>
+            <span style={{ width:28, height:28, borderRadius:6, background:"color-mix(in srgb, white 15%, transparent)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, color:"white" }}>
               <GraduationCap size={15} strokeWidth={1.8} />
             </span>
             <span style={{ fontSize:13, fontWeight:500, color:"white", whiteSpace:"nowrap" }}>Study Abroad</span>
           </div>
 
-          <div style={{ display:"flex", alignItems:"center", gap:10, height:44, padding:"0 11px", borderRadius:11, backgroundImage:"linear-gradient(147.53deg,#0E8F5B 12.704%,#0B3B2E 87.17%)", cursor:"pointer" }}>
-            <span style={{ width:28, height:28, borderRadius:6, background:"rgba(255,255,255,0.2)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, color:"white" }}>
+          <div style={{ display:"flex", alignItems:"center", gap:10, height:44, padding:"0 11px", borderRadius:11, backgroundImage:"linear-gradient(147.53deg,var(--color-brand-forest) 12.704%,var(--color-brand-forest-deep) 87.17%)", cursor:"pointer" }}>
+            <span style={{ width:28, height:28, borderRadius:6, background:"color-mix(in srgb, white 20%, transparent)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, color:"white" }}>
               <Stethoscope size={15} strokeWidth={1.8} />
             </span>
             <span style={{ fontSize:13, fontWeight:500, color:"white", whiteSpace:"nowrap" }}>MBBS Abroad</span>
           </div>
 
-          <div style={{ flex:1, borderRadius:"10px 10px 0 0", overflow:"hidden", background:"#F1E3C8", minHeight:160 }}>
+          <div style={{ flex:1, borderRadius:"10px 10px 0 0", overflow:"hidden", background:"var(--color-brand-champagne-soft-bg)", minHeight:160 }}>
             <Image src="/home/about-graduation.png" alt="Study abroad" width={185} height={220} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
           </div>
         </div>
@@ -155,10 +155,10 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
               style={{
                 display:"flex", alignItems:"center", height:36, borderRadius:9, overflow:"hidden",
                 width: searchExpanded ? "100%" : 130,
-                background: searchExpanded ? "rgba(14, 143, 91, 0.08)" : "rgba(255,255,255,0.07)",
-                border: searchExpanded ? "1px solid rgba(241, 227, 200, 0.5)" : "1px solid rgba(241, 227, 200, 0.2)",
+                background: searchExpanded ? "color-mix(in srgb, var(--color-brand-forest) 8%, transparent)" : "color-mix(in srgb, white 7%, transparent)",
+                border: searchExpanded ? "1px solid color-mix(in srgb, var(--color-brand-champagne-soft) 50%, transparent)" : "1px solid color-mix(in srgb, var(--color-brand-champagne-soft) 20%, transparent)",
                 padding: searchExpanded ? "0 10px" : "0 9px",
-                boxShadow: searchExpanded ? "0 0 0 3px rgba(14, 143, 91, 0.08)" : "none",
+                boxShadow: searchExpanded ? "0 0 0 3px color-mix(in srgb, var(--color-brand-forest) 8%, transparent)" : "none",
                 cursor:"text",
                 transition:"width .22s cubic-bezier(.4,0,.2,1), background .16s, box-shadow .16s",
               }}
@@ -172,7 +172,7 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
                 onFocus={() => setSearchFocused(true)}
                 aria-label="Search countries"
                 style={{ background:"transparent", border:"none", outline:"none",
-                   color:"white", fontSize:"12.5px", fontFamily:"'Inter',sans-serif", flex:1, minWidth:0 }}
+                   color:"white", fontSize:"12.5px", fontFamily:'var(--font-body)', flex:1, minWidth:0 }}
               />
               {searchQuery && (
                 // line 167
@@ -182,15 +182,15 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
                 </Button>
               )}
             </div>
-            {!searchExpanded && <span style={{ fontSize:10.5, color:"rgba(255,255,255,0.2)", fontFamily:"'Inter',sans-serif" }}>{COUNTRIES_DATA.length}</span>}
+            {!searchExpanded && <span style={{ fontSize:10.5, color:"color-mix(in srgb, white 20%, transparent)", fontFamily:'var(--font-body)' }}>{COUNTRIES_DATA.length}</span>}
           </div>
 
-          <div style={{ overflowY:"auto", maxHeight:320, borderRadius:10, background:"rgba(255,255,255,0.03)" }}
+          <div style={{ overflowY:"auto", maxHeight:320, borderRadius:10, background:"color-mix(in srgb, white 3%, transparent)" }}
             className="cd-scroll">
             <div style={{ display:"flex", flexDirection:"column", gap:2, padding:5 }}>
 
               <Link href="/countries" onClick={onClose}
-                style={{ display:"flex", alignItems:"center", justifyContent:"center", height:38, borderRadius:7, flexShrink:0, backgroundImage:"linear-gradient(156deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", fontSize:13, fontWeight:500, color:"white", textDecoration:"none", fontFamily:"'Inter',sans-serif", transition:"opacity .14s" }}
+                style={{ display:"flex", alignItems:"center", justifyContent:"center", height:38, borderRadius:7, flexShrink:0, backgroundImage:"linear-gradient(156deg,var(--color-brand-forest) 12.7%,var(--color-brand-forest-deep) 87.2%)", fontSize:13, fontWeight:500, color:"white", textDecoration:"none", fontFamily:'var(--font-body)', transition:"opacity .14s" }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = "0.85"; }}
                 onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}
               >
@@ -198,7 +198,7 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
               </Link>
 
               {filtered.length === 0 && (
-                <p style={{ fontSize:12, color:"rgba(255,255,255,0.28)", textAlign:"center", padding:"14px 0", fontFamily:"'Inter',sans-serif" }}>
+                <p style={{ fontSize:12, color:"color-mix(in srgb, white 28%, transparent)", textAlign:"center", padding:"14px 0", fontFamily:'var(--font-body)' }}>
                   No results for &ldquo;{searchQuery}&rdquo;
                 </p>
               )}
@@ -213,16 +213,16 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
                     onClick={onClose}
                     onMouseEnter={() => setCountry(country)}
                     onMouseLeave={scheduleHide}
-                    style={{ display:"flex", alignItems:"center", gap:10, height:42, padding:"0 10px", borderRadius:8, width:"100%", cursor:"pointer", border:"solid 1px rgba(241, 227, 200, 0.09)", outline:"none", position:"relative", overflow:"hidden", 
-                      // backgroundColor:"#F7F4EE", 
+                    style={{ display:"flex", alignItems:"center", gap:10, height:42, padding:"0 10px", borderRadius:8, width:"100%", cursor:"pointer", border:"solid 1px color-mix(in srgb, var(--color-brand-champagne-soft) 9%, transparent)", outline:"none", position:"relative", overflow:"hidden", 
+                      // backgroundColor:"var(--color-surface)", 
 
                       flexShrink:0, textAlign:"left", textDecoration:"none" }}
                   >
-                    <span aria-hidden style={{ position:"absolute", inset:0, borderRadius:"inherit", pointerEvents:"none", backgroundImage:"linear-gradient(156deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", opacity: active ? 1 : 0, transition:"opacity .18s ease" }} />
+                    <span aria-hidden style={{ position:"absolute", inset:0, borderRadius:"inherit", pointerEvents:"none", backgroundImage:"linear-gradient(156deg,var(--color-brand-forest) 12.7%,var(--color-brand-forest-deep) 87.2%)", opacity: active ? 1 : 0, transition:"opacity .18s ease" }} />
                     <span style={{ position:"relative", zIndex:1, display:"flex", flexShrink:0 }}>
                       <FlagIcon src={country.flag} emoji={country.emoji} alt={country.name} />
                     </span>
-                    <span style={{ position:"relative", zIndex:1, fontSize:13, fontWeight:500, fontFamily:"'Inter',sans-serif", whiteSpace:"nowrap", color: active ? "white" : "#F7F4EE", transition:"color .18s ease" }}>
+                    <span style={{ position:"relative", zIndex:1, fontSize:13, fontWeight:500, fontFamily:'var(--font-body)', whiteSpace:"nowrap", color: active ? "white" : "var(--color-surface)", transition:"color .18s ease" }}>
                       {country.name}
                     </span>
                     <ChevronRight size={12} strokeWidth={1.8} color="white" style={{ marginLeft:"auto", position:"relative", zIndex:1, flexShrink:0, opacity: active ? 1 : 0, transition:"opacity .16s ease" }} />
@@ -236,36 +236,36 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
         <div
           onMouseEnter={cancelHide}
           onMouseLeave={scheduleHide}
-          style={{ flex:1, minWidth:0, borderRadius:12, background: hoveredCountry ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)", border:"1px solid rgba(241, 227, 200, 0.09)", display:"flex", flexDirection:"column", overflow:"hidden" }}
+          style={{ flex:1, minWidth:0, borderRadius:12, background: hoveredCountry ? "color-mix(in srgb, white 5%, transparent)" : "color-mix(in srgb, white 2%, transparent)", border:"1px solid color-mix(in srgb, var(--color-brand-champagne-soft) 9%, transparent)", display:"flex", flexDirection:"column", overflow:"hidden" }}
         >
           {hoveredCountry ? (
-            <div key={hoveredCountry.id} style={{ display:"flex", flexDirection:"column", height:"100%", padding:"14px 13px 11px", animation:"cd-col .13s ease forwards" }}>
+            <div key={hoveredCountry.id} style={{ display:"flex", flexDirection:"column", height:"100%", padding:"14px 13px 11px", animation:"sp-col-in .13s ease forwards" }}>
               <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:10 }}>
                 <FlagIcon src={hoveredCountry.flag} emoji={hoveredCountry.emoji} alt={hoveredCountry.name} size={22} />
-                <span style={{ fontSize:13, fontWeight:600, color:"white", fontFamily:"'Inter',sans-serif", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
+                <span style={{ fontSize:13, fontWeight:600, color:"white", fontFamily:'var(--font-body)', whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>
                   {hoveredCountry.name}
                 </span>
               </div>
-              <div style={{ height:1, background:"rgba(241, 227, 200, 0.1)", marginBottom:8 }} />
+              <div style={{ height:1, background:"color-mix(in srgb, var(--color-brand-champagne-soft) 10%, transparent)", marginBottom:8 }} />
               <ul style={{ listStyle:"none", margin:0, padding:0, display:"flex", flexDirection:"column", gap:1, flex:1 }}>
                 {hoveredCountry.colleges.map(college => (
                   <li key={college}>
                     <Link href={`/universities/${slugify(college)}`} onClick={onClose}
-                      style={{ display:"flex", alignItems:"center", gap:8, padding:"6px 8px", borderRadius:7, fontSize:"12.5px", color:"rgba(255,255,255,0.72)", textDecoration:"none", fontFamily:"'Inter',sans-serif", transition:"background .14s,color .14s" }}
-                      onMouseEnter={e => { e.currentTarget.style.background="rgba(14, 143, 91, 0.13)"; e.currentTarget.style.color="white"; }}
-                      onMouseLeave={e => { e.currentTarget.style.background="transparent"; e.currentTarget.style.color="rgba(255,255,255,0.72)"; }}
+                      style={{ display:"flex", alignItems:"center", gap:8, padding:"6px 8px", borderRadius:7, fontSize:"12.5px", color:"color-mix(in srgb, white 72%, transparent)", textDecoration:"none", fontFamily:'var(--font-body)', transition:"background .14s,color .14s" }}
+                      onMouseEnter={e => { e.currentTarget.style.background="color-mix(in srgb, var(--color-brand-forest) 13%, transparent)"; e.currentTarget.style.color="white"; }}
+                      onMouseLeave={e => { e.currentTarget.style.background="transparent"; e.currentTarget.style.color="color-mix(in srgb, white 72%, transparent)"; }}
                     >
-                      <span style={{ width:4, height:4, borderRadius:"50%", background:"linear-gradient(135deg,#0E8F5B,#0B3B2E)", flexShrink:0 }} />
+                      <span style={{ width:4, height:4, borderRadius:"50%", background:"linear-gradient(135deg,var(--color-brand-forest),var(--color-brand-forest-deep))", flexShrink:0 }} />
                       {college}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div style={{ paddingTop:8, borderTop:"1px solid rgba(241, 227, 200, 0.08)", marginTop:"auto" }}>
+              <div style={{ paddingTop:8, borderTop:"1px solid color-mix(in srgb, var(--color-brand-champagne-soft) 8%, transparent)", marginTop:"auto" }}>
                 <Link href={`/countries/${slugify(hoveredCountry.name)}`} onClick={onClose}
-                  style={{ display:"flex", alignItems:"center", justifyContent:"space-between", width:"100%", fontSize:"11.5px", color:"rgba(255,255,255,0.32)", textDecoration:"none", fontFamily:"'Inter',sans-serif", transition:"color .14s" }}
-                  onMouseEnter={e => { e.currentTarget.style.color="rgba(255,255,255,0.7)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color="rgba(255,255,255,0.32)"; }}
+                  style={{ display:"flex", alignItems:"center", justifyContent:"space-between", width:"100%", fontSize:"11.5px", color:"color-mix(in srgb, white 32%, transparent)", textDecoration:"none", fontFamily:'var(--font-body)', transition:"color .14s" }}
+                  onMouseEnter={e => { e.currentTarget.style.color="color-mix(in srgb, white 70%, transparent)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.color="color-mix(in srgb, white 32%, transparent)"; }}
                 >
                   <span>Explore all colleges</span>
                   <ChevronRight size={12} strokeWidth={1.5} />
@@ -275,7 +275,7 @@ function CountriesPanel({ onClose, onEnter, onLeave }: BaseDropdownProps) {
           ) : (
             <div style={{ display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", height:"100%", gap:8, padding:20 }}>
               <Globe size={28} strokeWidth={1.2} color="white" opacity={0.2} />
-              <span style={{ fontSize:"11.5px", color:"rgba(255,255,255,0.22)", fontFamily:"'Inter',sans-serif", textAlign:"center", lineHeight:1.6 }}>
+              <span style={{ fontSize:"11.5px", color:"color-mix(in srgb, white 22%, transparent)", fontFamily:'var(--font-body)', textAlign:"center", lineHeight:1.6 }}>
                 Hover a country<br/>to see colleges
               </span>
             </div>
@@ -414,29 +414,23 @@ export default function Navbar() {
           content:''; position:absolute; bottom:2px; left:50%;
           transform:translateX(-50%) scaleX(0);
           width:60%; height:1.5px;
-          background:linear-gradient(90deg,#0E8F5B,#D8B26E);
+          background:linear-gradient(90deg,var(--color-brand-forest),var(--color-brand-champagne));
           border-radius:2px; transition:transform 0.25s ease; transform-origin:center;
         }
         .nb-link:hover::after { transform:translateX(-50%) scaleX(1); }
 
-        @keyframes np-in {
-          from { opacity:0; transform:translateX(-50%) translateY(-6px); }
-          to   { opacity:1; transform:translateX(-50%) translateY(0); }
-        }
-        @keyframes cd-col {
-          from { opacity:0; transform:translateX(5px); }
-          to   { opacity:1; transform:translateX(0); }
-        }
+        
+        
 
         /* Countries list — same behaviour as the page scrollbar:
            thin on desktop, thinner on smaller screens, hidden on mobile. */
         .cd-scroll {
           scrollbar-width: thin;
-          scrollbar-color: rgba(14, 143, 91, 0.22) transparent;
+          scrollbar-color: color-mix(in srgb, var(--color-brand-forest) 22%, transparent) transparent;
         }
         .cd-scroll::-webkit-scrollbar       { width:3px; height:3px; }
         .cd-scroll::-webkit-scrollbar-track { background:transparent; }
-        .cd-scroll::-webkit-scrollbar-thumb { background:rgba(14, 143, 91, 0.22); border-radius:99px; }
+        .cd-scroll::-webkit-scrollbar-thumb { background:color-mix(in srgb, var(--color-brand-forest) 22%, transparent); border-radius:99px; }
         @media (max-width: 1280px) {
           .cd-scroll::-webkit-scrollbar { width:2px; height:2px; }
         }
@@ -452,18 +446,15 @@ export default function Navbar() {
         .nd-item:hover { border-color:transparent !important; }
 
         .nb-login { transition:background-color 0.2s ease,box-shadow 0.2s ease; }
-        .nb-login:hover { background-color:rgba(216,178,110,0.16); border-color:rgba(216,178,110,0.9); box-shadow:0 0 0 1px rgba(216,178,110,0.25); }
+        .nb-login:hover { background-color:color-mix(in srgb, var(--color-brand-champagne) 16%, transparent); border-color:color-mix(in srgb, var(--color-brand-champagne) 90%, transparent); box-shadow:0 0 0 1px color-mix(in srgb, var(--color-brand-champagne) 25%, transparent); }
         .nb-login:active { transform:scale(0.97); }
 
         .nb-contact { transition:opacity 0.2s ease,transform 0.15s ease,box-shadow 0.2s ease; }
-        .nb-contact:hover { opacity:0.88; transform:translateY(-1px); box-shadow:0 6px 20px rgba(14, 143, 91, 0.4); }
+        .nb-contact:hover { opacity:0.88; transform:translateY(-1px); box-shadow:0 6px 20px color-mix(in srgb, var(--color-brand-forest) 40%, transparent); }
         .nb-contact:active { transform:scale(0.97); }
 
-        @keyframes nbMobileIn {
-          0%   { opacity:0; transform:translateY(-8px); }
-          100% { opacity:1; transform:translateY(0); }
-        }
-        .nb-mobile-menu { animation:nbMobileIn 0.22s cubic-bezier(0.22,1,0.36,1) forwards; }
+        
+        .nb-mobile-menu { animation:sp-dropdown-in 0.22s cubic-bezier(0.22,1,0.36,1) forwards; }
         /* Mobile drawer + mobile country list: scrollbar hidden (still scrolls) */
         .nb-mobile-menu,
         .nb-submenu-scroll {
@@ -477,16 +468,13 @@ export default function Navbar() {
           position:absolute; left:0;
           width:24px; height:2px;
           border-radius:2px;
-          background:#fff;
+          background:white;
           transform-origin:center;
           transition:transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.2s ease;
         }
 
-        @keyframes nbSubmenuIn {
-          from { opacity:0; transform:translateY(-4px); }
-          to   { opacity:1; transform:translateY(0); }
-        }
-        .nb-submenu { animation:nbSubmenuIn 0.18s ease forwards; }
+        
+        .nb-submenu { animation:sp-dropdown-in 0.18s ease forwards; }
         .nb-submenu-scroll {
           max-height: 264px;
           overflow-y: auto;
@@ -499,7 +487,7 @@ export default function Navbar() {
 
       <header
         className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-5"
-        style={{ fontFamily:"'Inter',sans-serif", overflow:"visible" }}
+        style={{ fontFamily:'var(--font-body)', overflow:"visible" }}
       >
         <nav
           ref={navRef}
@@ -507,8 +495,8 @@ export default function Navbar() {
           style={{
             height:          "clamp(64px,5.21vw,100px)",
             borderRadius:    "clamp(40px,5.73vw,110px)",
-            backgroundColor: "rgba(7,42,33,0.46)",
-            borderBottom:    "1px solid rgba(241, 227, 200, 0.4)",
+            backgroundColor: "color-mix(in srgb, var(--color-brand-forest-deep) 46%, transparent)",
+            borderBottom:    "1px solid color-mix(in srgb, var(--color-brand-champagne-soft) 40%, transparent)",
             backdropFilter:  "blur(40px) saturate(2.4)",
             WebkitBackdropFilter: "blur(20px) saturate(1.4)",
             boxShadow:       "none",
@@ -541,15 +529,15 @@ export default function Navbar() {
                           padding: "8px clamp(8px,0.63vw,12px)",
                           gap: 4,
                           whiteSpace: "nowrap",
-                          fontFamily: "'Inter',sans-serif",
-                          color: isOpen ? "#F1E3C8" : "white",
+                          fontFamily: 'var(--font-body)',
+                          color: isOpen ? "var(--color-brand-champagne-soft-bg)" : "white",
                         }}
                         aria-haspopup="true" aria-expanded={isOpen}
-                        onMouseEnter={e => { if (!isOpen) e.currentTarget.style.color = "#F1E3C8"; }}
+                        onMouseEnter={e => { if (!isOpen) e.currentTarget.style.color = "var(--color-brand-champagne-soft-bg)"; }}
                         onMouseLeave={e => { if (!isOpen) e.currentTarget.style.color = "white"; }}
                       >
                         {label}
-                        <ChevronDownIcon size={20} color={isOpen ? "#F1E3C8" : "white"} />
+                        <ChevronDownIcon size={20} color={isOpen ? "var(--color-brand-champagne-soft-bg)" : "white"} />
                       </Button>
 
                       {isOpen && dropKey === "about" && (
@@ -575,7 +563,7 @@ export default function Navbar() {
                         whiteSpace: "nowrap",
                         color: "white",
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.color = "#F1E3C8"; }}
+                      onMouseEnter={e => { e.currentTarget.style.color = "var(--color-brand-champagne-soft-bg)"; }}
                       onMouseLeave={e => { e.currentTarget.style.color = "white"; }}>
                       {label}
                     </Link>
@@ -602,8 +590,8 @@ export default function Navbar() {
             >
               Login <ChevronDownIcon size={18} color="white" />
             </Link>
-            <Link href="/contact-us" className="nb-contact text-white flex items-center justify-center font-semibold"
-              style={{ height:"clamp(36px,2.19vw,42px)", width:"clamp(100px,6.25vw,120px)", borderRadius:"60px", fontSize:"clamp(12px,0.73vw,14px)", backgroundImage:"linear-gradient(134deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", border:"none", cursor:"pointer", whiteSpace:"nowrap", textDecoration:"none" }}>
+            <Link href="/contact-us" className="nb-contact text-brand-sky flex items-center justify-center font-semibold transition-opacity hover:opacity-90"
+              style={{ height:"clamp(36px,2.19vw,42px)", width:"clamp(100px,6.25vw,120px)", borderRadius:"60px", fontSize:"clamp(12px,0.73vw,14px)", backgroundImage:"linear-gradient(134deg,var(--color-brand-champagne-rich) 12.7%,var(--color-brand-champagne-deep) 87.2%)", border:"none", cursor:"pointer", whiteSpace:"nowrap", textDecoration:"none" }}>
               Contact Us
             </Link>
           </div>
@@ -628,7 +616,7 @@ export default function Navbar() {
         {mobileOpen && (
           <>
             <div
-              className="fixed inset-0 -z-10 bg-[#072A21]/60 lg:hidden"
+              className="fixed inset-0 -z-10 bg-brand-forest-deep/60 lg:hidden"
               onClick={closeMobile}
               aria-hidden
             />
@@ -641,12 +629,12 @@ export default function Navbar() {
                 overscrollBehavior:   "contain",
                 borderRadius:         20,
                 padding:              "8px 12px 14px",
-                backgroundColor:      "rgba(7,42,33,0.97)",
+                backgroundColor:      "color-mix(in srgb, var(--color-brand-forest-deep) 97%, transparent)",
                 backdropFilter:       "blur(24px) saturate(1.4)",
                 WebkitBackdropFilter: "blur(24px) saturate(1.4)",
-                border:               "1px solid rgba(241, 227, 200, 0.2)",
-                boxShadow:            "0 16px 40px rgba(7,42,33,0.55)",
-                fontFamily:           "'Inter',sans-serif",
+                border:               "1px solid color-mix(in srgb, var(--color-brand-champagne-soft) 20%, transparent)",
+                boxShadow:            "0 16px 40px color-mix(in srgb, var(--color-brand-forest-deep) 55%, transparent)",
+                fontFamily:           'var(--font-body)',
               }}
             >
               <ul className="flex flex-col" role="navigation" aria-label="Mobile navigation">
@@ -684,7 +672,7 @@ export default function Navbar() {
                           <span className="flex min-w-0 items-center gap-2.5">
                             {(active || sectionOpen) && (
                               <span aria-hidden className="size-1.5 shrink-0 rounded-full"
-                                style={{ backgroundImage:"linear-gradient(135deg,#0E8F5B,#0B3B2E)" }} />
+                                style={{ backgroundImage:"linear-gradient(135deg,var(--color-brand-forest),var(--color-brand-forest-deep))" }} />
                             )}
                             {label}
                           </span>
@@ -704,7 +692,7 @@ export default function Navbar() {
                         >
                           {active && (
                             <span aria-hidden className="size-1.5 shrink-0 rounded-full"
-                              style={{ backgroundImage:"linear-gradient(135deg,#0E8F5B,#0B3B2E)" }} />
+                              style={{ backgroundImage:"linear-gradient(135deg,var(--color-brand-forest),var(--color-brand-forest-deep))" }} />
                           )}
                           {label}
                         </Link>
@@ -758,7 +746,7 @@ export default function Navbar() {
                                       }`}
                                     >
                                       <span aria-hidden className="size-1 shrink-0 rounded-full"
-                                        style={{ backgroundImage:"linear-gradient(135deg,#0E8F5B,#0B3B2E)" }} />
+                                        style={{ backgroundImage:"linear-gradient(135deg,var(--color-brand-forest),var(--color-brand-forest-deep))" }} />
                                       {item.label}
                                     </Link>
                                   </li>
@@ -782,15 +770,15 @@ export default function Navbar() {
                 })}
               </ul>
 
-              <div className="mt-3 flex gap-3 pt-3" style={{ borderTop:"1px solid rgba(255,255,255,0.1)" }}>
+              <div className="mt-3 flex gap-3 pt-3" style={{ borderTop:"1px solid color-mix(in srgb, white 10%, transparent)" }}>
                 <Link href="/admin/login" onClick={closeMobile}
                   className="flex h-10 flex-1 items-center justify-center gap-1 rounded-full border border-white text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                  style={{ fontFamily:"'Inter',sans-serif", textDecoration:"none" }}>
+                  style={{ fontFamily:'var(--font-body)', textDecoration:"none" }}>
                   Login <ChevronDownIcon size={16} />
                 </Link>
                 <Link href="/contact-us" onClick={closeMobile}
-                  className="flex h-10 flex-1 items-center justify-center rounded-full text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                  style={{ backgroundImage:"linear-gradient(134deg,#0E8F5B 12.7%,#0B3B2E 87.2%)", fontFamily:"'Inter',sans-serif", textDecoration:"none" }}>
+                  className="flex h-10 flex-1 items-center justify-center rounded-full text-sm font-semibold text-brand-sky transition-opacity hover:opacity-90"
+                  style={{ backgroundImage:"linear-gradient(134deg,var(--color-brand-champagne-rich) 12.7%,var(--color-brand-champagne-deep) 87.2%)", fontFamily:'var(--font-body)', textDecoration:"none" }}>
                   Contact Us
                 </Link>
               </div>

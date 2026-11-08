@@ -48,7 +48,7 @@ work.txt
 removed.txt
 *.txt
 spec.tsx
-# public/
+public/
 /.idea/
 /contexts/
 /task-daily/

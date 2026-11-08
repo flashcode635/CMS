@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function CollectionsPage() {
   return (
-    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#F7F4EE" }}>
+    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "var(--color-surface)" }}>
       <PageBanner
         title="Events & Collections"
         subtitle="Stay updated with our latest webinars, educational fairs, and events"

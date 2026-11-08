@@ -91,7 +91,7 @@ function TabShape({ flip = false }: { flip?: boolean }) {
       <polyline
         points="0,0 24,30 24,66 0,96"
         fill="none"
-        stroke="#0B3B2E"
+        stroke="var(--color-brand-forest-deep)"
         strokeWidth="1.2"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
@@ -171,10 +171,10 @@ export default function WebStoriesCarousel() {
   const arrowBase =
     "absolute top-1/2 z-20 flex h-[112px] w-[36px] " +
     "-translate-y-1/2 items-center justify-center " +
-    "text-[#072A21] cursor-pointer " +
+    "text-brand-forest-deep cursor-pointer " +
     "transition-[filter] duration-300 ease-out " +
     "hover:brightness-105 focus-visible:outline-2 " +
-    "focus-visible:outline-offset-2 focus-visible:outline-[#0B3B2E]";
+    "focus-visible:outline-offset-2 focus-visible:outline-brand-forest-deep";
 
   return (
     <section
@@ -222,8 +222,8 @@ export default function WebStoriesCarousel() {
 
       {/* Main story card */}
       <div
-        className="relative overflow-hidden rounded-[28px] bg-[#072A21]
-          shadow-[0_18px_42px_rgba(23,66,100,0.18)]"
+        className="relative overflow-hidden rounded-[28px] bg-brand-forest-deep
+          shadow-lg shadow-brand-royal/18"
         style={{
           height: "clamp(360px, 31.5vw, 440px)",
         }}
@@ -257,11 +257,11 @@ export default function WebStoriesCarousel() {
                 style={{
                   background:
                     "linear-gradient(to top, " +
-                    "rgba(0,13,39,0.98) 0%, " +
-                    "rgba(0,13,39,0.82) 22%, " +
-                    "rgba(0,13,39,0.38) 48%, " +
-                    "rgba(0,13,39,0.06) 72%, " +
-                    "rgba(0,13,39,0) 100%)",
+                    "color-mix(in srgb, var(--color-brand-forest-deep) 98%, transparent) 0%, " +
+                    "color-mix(in srgb, var(--color-brand-forest-deep) 82%, transparent) 22%, " +
+                    "color-mix(in srgb, var(--color-brand-forest-deep) 38%, transparent) 48%, " +
+                    "color-mix(in srgb, var(--color-brand-forest-deep) 6%, transparent) 72%, " +
+                    "transparent 100%)",
                 }}
               />
 
@@ -284,7 +284,7 @@ export default function WebStoriesCarousel() {
                   <span
                     className="font-medium text-white"
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: 'var(--font-body)',
                       fontSize: "17px",
                     }}
                   >
@@ -295,7 +295,7 @@ export default function WebStoriesCarousel() {
                 <h2
                   className="m-0 font-normal text-white"
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: 'var(--font-sub)',
                     fontSize: "clamp(22px, 2.1vw, 34px)",
                     lineHeight: 1.2,
                     letterSpacing: "-0.025em",
@@ -307,7 +307,7 @@ export default function WebStoriesCarousel() {
                 <p
                   className="m-0 line-clamp-2 text-white/70"
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: 'var(--font-body)',
                     fontSize: "clamp(12px, 1.05vw, 16px)",
                     lineHeight: 1.45,
                   }}
@@ -331,11 +331,11 @@ export default function WebStoriesCarousel() {
               key={story.id}
               className="relative h-1 min-w-0 flex-1
                 overflow-hidden rounded-full bg-white/40
-                shadow-[0_1px_3px_rgba(0,0,0,0.22)]"
+                shadow-lg shadow-black/22"
             >
               <div
                 className="h-full rounded-full bg-white
-                  shadow-[0_0_2px_rgba(255,255,255,0.6)]"
+                  shadow-lg shadow-white/60"
                 style={{
                   width:
                     index < current

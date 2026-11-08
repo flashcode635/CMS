@@ -31,7 +31,7 @@ export default async function BrochuresPage() {
     const brochures = await getBrochures();
 
     return (
-        <div className="flex flex-col" style={{ backgroundColor: "#EFE9DE" }}>
+        <div className="flex flex-col" style={{ backgroundColor: "var(--color-surface-alt)" }}>
             {/* ── Banner ── */}
             <PageBanner
                 title="Brochures"

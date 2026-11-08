@@ -61,7 +61,7 @@ export default function FacultySection({
     return (
         <section
             aria-label={sectionLabel}
-            className="relative overflow-hidden bg-[linear-gradient(150deg,#0B3B2E_0%,#072A21_100%)] py-16 @min-[1024px]:py-24"
+            className="relative overflow-hidden bg-[linear-gradient(150deg,var(--color-brand-forest-deep)_0%,var(--color-brand-forest-deep)_100%)] py-16 @min-[1024px]:py-24"
         >
             {/* Decorative circle (bottom-right, as in the design) */}
             <div
@@ -90,7 +90,7 @@ export default function FacultySection({
                         >
                             <span
                                 aria-hidden="true"
-                                className="text-xs font-bold text-[#1C2B25]"
+                                className="text-xs font-bold text-ink"
                             >
                                 {index + 1}.
                             </span>

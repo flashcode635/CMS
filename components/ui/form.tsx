@@ -8,13 +8,13 @@ export default function FormCard({ visible }: { visible: boolean }) {
                     xl:p-8 shadow-2xl border border-white/60 relative
                      z-20 anim-form${visible ? " visible" : ""}`}
                 style={{
-                    boxShadow: "0 24px 60px -12px rgba(0, 0, 0, 0.35)",
+                    boxShadow: "0 24px 60px -12px color-mix(in srgb, black 35%, transparent)",
                 }}
             >
                 <div className="mb-4 sm:mb-5">
                     <h3
                         className="text-ink font-bold text-lg sm:text-xl"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        style={{ fontFamily: 'var(--font-body)' }}
                     >
                         Book Free Counselling
                     </h3>
@@ -34,7 +34,7 @@ export default function FormCard({ visible }: { visible: boolean }) {
                                 type="text"
                                 placeholder="First Name*"
                                 className="w-full h-10 sm:h-11 px-3.5 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all placeholder:text-muted bg-surface/50 hover:bg-white"
-                                style={{ fontFamily: "'Inter', sans-serif" }}
+                                style={{ fontFamily: 'var(--font-body)' }}
                             />
                         </div>
                         <div>
@@ -42,7 +42,7 @@ export default function FormCard({ visible }: { visible: boolean }) {
                                 type="text"
                                 placeholder="Last Name*"
                                 className="w-full h-10 sm:h-11 px-3.5 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all placeholder:text-muted bg-surface/50 hover:bg-white"
-                                style={{ fontFamily: "'Inter', sans-serif" }}
+                                style={{ fontFamily: 'var(--font-body)' }}
                             />
                         </div>
                     </div>
@@ -53,13 +53,13 @@ export default function FormCard({ visible }: { visible: boolean }) {
                             type="tel"
                             placeholder="Phone Number*"
                             className="w-full h-10 sm:h-11 px-3.5 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all placeholder:text-muted bg-surface/50 hover:bg-white"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         />
                         <input
                             type="email"
                             placeholder="Email Address*"
                             className="w-full h-10 sm:h-11 px-3.5 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all placeholder:text-muted bg-surface/50 hover:bg-white"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         />
                     </div>
 
@@ -70,14 +70,14 @@ export default function FormCard({ visible }: { visible: boolean }) {
                             placeholder="City*"
                             className="w-full h-10 sm:h-11 px-3.5 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all placeholder:text-muted
                              bg-surface/50 hover:bg-white"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         />
                         <input
                             type="text"
                             placeholder="State*"
                             className="w-full h-10 sm:h-11 px-3.5 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all placeholder:text-muted
                              bg-surface/50 hover:bg-white"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         />
                     </div>
 
@@ -85,7 +85,7 @@ export default function FormCard({ visible }: { visible: boolean }) {
                     <div>
                         <label
                             className="block text-body text-[11px] font-bold uppercase tracking-wider mb-1"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         >
                             Nearest Branch
                         </label>
@@ -93,7 +93,7 @@ export default function FormCard({ visible }: { visible: boolean }) {
                             type="text"
                             placeholder="e.g. Delhi, Mumbai, Hyderabad..."
                             className="w-full h-10 sm:h-11 px-3.5 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all placeholder:text-muted bg-surface/50 hover:bg-white"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         />
                     </div>
 
@@ -101,7 +101,7 @@ export default function FormCard({ visible }: { visible: boolean }) {
                     <div>
                         <label
                             className="block text-body text-[11px] font-bold uppercase tracking-wider mb-1"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         >
                             Details / Message
                         </label>
@@ -109,7 +109,7 @@ export default function FormCard({ visible }: { visible: boolean }) {
                             rows={2}
                             placeholder="Preferred country, course, or questions..."
                             className="w-full p-3 rounded-lg border border-line-strong text-ink text-xs sm:text-sm font-medium outline-none focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition-all resize-none placeholder:text-muted bg-surface/50 hover:bg-white"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            style={{ fontFamily: 'var(--font-body)' }}
                         />
                     </div>
 
@@ -118,10 +118,9 @@ export default function FormCard({ visible }: { visible: boolean }) {
                     variant="brand"
                         type="submit"
                         fullWidth
-                        className="h-11 sm:h-12 mt-1 rounded-xl text-white text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 hover:opacity-95 active:scale-[0.99] cursor-pointer"
+                        className="h-11 sm:h-12 mt-1 rounded-xl text-brand-sky text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 hover:opacity-95 active:scale-[0.99] cursor-pointer"
                         style={{
-                            fontFamily: "'Inter', sans-serif",
-                            background: "linear-gradient(90deg, #0E8F5B 0%, #0B3B2E 100%)",
+                            fontFamily: 'var(--font-body)',
                         }}
                         rightIcon={
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

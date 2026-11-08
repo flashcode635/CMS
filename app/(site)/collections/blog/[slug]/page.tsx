@@ -51,7 +51,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
       className="min-h-screen"
       style={{
         background:
-          "linear-gradient(93.86deg, rgba(14,143,91,0.1) 12.7%, rgba(216,178,110,0.1) 87.17%), #ffffff",
+          "linear-gradient(93.86deg, color-mix(in srgb, var(--color-brand-forest) 10%, transparent) 12.7%, color-mix(in srgb, var(--color-brand-champagne) 10%, transparent) 87.17%), white",
       }}
     >
       {/* Static brand banner — the per-post title sits inside the article */}
@@ -79,8 +79,8 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
             />
 
             <p
-              className="m-0 text-[#4A554F]"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: "clamp(14px, 1.15vw, 16.5px)", lineHeight: 1.7 }}
+              className="m-0 text-body"
+              style={{ fontFamily: 'var(--font-body)', fontSize: "clamp(14px, 1.15vw, 16.5px)", lineHeight: 1.7 }}
             >
               {ARTICLE_INTRO}
             </p>
@@ -90,13 +90,13 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
             <BlogContent />
 
             <div className="flex flex-col gap-6">
-              <div className="h-px bg-[#E4DDD0]" />
+              <div className="h-px bg-line" />
               <ShareBar
                 totalShares={DEFAULT_TOTAL_SHARES}
                 views={post.views}
                 shareUrl={`${SITE_URL}${blogPostHref(post.slug)}`}
               />
-              <div className="h-px bg-[#E4DDD0]" />
+              <div className="h-px bg-line" />
             </div>
 
             <AuthorCard

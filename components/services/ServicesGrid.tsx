@@ -6,46 +6,28 @@ import { useState, useEffect, useRef } from "react";
 // ── Keyframe styles ───────────────────────────────────────────────────────────
 const ANIMATION_STYLES = `
   /* Bottom-left radial sweep */
-  @keyframes sweepIn {
-    0%   { clip-path: circle(0% at 0% 100%); }
-    100% { clip-path: circle(170% at 0% 100%); }
-  }
-  @keyframes sweepOut {
-    0%   { clip-path: circle(170% at 0% 100%); }
-    100% { clip-path: circle(0% at 0% 100%); }
-  }
+  
+  
 
   /* Card entrance */
-  @keyframes cardReveal {
-    0%   { opacity: 0; transform: translateY(56px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
+  
 
   /* Text entrance */
-  @keyframes textReveal {
-    0%   { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0);    }
-  }
+  
 
   /* Image subtle zoom on hover */
-  @keyframes imgZoomIn {
-    0%   { transform: scale(1);    }
-    100% { transform: scale(1.06); }
-  }
-  @keyframes imgZoomOut {
-    0%   { transform: scale(1.06); }
-    100% { transform: scale(1);    }
-  }
+  
+  
 
 
 
-  .card-sweep-bg     { animation: sweepIn  0.95s cubic-bezier(0.16,1,0.3,1) forwards; }
-  .card-sweep-bg-out { animation: sweepOut 0.75s cubic-bezier(0.4,0,0.6,1) forwards; }
-  .card-enter        { animation: cardReveal  0.85s cubic-bezier(0.22,1,0.36,1) both; }
-  .text-enter        { animation: textReveal  0.65s cubic-bezier(0.22,1,0.36,1) both; }
+  .card-sweep-bg     { animation: sp-sweep-in  0.95s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .card-sweep-bg-out { animation: sp-sweep-out 0.75s cubic-bezier(0.4,0,0.6,1) forwards; }
+  .card-enter        { animation: sp-slide-up  0.85s cubic-bezier(0.22,1,0.36,1) both; }
+  .text-enter        { animation: sp-fade-up  0.65s cubic-bezier(0.22,1,0.36,1) both; }
 
-  .img-zoom-in  { animation: imgZoomIn  0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
-  .img-zoom-out { animation: imgZoomOut 0.5s cubic-bezier(0.55,0,0.45,1) forwards; }
+  .img-zoom-in  { animation: sp-zoom-in  0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .img-zoom-out { animation: sp-zoom-out 0.5s cubic-bezier(0.55,0,0.45,1) forwards; }
 
   .shine-pass { animation: shinePass 0.75s cubic-bezier(0.22,1,0.36,1) forwards; }
 
@@ -204,12 +186,12 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
 
   // Multi-layer shadow: lift + coloured glow + deep ambient
   const hoverShadow = `
-    0px 2px  8px  0px  rgba(0,0,0,0.06),
-    0px 8px  24px -4px rgba(216,178,110,0.18),
-    0px 24px 56px -8px rgba(14,143,91,0.22),
-    0px 40px 80px -12px rgba(216,178,110,0.28)
+    0px 2px  8px  0px  color-mix(in srgb, black 6%, transparent),
+    0px 8px  24px -4px color-mix(in srgb, var(--color-brand-champagne) 18%, transparent),
+    0px 24px 56px -8px color-mix(in srgb, var(--color-brand-forest) 22%, transparent),
+    0px 40px 80px -12px color-mix(in srgb, var(--color-brand-champagne) 28%, transparent)
   `;
-  const idleShadow = `0px 16px 40px -8px rgba(88,92,95,0.16)`;
+  const idleShadow = `0px 16px 40px -8px color-mix(in srgb, black 16%, transparent)`;
 
   return (
     <div
@@ -242,7 +224,7 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
             sweepState === "in" ? "card-sweep-bg" : "card-sweep-bg-out",
           ].join(" ")}
           style={{
-            backgroundImage: "linear-gradient(102.49deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+            backgroundImage: "linear-gradient(102.49deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
           }}
         />
       )}
@@ -261,7 +243,7 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
               width: "45%",
               height: "100%",
               background:
-                "linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.18) 50%, transparent 80%)",
+                "linear-gradient(105deg, transparent 20%, color-mix(in srgb, white 18%, transparent) 50%, transparent 80%)",
               transform: "translateX(-120%) skewX(-20deg)",
               animation: "shinePass 0.75s cubic-bezier(0.22,1,0.36,1) forwards",
             }}
@@ -294,11 +276,11 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
         className={[
           "font-bold leading-snug relative z-10 min-h-[2em] flex items-center",
           "transition-colors duration-300",
-          isHovered ? "text-white" : "text-[#12211C]",
+          isHovered ? "text-white" : "text-ink",
           isVisible ? "text-enter" : "opacity-0",
         ].join(" ")}
         style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: 'var(--font-body)',
           fontSize: "clamp(16px, 1.25vw, 22px)",
           animationDelay: isVisible ? `${cardDelay + 120}ms` : undefined,
         }}
@@ -314,11 +296,11 @@ function ServiceCard({ service, isVisible, cardDelay }: ServiceCardProps) {
             className={[
               "leading-[1.55] font-normal",
               "transition-colors duration-300",
-              isHovered ? "text-white/85" : "text-[#12211C]/75",
+              isHovered ? "text-white/85" : "text-ink/75",
               isVisible ? "text-enter" : "opacity-0",
             ].join(" ")}
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(12px, 0.8vw, 14.5px)",
               animationDelay: isVisible ? `${cardDelay + 200 + i * 80}ms` : undefined,
             }}

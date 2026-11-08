@@ -16,16 +16,16 @@ export default function InfoCard({ card, lgw=true, className="" }: InfoCardProps
               className={`w-full ${lgw ? 'lg:w-[calc(50%-12px)]' : ''} ${className} flex flex-col px-4 py-4 sm:px-6 lg:px-8`}
               style={{
                 gap: 8,
-                backgroundColor: "#ffffff",
-                border: "1px solid #EFE9DE",
+                backgroundColor: "white",
+                border: "1px solid var(--color-surface-alt)",
                 borderRadius: 16,
-                boxShadow: "0px 1.5px 1.5px rgba(0, 0, 0, 0.05)",
+                boxShadow: "0px 1.5px 1.5px color-mix(in srgb, black 5%, transparent)",
               }}
             >
              
               <p
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontWeight: 500,
                   fontSize: 0,       // container collapses; children set their own size
                   lineHeight: 0,
@@ -60,16 +60,16 @@ export default function InfoCard({ card, lgw=true, className="" }: InfoCardProps
               </p>
 
               {/*
-               * Body text: #4A554F (slate-blue) — Inter Regular 16/24
-               * Bold spans inside Card 1 keep the same #4A554F colour.
+               * Body text: var(--color-body) (slate-blue) — Inter Regular 16/24
+               * Bold spans inside Card 1 keep the same var(--color-body) colour.
                */}
               <p
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontWeight: 400,
                   fontSize: 16,
                   lineHeight: "24px",
-                  color: "#4A554F",
+                  color: "var(--color-body)",
                   margin: 0,
                   width: "100%",
                 }}

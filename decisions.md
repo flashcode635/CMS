@@ -23,6 +23,14 @@ Agents must read this file before starting any task.
 
 ## Decisions
 
+### D-022 | 2026-11-08 | Remove vertical padding from active 3D carousel card
+
+- Task: Make the active card in the shared 3D carousel use `py-0`.
+- Decision: Apply `py-0` only to the active item wrapper and retain `py-6` for inactive items.
+- Why: The active card should visually fill the carousel height while preserving the existing spacing and scale treatment for neighboring cards.
+- Impact: `components/ui/threeDCarousel.tsx`, `components/ui/AGENT_CONTEXT.md`.
+- Status: Active
+
 ### D-021 | 2026-11-02 | Enable live editing for events and testimonials
 
 - Task: Make the university Events and Student Testimonials sections editable from the live CMS preview.

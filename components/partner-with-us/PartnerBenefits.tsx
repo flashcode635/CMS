@@ -44,9 +44,9 @@ const BENEFITS = [
 const cardBase =
   "bg-white border border-brand-sky/60 w-full flex flex-col gap-2 " +
   "rounded-lg rounded-tr-[52px] xl:rounded-tr-[50px] rounded-bl-[52px] xl:rounded-bl-[50px] " +
-  "shadow-[0px_10px_30px_rgba(88,92,95,0.1)] " +
+  "shadow-lg shadow-black/10 " +
   "transition-all duration-300 cursor-pointer " +
-  "hover:-translate-y-1.5 hover:shadow-[0px_20px_40px_rgba(216,178,110,0.15)] hover:border-brand-blue";
+  "hover:-translate-y-1.5 hover:shadow-xl shadow-brand-champagne/15 hover:border-brand-blue";
 
 export default function PartnerBenefits() {
   return (
@@ -54,7 +54,7 @@ export default function PartnerBenefits() {
       className="w-full"
       style={{
         backgroundImage:
-          "linear-gradient(128.76deg, rgba(14,143,91,0.06) 12.704%, rgba(216,178,110,0.06) 87.17%)",
+          "linear-gradient(128.76deg, color-mix(in srgb, var(--color-brand-forest) 6%, transparent) 12.704%, color-mix(in srgb, var(--color-brand-champagne) 6%, transparent) 87.17%)",
       }}
     >
 
@@ -69,16 +69,16 @@ export default function PartnerBenefits() {
             className="font-extrabold bg-clip-text text-transparent leading-snug 
             w-full text-2xl"
             style={{
-              fontFamily: "Playfair Display, serif",
+              fontFamily: "var(--font-sub)",
               backgroundImage:
-                "linear-gradient(149.04deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+                "linear-gradient(149.04deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
             }}
           >
             Why Partner with Us for MBBS Overseas?
           </h2>
           <p
-            className="text-[#4A554F] font-light text-sm leading-relaxed"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="text-body font-light text-sm leading-relaxed"
+            style={{ fontFamily: 'var(--font-body)' }}
           >
             Partnering with us opens doors to mutual growth, innovation, and
             success. Benefits of Partnership:
@@ -90,7 +90,7 @@ export default function PartnerBenefits() {
           {BENEFITS.map((b) => (
             <div key={b.id} className={`${cardBase} p-5`}>
               {/* Icon 44px */}
-              <div className="relative w-11 h-11 rounded-lg bg-[#F1E3C8] overflow-hidden shrink-0">
+              <div className="relative w-11 h-11 rounded-lg bg-brand-champagne-soft-bg overflow-hidden shrink-0">
                 <Image
                   src={b.mobileIcon}
                   alt={b.title}
@@ -102,15 +102,15 @@ export default function PartnerBenefits() {
               </div>
               {/* Title */}
               <h3
-                className="text-[#12211C] font-extrabold text-lg leading-snug"
-                style={{ fontFamily: "Inter, sans-serif" }}
+                className="text-ink font-extrabold text-lg leading-snug"
+                style={{ fontFamily: 'var(--font-body)' }}
               >
                 {b.title}
               </h3>
               {/* Body */}
               <p
-                className="text-[#4A554F] font-normal text-xs leading-relaxed"
-                style={{ fontFamily: "Inter, sans-serif" }}
+                className="text-body font-normal text-xs leading-relaxed"
+                style={{ fontFamily: 'var(--font-body)' }}
               >
                 {b.mobileBody}
               </p>
@@ -131,17 +131,17 @@ export default function PartnerBenefits() {
           <h2
             className="font-extrabold bg-clip-text text-transparent leading-tight w-full text-3xl md:text-4xl lg:text-[42px]"
             style={{
-              fontFamily: "Playfair Display, serif",
+              fontFamily: "var(--font-sub)",
               backgroundImage:
-                "linear-gradient(175.35deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+                "linear-gradient(175.35deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
             }}
           >
             Why Partner with Us for MBBS Overseas?
           </h2>
           <p
-            className="text-[#4A554F] font-normal leading-relaxed max-w-240 text-sm md:text-base"
+            className="text-body font-normal leading-relaxed max-w-240 text-sm md:text-base"
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: 'var(--font-body)',
             }}
           >
             At My Study Hub, we believe in the power of collaboration.
@@ -162,7 +162,7 @@ export default function PartnerBenefits() {
               ].join(" ")}
             >
               {/* Icon */}
-              <div className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-[#F1E3C8] overflow-hidden shrink-0">
+              <div className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-brand-champagne-soft-bg overflow-hidden shrink-0">
                 <Image
                   src={b.desktopIcon}
                   alt={b.title}
@@ -174,17 +174,17 @@ export default function PartnerBenefits() {
               </div>
               {/* Title */}
               <h3
-                className="font-extrabold text-[#12211C] leading-snug text-lg lg:text-xl"
+                className="font-extrabold text-ink leading-snug text-lg lg:text-xl"
                 style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: 'var(--font-body)',
                 }}
               >
                 {b.title}
               </h3>
               {/* Body text — smaller & neatly adjustable */}
               <p
-                className="font-normal text-[#4A554F] leading-normal text-[13px]"
-                style={{ fontFamily: "Inter, sans-serif" }}
+                className="font-normal text-body leading-normal text-[13px]"
+                style={{ fontFamily: 'var(--font-body)' }}
               >
                 {b.desktopBody}
               </p>

@@ -15,11 +15,11 @@ export default function Template({sections, selected, active}: TemplateProps)
                 STUDY PALACE HUB
               </span>
             </div>
-            <div className="bg-[#EDF3EF] px-5 py-10 sm:px-8 sm:py-16">
+            <div className="bg-surface-alt px-5 py-10 sm:px-8 sm:py-16">
               <p className="text-xs font-semibold uppercase tracking-widest
                text-brand-green">{active.slice(0,-1)}</p>
               <h1 className="mt-3 max-w-2xl text-3xl font-bold
-               text-[#12211C] sm:text-4xl">{selected.title || "Your page title"}</h1>
+               text-ink sm:text-4xl">{selected.title || "Your page title"}</h1>
                <p className="mt-4 max-w-2xl text-sm leading-7 text-body">
                 {String(selected.data.description || 
                   "Your page introduction will appear here.")}
@@ -32,7 +32,7 @@ export default function Template({sections, selected, active}: TemplateProps)
                    text-brand-green">{section.label}
                    </p>
                    <h2 className="mt-2 text-xl font-semibold
-                    text-[#12211C]">{String(section.data.heading ||
+                    text-ink">{String(section.data.heading ||
                      "Section heading")
                      }</h2>
                   <p className="mt-2 whitespace-pre-wrap text-sm leading-7

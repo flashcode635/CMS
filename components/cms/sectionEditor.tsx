@@ -80,9 +80,9 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
           <button
             onClick={() => setAddOpen((v) => !v)}
             aria-expanded={addOpen}
-            className="flex items-center gap-1 rounded-lg bg-[#EDF3EF]
+            className="flex items-center gap-1 rounded-lg bg-surface-alt
             px-3 py-1.5 text-xs font-semibold text-brand-green
-            transition hover:bg-[#D9EDE1]"
+            transition hover:bg-brand-sky"
           >
             <Plus size={14} /> Add section
             <ChevronDown size={12} className={`transition ${addOpen ? "rotate-180" : ""}`} />
@@ -188,7 +188,7 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
                   value={String(section.data.heading ?? "")}
                   onChange={(e) => patchData(index, { heading: e.target.value })}
                   className="w-full rounded-xl border border-line bg-white px-3.5 py-2.5
-                  text-base text-[#1C2B25] outline-none transition sm:text-sm
+                  text-base text-ink outline-none transition sm:text-sm
                   placeholder:text-muted hover:border-line-strong
                   focus:border-brand-green focus:ring-4 focus:ring-brand-green/10"
                 />
@@ -207,7 +207,7 @@ export default function SectionEditor({ sections, onChange, active }: SectionEdi
                   value={String(section.data.body ?? "")}
                   onChange={(e) => patchData(index, { body: e.target.value })}
                   className="w-full rounded-xl border border-line bg-white px-3.5 py-2.5
-                  text-base text-[#1C2B25] outline-none transition sm:text-sm
+                  text-base text-ink outline-none transition sm:text-sm
                   placeholder:text-muted hover:border-line-strong
                   focus:border-brand-green focus:ring-4 focus:ring-brand-green/10 resize-y"
                 />

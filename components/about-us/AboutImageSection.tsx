@@ -54,16 +54,16 @@ function InfoCard({ dark = false }) {
         width: "clamp(220px, 20.4vw, 294px)",
         height: "clamp(72px, 6.94vw, 100px)",
         background: dark
-          ? "rgba(10,14,34,0.75)"
-          : "rgba(255,255,255,0.18)",
+          ? "color-mix(in srgb, var(--color-brand-forest-deep) 75%, transparent)"
+          : "color-mix(in srgb, white 18%, transparent)",
         backdropFilter: "blur(16px) saturate(1.4)",
         WebkitBackdropFilter: "blur(16px) saturate(1.4)",
         border: dark
-          ? "1px solid rgba(186,203,255,0.18)"
-          : "1px solid rgba(255,255,255,0.35)",
+          ? "1px solid color-mix(in srgb, var(--color-brand-sky) 18%, transparent)"
+          : "1px solid color-mix(in srgb, white 35%, transparent)",
         boxShadow: dark
-          ? "0 8px 32px rgba(0,0,0,0.35)"
-          : "0 8px 24px rgba(0,0,0,0.12)",
+          ? "0 8px 32px color-mix(in srgb, black 35%, transparent)"
+          : "0 8px 24px color-mix(in srgb, black 12%, transparent)",
       }}
     >
       {/* Gradient icon square */}
@@ -73,7 +73,7 @@ function InfoCard({ dark = false }) {
           width:  "clamp(48px, 5.21vw, 75px)",
           height: "clamp(48px, 5.21vw, 75px)",
           backgroundImage:
-            "linear-gradient(108.93deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+            "linear-gradient(108.93deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
         }}
       >
         <div
@@ -89,9 +89,9 @@ function InfoCard({ dark = false }) {
         <p
           className="font-semibold leading-tight truncate"
           style={{
-            fontFamily: "Inter, sans-serif",
+            fontFamily: 'var(--font-body)',
             fontSize: "clamp(13px, 1.04vw, 20px)",
-            color: dark ? "#ffffff" : "#12211C",
+            color: dark ? "white" : "var(--color-ink)",
           }}
         >
           Elite Colleges
@@ -99,9 +99,9 @@ function InfoCard({ dark = false }) {
         <p
           className="font-medium truncate capitalize"
           style={{
-            fontFamily: "Inter, sans-serif",
+            fontFamily: 'var(--font-body)',
             fontSize: "clamp(10px, 0.83vw, 14px)",
-            color: dark ? "#F1E3C8" : "#66716A",
+            color: dark ? "var(--color-brand-champagne-soft-bg)" : "var(--color-muted)",
           }}
         >
           Top Ranked Universities

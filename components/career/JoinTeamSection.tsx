@@ -26,7 +26,7 @@ function ArrowRight() {
     >
       <path
         d="M3 8H13M13 8L9 4M13 8L9 12"
-        stroke="#072A21"
+        stroke="var(--color-brand-forest-deep)"
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -45,19 +45,19 @@ export default function JoinTeamSection() {
           <h2
             className="font-bold bg-clip-text text-transparent leading-tight"
             style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'var(--font-sub)',
               fontSize: "clamp(32px, 4.17vw, 64px)",
               lineHeight: 1.2,
               backgroundImage:
-                "linear-gradient(167.98deg, #0E8F5B 12.704%, #0B3B2E 87.17%)",
+                "linear-gradient(167.98deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
             }}
           >
             Join the My Study Hub Team
           </h2>
           <p
-            className="text-[#4A554F] font-normal leading-relaxed"
+            className="text-body font-normal leading-relaxed"
             style={{
-              fontFamily: "Inter, sans-serif",
+              fontFamily: 'var(--font-body)',
               fontSize: "clamp(14px, 1.11vw, 21px)",
               letterSpacing: "-0.4267px",
             }}
@@ -92,15 +92,15 @@ export default function JoinTeamSection() {
             style={{
               top:       "19.2%",
               width:     "clamp(460px, 51.5%, 650px)",
-              boxShadow: "0px 3px 34.25px rgba(25,33,61,0.08)",
+              boxShadow: "0px 3px 34.25px color-mix(in srgb, var(--color-ink) 8%, transparent)",
             }}
           >
             {/* About text */}
             <div className="flex flex-col gap-3">
               <h3
-                className="font-extrabold text-[#12211C] leading-tight"
+                className="font-extrabold text-ink leading-tight"
                 style={{
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontSize: "clamp(20px, 1.67vw, 32px)",
                   lineHeight: "18px",
                 }}
@@ -108,9 +108,9 @@ export default function JoinTeamSection() {
                 About My Study Hub
               </h3>
               <p
-                className="font-light text-[#4A554F] leading-relaxed"
+                className="font-light text-body leading-relaxed"
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontSize: "clamp(14px, 0.94vw, 18px)",
                   lineHeight: "25px",
                 }}
@@ -123,7 +123,7 @@ export default function JoinTeamSection() {
 
             {/* Brochures button */}
 <Button variant="brandOutline" size="bare"
-  className="group w-fit border-brand-navy px-6.5 py-2.5 text-lg font-semibold leading-tight text-brand-navy shadow-[0px_1.31px_5.25px_rgba(25,33,61,0.08)] hover:bg-brand-navy">
+  className="group w-fit border-brand-navy px-6.5 py-2.5 text-lg font-semibold leading-tight text-brand-navy shadow-md shadow-ink/8 hover:bg-brand-navy">
               Brochures
               <span className="group-hover:[&_path]:stroke-white transition-colors">
                 <ArrowRight />

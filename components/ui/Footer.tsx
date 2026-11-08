@@ -47,21 +47,21 @@ export default function Footer() {
   const [searchValue, setSearchValue] = useState<string>("");
 
   return (
-    <footer className="w-full text-white relative overflow-hidden bg-[#072A21]">
+    <footer className="w-full text-white relative overflow-hidden bg-brand-forest-deep">
       {/* Background radial/linear shader gradients */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 20% 30%, rgba(14, 143, 91, 0.18) 0%, rgba(7, 42, 33, 0.94) 60%, rgba(7, 42, 33, 1) 100%)",
+              "radial-gradient(ellipse 90% 70% at 20% 30%, color-mix(in srgb, var(--color-brand-forest) 18%, transparent) 0%, color-mix(in srgb, var(--color-brand-forest-deep) 94%, transparent) 60%, var(--color-brand-forest-deep) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(14, 143, 91, 0.22) 0%, rgba(14, 143, 91, 0.08) 50%, rgba(7, 42, 33, 0.8) 100%)",
+              "linear-gradient(135deg, color-mix(in srgb, var(--color-brand-forest) 22%, transparent) 0%, color-mix(in srgb, var(--color-brand-forest) 8%, transparent) 50%, color-mix(in srgb, var(--color-brand-forest-deep) 80%, transparent) 100%)",
           }}
         />
         {/* Slanted laser beam background overlay */}
@@ -69,7 +69,7 @@ export default function Footer() {
           className="absolute inset-0 opacity-25"
           style={{
             background:
-              "linear-gradient(125deg, transparent 0%, rgba(14, 143, 91, 0.04) 40%, rgba(14, 143, 91, 0.1) 50%, rgba(14, 143, 91, 0.04) 60%, transparent 100%)",
+              "linear-gradient(125deg, transparent 0%, color-mix(in srgb, var(--color-brand-forest) 4%, transparent) 40%, color-mix(in srgb, var(--color-brand-forest) 10%, transparent) 50%, color-mix(in srgb, var(--color-brand-forest) 4%, transparent) 60%, transparent 100%)",
           }}
         />
       </div>
@@ -80,7 +80,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 pb-6">
             <div className="flex items-center gap-4 flex-1">
               <div className="relative flex items-center justify-center p-2 rounded-full bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">
-                <Search className="w-6 h-6 text-[#D8B26E]" />
+                <Search className="w-6 h-6 text-brand-champagne" />
               </div>
               <input
                 type="text"
@@ -90,14 +90,14 @@ export default function Footer() {
                 }
                 placeholder="Search For..."
                 className="bg-transparent text-white text-lg font-light placeholder-white/60 outline-none w-full"
-                style={{ fontFamily: "'Inter', sans-serif" }}
+                style={{ fontFamily: 'var(--font-body)' }}
               />
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
               {searchTags.map((tag) => (
 <Button key={tag} variant="dark" size="bare" shape="lg"
-  className="px-6 py-2.5 text-sm shadow-[0_0_15px_rgba(0,200,255,0.05)]">
+  className="px-6 py-2.5 text-sm shadow-md">
                   {tag}
                 </Button>
               ))}
@@ -113,7 +113,7 @@ export default function Footer() {
           <div className="lg:col-span-3 flex flex-col space-y-6">
             <h2
               className="text-2xl font-bold tracking-wide text-white"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: 'var(--font-sub)' }}
             >
               My Study Hub
             </h2>
@@ -130,8 +130,8 @@ export default function Footer() {
               </Button>
             </div>
 
-            <div className="border-l-2 border-[#D8B26E] pl-4 py-1 space-y-1">
-              <p className="text-[#D8B26E] text-sm font-semibold">
+            <div className="border-l-2 border-brand-champagne pl-4 py-1 space-y-1">
+              <p className="text-brand-champagne text-sm font-semibold">
                 International Office, Russia
               </p>
               <p className="text-white/60 text-xs leading-relaxed">
@@ -146,7 +146,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: 'var(--font-sub)' }}
             >
               Countries
             </h3>
@@ -169,7 +169,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: 'var(--font-sub)' }}
             >
               Useful Links
             </h3>
@@ -191,13 +191,13 @@ export default function Footer() {
           <div className="lg:col-span-3 flex flex-col space-y-4">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: 'var(--font-sub)' }}
             >
               Get in Touch
             </h3>
 
             {/* Helpline Card */}
-            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-[#0B3B2E]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(216,178,110,0.10)] hover:border-brand-cyan/50 transition-all">
+            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-brand-forest-deep/80 backdrop-blur-md flex items-start gap-3 shadow-lg shadow-brand-champagne/10 hover:border-brand-cyan/50 transition-all">
               <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
                 <Phone className="w-4 h-4 text-brand-cyan" />
               </div>
@@ -210,7 +210,7 @@ export default function Footer() {
             </div>
 
             {/* Head Office Card */}
-            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-[#0B3B2E]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(216,178,110,0.10)] hover:border-brand-cyan/50 transition-all">
+            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-brand-forest-deep/80 backdrop-blur-md flex items-start gap-3 shadow-lg shadow-brand-champagne/10 hover:border-brand-cyan/50 transition-all">
               <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
                 <MapPin className="w-4 h-4 text-brand-cyan" />
               </div>
@@ -223,7 +223,7 @@ export default function Footer() {
             </div>
 
             {/* Mail Card */}
-            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-[#0B3B2E]/80 backdrop-blur-md flex items-start gap-3 shadow-[0_0_20px_rgba(216,178,110,0.10)] hover:border-brand-cyan/50 transition-all">
+            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-brand-forest-deep/80 backdrop-blur-md flex items-start gap-3 shadow-lg shadow-brand-champagne/10 hover:border-brand-cyan/50 transition-all">
               <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
                 <Mail className="w-4 h-4 text-brand-cyan" />
               </div>
@@ -240,7 +240,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4 relative">
             <h3
               className="text-xl font-semibold text-white mb-2"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              style={{ fontFamily: 'var(--font-sub)' }}
             >
               Our Socials
             </h3>

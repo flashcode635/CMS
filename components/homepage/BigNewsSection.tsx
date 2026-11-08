@@ -114,39 +114,24 @@ export default function BigNewsSection() {
   return (
     <>
       <style>{`
-        @keyframes bnSlideInLeft {
-          0%   { opacity: 0; transform: translateX(-48px); }
-          100% { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes bnSlideInRight {
-          0%   { opacity: 0; transform: translateX(48px); }
-          100% { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes bnFadeSlideNext {
-          0%   { opacity: 1; transform: translateX(0); }
-          100% { opacity: 0; transform: translateX(-40px); }
-        }
-        @keyframes bnFadeSlidePrev {
-          0%   { opacity: 1; transform: translateX(0); }
-          100% { opacity: 0; transform: translateX(40px); }
-        }
-        @keyframes bnCardFloat {
-          0%, 100% { transform: translateY(0); }
-          50%       { transform: translateY(-6px); }
-        }
+        
+        
+        
+        
+        
 
         .bn-left.visible {
-          animation: bnSlideInLeft 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+          animation: sp-slide-left 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
         }
         .bn-right.visible {
-          animation: bnSlideInRight 0.9s 0.15s cubic-bezier(0.22,1,0.36,1) forwards;
+          animation: sp-slide-right 0.9s 0.15s cubic-bezier(0.22,1,0.36,1) forwards;
         }
         .bn-left, .bn-right { opacity: 0; }
 
-        .bn-content-animating-next { animation: bnFadeSlideNext 0.42s ease forwards; }
-        .bn-content-animating-prev { animation: bnFadeSlidePrev 0.42s ease forwards; }
+        .bn-content-animating-next { animation: sp-exit-left 0.42s ease forwards; }
+        .bn-content-animating-prev { animation: sp-exit-right 0.42s ease forwards; }
 
-        .bn-card-float { animation: bnCardFloat 5s ease-in-out infinite; }
+        .bn-card-float { animation: sp-float 5s ease-in-out infinite; }
 
         .bn-nav-btn {
           transition: opacity 0.2s ease, transform 0.2s ease;
@@ -156,11 +141,8 @@ export default function BigNewsSection() {
         .bn-nav-btn:active { transform: scale(0.92); }
 
         /* Ken Burns on the photo */
-        @keyframes bnKenBurns {
-          0%   { transform: scale(1)    translateX(0); }
-          100% { transform: scale(1.05) translateX(-1%); }
-        }
-        .bn-photo { animation: bnKenBurns 14s ease-in-out infinite alternate; }
+        
+        .bn-photo { animation: sp-ken-burns 14s ease-in-out infinite alternate; }
       `}</style>
 
       <section
@@ -169,8 +151,8 @@ export default function BigNewsSection() {
         style={{
           // Figma: 940px tall at 1920w = 48.96vw
           height: "clamp(480px, 48.96vw, 940px)",
-          background: "linear-gradient(125deg, #0E8F5B 12.7%, #0B3B2E 87.2%)",
-          fontFamily: "'Inter', sans-serif",
+          background: "linear-gradient(125deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)",
+          fontFamily: 'var(--font-body)',
         }}
       >
         {/* ── LEFT: Photo column (948/1920 = 49.375%) ── */}
@@ -191,7 +173,7 @@ export default function BigNewsSection() {
           {/* Subtle right-edge blend into gradient */}
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to right, transparent 70%, rgba(0,80,40,0.18) 100%)" }}
+            style={{ background: "linear-gradient(to right, transparent 70%, color-mix(in srgb, var(--color-brand-forest-deep) 18%, transparent) 100%)" }}
           />
         </div>
 
@@ -226,7 +208,7 @@ export default function BigNewsSection() {
               {/* "Big News" DM Serif heading */}
               <h2
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: 'var(--font-sub)',
                   fontWeight: 400,
                   fontSize: "clamp(32px, 3.33vw, 64px)",
                   lineHeight: "clamp(48px, 5vw, 96px)",
@@ -241,7 +223,7 @@ export default function BigNewsSection() {
               <div style={{ display: "flex", flexDirection: "column", gap: "clamp(8px, 0.63vw, 12px)" }}>
                 <h3
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: 'var(--font-body)',
                     fontWeight: 800,
                     fontSize: "clamp(16px, 1.67vw, 32px)",
                     lineHeight: "clamp(24px, 2.5vw, 48px)",
@@ -255,18 +237,18 @@ export default function BigNewsSection() {
 
                 <p
                   style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: 'var(--font-body)',
                     fontWeight: 300,
                     fontSize: "clamp(12px, 0.94vw, 18px)",
                     lineHeight: "27px",
-                    color: "#F1E3C8",
+                    color: "var(--color-brand-champagne-soft-bg)",
                     margin: 0,
                     maxWidth: "clamp(300px, 39.01vw, 749px)",
                   }}
                 >
                   {slide.body.map((seg, i) =>
                     seg.bold
-                      ? <strong key={i} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, color: "white" }}>{seg.text}</strong>
+                      ? <strong key={i} style={{ fontFamily: 'var(--font-body)', fontWeight: 600, color: "white" }}>{seg.text}</strong>
                       : <span key={i}>{seg.text}</span>
                   )}
                 </p>
@@ -290,17 +272,17 @@ export default function BigNewsSection() {
           >
             <p
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontWeight: 300,
                 fontSize: "clamp(12px, 0.94vw, 18px)",
                 lineHeight: "27px",
-                color: "#F1E3C8",
+                color: "var(--color-brand-champagne-soft-bg)",
                 margin: 0,
               }}
             >
               {slide.footer.map((seg, i) =>
                 seg.bold
-                  ? <strong key={i} style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, color: "white" }}>{seg.text}</strong>
+                  ? <strong key={i} style={{ fontFamily: 'var(--font-body)', fontWeight: 600, color: "white" }}>{seg.text}</strong>
                   : <span key={i}>{seg.text}</span>
               )}
             </p>
@@ -321,14 +303,14 @@ export default function BigNewsSection() {
   className="bn-nav-btn gap-[0.63vw] border-b border-brand-sky px-[clamp(12px,1.25vw,24px)] py-[clamp(8px,0.83vw,16px)]">
               {/* Chevron left — rotated chevron-right */}
               <svg width="9" height="15" viewBox="0 0 8.236 14.775" fill="none" style={{ transform: "rotate(180deg)" }}>
-                <path d="M0.424 0.424L7.387 7.387L0.424 14.351" stroke="#F1E3C8" strokeWidth="1.2" />
+                <path d="M0.424 0.424L7.387 7.387L0.424 14.351" stroke="var(--color-brand-champagne-soft-bg)" strokeWidth="1.2" />
               </svg>
               <span
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontWeight: 400,
                   fontSize: "clamp(11px, 0.83vw, 16px)",
-                  color: "#F1E3C8",
+                  color: "var(--color-brand-champagne-soft-bg)",
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
                   whiteSpace: "nowrap",
@@ -343,7 +325,7 @@ export default function BigNewsSection() {
   className="bn-nav-btn gap-[0.63vw] border-b border-white px-[clamp(12px,1.25vw,24px)] py-[clamp(8px,0.83vw,16px)]">
               <span
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: 'var(--font-body)',
                   fontWeight: 400,
                   fontSize: "clamp(11px, 0.83vw, 16px)",
                   color: "white",
@@ -372,7 +354,7 @@ export default function BigNewsSection() {
             width: "clamp(260px, 39.58vw, 760px)",
             height: "clamp(120px, 16.09vw, 309px)",
             borderRadius: "clamp(12px, 1.25vw, 24px)",
-            boxShadow: "0 8px 40px rgba(0,0,0,0.12), 0 32px 80px rgba(29,78,216,0.12)",
+            boxShadow: "0 8px 40px color-mix(in srgb, black 12%, transparent), 0 32px 80px color-mix(in srgb, var(--color-blue-700) 12%, transparent)",
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0) scale(1)" : "translateY(32px) scale(0.97)",
             transition: "opacity 0.9s ease 0.5s, transform 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.5s",
@@ -429,21 +411,21 @@ export default function BigNewsSection() {
           >
             <p
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(11px, 0.94vw, 18px)",
                 lineHeight: "clamp(18px, 1.41vw, 27px)",
-                color: "#66716A",
+                color: "var(--color-muted)",
                 textAlign: "justify",
                 margin: 0,
               }}
             >
               <span
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: 'var(--font-heading)',
                   fontWeight: 400,
                   fontSize: "clamp(13px, 1.25vw, 24px)",
                   lineHeight: "clamp(22px, 1.88vw, 36px)",
-                  color: "#072A21",
+                  color: "var(--color-brand-forest-deep)",
                 }}
               >
                 Exclusive Bilateral Partnership:

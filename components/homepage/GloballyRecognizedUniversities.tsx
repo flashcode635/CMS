@@ -11,24 +11,24 @@ const universities = [
     name: "Samara State Medical University",
     logo: "/home/partner/logo-samara.png",
     logoSize: 157,
-    cardBg: "bg-[#D6CCBA]",
-    labelBg: "bg-[#1d6eb7]",
+    cardBg: "bg-line-strong",
+    labelBg: "bg-brand-royal",
   },
   {
     id: 2,
     name: "Novosibirsk State University",
     logo: "/home/partner/logo-novosibirsk.png",
     logoSize: 157,
-    cardBg: "bg-[#EDF3EF]",
-    labelBg: "bg-[#77c043]",
+    cardBg: "bg-surface-alt",
+    labelBg: "bg-brand-royal",
   },
   {
     id: 3,
     name: "Kabardino-Balkarian State University",
     logo: "/home/partner/logo-kbsu.png",
     logoSize: 117,
-    cardBg: "bg-[#EFE9DE]",
-    labelBg: "bg-[#33588b]",
+    cardBg: "bg-surface-alt",
+    labelBg: "bg-brand-royal",
   },
   // Row 1
   {
@@ -36,24 +36,24 @@ const universities = [
     name: "Ural State Medical University",
     logo: "/home/partner/logo-ural.png",
     logoSize: 133,
-    cardBg: "bg-[#ffedd5]",
-    labelBg: "bg-[#864b08]",
+    cardBg: "bg-orange-100",
+    labelBg: "bg-amber-800",
   },
   {
     id: 5,
     name: "East European University",
     logo: "/home/partner/logo-eeu.png",
     logoSize: 161,
-    cardBg: "bg-[#fee2e2]",
-    labelBg: "bg-[#910b0b]",
+    cardBg: "bg-red-100",
+    labelBg: "bg-red-700",
   },
   {
     id: 6,
     name: "International Black Sea University",
     logo: "/home/partner/logo-ibsu.png",
     logoSize: 163,
-    cardBg: "bg-[#EFE9DE]",
-    labelBg: "bg-[#2b62a6]",
+    cardBg: "bg-surface-alt",
+    labelBg: "bg-brand-royal",
   },
 ];
 
@@ -185,7 +185,7 @@ export default function GloballyRecognizedUniversities() {
         <div className="mb-[clamp(24px,2.5vw,48px)] flex flex-col gap-[clamp(12px,1.25vw,24px)]">
           {/* Title */}
           <h2
-            className={`m-0 font-bold font-serif text-[clamp(28px,3.33vw,64px)] leading-[1.1]
+            className={`m-0 font-bold font-sub text-[clamp(28px,3.33vw,64px)] leading-[1.1]
               bg-linear-173 from-brand-green from-13% to-brand-blue to-87%
               bg-clip-text text-transparent transition-all duration-700 ease-out
               ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
@@ -210,7 +210,7 @@ export default function GloballyRecognizedUniversities() {
 
           {/* WHO & NMC line */}
           <p
-            className={`m-0 font-normal font-['Playfair Display',serif]
+            className={`m-0 font-normal font-heading
               text-[clamp(14px,1.25vw,24px)] leading-9 text-black
               transition-all duration-700 ease-out
               ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}

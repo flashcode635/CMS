@@ -17,7 +17,7 @@ export default function WelcomeBanner() {
       />
 
       {/* Dark blue overlay */}
-      <div className="absolute inset-0 bg-[rgba(10,36,114,0.82)]" />
+      <div className="absolute inset-0 bg-brand-forest-deep/82" />
 
       {/* Content */}
       <div className="relative z-10 self-stretch flex flex-col justify-start items-center gap-12">
@@ -26,7 +26,7 @@ export default function WelcomeBanner() {
           {/* Heading row */}
           <div className="self-stretch inline-flex justify-center items-center gap-2.5">
             <h1
-              className="text-center text-white text-[clamp(22px,3.33vw,64px)] font-extrabold font-serif leading-[1.2]"
+              className="text-center text-white text-[clamp(22px,3.33vw,64px)] font-extrabold font-heading leading-[1.2]"
               style={{ width: "clamp(300px, 55.67vw, 1068.91px)" }}
             >
               Welcome to My Study Hub!

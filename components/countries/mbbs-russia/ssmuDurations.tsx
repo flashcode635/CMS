@@ -4,13 +4,13 @@
  * the right, and one card per study stage with a progress bar showing how much
  * of the total course each stage covers.
  *
- * Layout and colours follow the design: green (#0E8F5B) → blue (#0B3B2E)
- * gradient accents, cards on a translucent surface over a #072A21 canvas.
+ * Layout and colours follow the design: green (var(--color-brand-forest)) → blue (var(--color-brand-forest-deep))
+ * gradient accents, cards on a translucent surface over a var(--color-brand-forest-deep) canvas.
  */
 
-const BRAND_GREEN = "#0E8F5B";
-const BRAND_BLUE = "#0B3B2E";
-const INTERNSHIP_ORANGE = "#D8B26E";
+const BRAND_GREEN = "var(--color-brand-forest)";
+const BRAND_BLUE = "var(--color-brand-forest-deep)";
+const INTERNSHIP_ORANGE = "var(--color-brand-champagne)";
 
 import { COUNTRY_CONTENT } from "@/lib/constants";
 import type { DurationStageItem } from "@/types/interfaces";
@@ -35,7 +35,7 @@ export default function SSMUDurations({
   return (
     <section
       className="relative w-full overflow-hidden py-14 @min-[640px]:py-16 @min-[1024px]:py-20 px-5 @min-[640px]:px-8 @min-[1024px]:px-32 @min-[1280px]:px-40"
-      style={{ backgroundColor: "#072A21" }}
+      style={{ backgroundColor: "var(--color-brand-forest-deep)" }}
       aria-label={`Duration of MBBS at ${university}`}
     >
       {/* Corner decorations: cross cluster + dot grid, mirrored bottom-right.
@@ -50,7 +50,7 @@ export default function SSMUDurations({
           <div className="flex shrink-0 flex-col items-start @min-[1024px]:w-55 @min-[1280px]:w-62.5">
             <span
               className="text-white font-medium text-[15px] @min-[640px]:text-[16px] leading-normal"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               Total Duration
             </span>
@@ -58,9 +58,9 @@ export default function SSMUDurations({
             <span
               className="block font-normal leading-[0.95] tracking-tight select-none"
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontSize: "clamp(110px, 12cqw, 168px)",
-                backgroundImage: `linear-gradient(158deg, ${BRAND_GREEN} 8%, #0A6B44 46%, ${BRAND_BLUE} 92%)`,
+                backgroundImage: `linear-gradient(158deg, ${BRAND_GREEN} 8%, var(--color-brand-royal) 46%, ${BRAND_BLUE} 92%)`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -71,7 +71,7 @@ export default function SSMUDurations({
 
             <span
               className="text-white font-bold text-[16px] @min-[640px]:text-[18px] leading-normal pl-1"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              style={{ fontFamily: 'var(--font-body)' }}
             >
               Years
             </span>
@@ -89,9 +89,9 @@ export default function SSMUDurations({
               <h2
                 className="m-0 font-medium tracking-tight text-[26px] @min-[640px]:text-[34px] @min-[1024px]:text-[40px] @min-[1280px]:text-[44px] leading-[1.18]"
                 style={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: 'var(--font-heading)',
                   backgroundImage:
-                    "linear-gradient(100deg, #0E8F5B 4%, #0A6B44 46%, #0B3B2E 92%)",
+                    "linear-gradient(100deg, var(--color-brand-forest) 4%, var(--color-brand-royal) 46%, var(--color-brand-forest-deep) 92%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -104,8 +104,8 @@ export default function SSMUDurations({
               <p
                 className="m-0 text-[13px] @min-[640px]:text-[14px] leading-[1.6] font-normal"
                 style={{
-                  fontFamily: "'Inter', sans-serif",
-                  color: "#D6CCBA",
+                  fontFamily: 'var(--font-body)',
+                  color: "var(--color-line-strong)",
                 }}
               >
                 The total duration of the MBBS course at {university} is{" "}
@@ -130,15 +130,15 @@ export default function SSMUDurations({
                 key={stage.badge}
                 className="flex w-full shrink-0 flex-col gap-3 rounded-2xl border px-5 py-5 @min-[640px]:px-6 @min-[640px]:py-6"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.035)",
-                  borderColor: "rgba(255, 255, 255, 0.09)",
+                  backgroundColor: "color-mix(in srgb, white 4%, transparent)",
+                  borderColor: "color-mix(in srgb, white 9%, transparent)",
                 }}
               >
                 <div className="flex items-center justify-between gap-3">
                   <span
                     className="rounded-full px-3 py-1 text-[10px] @min-[640px]:text-[11px] font-semibold uppercase tracking-wider text-white"
                     style={{
-                      fontFamily: "'Inter', sans-serif",
+                      fontFamily: 'var(--font-body)',
                       backgroundColor: color,
                     }}
                   >
@@ -147,7 +147,7 @@ export default function SSMUDurations({
 
                   <span
                     className="text-right text-[12px] @min-[640px]:text-[13px] font-semibold text-white leading-snug"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
+                    style={{ fontFamily: 'var(--font-body)' }}
                   >
                     {stage.title}
                   </span>
@@ -156,8 +156,8 @@ export default function SSMUDurations({
                 <p
                   className="m-0 text-[12px] @min-[640px]:text-[12.5px] leading-normal font-normal"
                   style={{
-                    fontFamily: "'Inter', sans-serif",
-                    color: "#7A857E",
+                    fontFamily: 'var(--font-body)',
+                    color: "var(--color-muted)",
                   }}
                 >
                   {stage.description}
@@ -165,7 +165,7 @@ export default function SSMUDurations({
 
                 <div
                   className="h-1.5 w-full overflow-hidden rounded-full"
-                  style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  style={{ backgroundColor: "color-mix(in srgb, white 10%, transparent)" }}
                   role="progressbar"
                   aria-valuenow={stage.years}
                   aria-valuemin={0}
@@ -184,8 +184,8 @@ export default function SSMUDurations({
                 <span
                   className="text-[10px] @min-[640px]:text-[10.5px] font-normal"
                   style={{
-                    fontFamily: "'Inter', sans-serif",
-                    color: "#66716A",
+                    fontFamily: 'var(--font-body)',
+                    color: "var(--color-muted)",
                   }}
                 >
                   {stage.years} / {totalYears} years
@@ -236,9 +236,9 @@ const CROSS_OUTLINE = crossOutlinePath(38, 19);
  * thin outlined crosses interlaced behind it, and a 4 x 8 dot grid below.
  */
 function CrossCluster({ className }: { className?: string }) {
-  const armLight = "#4A554F";
-  const armDark = "#4A554F";
-  const outline = "#4A554F";
+  const armLight = "var(--color-body)";
+  const armDark = "var(--color-body)";
+  const outline = "var(--color-body)";
 
   return (
     <svg

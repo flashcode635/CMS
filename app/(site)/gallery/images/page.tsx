@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function GalleryImagesPage() {
   return (
-    <div className="flex flex-col @container" style={{ backgroundColor: "#F7F4EE" }}>
+    <div className="flex flex-col @container" style={{ backgroundColor: "var(--color-surface)" }}>
       {/* ── Section 1: Banner ── */}
       <PageBanner
         title="Seminars, Academic Fests & Events at My Study Hub in pictures"

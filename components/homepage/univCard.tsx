@@ -7,9 +7,24 @@ export default function UnivCard({ univ, visible, index }: UnivCardProps) {
   const cutSize = "clamp(20px, 2.2vw, 42px)";
   const cutY = "clamp(25px, 2.2vw, 42px)";
 
-  // Extract actual hex colors from Tailwind arbitrary classes
+  // Resolve colors from theme tokens first (recolor moved classes off raw hex),
+  // then fall back to hex inside arbitrary-value classes, then white.
+  const TOKEN_COLOR: Record<string, string> = {
+    "bg-brand-royal": "var(--color-brand-royal)",
+    "bg-brand-forest": "var(--color-brand-forest)",
+    "bg-brand-forest-deep": "var(--color-brand-forest-deep)",
+    "bg-brand-blue": "var(--color-brand-blue)",
+    "bg-line": "var(--color-line)",
+    "bg-line-strong": "var(--color-line-strong)",
+    "bg-surface": "var(--color-surface)",
+    "bg-surface-alt": "var(--color-surface-alt)",
+    "bg-red-700": "var(--color-red-700)",
+    "bg-amber-700": "var(--color-amber-700)",
+  };
   const getColor = (className: string) =>
-    className.match(/#(?:[0-9a-fA-F]{3,8})/)?.[0] ?? "#ffffff";
+    TOKEN_COLOR[className] ??
+    className.match(/#(?:[0-9a-fA-F]{3,8})/)?.[0] ??
+    "white";
 
   const cardColor = getColor(univ.cardBg);
   const labelColor = getColor(univ.labelBg);
@@ -38,7 +53,7 @@ export default function UnivCard({ univ, visible, index }: UnivCardProps) {
         {/* Main card */}
         <div
           className="relative h-full w-full overflow-hidden
-            shadow-[0_8px_24px_rgba(0,0,0,0.06)]"
+            shadow-lg shadow-black/6"
           style={{
             backgroundColor: cardColor,
             borderRadius: "clamp(12px, 1.25vw, 24px)",
@@ -68,7 +83,7 @@ export default function UnivCard({ univ, visible, index }: UnivCardProps) {
               className="object-contain"
               style={{
                 filter:
-                  "drop-shadow(0 0 0.6px rgba(0,0,0,0.4))",
+                  "drop-shadow(0 0 0.6px color-mix(in srgb, black 40%, transparent))",
               }}
             />
           </div>

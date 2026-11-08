@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function WebStoriesPage() {
   return (
-    <div className="flex flex-col min-h-screen @container" style={{ backgroundColor: "#F7F4EE" }}>
+    <div className="flex flex-col min-h-screen @container" style={{ backgroundColor: "var(--color-surface)" }}>
       <PageBanner
         title="Web Stories"
         subtitle="Explore quick visual stories and updates about medical education abroad"

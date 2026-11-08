@@ -46,12 +46,12 @@ export default function QuoteBanner() {
                      px-[clamp(80px,12vw,200px)]
                      py-[clamp(48px,7vw,96px)]"
           style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
+            fontFamily: 'var(--font-heading)',
             fontWeight: 400,
             fontStyle: "normal",
             fontSize: "clamp(22px, 3.33vw, 64px)",
             lineHeight: 1.5,
-            color: "#12211C",
+            color: "var(--color-ink)",
           }}
         >
           The biggest adventure you can take is to live the life of your dreams.

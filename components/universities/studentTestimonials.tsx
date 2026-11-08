@@ -181,7 +181,7 @@ export default function StudentTestimonials({
       className="relative overflow-hidden px-6 py-14 @min-[640px]:px-8 @min-[1024px]:px-10 @min-[1024px]:py-16"
       style={{
         background:
-          "linear-gradient(112deg, #EDF3EF 0%, #F7F4EE 51%, #F1E3C8 100%)",
+          "linear-gradient(112deg, var(--color-surface-alt) 0%, var(--color-surface) 51%, var(--color-brand-champagne-soft-bg) 100%)",
       }}
     >
       <div className="mx-auto max-w-350">
@@ -219,7 +219,7 @@ export default function StudentTestimonials({
                     aria-label="5 out of 5 stars"
                   >
                     {stars.map((_, index) => (
-                      <span key={index} aria-hidden="true" className="text-[#D8B26E]">
+                      <span key={index} aria-hidden="true" className="text-brand-champagne">
                         ★
                       </span>
                     ))}
@@ -239,7 +239,7 @@ export default function StudentTestimonials({
                   />
                 </div>
 
-                <div className="-mt-px bg-[#4A554F] px-3 py-3 text-center text-white">
+                <div className="-mt-px bg-body px-3 py-3 text-center text-white">
                   <p className="text-[10px] font-semibold @min-[640px]:text-[11px]">
                     {testimonial.name}
                   </p>

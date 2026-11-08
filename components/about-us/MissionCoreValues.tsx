@@ -3,10 +3,10 @@ import Image from "next/image";
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared colour tokens
 // ─────────────────────────────────────────────────────────────────────────────
-const GRAD  = "linear-gradient(115.73deg,#0E8F5B 12.704%,#0B3B2E 87.17%)";
-const GRAD2 = "linear-gradient(165deg,#0E8F5B 12.704%,#0B3B2E 87.17%)";
-const GRAD3 = "linear-gradient(153deg,#0E8F5B 12.704%,#0B3B2E 87.17%)";
-const LINE  = "#0E8F5B";           // vertical / horizontal connector colour
+const GRAD  = "linear-gradient(115.73deg,var(--color-brand-forest) 12.704%,var(--color-brand-forest-deep) 87.17%)";
+const GRAD2 = "linear-gradient(165deg,var(--color-brand-forest) 12.704%,var(--color-brand-forest-deep) 87.17%)";
+const GRAD3 = "linear-gradient(153deg,var(--color-brand-forest) 12.704%,var(--color-brand-forest-deep) 87.17%)";
+const LINE  = "var(--color-brand-forest)";           // vertical / horizontal connector colour
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Double-check icon  (line-md:check-all)
@@ -14,8 +14,8 @@ const LINE  = "#0E8F5B";           // vertical / horizontal connector colour
 function CheckIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden style={{ flexShrink: 0 }}>
-      <path d="M1.5 12.5L7 18L14 8.5"  stroke="#0E8F5B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8   12.5L13.5 18L20.5 8.5" stroke="#0B3B2E" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1.5 12.5L7 18L14 8.5"  stroke="var(--color-brand-forest)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M8   12.5L13.5 18L20.5 8.5" stroke="var(--color-brand-forest-deep)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -77,13 +77,13 @@ function ContentBlock({ title, grad, quote, subHead, bullets, right = false }: C
 
       {/* two short horizontal lines — bridge from vertical centre line */}
       <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: right ? "flex-end" : "flex-start" }}>
-        <div style={{ width: 162, height: 3, borderRadius: 99, background: `linear-gradient(${right ? "270deg" : "90deg"},#0E8F5B,#0B3B2E)` }} />
-        <div style={{ width: 108, height: 3, borderRadius: 99, background: `linear-gradient(${right ? "270deg" : "90deg"},#0E8F5B,#0B3B2E)`, opacity: 0.55 }} />
+        <div style={{ width: 162, height: 3, borderRadius: 99, background: `linear-gradient(${right ? "270deg" : "90deg"},var(--color-brand-forest),var(--color-brand-forest-deep))` }} />
+        <div style={{ width: 108, height: 3, borderRadius: 99, background: `linear-gradient(${right ? "270deg" : "90deg"},var(--color-brand-forest),var(--color-brand-forest-deep))`, opacity: 0.55 }} />
       </div>
 
       {/* gradient heading */}
       <h3 style={{
-        fontFamily: "'Inter',sans-serif",
+        fontFamily: 'var(--font-body)',
         fontWeight: 500,
         fontSize: "clamp(36px,4.17vw,64px)",
         lineHeight: 1,
@@ -100,10 +100,10 @@ function ContentBlock({ title, grad, quote, subHead, bullets, right = false }: C
 
       {/* italic quote */}
       <p style={{
-        fontFamily: "'Inter',sans-serif",
+        fontFamily: 'var(--font-body)',
         fontWeight: 300,
         fontSize: "clamp(13px,0.9vw,16px)",
-        color: "#66716A",
+        color: "var(--color-muted)",
         lineHeight: "1.7",
         margin: 0,
         textAlign: right ? "right" : "left",
@@ -113,10 +113,10 @@ function ContentBlock({ title, grad, quote, subHead, bullets, right = false }: C
 
       {/* sub-heading */}
       <p style={{
-        fontFamily: "'Inter',sans-serif",
+        fontFamily: 'var(--font-body)',
         fontWeight: 600,
         fontSize: "clamp(14px,1.04vw,18px)",
-        color: "#4A554F",
+        color: "var(--color-body)",
         lineHeight: "1.5",
         margin: 0,
         textAlign: right ? "right" : "left",
@@ -130,10 +130,10 @@ function ContentBlock({ title, grad, quote, subHead, bullets, right = false }: C
           <li key={i} style={{ display: "flex", alignItems: "center", gap: 10, justifyContent: right ? "flex-end" : "flex-start" }}>
             {!right && <CheckIcon />}
             <span style={{
-              fontFamily: "'Inter',sans-serif",
+              fontFamily: 'var(--font-body)',
               fontWeight: 300,
               fontSize: "clamp(13px,0.9vw,16px)",
-              color: "#66716A",
+              color: "var(--color-muted)",
               lineHeight: "1.65",
               textAlign: right ? "right" : "left",
             }}>
@@ -215,12 +215,12 @@ export default function MissionCoreValues() {
         {/* ── Section header ── */}
         <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <h2 style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: 'var(--font-heading)',
             fontWeight: 700,
             fontSize: "clamp(32px,4.17vw,64px)",
             lineHeight: 1.2,
             margin: 0,
-            backgroundImage: "linear-gradient(170deg,#0E8F5B 12.704%,#0B3B2E 87.17%)",
+            backgroundImage: "linear-gradient(170deg,var(--color-brand-forest) 12.704%,var(--color-brand-forest-deep) 87.17%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -229,10 +229,10 @@ export default function MissionCoreValues() {
             Our Mission &amp; Core Values
           </h2>
           <p style={{
-            fontFamily: "Inter,sans-serif",
+            fontFamily: 'var(--font-body)',
             fontWeight: 400,
             fontSize: "clamp(14px,1.11vw,21px)",
-            color: "#66716A",
+            color: "var(--color-muted)",
             lineHeight: 1.5,
             maxWidth: 680,
             margin: 0,

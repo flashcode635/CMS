@@ -139,7 +139,7 @@ export default function FeeStructureSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="bg-[linear-gradient(120deg,#EDF3EF_0%,#EDF3EF_50%,#EFE9DE_100%)] py-16 @min-[1024px]:py-24"
+            className="bg-[linear-gradient(120deg,var(--color-surface-alt)_0%,var(--color-surface-alt)_50%,var(--color-surface-alt)_100%)] py-16 @min-[1024px]:py-24"
         >
             <div className="mx-auto max-w-7xl px-4 @min-[640px]:px-6 @min-[1024px]:px-25">
                 <div className="flex gap-4">
@@ -158,10 +158,10 @@ export default function FeeStructureSection({
                         {cards.map((card) => (
                             <div
                                 key={card.year}
-                                className={`flex w-52 flex-none flex-col rounded-xl bg-[#072A21] p-4 text-white shadow-md @min-[1024px]:w-auto ${
+                                className={`flex w-52 flex-none flex-col rounded-xl bg-brand-forest-deep p-4 text-white shadow-md @min-[1024px]:w-auto ${
                                     card.highlight
                                         ? "border-2 border-orange-400"
-                                        : "border border-[#072A21]"
+                                        : "border border-brand-forest-deep"
                                 }`}
                             >
                                 {card.tag && (
@@ -210,7 +210,7 @@ export default function FeeStructureSection({
 
                     {/* Approx-total chip + mess-charge note */}
                     <div className="mt-6 flex flex-wrap items-center gap-4">
-                        <div className="flex items-center gap-3 rounded-lg bg-[#072A21] py-3 pl-4 pr-5 shadow-md">
+                        <div className="flex items-center gap-3 rounded-lg bg-brand-forest-deep py-3 pl-4 pr-5 shadow-md">
                             <div
                                 aria-hidden="true"
                                 className="h-9 w-1 flex-none rounded-full bg-brand-emerald"

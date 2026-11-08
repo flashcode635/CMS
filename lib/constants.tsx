@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import type { CountryContent, UniversityContent } from "@/types/interfaces";
 export const CARD_GRADIENTS = 
-  "linear-gradient(149.746deg, rgb(0, 146, 63) 12.704%, rgb(49, 99, 255) 87.17%)";
+  "linear-gradient(149.746deg, var(--color-brand-forest) 12.704%, var(--color-blue-600) 87.17%)";
 export const gradientTextStyle =  // used with CARD_GRADIENTS
 " md:text-transparent  whitespace-nowrap                bg-clip-text text-transparent [-webkit-text-fill-color:transparent]" 
 export function slugify(value: string): string {
@@ -91,7 +91,7 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
   introParagraphs: [
     <>
       {"Indian students looking to study MBBS abroad can choose from globally recognised universities approved by the National Medical Commission (NMC) and the "}
-      <span style={{ color: "#fc5046" }}>World Health Organization</span>
+      <span style={{ color: "var(--color-brand-champagne)" }}>World Health Organization</span>
       {" (WHO), offering high-quality medical education in a smooth process."}
     </>,
     <>
@@ -99,7 +99,7 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
     </>,
     <>
       {"In 2026, studying MBBS abroad remains an affordable and practical choice due to "}
-      <strong style={{ fontWeight: 700, color: "#4A554F" }}>
+      <strong style={{ fontWeight: 700, color: "var(--color-body)" }}>
         {"affordable fees, high-quality education, and global recognition"}
       </strong>
       {", with leading universities teaching in English."}
@@ -201,7 +201,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
     introParagraphs: [
       <>
         {"Russia, the largest country in the world, is known for its strong education system and excellence in medical studies. With globally recognized universities approved by the National Medical Commission (NMC) and the "}
-        <span style={{ color: "#fc5046" }}>World Health Organization</span>
+        <span style={{ color: "var(--color-brand-champagne)" }}>World Health Organization</span>
         {" (WHO), it has become a top destination for students pursuing MBBS in Russia."}
       </>,
       // slot 2 = `intro` (kept above); CountryIntro swaps this slot for the prop.
@@ -210,7 +210,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
       </>,
       <>
         {"In 2026, MBBS in Russia remains a popular choice due to "}
-        <strong style={{ fontWeight: 700, color: "#4A554F" }}>
+        <strong style={{ fontWeight: 700, color: "var(--color-body)" }}>
           {"affordable fees, high-quality education, and global recognition"}
         </strong>
         {"."}
@@ -243,7 +243,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         }
         <Link
           href="/countries/mbbs-in-russia"
-          className="text-[#D8B26E] font-semibold hover:underline"
+          className="text-brand-champagne font-semibold hover:underline"
         >
           {"MBBS abroad"}
         </Link>
@@ -417,7 +417,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         }
         <Link
           href="/countries/mbbs-in-russia"
-          className="text-[#D8B26E] font-semibold hover:underline"
+          className="text-brand-champagne font-semibold hover:underline"
         >
           {"MBBS abroad"}
         </Link>

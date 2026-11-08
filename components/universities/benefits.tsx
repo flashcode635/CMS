@@ -94,7 +94,7 @@ export default function BenefitsSection({
     return (
         <section
             aria-label={sectionLabel}
-            className="relative overflow-hidden bg-[linear-gradient(150deg,#0B3B2E_0%,#072A21_100%)] py-16 @min-[1024px]:py-24"
+            className="relative overflow-hidden bg-[linear-gradient(150deg,var(--color-brand-forest-deep)_0%,var(--color-brand-forest-deep)_100%)] py-16 @min-[1024px]:py-24"
         >
             {/* Decorative circles */}
             <div
@@ -137,7 +137,7 @@ export default function BenefitsSection({
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
                                 <div>
-                                    <h3 className="text-sm font-semibold text-[#1C2B25]">
+                                    <h3 className="text-sm font-semibold text-ink">
                                         {benefit.title}
                                     </h3>
                                     <p className="mt-1 text-xs leading-relaxed text-muted">
@@ -149,7 +149,7 @@ export default function BenefitsSection({
                     </ul>
 
                     {/* Right: video card */}
-                    <div className="self-center overflow-hidden rounded-2xl bg-[#072A21] shadow-lg ring-1 ring-white/10">
+                    <div className="self-center overflow-hidden rounded-2xl bg-brand-forest-deep shadow-lg ring-1 ring-white/10">
                             <div className="relative aspect-video">
                                 <Image
                                     src={videoPoster}
@@ -160,7 +160,7 @@ export default function BenefitsSection({
                                 />
                                 <div
                                     aria-hidden="true"
-                                    className="absolute inset-0 bg-[#072A21]/25"
+                                    className="absolute inset-0 bg-brand-forest-deep/25"
                                 />
                                 <Image
                                     src="/home/party-yt-wordmark.svg"
@@ -171,7 +171,7 @@ export default function BenefitsSection({
                                 />
 
                                 {/* Top-left caption overlay */}
-                                <div className="absolute inset-x-0 top-0 flex items-center gap-2 bg-[#072A21]/35 p-3">
+                                <div className="absolute inset-x-0 top-0 flex items-center gap-2 bg-brand-forest-deep/35 p-3">
                                     <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white/90">
                                         <GraduationCap
                                             aria-hidden="true"

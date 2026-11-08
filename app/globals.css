@@ -1,40 +1,146 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
+@import "tw-animate-css";
+
 
 @theme {
-  /* ── Premium advisory palette ─────────────────────────────────────────── */
-  --color-brand-forest: #0B3B2E;
-  --color-brand-forest-deep: #072A21;
-  --color-brand-forest-soft: #14523F;
-  --color-brand-emerald: #0E8F5B;
-  --color-brand-emerald-deep: #0A6B44;
-  --color-brand-champagne: #D8B26E;
-  --color-brand-champagne-soft: #F1E3C8;
-  --color-brand-champagne-soft-bg:#FEFDF9;
+  /* ── Premium global education palette ─────────────────────────────── */
 
-  /* Backwards-compatible aliases: existing brand-* classes inherit the new look */
-  --color-brand-green: #0E8F5B;
-  --color-brand-blue: #0B3B2E;
-  --color-brand-royal: #0A6B44;
-  --color-brand-navy: #072A21;
-  --color-brand-sky: #F1E3C8;
-  --color-brand-cyan: #D8B26E;
+  /* Primary brand — Blue */
+  --color-brand-forest: #183B65;
+  --color-brand-forest-deep: #112D4D;
+  --color-brand-forest-soft: #28547D;
+
+  /* Secondary brand — Steel Blue */
+  --color-brand-emerald: #6685A4;
+  --color-brand-emerald-deep: #496B8A;
+
+  /* Accent — Coral */
+  --color-brand-champagne: #E57C68;
+  --color-brand-champagne-soft: #F5C5BA;
+  --color-brand-champagne-soft-bg: #FFF5F2;
+  /* Rich champagne for primary CTAs — derived from existing tokens (no new hex).
+     -rich  ≈ #895855: dark, deep terracotta; pairs with --color-brand-sky text at 4.7:1 (AA)
+     -deep  ≈ #6E4D4F: hover/pressed step, pairs with --color-brand-sky at ~6:1 */
+  --color-brand-champagne-rich: color-mix(in srgb, var(--color-brand-champagne) 55%, var(--color-ink));
+  --color-brand-champagne-deep: color-mix(in srgb, var(--color-brand-champagne) 42%, var(--color-ink));
+
+  /* Backwards-compatible aliases */
+  --color-brand-green: #6685A4;
+  --color-brand-blue: #183B65;
+  --color-brand-royal: #28547D;
+  --color-brand-navy: #112D4D;
+  --color-brand-sky: #E1E7ED;
+  --color-brand-cyan: #E57C68;
 
   /* Semantic tokens */
-  --color-ink: #12211C;
-  --color-body: #4A554F;
-  --color-muted: #66716A;
-  --color-line: #E4DDD0;
-  --color-line-strong: #D6CCBA;
-  --color-surface: #F7F4EE;
-  --color-surface-alt: #EFE9DE;
-  --color-surface-mint: #EDF3EF;
+  --color-ink: #182B3D;
+  --color-body: #526273;
+  /* muted deepened from #788796 → #5B6B7B: 4.8:1+ on all light surfaces (was 3.2–3.7:1) */
+  --color-muted: #5B6B7B;
+
+  --color-line: #E1E7ED;
+  --color-line-strong: #CCD6E0;
+
+  --color-surface: #F6F8FA;
+  --color-surface-alt: #EDF1F5;
+  --color-surface-mint: #FCEFEB;
   --color-card: #FFFFFF;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
+  /* Typography — 3-tier system
+     Tier 1 heading: Fraunces   (page main headings, display text)
+     Tier 2 sub:     Space Grotesk (section titles, card/column titles)
+     Tier 3 body:    Inter      (paragraphs, labels, UI) */
+  --font-heading: "Fraunces", Georgia, Cambria, "Times New Roman", serif;
+  --font-sub: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Legacy aliases (kept for existing font-sans / font-serif usage) */
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+
+  /* Shared motion tokens (single source of truth for timing/easing) */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.18s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.8s;
 }
+
+/* ── Centralized animation system ─────────────────────────────────────
+   Every @keyframes in the app lives HERE. Components reference these
+   names instead of re-declaring component-specific keyframes.
+   Enter:  sp-fade-up / sp-fade-in / sp-slide-up / sp-slide-left / sp-slide-right
+   Exit:   sp-exit-left / sp-exit-right / sp-dropdown-out
+   Menus:  sp-dropdown-in / sp-pill-in / sp-col-in / sp-center-in
+   Ambient:sp-float / sp-float-lg / sp-float-lg-alt / sp-drift / sp-ken-burns
+           sp-marquee / sp-marquee-third(-rev) / sp-orbit(-alt) / sp-shimmer
+           sp-pulse-glow / sp-ring-pulse / sp-online-pulse / sp-scroll-bounce
+   Accent: sp-pop / sp-pin-drop / sp-plane-fly / sp-drop-rotate / sp-nudge-x
+           sp-sweep-in / sp-sweep-out / sp-zoom-in / sp-zoom-out            */
+
+@keyframes sp-fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes sp-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sp-slide-up { from { opacity: 0; transform: translateY(48px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes sp-slide-left { from { opacity: 0; transform: translateX(-48px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes sp-slide-right { from { opacity: 0; transform: translateX(48px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes sp-drop-rotate { from { opacity: 0; transform: translateX(60px) rotate(-5.28deg); } to { opacity: 1; transform: translateX(0) rotate(-5.28deg); } }
+@keyframes sp-exit-left { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-40px); } }
+@keyframes sp-exit-right { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(40px); } }
+@keyframes sp-dropdown-in { from { opacity: 0; transform: translateY(-10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes sp-dropdown-out { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(-10px) scale(0.98); } }
+@keyframes sp-pill-in { from { opacity: 0; transform: translateY(6px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes sp-col-in { from { opacity: 0; transform: translateX(5px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes sp-center-in { from { opacity: 0; transform: translateX(-50%) translateY(-6px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+@keyframes sp-pop { 0% { opacity: 0; transform: scale(0.75) translateY(12px); } 70% { opacity: 1; transform: scale(1.05) translateY(-2px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes sp-pin-drop { from { opacity: 0; transform: translateY(-20px) scale(0.7); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes sp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes sp-float-lg { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(3deg); } }
+@keyframes sp-float-lg-alt { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(-3deg); } }
+@keyframes sp-drift { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; } 33% { transform: translate(12px, -16px) scale(1.3); opacity: 1; } 66% { transform: translate(-8px, 12px) scale(0.8); opacity: 0.4; } }
+@keyframes sp-ken-burns { from { transform: scale(1) translateX(0); } to { transform: scale(1.05) translateX(-1%); } }
+@keyframes sp-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes sp-marquee-third { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+@keyframes sp-marquee-third-rev { from { transform: translateX(-33.333%); } to { transform: translateX(0); } }
+@keyframes sp-orbit { from { transform: rotate(0deg) translateX(74px) rotate(0deg); } to { transform: rotate(360deg) translateX(74px) rotate(-360deg); } }
+@keyframes sp-orbit-alt { from { transform: rotate(120deg) translateX(74px) rotate(-120deg); } to { transform: rotate(480deg) translateX(74px) rotate(-480deg); } }
+@keyframes sp-plane-fly { 0% { transform: translateX(-60px) translateY(10px) rotate(-5deg); opacity: 0; } 10% { opacity: 1; } 88% { opacity: 1; } 100% { transform: translateX(200px) translateY(-32px) rotate(6deg); opacity: 0; } }
+@keyframes sp-pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-brand-forest) 50%, transparent), 0 8px 32px color-mix(in srgb, var(--color-brand-forest) 40%, transparent); } 50% { box-shadow: 0 0 0 10px transparent, 0 12px 40px color-mix(in srgb, var(--color-brand-forest) 65%, transparent); } }
+@keyframes sp-ring-pulse { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.12; transform: scale(1.06); } }
+@keyframes sp-online-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-green-400) 60%, transparent); } 50% { box-shadow: 0 0 0 5px transparent; } }
+@keyframes sp-shimmer { from { background-position: -300% center; } to { background-position: 300% center; } }
+@keyframes sp-scroll-bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+@keyframes sp-nudge-x { from { transform: translateX(-5px) scaleY(-1); opacity: 0; } to { transform: translateX(0) scaleY(-1); opacity: 1; } }
+@keyframes sp-sweep-in { from { clip-path: circle(0% at 0% 100%); } to { clip-path: circle(170% at 0% 100%); } }
+@keyframes sp-sweep-out { from { clip-path: circle(170% at 0% 100%); } to { clip-path: circle(0% at 0% 100%); } }
+@keyframes sp-zoom-in { from { transform: scale(1); } to { transform: scale(1.06); } }
+@keyframes sp-zoom-out { from { transform: scale(1.06); } to { transform: scale(1); } }
+
+/* Generic scroll-reveal helper — pairs with an IntersectionObserver that
+   toggles `.in-view` (`.in` also accepted for legacy usage).
+   Per-element timing via CSS vars: style={{ "--anim-delay": "0.15s" }} */
+.anim-reveal { opacity: 0; }
+.anim-reveal.in-view,
+.anim-reveal.in {
+  animation: sp-fade-up var(--duration-slow) var(--anim-delay, 0s) forwards var(--ease-out-soft);
+}
+
+/* Accessibility: respect prefers-reduced-motion globally —
+   covers centralized keyframes, component <style> animations and transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .anim-reveal {
+    opacity: 1 !important;
+  }
+}
+
 
 body {
   background-color: var(--color-surface);

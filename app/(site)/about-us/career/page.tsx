@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function ServicesPage() {
     return (
-        <div className="flex flex-col" style={{ backgroundColor: "#ffffff" }}>
+        <div className="flex flex-col" style={{ backgroundColor: "white" }}>
             {/* ── Banner ── */}
             <PageBanner
                 title="Career - My Study Hub Pvt Ltd"
