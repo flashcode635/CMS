@@ -207,9 +207,102 @@ const COUNTRY_SCHEMAS: Record<string, SectionSchema> = {
       text("currency", "Currency"),
     ],
   },
-  intro: { fields: [area("intro", "Intro", "Intro paragraph under the hero")] },
-  "why-russia": { fields: [list("whyPoints", "Why points", "One point per line")] },
-  eligibility: { fields: [list("eligibility", "Eligibility criteria", "One criterion per line")] },
+  intro: {
+    fields: [
+      text("introHeading", "Intro heading"),
+      area("intro", "Intro highlight paragraph", "Paragraph shown in the intro highlight box"),
+    ],
+  },
+  "why-russia": {
+    fields: [
+      text("whyHeading", "Why heading"),
+      list("whyPoints", "Why points", "One point per line"),
+      list("whyExams", "Licensing exams chips", "One exam per line"),
+      text("whyAdditionalLabel", "Additional label"),
+      list("whyBenefits", "Additional benefits", "One benefit per line"),
+      area("whyOutro", "Closing paragraph"),
+    ],
+  },
+  eligibility: {
+    fields: [
+      text("eligibilityHeading", "Eligibility heading"),
+      list(
+        "eligibilityCards",
+        "Eligibility cards",
+        "One card per line: No. | Title | Description"
+      ),
+    ],
+  },
+  "ssmu-durations": {
+    fields: [
+      text("university", "University name"),
+      text("totalYears", "Total years (number)"),
+      list(
+        "stages",
+        "Study stages",
+        "One stage per line: Badge | Title | Description | Years"
+      ),
+    ],
+  },
+  steps: {
+    fields: [
+      text("heading", "Documents heading"),
+      list("intro", "Intro paragraphs", "One paragraph per line"),
+      list(
+        "documents",
+        "Required documents",
+        "One document per line. Prefix \"!\" = red accent, suffix \"+\" = wide card"
+      ),
+    ],
+  },
+  admission: {
+    fields: [
+      text("heading", "Admission heading"),
+      list("steps", "Admission steps", "One step per line: No. | Title | Description"),
+    ],
+  },
+  about: {
+    fields: [
+      text("heading", "About heading"),
+      area("subtitle", "Banner subtitle"),
+      list("paragraphs", "About paragraphs", "One paragraph per line"),
+      list("facts", "Fact cards", "One fact per line: Label | Value (suffix \"+\" = wide card)"),
+    ],
+  },
+  "free-counselling": {
+    fields: [
+      text("eyebrow", "Panel eyebrow"),
+      text("heading", "Panel heading"),
+      area("subtitle", "Panel subtitle"),
+      text("phone", "Phone number"),
+      text("email", "Email address"),
+      text("address", "Head office address"),
+      text("quoteLabel", "Quote label"),
+      area("quote", "Quote"),
+      text("formHeading", "Form heading"),
+      area("formIntro", "Form intro"),
+      list("courses", "Course options", "One course per line"),
+    ],
+  },
+  "abroad-hero": {
+    fields: [
+      text("subtitle", "Eyebrow"),
+      text("titlePrefix", "Title (first part)"),
+      text("titleAccent", "Title (accent part)"),
+      area("description", "Description"),
+      text("descriptionEmphasis", "Description emphasis"),
+      text("countriesDescription", "Countries sentence"),
+      text("descriptionSuffix", "Description suffix"),
+      text("ctaLabel", "Button label"),
+      list("countries", "University cards", "One card per line: Name | /image/path"),
+    ],
+  },
+  faq: {
+    fields: [
+      text("heading", "FAQ heading"),
+      list("items", "Questions", "One per line: Question | Answer"),
+    ],
+  },
 };
 
 export function getSectionSchema(active: "universities" | "countries", type: string): SectionSchema {
@@ -225,6 +318,13 @@ export function getSectionLabel(active: "universities" | "countries", type: stri
     intro: "Country intro",
     "why-russia": "Why this country",
     eligibility: "Eligibility",
+    "ssmu-durations": "MBBS duration",
+    steps: "Documents required",
+    admission: "Admission process",
+    about: "About the country",
+    "free-counselling": "Free counselling block",
+    "abroad-hero": "Top countries banner",
+    faq: "FAQ",
   };
   if (active === "countries") return countryNames[type] ?? type;
   const univNames: Record<string, string> = {

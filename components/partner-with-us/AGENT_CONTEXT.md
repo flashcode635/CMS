@@ -115,7 +115,7 @@ Route composition (`app/(site)/about-us/partner-with-us/page.tsx`, page backgrou
 - **Constants & types:**
   - `CONTACT` — 3 records `{ icon: string; label: string; value: string }`:
     - "Helpline No." → `+91-9971944622, 011-40550609`
-    - "Head Office" → `806, KLJ Tower, Pitampura, Delhi - 110034`
+    - "Head Office" → `305, Metro Heights, Sector 44, Gurugram - 122003 - 110034`
     - "Mail for info." → `contact@mystudyhub.com`
       Icons are Figma MCP asset URLs.
   - `SOCIALS` — 4 records `{ icon, handle, href }` for Facebook, Instagram, LinkedIn, and Pinterest. **All hrefs are bare platform homepages, not the actual profiles** — placeholder links.

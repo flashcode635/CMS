@@ -82,7 +82,7 @@ export default function UniversityOverview({
 
                     <Link
                         href={ctaHref}
-                        className="mt-10 inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-brand-emerald to-brand-forest px-8 py-4 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90 @min-[1024px]:ml-5.5"
+                        className="mt-10 inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-brand-emerald-deep to-brand-forest px-8 py-4 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90 @min-[1024px]:ml-5.5"
                     >
                         {ctaLabel}
                         <ArrowRight className="h-4 w-4" aria-hidden="true" />

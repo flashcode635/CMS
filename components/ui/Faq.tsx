@@ -9,7 +9,8 @@ export interface FaqItem {
   answer: string;
 }
 
-const FAQ_ITEMS: FaqItem[] = [
+/** Default copy — exported so the CMS live editor can seed its fields. */
+export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What are the basic eligibility criteria for studying MBBS abroad?",
     answer: "Students generally need at least 50% marks in Physics, Chemistry, and Biology in 10+2 (40% for reserved categories) and a qualified NEET score.",
@@ -36,7 +37,14 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ];
 
-export default function Faq() {
+export type FaqProps = {
+  /** Section heading above the accordion. */
+  heading?: string;
+  /** Question/answer pairs (defaults to FAQ_ITEMS). */
+  items?: FaqItem[];
+};
+
+export default function Faq({ heading = "Frequently Asked Questions", items = FAQ_ITEMS }: FaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
@@ -45,9 +53,9 @@ export default function Faq() {
 
   return (
     <div className="w-full max-w-4xl mx-auto py-8 px-4">
-      <h2 className="text-3xl font-bold text-center text-ink mb-8">Frequently Asked Questions</h2>
+      <h2 className="text-3xl font-bold text-center text-ink mb-8">{heading}</h2>
       <div className="space-y-4">
-        {FAQ_ITEMS.map((item, idx) => (
+        {items.map((item, idx) => (
           <div key={idx} className="border border-line rounded-lg overflow-hidden bg-white shadow-sm">
 <Button onClick={() => toggle(idx)} variant="unstyled" size="bare" shape="none"
   className="w-full justify-between whitespace-normal p-4 text-left font-semibold text-ink hover:bg-surface">

@@ -414,7 +414,7 @@ export default function Navbar() {
           content:''; position:absolute; bottom:2px; left:50%;
           transform:translateX(-50%) scaleX(0);
           width:60%; height:1.5px;
-          background:linear-gradient(90deg,var(--color-brand-forest),var(--color-brand-champagne));
+          background:linear-gradient(90deg,var(--color-brand-emerald),var(--color-brand-sky));
           border-radius:2px; transition:transform 0.25s ease; transform-origin:center;
         }
         .nb-link:hover::after { transform:translateX(-50%) scaleX(1); }

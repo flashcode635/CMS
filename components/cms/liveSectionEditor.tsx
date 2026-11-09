@@ -14,9 +14,23 @@
 import {
   getCountryContent,
   getUniversityContent,
+  DEFAULT_COUNTRY_CONTENT,
   DEFAULT_CONTENT as RUSSIA_BANNER_DEFAULTS,
 } from "@/lib/constants";
 import { withUniversityName } from "@/components/universities/universityName";
+import { FAQ_ITEMS } from "@/components/ui/Faq";
+import { EVENT_CONTACT_DEFAULTS } from "@/components/images/EventContactForm";
+import { DEFAULT_CONTENT as ABROAD_HERO_DEFAULTS } from "@/components/homepage/MBBSAbroadHero";
+import {
+  formatCountryCards,
+  formatDocuments,
+  formatEligibilityCards,
+  formatFacts,
+  formatFaq,
+  formatStages,
+  formatSteps,
+  toPlainText,
+} from "./sectionLines";
 import { MessageSquareWarning, RotateCcw, EyeOff } from "lucide-react";
 import { useMemo } from "react";
 import { Card, Field } from "./smallerComponents";
@@ -30,7 +44,10 @@ type LiveSectionEditorProps = { active: ContentType };
 /* ---------- seed: content the section shows before any edit ---------- */
 function getSectionSeed(active: ContentType, kind: string, slug: string, type: string): Record<string, unknown> {
   if (active === "countries") {
-    const c = getCountryContent(slug);
+    /* Same merge the preview renders, so the editor opens with exactly the
+       copy on screen (constants carry JSX for some fields — flattened to
+       plain text for the textareas). */
+    const c = { ...DEFAULT_COUNTRY_CONTENT, ...getCountryContent(slug) };
     const countrySeeds: Record<string, Record<string, unknown>> = {
       hero: {
         heroTitle: c.heroTitle,
@@ -38,9 +55,55 @@ function getSectionSeed(active: ContentType, kind: string, slug: string, type: s
         languages: c.languages,
         currency: c.currency,
       },
-      intro: { intro: c.intro },
-      "why-russia": { whyPoints: c.whyPoints as string[] },
-      eligibility: { eligibility: c.eligibility },
+      intro: { introHeading: c.introHeading, intro: c.intro },
+      "why-russia": {
+        whyHeading: c.whyHeading,
+        whyPoints: (c.whyPoints ?? []).map((p) => toPlainText(p)),
+        whyExams: c.whyExams ?? [],
+        whyAdditionalLabel: c.whyAdditionalLabel,
+        whyBenefits: c.whyBenefits ?? [],
+        whyOutro: toPlainText(c.whyOutro),
+      },
+      eligibility: {
+        eligibilityHeading: c.eligibilityHeading,
+        eligibilityCards: formatEligibilityCards(c.eligibilityCards),
+      },
+      "ssmu-durations": {
+        university: c.durations?.university,
+        totalYears: String(c.durations?.totalYears ?? ""),
+        stages: formatStages(c.durations?.stages),
+      },
+      steps: {
+        heading: c.documents?.heading,
+        intro: c.documents?.intro ?? [],
+        documents: formatDocuments(c.documents?.items),
+      },
+      admission: {
+        heading: c.admissionHeading,
+        steps: formatSteps(c.admissionSteps),
+      },
+      about: {
+        heading: c.about?.heading,
+        subtitle: c.about?.subtitle,
+        paragraphs: (c.about?.paragraphs ?? []).map((p) => toPlainText(p)),
+        facts: formatFacts(c.about?.facts),
+      },
+      "free-counselling": { ...EVENT_CONTACT_DEFAULTS },
+      "abroad-hero": {
+        subtitle: ABROAD_HERO_DEFAULTS.subtitle,
+        titlePrefix: ABROAD_HERO_DEFAULTS.titlePrefix,
+        titleAccent: ABROAD_HERO_DEFAULTS.titleAccent,
+        description: ABROAD_HERO_DEFAULTS.description,
+        descriptionEmphasis: ABROAD_HERO_DEFAULTS.descriptionEmphasis,
+        countriesDescription: ABROAD_HERO_DEFAULTS.countriesDescription,
+        descriptionSuffix: ABROAD_HERO_DEFAULTS.descriptionSuffix,
+        ctaLabel: ABROAD_HERO_DEFAULTS.ctaLabel,
+        countries: formatCountryCards(ABROAD_HERO_DEFAULTS.countries),
+      },
+      faq: {
+        heading: "Frequently Asked Questions",
+        items: formatFaq(FAQ_ITEMS),
+      },
     };
     return countrySeeds[type] ?? {};
   }

@@ -107,7 +107,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           <div className="mb-9 lg:hidden"><span className="inline-flex items-center gap-2 text-lg font-semibold text-brand-forest-deep"><span className="grid size-9 place-items-center rounded-xl bg-brand-forest-deep"><SparkleMark /></span>Study Palace</span></div>
           <div className="mb-8">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[.22em] text-brand-emerald-deep">{isSignup ? "Create your account" : "Welcome back"}</p>
-            <h2 className="font-sub text-3xl font-semibold tracking-[-.02em] text-brand-forest-deep">{isSignup ? "Begin your journey." : "Good to see you again."}</h2>
+            <h2 className="font-sub text-3xl font-semibold tracking-[-.02em] text-brand-forest">{isSignup ? "Begin your journey." : "Good to see you again."}</h2>
             <p className="mt-3 text-sm leading-6 text-muted">{isSignup ? "Join a community building bold futures." : "Sign in to pick up right where you left off."}</p>
           </div>
 

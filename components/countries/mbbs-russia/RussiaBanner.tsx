@@ -66,7 +66,8 @@ export default function RussiaBanner({
   >
     {/* Background (only layer that stays absolute) */}
     <div className="absolute inset-0" aria-hidden="true">
-      <div className="absolute inset-0 bg-linear-to-b from-black/80 to-black/20 bg-cover bg-center" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/80
+       to-black/20 bg-cover bg-center" />
       <div className="absolute inset-0 opacity-50">
         <Image
           src={image}
@@ -81,7 +82,7 @@ export default function RussiaBanner({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, transparent 0.753%, var(--color-brand-forest-deep) 100.75%)",
+            "linear-gradient(to bottom, transparent 0.753%, rgba(0, 0, 0, 0.92) 100.75%)",
         }}
       />
     </div>

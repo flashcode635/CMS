@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import UnivCard from "./univCard"
-// ── Data — colors ab Tailwind classes ke roop me ──────────────────────────
+// ── Data — alternating blue, green, and red cards with soft blurred accents ─
 const universities = [
   // Row 0
   {
@@ -11,24 +11,27 @@ const universities = [
     name: "Samara State Medical University",
     logo: "/home/partner/logo-samara.png",
     logoSize: 157,
-    cardBg: "bg-line-strong",
-    labelBg: "bg-brand-royal",
+    cardBg: "bg-blue-100",
+    labelBg: "bg-blue-700",
+    glowColor: "var(--color-blue-400)",
   },
   {
     id: 2,
     name: "Novosibirsk State University",
     logo: "/home/partner/logo-novosibirsk.png",
     logoSize: 157,
-    cardBg: "bg-surface-alt",
-    labelBg: "bg-brand-royal",
+    cardBg: "bg-green-100",
+    labelBg: "bg-green-700",
+    glowColor: "var(--color-green-400)",
   },
   {
     id: 3,
     name: "Kabardino-Balkarian State University",
     logo: "/home/partner/logo-kbsu.png",
     logoSize: 117,
-    cardBg: "bg-surface-alt",
-    labelBg: "bg-brand-royal",
+    cardBg: "bg-red-100",
+    labelBg: "bg-red-700",
+    glowColor: "var(--color-red-400)",
   },
   // Row 1
   {
@@ -36,24 +39,27 @@ const universities = [
     name: "Ural State Medical University",
     logo: "/home/partner/logo-ural.png",
     logoSize: 133,
-    cardBg: "bg-orange-100",
-    labelBg: "bg-amber-800",
+    cardBg: "bg-blue-100",
+    labelBg: "bg-blue-700",
+    glowColor: "var(--color-blue-400)",
   },
   {
     id: 5,
     name: "East European University",
     logo: "/home/partner/logo-eeu.png",
     logoSize: 161,
-    cardBg: "bg-red-100",
-    labelBg: "bg-red-700",
+    cardBg: "bg-green-100",
+    labelBg: "bg-green-700",
+    glowColor: "var(--color-green-400)",
   },
   {
     id: 6,
     name: "International Black Sea University",
     logo: "/home/partner/logo-ibsu.png",
     logoSize: 163,
-    cardBg: "bg-surface-alt",
-    labelBg: "bg-brand-royal",
+    cardBg: "bg-red-100",
+    labelBg: "bg-red-700",
+    glowColor: "var(--color-red-400)",
   },
 ];
 

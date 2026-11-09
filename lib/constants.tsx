@@ -1,4 +1,15 @@
 // This module uses JSX in the default country content, so it must be a .tsx file.
+//
+// ── CMS content rule ─────────────────────────────────────────────────────────
+// Everything below DEFAULT_COUNTRY_CONTENT / DEFAULT_UNIVERSITY_CONTENT that is
+// rendered as CMS text (paragraphs, whyPoints, intros, outros...) is PLAIN
+// SEMANTIC HTML ONLY — no className=, no style={{...}}, no var(--...) inline.
+// Presentation for content-authored markup lives in the renderer components
+// (container-level colors) and in the `.cms-prose` / `.cms-prose-inverse`
+// rules in app/globals.css (links, strong). Keep it that way so editors can
+// never inject CSS through the CMS.
+// The only styling exports here are component-layer helpers consumed by code
+// (e.g. CARD_GRADIENTS), which is styling code — not CMS text.
 import { RussiaBannerProps } from "@/types/types";
 import type { ReactNode } from "react";
 import Link from "next/link";
@@ -23,13 +34,13 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
   intro: "Study MBBS abroad with world-class education, affordable tuition and globally recognised degrees.",
   whyPoints: [
     <> 
-       Indian Students are now choosing <strong className="font-bold text-white">MBBS in Russia</strong> for its affordability &amp; the recognition of its universities worldwide. Renowned institutions such as <strong className="font-bold text-white">Novosibirsk State University</strong>, <strong className="font-bold text-white">Samara State Medical University</strong>, <strong className="font-bold text-white">Ural State Medical University</strong>, and <strong className="font-bold text-white">North Caucasian State Academy</strong> provide high-quality medical education. These universities offer programs taught in English, modern infrastructure, and practical clinical training.
+       Indian Students are now choosing <strong>MBBS in Russia</strong> for its affordability &amp; the recognition of its universities worldwide. Renowned institutions such as <strong>Novosibirsk State University</strong>, <strong>Samara State Medical University</strong>, <strong>Ural State Medical University</strong>, and <strong>North Caucasian State Academy</strong> provide high-quality medical education. These universities offer programs taught in English, modern infrastructure, and practical clinical training.
     </>,
    <> 
-       Indian Students are now choosing <strong className="font-bold text-white">MBBS in Russia</strong> for its affordability &amp; the recognition of its universities worldwide. Renowned institutions such as <strong className="font-bold text-white">Novosibirsk State University</strong>, <strong className="font-bold text-white">Samara State Medical University</strong>, <strong className="font-bold text-white">Ural State Medical University</strong>, and <strong className="font-bold text-white">North Caucasian State Academy</strong> provide high-quality medical education. These universities offer programs taught in English, modern infrastructure, and practical clinical training.
+       Indian Students are now choosing <strong>MBBS in Russia</strong> for its affordability &amp; the recognition of its universities worldwide. Renowned institutions such as <strong>Novosibirsk State University</strong>, <strong>Samara State Medical University</strong>, <strong>Ural State Medical University</strong>, and <strong>North Caucasian State Academy</strong> provide high-quality medical education. These universities offer programs taught in English, modern infrastructure, and practical clinical training.
     </>,
    <> 
-       Indian Students are now choosing <strong className="font-bold text-white">MBBS in Russia</strong> for its affordability &amp; the recognition of its universities worldwide. Renowned institutions such as <strong className="font-bold text-white">Novosibirsk State University</strong>, <strong className="font-bold text-white">Samara State Medical University</strong>, <strong className="font-bold text-white">Ural State Medical University</strong>, and <strong className="font-bold text-white">North Caucasian State Academy</strong> provide high-quality medical education. These universities offer programs taught in English, modern infrastructure, and practical clinical training.
+       Indian Students are now choosing <strong>MBBS in Russia</strong> for its affordability &amp; the recognition of its universities worldwide. Renowned institutions such as <strong>Novosibirsk State University</strong>, <strong>Samara State Medical University</strong>, <strong>Ural State Medical University</strong>, and <strong>North Caucasian State Academy</strong> provide high-quality medical education. These universities offer programs taught in English, modern infrastructure, and practical clinical training.
     </>,
   ],
   whyHeading: "Why Study MBBS Abroad?",
@@ -91,7 +102,7 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
   introParagraphs: [
     <>
       {"Indian students looking to study MBBS abroad can choose from globally recognised universities approved by the National Medical Commission (NMC) and the "}
-      <span style={{ color: "var(--color-brand-champagne)" }}>World Health Organization</span>
+      <strong>World Health Organization</strong>
       {" (WHO), offering high-quality medical education in a smooth process."}
     </>,
     <>
@@ -99,7 +110,7 @@ export const DEFAULT_COUNTRY_CONTENT: CountryContent = {
     </>,
     <>
       {"In 2026, studying MBBS abroad remains an affordable and practical choice due to "}
-      <strong style={{ fontWeight: 700, color: "var(--color-body)" }}>
+      <strong>
         {"affordable fees, high-quality education, and global recognition"}
       </strong>
       {", with leading universities teaching in English."}
@@ -201,7 +212,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
     introParagraphs: [
       <>
         {"Russia, the largest country in the world, is known for its strong education system and excellence in medical studies. With globally recognized universities approved by the National Medical Commission (NMC) and the "}
-        <span style={{ color: "var(--color-brand-champagne)" }}>World Health Organization</span>
+        <strong>World Health Organization</strong>
         {" (WHO), it has become a top destination for students pursuing MBBS in Russia."}
       </>,
       // slot 2 = `intro` (kept above); CountryIntro swaps this slot for the prop.
@@ -210,7 +221,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
       </>,
       <>
         {"In 2026, MBBS in Russia remains a popular choice due to "}
-        <strong style={{ fontWeight: 700, color: "var(--color-body)" }}>
+        <strong>
           {"affordable fees, high-quality education, and global recognition"}
         </strong>
         {"."}
@@ -241,10 +252,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         {
           "With globally accredited degrees, affordable education, and strong career prospects, Russia remains one of the best destinations for "
         }
-        <Link
-          href="/countries/mbbs-in-russia"
-          className="text-brand-champagne font-semibold hover:underline"
-        >
+        <Link href="/countries/mbbs-in-russia">
           {"MBBS abroad"}
         </Link>
         {". Students gain international exposure, advanced medical training, and a pathway to practice medicine in India or overseas."}
@@ -370,7 +378,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         "Discover the rich culture, history, and opportunities that await you in Russia.",
       paragraphs: [
         <>
-          <span className="text-brand-emerald-deep font-semibold text-lg">Russia</span>
+          <strong>Russia</strong>
           {", the world's largest country, spans Eastern Europe & Northern Asia, offering a unique blend of rich cultural heritage and modern educational excellence. After gaining independence from the Soviet Union (USSR) in 1991, Russia now features diverse landscapes, from the frozen tundra of Siberia to the Volga, Europe's longest river. Today, it stands out as a top destination for medical education, particularly attracting international students with its affordable and high-quality MBBS programs."}
         </>,
         "Russian medical universities have gained global recognition, with degrees accredited by major medical bodies such as the WHO, NMC, and FAIMER. This accreditation ensures that graduates can practice medicine worldwide. What makes studying in Russia especially appealing is its combination of state-of-the-art medical facilities, English-taught programs, and tuition fees significantly lower than those of Western countries.",
@@ -415,10 +423,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         {
           "With globally accredited degrees, affordable education, and strong career prospects, Russia remains one of the best destinations for "
         }
-        <Link
-          href="/countries/mbbs-in-russia"
-          className="text-brand-champagne font-semibold hover:underline"
-        >
+        <Link href="/countries/mbbs-in-russia">
           {"MBBS abroad"}
         </Link>
         {". Students gain international exposure, advanced medical training, and a pathway to practice medicine in India or overseas."}
@@ -544,7 +549,7 @@ export const COUNTRY_CONTENT: Record<string, CountryContent> = {
         "Discover the rich culture, history, and opportunities that await you in Kyrgyzstan.",
       paragraphs: [
         <>
-          <span className="text-brand-emerald-deep font-semibold text-lg">Kyrgyzstan</span>
+          <strong>Kyrgyzstan</strong>
           {", the world's largest country, spans Eastern Europe & Northern Asia, offering a unique blend of rich cultural heritage and modern educational excellence. After gaining independence from the Soviet Union (USSR) in 1991, Kyrgyzstan now features diverse landscapes, from the frozen tundra of Siberia to the Volga, Europe's longest river. Today, it stands out as a top destination for medical education, particularly attracting international students with its affordable and high-quality MBBS programs."}
         </>,
         "Kyrgyzstan's medical universities have gained global recognition, with degrees accredited by major medical bodies such as the WHO, NMC, and FAIMER. This accreditation ensures that graduates can practice medicine worldwide. What makes studying in Kyrgyzstan especially appealing is its combination of state-of-the-art medical facilities, English-taught programs, and tuition fees significantly lower than those of Western countries.",

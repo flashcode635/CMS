@@ -39,7 +39,8 @@ interface FeatureCardProps {
 function FeatureCard({ title, description, iconSrc, iconBg, visible, delay }: FeatureCardProps) {
   return (
     <div
-      className="flex items-center gap-4 overflow-hidden px-4 py-3 rounded-3 border border-line w-full"
+      className="flex items-center gap-4 overflow-hidden
+       px-4 py-3 rounded-3 border border-line w-full"
       style={{
         height: 80,
         backgroundColor: "color-mix(in srgb, var(--color-brand-sky) 20%, transparent)",

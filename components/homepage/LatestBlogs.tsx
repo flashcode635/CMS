@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-
+import {BookOpenText} from "lucide-react" ;
 const blogs = [
   {
     id: 1,
@@ -178,10 +178,9 @@ export default function LatestBlogs() {
                     {/* Right: content */}
                     <div className="flex-1 flex flex-col justify-center p-6 sm:p-10 lg:p-14 gap-4 md:gap-6 bg-white">
                       {/* Category badge */}
-                      <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-surface-alt border border-brand-sky">
-                        <div className="w-4 h-4 relative shrink-0">
-                          <Image src="/home/blog-book-icon.svg" alt="" fill className="object-contain" />
-                        </div>
+                      <div className="inline-flex items-center gap-2 self-start px-2.5 py-1.5 rounded-full bg-surface-alt border border-brand-sky">
+                       
+                          <BookOpenText className="text-brand-forest w-4 h-4 relative shrink-0"/>
                         <span
                           className="uppercase font-semibold tracking-wider text-brand-emerald-deep"
                           style={{
@@ -196,7 +195,7 @@ export default function LatestBlogs() {
 
                       {/* Title */}
                       <h3
-                        className="text-brand-forest-deep font-bold hover:text-brand-emerald-deep transition-colors cursor-pointer"
+                        className="text-brand-forest font-bold hover:text-brand-emerald-deep transition-colors cursor-pointer"
                         style={{
                           fontFamily: 'var(--font-body)',
                           fontSize: "clamp(20px, 2.2vw, 36px)",

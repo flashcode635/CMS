@@ -82,7 +82,7 @@ function ServiceCard({ title, icon, visible, index }: { title: string; icon: str
 
       {/* Title */}
       <p
-        className="font-medium text-brand-forest-deep group-hover:text-brand-emerald-deep transition-colors"
+        className="font-medium text-brand-forest group-hover:text-brand-emerald-deep transition-colors"
         style={{
           fontFamily: 'var(--font-body)',
           fontSize: "clamp(13px, 0.88vw, 16px)",

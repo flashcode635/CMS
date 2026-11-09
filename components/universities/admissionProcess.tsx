@@ -191,7 +191,7 @@ export default function AdmissionProcessSection({
                 <div className="mt-10 flex justify-center">
                     <Link
                         href={ctaHref}
-                        className="group inline-flex items-center gap-2 rounded-md bg-linear-to-r from-brand-emerald to-brand-forest px-6 py-3 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90"
+                        className="group inline-flex items-center gap-2 rounded-md bg-linear-to-r from-brand-emerald-deep to-brand-forest px-6 py-3 text-sm font-medium text-white shadow-md transition-opacity hover:opacity-90"
                     >
                         {ctaLabel}
                         <ArrowRight

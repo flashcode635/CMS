@@ -11,19 +11,20 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        /* Primary CTA — rich champagne (dark, deep terracotta) with sky text.
-           rich ≈ #895855 → sky 4.7:1 AA; hover deep ≈ #6E4D4F → sky ~6:1 */
+        /* Primary CTA — deep green (#15803D) with brand-sky text.
+           rich #15803D → sky #E1E7ED ≈ 4:1; hover deep #14532D → sky ≈ 7.7:1.
+           Dark green is reserved for heading TEXT — buttons carry sky text. */
         brand:
-          "bg-brand-champagne-rich text-brand-sky shadow-md hover:bg-brand-champagne-deep active:scale-[0.98] focus-visible:ring-brand-champagne/50",
+          "bg-brand-champagne-rich text-white shadow-md hover:bg-brand-champagne-deep active:scale-[0.98] focus-visible:ring-brand-champagne/50",
         brandSolid:
-          "bg-brand-champagne-rich text-brand-sky hover:bg-brand-champagne-deep active:scale-[0.98] focus-visible:ring-brand-champagne/50",
+          "bg-brand-champagne-rich text-white hover:bg-brand-champagne-deep active:scale-[0.98] focus-visible:ring-brand-champagne/50",
         brandOutline:
           "border border-brand-blue bg-transparent text-brand-blue hover:bg-brand-blue hover:text-white",
         brandWide:
-          "bg-linear-90 from-brand-champagne-rich to-brand-champagne-deep text-brand-sky shadow-lg hover:scale-105 hover:shadow-brand-champagne-rich/40 focus-visible:ring-brand-champagne/50",
+          "bg-linear-90 from-brand-champagne-rich to-brand-champagne-deep text-white shadow-lg hover:scale-105 hover:shadow-brand-champagne-rich/40 focus-visible:ring-brand-champagne/50",
         brandBorder:
           "border-2 border-transparent text-white hover:bg-brand-cyan/20 " +
-          "[background:linear-gradient(var(--color-brand-forest-deep),var(--color-brand-forest-deep))_padding-box,linear-gradient(90deg,var(--color-brand-forest),var(--color-brand-champagne),var(--color-brand-forest-deep))_border-box]",
+          "[background:linear-gradient(var(--color-brand-forest-deep),var(--color-brand-forest-deep))_padding-box,linear-gradient(90deg,var(--color-brand-forest),var(--color-brand-emerald),var(--color-brand-forest-deep))_border-box]",
         outline:
           "border border-line bg-card text-body hover:border-brand-royal hover:text-brand-royal",
         tab:

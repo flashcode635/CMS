@@ -158,7 +158,7 @@ export default function AccreditationSection({
                                 />
                                 <div className="flex items-center gap-4">
                                     {card.icon}
-                                    <h3 className="text-lg font-semibold text-brand-forest-deep">
+                                    <h3 className="text-lg font-semibold text-brand-forest">
                                         {card.title}
                                     </h3>
                                 </div>
@@ -176,7 +176,7 @@ export default function AccreditationSection({
                 <div className="mt-12 rounded-2xl bg-white p-6 shadow-lg @min-[1024px]:p-8">
                     <div className="flex items-center gap-3">
                         {highlightIcon}
-                        <h3 className="text-lg font-semibold text-brand-forest-deep">
+                        <h3 className="text-lg font-semibold text-brand-forest">
                             {highlightTitle}
                         </h3>
                     </div>

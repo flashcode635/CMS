@@ -18,6 +18,11 @@ export default function UnivCard({ univ, visible, index }: UnivCardProps) {
     "bg-line-strong": "var(--color-line-strong)",
     "bg-surface": "var(--color-surface)",
     "bg-surface-alt": "var(--color-surface-alt)",
+    "bg-blue-100": "var(--color-line-strong)",
+    "bg-blue-700": "var(--color-brand-navy)",
+    "bg-green-100": "var(--color-green-100)",
+    "bg-green-700": "var(--color-green-700)",
+    "bg-red-100": "var(--color-red-100)",
     "bg-red-700": "var(--color-red-700)",
     "bg-amber-700": "var(--color-amber-700)",
   };
@@ -43,7 +48,8 @@ export default function UnivCard({ univ, visible, index }: UnivCardProps) {
     >
       {/* Card wrapper */}
       <div
-        className={`relative h-full w-full transition-transform duration-300 ease-out ${
+        className={`relative h-full w-full transition-transform
+           duration-300 ease-out ${
           isHovered ? "scale-[1.04]" : "scale-100"
         }`}
       >
@@ -67,6 +73,14 @@ export default function UnivCard({ univ, visible, index }: UnivCardProps) {
           }}
         >
           {/* Logo */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-8 top-8 size-32 rounded-full blur-3xl"
+            style={{
+              backgroundColor: univ.glowColor,
+              opacity: 0.55,
+            }}
+          />
           <div
             className="absolute left-1/2 top-[44%]
               -translate-x-1/2 -translate-y-1/2"
@@ -101,10 +115,10 @@ export default function UnivCard({ univ, visible, index }: UnivCardProps) {
             <span
               className="max-w-full truncate text-center
                 font-['Inter',sans-serif]
-                text-[clamp(7px,0.63vw,12px)]
+                text-[clamp(9px,0.63vw,12px)]
                 font-semibold leading-[1.2] text-white"
             >
-              {univ.name}
+              {"View"}
             </span>
           </div>
         </div>

@@ -3,7 +3,6 @@
 import { useState, ChangeEvent } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import Image from "next/image";
 import {
   Search,
   Phone,
@@ -11,16 +10,16 @@ import {
   Mail,
   ArrowRight,
 } from "lucide-react";
-
-const countries: string[] = [
-  "MBBS in Russia",
-  "MBBS in Abroad",
-  "MBBS in Uzbekistan",
-  "MBBS in Kyrgyzstan",
-  "MBBS in Georgia",
-  "MBBS in India",
-  "MBBS in Kazakhstan",
-  "MBBS in Bangladesh",
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "./socialMedia";
+const countries: { name: string; href: string }[] = [
+  {name: "MBBS in Russia", href: "/countries/mbbs-in-russia"},
+  {name: "MBBS in Abroad", href: "/countries/mbbs-in-abroad"},
+  {name: "MBBS in Uzbekistan", href: "/countries/mbbs-in-uzbekistan"},
+  {name: "MBBS in Kyrgyzstan", href: "/countries/mbbs-in-kyrgyzstan"},
+  {name: "MBBS in Georgia", href: "/countries/mbbs-in-georgia"},
+  {name: "MBBS in India", href: "/countries/mbbs-in-india"},
+  {name: "MBBS in Kazakhstan", href: "/countries/mbbs-in-kazakhstan"},
+  {name: "MBBS in Bangladesh", href: "/countries/mbbs-in-bangladesh"},
 ];
 
 const usefulLinks: string[] = [
@@ -38,30 +37,36 @@ const searchTags: string[] = [
 ];
 
 const socials = [
-  { label: "Facebook", icon: "/home/footer-facebook.svg", href: "#" },
-  { label: "Instagram", icon: "/home/footer-instagram.svg", href: "#" },
-  { label: "Twitter", icon: "/home/footer-twitter.svg", href: "#" },
+  { label: "Facebook", icon: FacebookIcon, href: "#" },
+  { label: "Instagram", icon: InstagramIcon, href: "#" },
+  { label: "LinkedIn", icon: LinkedInIcon, href: "#" },
+];
+
+const contactDetails = [
+  { label: "Helpline No.", value: "+91-9971944622, 011-40550609", icon: Phone, valueClass: "font-semibold" },
+  { label: "My Study Hub - Head Office", value: "305, Metro Heights, Sector 44, Gurugram - 122003", icon: MapPin, valueClass: "font-medium leading-tight" },
+  { label: "Mail for info.", value: "contact@mystudyhub.com", icon: Mail, valueClass: "font-medium break-all" },
 ];
 
 export default function Footer() {
   const [searchValue, setSearchValue] = useState<string>("");
 
   return (
-    <footer className="w-full text-white relative overflow-hidden bg-brand-forest-deep">
+    <footer className="w-full text-white relative overflow-hidden bg-brand-blue">
       {/* Background radial/linear shader gradients */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 90% 70% at 20% 30%, color-mix(in srgb, var(--color-brand-forest) 18%, transparent) 0%, color-mix(in srgb, var(--color-brand-forest-deep) 94%, transparent) 60%, var(--color-brand-forest-deep) 100%)",
+              "radial-gradient(ellipse 90% 70% at 20% 30%, color-mix(in srgb, var(--color-brand-blue) 18%, transparent) 0%, color-mix(in srgb, var(--color-brand-blue) 94%, transparent) 60%, var(--color-brand-blue) 100%)",
           }}
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, color-mix(in srgb, var(--color-brand-forest) 22%, transparent) 0%, color-mix(in srgb, var(--color-brand-forest) 8%, transparent) 50%, color-mix(in srgb, var(--color-brand-forest-deep) 80%, transparent) 100%)",
+              "linear-gradient(135deg, color-mix(in srgb, var(--color-brand-blue) 22%, transparent) 0%, color-mix(in srgb, var(--color-brand-blue) 8%, transparent) 50%, color-mix(in srgb, var(--color-brand-blue) 80%, transparent) 100%)",
           }}
         />
         {/* Slanted laser beam background overlay */}
@@ -69,7 +74,7 @@ export default function Footer() {
           className="absolute inset-0 opacity-25"
           style={{
             background:
-              "linear-gradient(125deg, transparent 0%, color-mix(in srgb, var(--color-brand-forest) 4%, transparent) 40%, color-mix(in srgb, var(--color-brand-forest) 10%, transparent) 50%, color-mix(in srgb, var(--color-brand-forest) 4%, transparent) 60%, transparent 100%)",
+              "linear-gradient(125deg, transparent 0%, color-mix(in srgb, var(--color-brand-blue) 4%, transparent) 40%, color-mix(in srgb, var(--color-brand-blue) 10%, transparent) 50%, color-mix(in srgb, var(--color-brand-blue) 4%, transparent) 60%, transparent 100%)",
           }}
         />
       </div>
@@ -152,15 +157,15 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               {countries.map((country) => (
-                <li key={country} className="flex items-center gap-2">
+                <Link href={country.href} key={country.href} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan inline-block" />
-                  <Link
-                    href="#"
+                  <span
+                   
                     className="text-white/80 hover:text-brand-cyan text-sm transition-colors duration-200"
                   >
-                    {country}
-                  </Link>
-                </li>
+                    {country.name}
+                  </span>
+                </Link>
               ))}
             </ul>
           </div>
@@ -196,44 +201,22 @@ export default function Footer() {
               Get in Touch
             </h3>
 
-            {/* Helpline Card */}
-            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-brand-forest-deep/80 backdrop-blur-md flex items-start gap-3 shadow-lg shadow-brand-champagne/10 hover:border-brand-cyan/50 transition-all">
-              <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
-                <Phone className="w-4 h-4 text-brand-cyan" />
+            {contactDetails.map(({ label, value, icon: Icon, valueClass }) => (
+              <div
+                key={label}
+                className="p-4 rounded-xl border border-brand-cyan/30 bg-brand-blue/80 backdrop-blur-md flex items-start gap-3 shadow-lg shadow-brand-champagne/10 hover:border-brand-cyan/50 transition-all"
+              >
+                <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
+                  <Icon className="w-4 h-4 text-brand-cyan" />
+                </div>
+                <div>
+                  <p className="text-xs text-white/50 font-medium">{label}</p>
+                  <p className={`text-sm text-white mt-0.5 ${valueClass}`}>
+                    {value}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs text-white/50 font-medium">Helpline No.</p>
-                <p className="text-sm text-white font-semibold mt-0.5">
-                  +91-9971944622, 011-40550609
-                </p>
-              </div>
-            </div>
-
-            {/* Head Office Card */}
-            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-brand-forest-deep/80 backdrop-blur-md flex items-start gap-3 shadow-lg shadow-brand-champagne/10 hover:border-brand-cyan/50 transition-all">
-              <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
-                <MapPin className="w-4 h-4 text-brand-cyan" />
-              </div>
-              <div>
-                <p className="text-xs text-white/50 font-medium">My Study Hub - Head Office</p>
-                <p className="text-sm text-white font-medium mt-0.5 leading-tight">
-                  305, Metro Heights, Sector 44, Gurugram - 122003
-                </p>
-              </div>
-            </div>
-
-            {/* Mail Card */}
-            <div className="p-4 rounded-xl border border-brand-cyan/30 bg-brand-forest-deep/80 backdrop-blur-md flex items-start gap-3 shadow-lg shadow-brand-champagne/10 hover:border-brand-cyan/50 transition-all">
-              <div className="p-2 rounded-lg bg-brand-cyan/10 text-brand-cyan mt-0.5">
-                <Mail className="w-4 h-4 text-brand-cyan" />
-              </div>
-              <div>
-                <p className="text-xs text-white/50 font-medium">Mail for info.</p>
-                <p className="text-sm text-white font-medium mt-0.5 break-all">
-                  contact@mystudyhub.com
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Column 5: Our Socials (2 cols) */}
@@ -254,14 +237,8 @@ export default function Footer() {
                     className="py-3 flex items-center justify-between group text-white/80 hover:text-brand-cyan transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-1.5 rounded-md bg-brand-cyan/10 text-brand-cyan group-hover:bg-brand-cyan/20 transition-colors relative w-6 h-6 flex items-center justify-center">
-                        <Image
-                          src={social.icon}
-                          alt={social.label}
-                          width={18}
-                          height={18}
-                          className="object-contain"
-                        />
+                      <div className="p-1.5 rounded-md bg-brand-sky/9 text-brand-cyan group-hover:bg-brand-cyan/20 transition-colors relative w-6 h-6 flex items-center justify-center">
+                        <social.icon className="w-6 h-6" />
                       </div>
                       <span className="text-sm font-medium">{social.label}</span>
                     </div>

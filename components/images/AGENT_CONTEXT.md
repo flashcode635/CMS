@@ -3,6 +3,7 @@
 Primary Purpose: Gallery and event-media sections: a filterable event gallery index, a per-event photo grid with lightbox, an event description/highlights block, and the lead-capture contact form reused on event and country pages.
 
 Routes:
+
 - `/gallery/images` → `PageBanner` + `GalleryGrid` (`app/(site)/gallery/images/page.tsx`).
 - `/gallery/images/[slug]` → `PageBanner` + `EventDescription` + `EventGalleryGrid` + `EventContactForm` (`app/(site)/gallery/images/[slug]/page.tsx`).
 - `/countries/mbbs-in-russia` also renders `EventContactForm` as its final section.
@@ -33,7 +34,7 @@ Routes:
 - **Dependencies:** `react` (`useState`), `lucide-react` (`Phone`, `Mail`, `MapPin`, `Send`, `CheckCircle2`), `@/components/ui/Button`.
 - **Consumers:** `app/(site)/gallery/images/[slug]/page.tsx` (section 4) and `app/(site)/countries/mbbs-in-russia/page.tsx` (last section).
 - **Notes:**
-  - Left panel is a gradient `bg-linear-to-br from-brand-navy via-brand-royal to-brand-blue`, `lg:w-[38%]`, with two decorative blurred circles. Contact data: Call Us `+91-9971944622`; Email Us `info@mystudyhub.com`; Head Office `806, KLJ Tower, Pitampura, Delhi`. Footer quote: "Official University Contractor" / "Turning medical dreams into global reality since 2014."
+  - Left panel is a gradient `bg-linear-to-br from-brand-navy via-brand-royal to-brand-blue`, `lg:w-[38%]`, with two decorative blurred circles. Contact data: Call Us `+91-9971944622`; Email Us `info@mystudyhub.com`; Head Office `305, Metro Heights, Sector 44, Gurugram - 122003`. Footer quote: "Official University Contractor" / "Turning medical dreams into global reality since 2014."
   - Shell: `max-w-[1640px]`, `rounded-3xl`, `border-[#e2e8f0]`, `flex-col lg:flex-row`, big shadow; `px-5 sm:px-10 lg:px-16 xl:px-20 py-12 lg:py-20`.
   - **A11y gaps:** `<label>` elements have no `htmlFor` and inputs have no `id`; the required fields are not marked with `aria-required`; the success panel is not announced (no `role="status"`/`aria-live`).
   - The success button hard-codes `bg-brand-green` on top of `variant="brandSolid"` (already green) and has no `type`, which is harmless only because it is rendered outside the `<form>`.

@@ -5,34 +5,37 @@
 
 
 @theme {
-  /* ── Premium global education palette ─────────────────────────────── */
+  /* ── Blue + green education palette (navy chrome, green headings/CTAs) ── */
 
-  /* Primary brand — Blue */
-  --color-brand-forest: #183B65;
+  /* Primary brand — Deep Green (heading text on white ≈ 7.5:1, green accents) */
+  --color-brand-forest: #166534;
+  --color-brand-forest-soft: #16A34A;
+  /* forest-deep = dark chrome navy (nav, footer, hero overlays, dark bands) */
   --color-brand-forest-deep: #112D4D;
-  --color-brand-forest-soft: #28547D;
 
-  /* Secondary brand — Steel Blue */
-  --color-brand-emerald: #6685A4;
-  --color-brand-emerald-deep: #496B8A;
+  /* Secondary brand — Fresh Green */
+  --color-brand-emerald: #22C55E;
+  --color-brand-emerald-deep: #15803D;
 
-  /* Accent — Coral */
-  --color-brand-champagne: #E57C68;
-  --color-brand-champagne-soft: #F5C5BA;
-  --color-brand-champagne-soft-bg: #FFF5F2;
-  /* Rich champagne for primary CTAs — derived from existing tokens (no new hex).
-     -rich  ≈ #895855: dark, deep terracotta; pairs with --color-brand-sky text at 4.7:1 (AA)
-     -deep  ≈ #6E4D4F: hover/pressed step, pairs with --color-brand-sky at ~6:1 */
-  --color-brand-champagne-rich: color-mix(in srgb, var(--color-brand-champagne) 55%, var(--color-ink));
-  --color-brand-champagne-deep: color-mix(in srgb, var(--color-brand-champagne) 42%, var(--color-ink));
+  /* Accent — Green family (legacy "champagne" tokens, now green).
+     champagne      vibrant green — visible accents, icons (≈6:1 vs navy)
+     -soft          soft text on dark surfaces (= sky, readable small text)
+     -soft-bg       green-50 faint tinted surfaces (the only light-green use)
+     -rich          green-700 CTA background — pairs with -sky text
+     -deep          green-900 CTA hover/pressed, dark accents */
+  --color-brand-champagne: #22C55E;
+  --color-brand-champagne-soft: #E1E7ED;
+  --color-brand-champagne-soft-bg: #F0FDF4;
+  --color-brand-champagne-rich: #15803D;
+  --color-brand-champagne-deep: #14532D;
 
   /* Backwards-compatible aliases */
-  --color-brand-green: #6685A4;
+  --color-brand-green: #15803D;
   --color-brand-blue: #183B65;
   --color-brand-royal: #28547D;
   --color-brand-navy: #112D4D;
   --color-brand-sky: #E1E7ED;
-  --color-brand-cyan: #E57C68;
+  --color-brand-cyan: #22C55E;
 
   /* Semantic tokens */
   --color-ink: #182B3D;
@@ -45,7 +48,7 @@
 
   --color-surface: #F6F8FA;
   --color-surface-alt: #EDF1F5;
-  --color-surface-mint: #FCEFEB;
+  --color-surface-mint: #EAF9F0;
   --color-card: #FFFFFF;
 
   /* Typography — 3-tier system
@@ -147,9 +150,30 @@ body {
   color: var(--color-ink);
 }
 
+/* Deep green selection — visible accents stay deep green (minimal light green) */
 ::selection {
-  background: var(--color-brand-champagne);
-  color: var(--color-brand-forest-deep);
+  background: var(--color-brand-champagne-deep);
+  color: #FFFFFF;
+}
+
+/* Links inside CMS text content render as plain semantic HTML (<a>/<strong>) —
+   presentation for content-authored anchors lives here, not in the content.
+   Default = deep green (light surfaces). On dark sections add the
+   `cms-prose-inverse` class → vibrant green (≈6:1 vs navy). */
+.cms-prose a {
+  color: var(--color-brand-emerald-deep);
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+}
+.cms-prose a:hover {
+  filter: brightness(1.15);
+}
+.cms-prose-inverse a {
+  color: var(--color-brand-emerald);
+}
+.cms-prose strong {
+  font-weight: 700;
 }
 
 html {

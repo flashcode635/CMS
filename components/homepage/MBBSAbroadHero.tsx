@@ -5,7 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
-const DEFAULT_CONTENT = {
+/** Default copy — exported so the CMS live editor can seed its fields. */
+export const DEFAULT_CONTENT = {
   countries: [
     { name: "Samara State University", image: "/home/mbbs-russia.webp" },
     { name: "Novi Sad University", image: "/home/mbbs-georgia.webp" },
@@ -209,7 +210,7 @@ export default function MBBSAbroadHero({
               }}
             >
               {titlePrefix}{" "}
-              <span style={{ color: "var(--color-brand-forest)" }}>{titleAccent}</span>
+              <span style={{ color: "var(--color-brand-champagne)" }}>{titleAccent}</span>
             </h2>
           </div>
 

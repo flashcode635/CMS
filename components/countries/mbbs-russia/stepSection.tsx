@@ -53,7 +53,7 @@ export default function AdmissionProcess({
                 className="font-['Inter',sans-serif] text-[26px] leading-[1.15] tracking-[-0.01em] @min-[640px]:text-[30px] @min-[1024px]:text-[34px] @min-[1280px]:text-[36px]"
                 style={{
                     backgroundImage:
-                    "linear-gradient(149.75deg, var(--color-brand-forest) 12.7%, var(--color-brand-forest-deep) 87.2%)",
+                    "linear-gradient(149.75deg, var(--color-brand-forest) 12.7%, var(--color-brand-sky) 87.2%)",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",

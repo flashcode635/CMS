@@ -34,7 +34,7 @@ Permissions/Auth: None here — the dashboard page is still an unprotected place
 
 ### `previewSection.tsx`
 
-[previewSection.tsx]: Live-route preview (see its header comment): clicking a "Live routes" item stores it in `useCmsStore` and this component renders that page inline. Now edit-aware: every content-bearing wrapper is a `SectionHitbox` — clicking selects `<pageKey>:<type>` in the store (`activeSection` + `editRequest` bump) — and `useCmsStore.overrides` values are laid over `lib/constants.tsx` content (countries) / `buildSectionProps` defaults (universities), so in-memory edits render immediately. Sections without prop-driven copy (EligibilitySection/SSMUDurations/StepsSSMU/stepSection/EventContactForm/MBBSAbroadHero/AboutRussia/Faq) are hitboxes marked `readOnly`; Events and StudentTestimonials pass their prop-driven CMS overrides through to the real components. A tail `EditorHint` explains the flow until something is selected.
+[previewSection.tsx]: Live-route preview (see its header comment): clicking a "Live routes" item stores it in `useCmsStore` and this component renders that page inline. Fully edit-aware: every content-bearing wrapper is a `SectionHitbox` — clicking selects `<pageKey>:<type>` in the store (`activeSection` + `editRequest` bump) — and `useCmsStore.overrides` values are laid over `lib/constants.tsx` content (countries) / `buildSectionProps` defaults (universities), so in-memory edits render immediately. NO country section is `readOnly` any more: hero/intro/why-russia/eligibility/ssmu-durations/steps/admission/about/free-counselling/abroad-hero/faq all pass override-aware props (structured list fields — stages, documents, steps, facts, cards, faq — are parsed from editor lines via `./sectionLines`). A tail `EditorHint` explains the flow until something is selected.
 
 ### `sectionHitbox.tsx`
 
@@ -42,11 +42,15 @@ Permissions/Auth: None here — the dashboard page is still an unprotected place
 
 ### `liveSectionEditor.tsx`
 
-[liveSectionEditor.tsx]: The form-pane editor while a live page preview is active. Parses `activeSection` (`<kind>:<slug>:<type>`), seeds values in `getSectionSeed` — countries from `getCountryContent` (CountryContent fields), universities from `getUniversityContent` + `RUSSIA_BANNER_DEFAULTS` (hero) or the section's `DEFAULT_CONTENT` through `withUniversityName` — then renders one input per `FieldSpec` (text/textarea/list) from `sectionFieldSchemas`. Edits go to `store.setOverride`; empty/blank values fall back to the seed (see `effectiveOverrides`). "Revert" clears one section's override, "Reset all edits for this page" clears `u:<slug>:*` / `c:<slug>:*`. NO API calls — nothing persisted (deliberate per request).
+[liveSectionEditor.tsx]: The form-pane editor while a live page preview is active. Parses `activeSection` (`<kind>:<slug>:<type>`), seeds values in `getSectionSeed` — countries from `getCountryContent` merged over `DEFAULT_COUNTRY_CONTENT` (all 11 section types: hero, intro, why-russia, eligibility, ssmu-durations, steps, admission, about, free-counselling, abroad-hero, faq; JSX copy flattened via `toPlainText`), universities from `getUniversityContent` + `RUSSIA_BANNER_DEFAULTS` (hero) or the section's `DEFAULT_CONTENT` through `withUniversityName` — then renders one input per `FieldSpec` (text/textarea/list) from `sectionFieldSchemas`. Edits go to `store.setOverride`; empty/blank values fall back to the seed (see `effectiveOverrides`). "Revert" clears one section's override, "Reset all edits for this page" clears `u:<slug>:*` / `c:<slug>:*`. NO API calls — nothing persisted (deliberate per request).
+
+### `sectionLines.ts`
+
+[sectionLines.ts]: Pure line-format helpers for the live editor's `list` fields (the editor only has text/textarea/list kinds, so structured content travels as "A | B | C" lines). `format*` converts constants objects (stages, documents, steps, facts, eligibility cards, faq, abroad-hero country cards) to editor lines; `parse*` converts override lines back to component props, returning `undefined` for unusable input so callers fall back to constants. Markers: `!` prefix = red document tone, `+` suffix = wide card. Also exports `toPlainText(ReactNode)` used to seed textareas from JSX copy.
 
 ### `sectionFieldSchemas.ts`
 
-[sectionFieldSchemas.ts]: Per-section editor field specs + display names. University keys = university section component prop names; country keys = `CountryContent` fields (`heroTitle`, `heroSubtitle`, `intro`, `whyPoints`, `eligibility`, `languages`, `currency`). `getSectionSchema(active, type)` returns fields + `readOnly` flag; `getSectionLabel` gives the header title.
+[sectionFieldSchemas.ts]: Per-section editor field specs + display names. University keys = university section component prop names; country keys = `CountryContent` fields — every country section now has a schema (hero, intro, why-russia, eligibility, ssmu-durations, steps, admission, about, free-counselling, abroad-hero, faq; structured lists use the `sectionLines.ts` line formats documented in their hints). `getSectionSchema(active, type)` returns fields + `readOnly` flag; `getSectionLabel` gives the header title.
 
 ### `universitySectionRegistry.tsx`
 

@@ -87,14 +87,9 @@ export default function WhyRussia({
           <div className="flex flex-col w-full gap-3 @min-[640px]:gap-4">
             <h2
               className="font-semibold tracking-tight text-[26px] 
-              @min-[640px]:text-[34px] @min-[1024px]:text-[40px] @min-[1280px]:text-[44px] leading-[1.18] m-0"
+              @min-[640px]:text-[34px] @min-[1024px]:text-[40px] @min-[1280px]:text-[44px] leading-[1.18] m-0 text-white"
               style={{
                 fontFamily: 'var(--font-heading)',
-                backgroundImage:
-                  "linear-gradient(136.47deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
               }}
             >
               {heading}
@@ -177,9 +172,10 @@ export default function WhyRussia({
             ))}
           </div>
 
-          {/* Paragraph 3 */}
+          {/* Paragraph 3 — CMS content is plain semantic HTML (a/strong);
+              presentation for it comes from the .cms-prose rules in globals.css */}
           <p
-            className="text-white text-[13.5px] @min-[640px]:text-[14.5px] @min-[1024px]:text-[15.5px] leading-[1.6] m-0 font-normal pt-1"
+            className="cms-prose cms-prose-inverse text-white text-[13.5px] @min-[640px]:text-[14.5px] @min-[1024px]:text-[15.5px] leading-[1.6] m-0 font-normal pt-1"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {outro}

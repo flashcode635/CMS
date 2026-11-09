@@ -67,7 +67,7 @@ export default function PostTitleCard({
           </div>
 
           <h2
-            className="m-0 uppercase font-bold text-brand-forest-deep"
+            className="m-0 uppercase font-bold text-brand-forest"
             style={{
               fontFamily: 'var(--font-sub)',
               fontSize: "clamp(19px, 2.5vw, 31px)",

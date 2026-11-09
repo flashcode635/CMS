@@ -4,13 +4,12 @@
  * the right, and one card per study stage with a progress bar showing how much
  * of the total course each stage covers.
  *
- * Layout and colours follow the design: green (var(--color-brand-forest)) → blue (var(--color-brand-forest-deep))
- * gradient accents, cards on a translucent surface over a var(--color-brand-forest-deep) canvas.
+ * Canvas is var(--color-brand-forest-deep) (dark navy #112D4D), so ALL text and
+ * accents here must come from the light/on-dark palette: white, the -soft token
+ * (#E1E7ED — "soft text on dark surfaces") and the bright emerald (#22C55E).
+ * Never use dark tokens (ink/body/muted/line/forest) here — dark-on-dark text
+ * was exactly why this section used to be unreadable.
  */
-
-const BRAND_GREEN = "var(--color-brand-forest)";
-const BRAND_BLUE = "var(--color-brand-forest-deep)";
-const INTERNSHIP_ORANGE = "var(--color-brand-champagne)";
 
 import { COUNTRY_CONTENT } from "@/lib/constants";
 import type { DurationStageItem } from "@/types/interfaces";
@@ -24,8 +23,18 @@ type SSMUDurationsProps = {
 /* Fallback copy lives in lib/constants.tsx -> COUNTRY_CONTENT.russia */
 const RUSSIA = COUNTRY_CONTENT.russia;
 
-/* Stage accent colours are presentation, not copy — assigned here by index. */
-const STAGE_COLORS = [BRAND_BLUE, INTERNSHIP_ORANGE];
+/* Bright accent for the big number / bars — emerald reads ≈6:1 on the navy canvas. */
+const ACCENT_EMERALD = "var(--color-brand-emerald)";
+/* Soft off-white for secondary text on the dark canvas. */
+const SOFT = "var(--color-brand-champagne-soft)";
+
+/* Stage accents are presentation, not copy — assigned here by index.
+   badge: pill background; badgeText: pill label colour (must contrast the pill);
+   bar: progress-bar fill. */
+const STAGE_COLORS = [
+  { badge: ACCENT_EMERALD, badgeText: "#FFFFFF", bar: ACCENT_EMERALD },
+  { badge: SOFT, badgeText: "var(--color-brand-forest-deep)", bar: SOFT },
+] as const;
 
 export default function SSMUDurations({
   university = RUSSIA.durations?.university ?? "This University",
@@ -60,7 +69,8 @@ export default function SSMUDurations({
               style={{
                 fontFamily: 'var(--font-body)',
                 fontSize: "clamp(110px, 12cqw, 168px)",
-                backgroundImage: `linear-gradient(158deg, ${BRAND_GREEN} 8%, var(--color-brand-royal) 46%, ${BRAND_BLUE} 92%)`,
+                /* White → mint → emerald: every stop stays bright on navy. */
+                backgroundImage: `linear-gradient(158deg, #FFFFFF 6%, color-mix(in srgb, ${ACCENT_EMERALD} 45%, white) 48%, ${ACCENT_EMERALD} 94%)`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -81,7 +91,7 @@ export default function SSMUDurations({
           <div className="flex min-w-0 flex-1 items-stretch gap-4 @min-[640px]:gap-6 @min-[1024px]:gap-8">
             <div
               className="w-0.5 shrink-0 rounded-full"
-              style={{ backgroundColor: BRAND_GREEN }}
+              style={{ backgroundColor: ACCENT_EMERALD }}
               aria-hidden="true"
             />
 
@@ -90,8 +100,9 @@ export default function SSMUDurations({
                 className="m-0 font-medium tracking-tight text-[26px] @min-[640px]:text-[34px] @min-[1024px]:text-[40px] @min-[1280px]:text-[44px] leading-[1.18]"
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  backgroundImage:
-                    "linear-gradient(100deg, var(--color-brand-forest) 4%, var(--color-brand-royal) 46%, var(--color-brand-forest-deep) 92%)",
+                  /* White → light mint: readable across the whole navy band
+                     (the old dark-green→navy gradient vanished into the bg). */
+                  backgroundImage: `linear-gradient(100deg, #FFFFFF 0%, color-mix(in srgb, ${ACCENT_EMERALD} 50%, white) 100%)`,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -105,7 +116,7 @@ export default function SSMUDurations({
                 className="m-0 text-[13px] @min-[640px]:text-[14px] leading-[1.6] font-normal"
                 style={{
                   fontFamily: 'var(--font-body)',
-                  color: "var(--color-line-strong)",
+                  color: SOFT,
                 }}
               >
                 The total duration of the MBBS course at {university} is{" "}
@@ -119,7 +130,7 @@ export default function SSMUDurations({
             Mobile: horizontal swipe-row; md: stacked; lg: 2-col grid ── */}
         <div className="mt-12 @min-[640px]:mt-14 @min-[1024px]:mt-16 flex flex-row overflow-x-auto @min-[768px]:flex-col @min-[768px]:overflow-x-visible @min-[1024px]:grid @min-[1024px]:grid-cols-2 gap-5 @min-[1024px]:gap-6">
           {stages.map((stage, index) => {
-            const color = STAGE_COLORS[index % STAGE_COLORS.length];
+            const colors = STAGE_COLORS[index % STAGE_COLORS.length];
             const percent = Math.min(
               100,
               Math.round((stage.years / totalYears) * 100)
@@ -130,16 +141,17 @@ export default function SSMUDurations({
                 key={stage.badge}
                 className="flex w-full shrink-0 flex-col gap-3 rounded-2xl border px-5 py-5 @min-[640px]:px-6 @min-[640px]:py-6"
                 style={{
-                  backgroundColor: "color-mix(in srgb, white 4%, transparent)",
-                  borderColor: "color-mix(in srgb, white 9%, transparent)",
+                  backgroundColor: "color-mix(in srgb, white 7%, transparent)",
+                  borderColor: "color-mix(in srgb, white 14%, transparent)",
                 }}
               >
                 <div className="flex items-center justify-between gap-3">
                   <span
-                    className="rounded-full px-3 py-1 text-[10px] @min-[640px]:text-[11px] font-semibold uppercase tracking-wider text-white"
+                    className="rounded-full px-3 py-1 text-[10px] @min-[640px]:text-[11px] font-semibold uppercase tracking-wider"
                     style={{
                       fontFamily: 'var(--font-body)',
-                      backgroundColor: color,
+                      backgroundColor: colors.badge,
+                      color: colors.badgeText,
                     }}
                   >
                     {stage.badge}
@@ -157,7 +169,7 @@ export default function SSMUDurations({
                   className="m-0 text-[12px] @min-[640px]:text-[12.5px] leading-normal font-normal"
                   style={{
                     fontFamily: 'var(--font-body)',
-                    color: "var(--color-muted)",
+                    color: `color-mix(in srgb, ${SOFT} 78%, transparent)`,
                   }}
                 >
                   {stage.description}
@@ -165,7 +177,7 @@ export default function SSMUDurations({
 
                 <div
                   className="h-1.5 w-full overflow-hidden rounded-full"
-                  style={{ backgroundColor: "color-mix(in srgb, white 10%, transparent)" }}
+                  style={{ backgroundColor: "color-mix(in srgb, white 16%, transparent)" }}
                   role="progressbar"
                   aria-valuenow={stage.years}
                   aria-valuemin={0}
@@ -176,7 +188,7 @@ export default function SSMUDurations({
                     className="h-full rounded-full"
                     style={{
                       width: `${percent}%`,
-                      backgroundColor: color,
+                      backgroundColor: colors.bar,
                     }}
                   />
                 </div>
@@ -185,7 +197,7 @@ export default function SSMUDurations({
                   className="text-[10px] @min-[640px]:text-[10.5px] font-normal"
                   style={{
                     fontFamily: 'var(--font-body)',
-                    color: "var(--color-muted)",
+                    color: `color-mix(in srgb, ${SOFT} 78%, transparent)`,
                   }}
                 >
                   {stage.years} / {totalYears} years
@@ -232,13 +244,14 @@ function crossOutlinePath(halfArm: number, halfThickness: number) {
 const CROSS_OUTLINE = crossOutlinePath(38, 19);
 
 /**
- * Decorative corner ornament: a solid cross made of two overlapping greys, two
- * thin outlined crosses interlaced behind it, and a 4 x 8 dot grid below.
+ * Decorative corner ornament: a solid cross made of two overlapping whites,
+ * two thin outlined crosses interlaced behind it, and a 4 x 8 dot grid below.
+ * White at low opacity — the old var(--color-body) grey was invisible on navy.
  */
 function CrossCluster({ className }: { className?: string }) {
-  const armLight = "var(--color-body)";
-  const armDark = "var(--color-body)";
-  const outline = "var(--color-body)";
+  const armLight = "rgba(255, 255, 255, 0.16)";
+  const armDark = "rgba(255, 255, 255, 0.08)";
+  const outline = "rgba(255, 255, 255, 0.30)";
 
   return (
     <svg
@@ -259,7 +272,7 @@ function CrossCluster({ className }: { className?: string }) {
         <path d={CROSS_OUTLINE} transform="translate(76 118) rotate(45)" />
       </g>
 
-      {/* Solid cross: dark copy behind, lighter copy offset up-left on top */}
+      {/* Solid cross: fainter copy behind, lighter copy offset up-left on top */}
       <g transform="rotate(45 66 58)">
         <rect x="24" y="45" width="84" height="26" rx="2" fill={armDark} />
       </g>

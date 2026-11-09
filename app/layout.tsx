@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { ReactNode } from "react";
-
+import "flag-icons/css/flag-icons.min.css";
 // ─────────────────────────────────────────────────────────────────────────────
 // Typography — 3-tier system, imported once at the top of globals.css:
 //   Tier 1 heading  → Fraunces       (--font-heading)  page main headings, display

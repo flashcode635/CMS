@@ -24,9 +24,9 @@ export default function AmbassadorSection() {
         {/* ── LEFT: Text block ── */}
         <div className="w-[38.54vw] shrink-0 flex flex-col justify-start items-start gap-[1.25vw]">
           <h1 className="self-stretch leading-[1.4]">
-            <span className="text-brand-forest-deep text-[2.5vw] font-bold font-['Inter']">Big Moment </span>
+            <span className="text-brand-forest text-[2.5vw] font-bold font-['Inter']">Big Moment </span>
             <span className="text-brand-royal text-[2.5vw] font-bold font-['Inter']">Indian Ambassador</span>
-            <span className="text-brand-forest-deep text-[2.5vw] font-bold font-['Inter']"> at </span>
+            <span className="text-brand-forest text-[2.5vw] font-bold font-['Inter']"> at </span>
             <span className="text-brand-royal text-[2.5vw] font-bold font-['Inter']">SamSMU</span>
           </h1>
 

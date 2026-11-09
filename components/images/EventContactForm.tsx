@@ -22,12 +22,42 @@ const COURSES = [
   "MBBS in Nepal",
 ];
 
+/** Default copy — exported so the CMS live editor can seed its fields. */
+export const EVENT_CONTACT_DEFAULTS = {
+  eyebrow: "Get Expert Advice",
+  heading: "Get Free Counseling",
+  subtitle:
+    "Our expert consultants are ready to guide you through every step of your international medical education.",
+  phone: "+91-9971944622",
+  email: "info@mystudyhub.com",
+  address: "305, Metro Heights, Sector 44, Gurugram - 122003",
+  quoteLabel: "Official University Contractor",
+  quote: "Turning medical dreams into global reality since 2014.",
+  formHeading: "Request Free Counseling",
+  formIntro: "Fill in your details below and our counseling expert will get in touch with you.",
+  courses: COURSES,
+};
+
+export type EventContactFormProps = Partial<typeof EVENT_CONTACT_DEFAULTS>;
+
 const inputCls =
   "w-full bg-surface border border-line rounded-xl px-5 py-4 text-ink font-medium text-base outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-champagne-soft transition-all font-['Inter',sans-serif]";
 
-export default function EventContactForm() {
+export default function EventContactForm({
+  eyebrow = EVENT_CONTACT_DEFAULTS.eyebrow,
+  heading = EVENT_CONTACT_DEFAULTS.heading,
+  subtitle = EVENT_CONTACT_DEFAULTS.subtitle,
+  phone = EVENT_CONTACT_DEFAULTS.phone,
+  email = EVENT_CONTACT_DEFAULTS.email,
+  address = EVENT_CONTACT_DEFAULTS.address,
+  quoteLabel = EVENT_CONTACT_DEFAULTS.quoteLabel,
+  quote = EVENT_CONTACT_DEFAULTS.quote,
+  formHeading = EVENT_CONTACT_DEFAULTS.formHeading,
+  formIntro = EVENT_CONTACT_DEFAULTS.formIntro,
+  courses = EVENT_CONTACT_DEFAULTS.courses,
+}: EventContactFormProps) {
   const [form, setForm] = useState({
-    name: "", phone: "", email: "", course: "MBBS in Russia", message: "",
+    name: "", phone: "", email: "", course: courses[0] ?? "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -59,17 +89,16 @@ export default function EventContactForm() {
             {/* Heading */}
             <div>
               <p className="text-brand-champagne-soft text-xs font-bold uppercase tracking-widest mb-2 font-['Inter',sans-serif]">
-                Get Expert Advice
+                {eyebrow}
               </p>
               <h2 className="text-2xl @min-[640px]:text-4xl font-extrabold leading-tight font-['Inter',sans-serif]">
-                Get Free Counseling
+                {heading}
               </h2>
             </div>
 
             {/* Subtitle */}
             <p className="text-white/80 font-light text-base @min-[640px]:text-lg leading-relaxed font-['Inter',sans-serif]">
-              Our expert consultants are ready to guide you through every step
-              of your international medical education.
+              {subtitle}
             </p>
 
             {/* Contact rows */}
@@ -80,7 +109,7 @@ export default function EventContactForm() {
                 </div>
                 <div>
                   <p className="text-xs text-white/60">Call Us</p>
-                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">+91-9971944622</p>
+                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">{phone}</p>
                 </div>
               </div>
 
@@ -90,7 +119,7 @@ export default function EventContactForm() {
                 </div>
                 <div>
                   <p className="text-xs text-white/60">Email Us</p>
-                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">info@mystudyhub.com</p>
+                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">{email}</p>
                 </div>
               </div>
 
@@ -100,7 +129,7 @@ export default function EventContactForm() {
                 </div>
                 <div>
                   <p className="text-xs text-white/60">Head Office</p>
-                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">806, KLJ Tower, Pitampura, Delhi</p>
+                  <p className="text-white font-semibold text-sm @min-[640px]:text-base">{address}</p>
                 </div>
               </div>
             </div>
@@ -109,10 +138,10 @@ export default function EventContactForm() {
           {/* Footer quote */}
           <div className="flex flex-col gap-2 pt-10 mt-8 border-t border-white/15 relative z-10">
             <p className="text-brand-champagne-soft font-bold text-xs uppercase tracking-wider">
-              Official University Contractor
+              {quoteLabel}
             </p>
             <p className="text-white/80 italic text-sm @min-[640px]:text-base font-['Inter',sans-serif]">
-              &ldquo;Turning medical dreams into global reality since 2014.&rdquo;
+              &ldquo;{quote}&rdquo;
             </p>
           </div>
         </div>
@@ -145,10 +174,10 @@ export default function EventContactForm() {
             >
               <div className="mb-2">
                 <h3 className="text-2xl font-bold text-ink font-['Inter',sans-serif]">
-                  Request Free Counseling
+                  {formHeading}
                 </h3>
                 <p className="text-muted text-sm font-['Inter',sans-serif] mt-1">
-                  Fill in your details below and our counseling expert will get in touch with you.
+                  {formIntro}
                 </p>
               </div>
 

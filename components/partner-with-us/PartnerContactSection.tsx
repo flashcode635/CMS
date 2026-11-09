@@ -49,7 +49,7 @@ const inputCls = "w-full h-12 xl:h-13 rounded-lg border border-line-strong bg-wh
 // ── Contact info data ─────────────────────────────────────────────────────────
 const CONTACT = [
   { icon: "/home/footer-phone.svg", label: "Helpline No.", value: "+91-9971944622, 011-40550609" },
-  { icon: "/svg/contact-us-location.svg", label: "Head Office", value: "806, KLJ Tower, Pitampura, Delhi - 110034" },
+  { icon: "/svg/contact-us-location.svg", label: "Head Office", value: "305, Metro Heights, Sector 44, Gurugram - 122003 - 110034" },
   { icon: "/home/footer-mail.svg", label: "Mail for info.", value: "contact@mystudyhub.com" },
 ];
 

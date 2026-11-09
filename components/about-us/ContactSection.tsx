@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import img from "@/public/contact-us/chairs.jpg";
+// import flag from flag-icons library;
+
 // ── Data ───────────────────────────────────────────────────────────────────────
 const BRANCHES = [
   "Delhi (Head Office)", "Bangalore", "Mumbai", "Chennai", "Hyderabad",
@@ -75,22 +77,21 @@ const Arrow = ({ className = "size-4.5" }) => (
     />
   </svg>
 );
-
-const Flag = ({ colors, chakra, label }: { colors: string[]; chakra: boolean; label: string }) => (
-  <div className="mb-5 flex flex-col gap-0.5" aria-label={label}>
-    {colors.map((c, i) => (
-      <div
-        key={c}
-        className={`relative h-1.25 w-10 rounded-sm ${c === "white" ? "border border-line" : ""}`}
-        style={{ background: c }}
-      >
-        {chakra && i === 1 && (
-          <span className="absolute inset-0 m-auto size-2 rounded-full border border-brand-forest-deep" />
-        )}
-      </div>
-    ))}
+const flagStyle = { width: "39px", height: "29px",
+   backgroundColor: "var(--color-line-strong)",padding: "2px", borderRadius: "4px", boxShadow: "1px 0 2px rgba(0, 0, 0, 0.2)" };
+const IndianFlag = () => (
+  <div className="py-0.5 px-0.75 w-fit bg-brand-sky
+   rounded-md shadow-md">
+    <span style={flagStyle} className="fi fi-in" /> 
   </div>
-);
+)
+const RussianFlag = () => (
+  <div className="py-0.5 px-0.75 w-fit bg-brand-sky
+   rounded-md shadow-md">
+    <span style={flagStyle} className="fi fi-ru" />
+  </div>
+)
+
 
 // ── Page ───────────────────────────────────────────────────────────────────────
 export default function ContactSection() {
@@ -119,7 +120,7 @@ export default function ContactSection() {
     <div className="w-full bg-linear-to-br from-surface-alt via-surface-alt to-surface-alt font-['Inter','Inter',sans-serif]">
 
       {/* ── Section 1: Form + Illustration ── */}
-      <section className={`${pad} pb-22 pt-26`}>
+      <section className={`${pad} pb-22 pt-6`}>
         <div className="mx-auto flex max-w-350 flex-col items-center gap-12 lg:flex-row lg:gap-12">
           <div className="flex w-full min-w-0 flex-col gap-6 lg:max-w-130 lg:shrink-0">
             <h2
@@ -244,7 +245,7 @@ export default function ContactSection() {
                   <Image className="text-body" src="/svg/contact-us-route.svg" alt="" width={40} height={40} />
                   <Image className="text-body" src="/svg/contact-us-location.svg" alt="" width={40} height={40} />
                 </div>
-                <Flag colors={o.flag} chakra={o.chakra} label={`${o.title} flag`} />
+               {o.chakra ?  <IndianFlag />:<RussianFlag /> }
                 <h3 className="mb-3 font-sub text-2xl font-bold text-ink">
                   {o.title}
                 </h3>

@@ -8,7 +8,7 @@ export default function HeroBanner() {
 
   return (
     <section className="w-full" style={{ backgroundImage: "url('/home/hero-bg.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh"  }} >
-      <div className="relative w-full min-h-[92vh] bg-linear-to-r from-brand-forest-deep/90 via-brand-forest-deep/55 to-brand-forest-deep/25 text-white flex flex-col justify-between overflow-hidden select-none">
+      <div className="relative w-full h-screen bg-linear-to-r from-brand-forest-deep/5 via-brand-forest-deep/55 to-brand-forest-deep/25 text-white flex flex-col justify-between overflow-hidden select-none">
 
       {/* ========================================== */}
       {/* HERO MAIN CONTENT */}
@@ -46,7 +46,7 @@ export default function HeroBanner() {
           <Button
           variant="brandWide"
             rightIcon={<ArrowRight className="w-4 h-4" />}
-            className="px-4 pt-2.5 pb-1.5 rounded-md text-brand-sky! text-sm font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-brand-champagne-rich/40 hover:scale-105 h-auto"
+            className="px-4 py-2.5 rounded-md text-sm font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-brand-champagne-rich/40 hover:scale-105 h-auto"
             style={{
               background:
                 "linear-gradient(135deg, var(--color-brand-champagne-rich) 0%, var(--color-brand-champagne-deep) 100%)",
