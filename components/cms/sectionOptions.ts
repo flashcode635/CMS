@@ -18,6 +18,7 @@ export type SectionTypeKey =
   | "accreditation"
   | "fmge-classes"
   | "why-choose-us"
+  | "advanced-training"
   | "eligibility"
   | "mbbs-duration"
   | "admission-process"
@@ -52,6 +53,7 @@ export const SECTION_OPTIONS: SectionOption[] = [
   { type: "accreditation", name: "Accreditation", anchor: "accreditation", fields: { heading: "heading", body: "paragraphs", bodyList: true } },
   { type: "fmge-classes", name: "FMGE Classes", anchor: "fmge-classes", fields: { heading: "title", body: "intro" } },
   { type: "why-choose-us", name: "Why Choose Us", anchor: "why-choose-us", fields: { heading: "titleGreen", body: "subtitle" } },
+  { type: "advanced-training", name: "Advanced Training", anchor: "advanced-training", fields: { heading: "titleGreen", body: "intro" } },
   { type: "eligibility", name: "Eligibility", anchor: "eligibility", fields: { heading: "heading", body: "intro" } },
   { type: "mbbs-duration", name: "MBBS Duration", anchor: "mbbs-duration", fields: { heading: "titleGreen", body: "cardIntro" } },
   { type: "admission-process", name: "Admission Process", anchor: "admission-process", fields: { heading: "title", body: "subtitle" } },

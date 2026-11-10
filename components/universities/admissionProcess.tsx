@@ -2,37 +2,27 @@
 
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
-import { ArrowRight, BadgeCheck, FileText, Mail, MailOpen, Plane } from "lucide-react";
-import univCampusImg from "@/public/home/univ-campus.jpg";
+import { ArrowRight } from "lucide-react";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
+import { ADMISSION_CONTENT } from "@/lib/universitySectionData";
 
 /**
  * AdmissionProcess — dark photo band with a horizontal step timeline
- * (heading → 5 numbered step cards on a dotted rail → gradient CTA button),
+ * (heading → numbered step cards on a dotted rail → gradient CTA button),
  * styled after the university page design.
  *
  * CMS compatibility:
  *  - Every prop is optional with a default from `DEFAULT_CONTENT`, so a CMS can
  *    render it with plain JSON via `<AdmissionProcessSection {...cmsContent} />`.
- *  - Steps reference icons by NAME string (see ICONS below) so step data stays
- *    serializable — no React nodes required. Unknown names fall back to "file-text".
+ *  - Steps reference icons by NAME string via the central CMS icon registry
+ *    (components/ui/iconRegistry.tsx) — serializable, no React nodes. Unknown
+ *    names render no icon.
  *  - Step numbers are derived from array order, NOT stored in the data
  *    (reordering/reducing the `steps` array renumbers automatically).
  *
- * Note: the section itself carries NO anchor id — when rendered via
- * `components/universities/sections.tsx` the wrapper `<div id="admission-process">`
- * provides the anchor for the sticky sub-nav. This avoids the duplicate-id
- * caveat the sibling sections have (they set the same id twice).
+ * Note: the section itself carries NO anchor id — the wrapper `<div id>` in the
+ * page layout provides the anchor for the sticky sub-nav.
  */
-
-/* Icon registry: lucide icons indexed by CMS-friendly kebab-case names. */
-const ICONS: Record<string, LucideIcon> = {
-    "file-text": FileText,
-    mail: Mail,
-    "mail-open": MailOpen,
-    "badge-check": BadgeCheck,
-    plane: Plane,
-};
 
 type AdmissionStep = {
     /** Card title, e.g. "Application Submission". */
@@ -60,48 +50,7 @@ type AdmissionProcessProps = {
     imageAlt?: string;
 };
 
-export const DEFAULT_CONTENT: Required<AdmissionProcessProps> = {
-    sectionLabel: "University admission process",
-    title: "Samara State Medical University Admission Process",
-    subtitle:
-        "The admission process is simple and transparent, here's a step-by-step guide.",
-    steps: [
-        {
-            title: "Application Submission",
-            description:
-                "Students need to fill out the application form and submit the required documents, including academic certificates, passport copy, and NEET scorecard.",
-            icon: "file-text",
-        },
-        {
-            title: "Admission Letter",
-            description:
-                "Once the documents are verified, the university issues an official admission letter.",
-            icon: "mail",
-        },
-        {
-            title: "Invitation Letter",
-            description:
-                "After confirmation, students receive an official invitation from the university, which is required for the visa process.",
-            icon: "mail-open",
-        },
-        {
-            title: "Visa Application",
-            description:
-                "Students must apply for a Russian visa with the necessary documents.",
-            icon: "badge-check",
-        },
-        {
-            title: "Travel and Enrolment",
-            description:
-                "After receiving the visa, students travel to Russia and complete their enrolment at the university.",
-            icon: "plane",
-        },
-    ],
-    ctaLabel: "Start Your Admission Process",
-    ctaHref: "#free-counselling",
-    backgroundImageSrc: univCampusImg,
-    imageAlt: "",
-};
+export const DEFAULT_CONTENT: Required<AdmissionProcessProps> = ADMISSION_CONTENT;
 
 export default function AdmissionProcessSection({
     sectionLabel = DEFAULT_CONTENT.sectionLabel,
@@ -141,16 +90,16 @@ export default function AdmissionProcessSection({
                     {subtitle}
                 </p>
 
-                {/* Timeline rail with dots — desktop only (aligns with the 5-col card row) */}
+                {/* Timeline rail with dots — desktop only (aligns with the card row) */}
                 <div
                     aria-hidden="true"
                     className="relative mt-14 hidden @min-[1024px]:block"
                 >
                     <div className="absolute inset-x-10 top-1/2 h-px -translate-y-1/2 bg-white/50" />
-                    <div className="grid grid-cols-5">
-                        {steps.map((step) => (
+                    <div className="grid" style={{ gridTemplateColumns: `repeat(${Math.max(steps.length, 1)}, minmax(0, 1fr))` }}>
+                        {steps.map((step, index) => (
                             <div
-                                key={step.title}
+                                key={`${step.title}-${index}`}
                                 className="flex justify-center"
                             >
                                 <span className="relative z-10 block size-3 rounded-full border-2 border-white bg-brand-forest-deep" />
@@ -159,20 +108,25 @@ export default function AdmissionProcessSection({
                     </div>
                 </div>
 
-                {/* Step cards */}
-                <ol className="mt-6 grid grid-cols-1 gap-4 @min-[640px]:grid-cols-2 @min-[1024px]:mt-2 @min-[1024px]:grid-cols-5 @min-[1024px]:gap-3">
+                {/* Step cards — CMS-editable (add/delete/reorder + icon picker) */}
+                <ol
+                    className="mt-6 grid grid-cols-1 gap-4 @min-[640px]:grid-cols-2 @min-[1024px]:mt-2 @min-[1024px]:grid-cols-[repeat(var(--adp-cols),minmax(0,1fr))] @min-[1024px]:gap-3"
+                    style={{ "--adp-cols": Math.max(steps.length, 1) } as React.CSSProperties}
+                >
                     {steps.map((step, index) => {
-                        const StepIcon = ICONS[step.icon ?? ""] ?? FileText;
+                        const StepIcon = getLucideIcon(step.icon);
                         return (
                             <li
-                                key={step.title}
+                                key={`${step.title}-${index}`}
                                 className="rounded-xl border border-white/30 bg-white/5 p-4 backdrop-blur-sm"
                             >
-                                <StepIcon
-                                    aria-hidden="true"
-                                    className="h-6 w-6 text-white/90"
-                                    strokeWidth={1.5}
-                                />
+                                {StepIcon && (
+                                    <StepIcon
+                                        aria-hidden="true"
+                                        className="h-6 w-6 text-white/90"
+                                        strokeWidth={1.5}
+                                    />
+                                )}
                                 <p className="mt-3 text-[10px] font-semibold tracking-wide text-brand-champagne uppercase">
                                     {step.stepLabel ?? `Step ${index + 1}`}
                                 </p>

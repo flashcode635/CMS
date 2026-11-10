@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { TESTIMONIALS_CONTENT } from "@/lib/universitySectionData";
 
 export type TestimonialCard = {
     name: string;
@@ -17,86 +18,11 @@ export type StudentTestimonialsProps = {
     heading?: string;
     /** Small copy under the heading. */
     subtitle?: string;
-    /** Full card-list replacement (defaults shipped below; per-card editor
-     *  overrides win over these). */
+    /** Testimonial cards — CMS-editable: add/delete/reorder any number. */
     cards?: TestimonialCard[];
-    /**
-     * Per-card overrides for the CMS editor (flat keys, one set per card):
-     * card1Name/card1Role/card1Quote/card1Image … card4Name/card4Role/…
-     */
-    card1Name?: string;
-    card1Role?: string;
-    card1Quote?: string;
-    card1Image?: string;
-    card2Name?: string;
-    card2Role?: string;
-    card2Quote?: string;
-    card2Image?: string;
-    card3Name?: string;
-    card3Role?: string;
-    card3Quote?: string;
-    card3Image?: string;
-    card4Name?: string;
-    card4Role?: string;
-    card4Quote?: string;
-    card4Image?: string;
 };
 
-const DEFAULT_CARDS: TestimonialCard[] = [
-    {
-        name: "Dr. Nadia Owen",
-        role: "Legal Counsel",
-        quote:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        image: "/home/team-nadia.jpg",
-    },
-    {
-        name: "Mr. Thomas Reed",
-        role: "Software Engineer",
-        quote:
-            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        image: "/home/team-ethan.jpg",
-    },
-    {
-        name: "Ms. Clara Bennett",
-        role: "Product Manager",
-        quote:
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        image: "/home/team-chloe.jpg",
-    },
-    {
-        name: "Dr. Emily Carter",
-        role: "Data Scientist",
-        quote:
-            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        image: "/home/team-sam.jpg",
-    },
-];
-
-export const DEFAULT_CONTENT: Required<StudentTestimonialsProps> = {
-    sectionLabel: "Student testimonials",
-    heading: "What Our Students Say",
-    subtitle:
-        "Hear from our happy students! See how we've helped them achieve their goals and create lasting impact.",
-    cards: DEFAULT_CARDS,
-    /* flat mirrors of `cards` — the editor seeds and overrides these */
-    card1Name: DEFAULT_CARDS[0].name,
-    card1Role: DEFAULT_CARDS[0].role,
-    card1Quote: DEFAULT_CARDS[0].quote,
-    card1Image: DEFAULT_CARDS[0].image,
-    card2Name: DEFAULT_CARDS[1].name,
-    card2Role: DEFAULT_CARDS[1].role,
-    card2Quote: DEFAULT_CARDS[1].quote,
-    card2Image: DEFAULT_CARDS[1].image,
-    card3Name: DEFAULT_CARDS[2].name,
-    card3Role: DEFAULT_CARDS[2].role,
-    card3Quote: DEFAULT_CARDS[2].quote,
-    card3Image: DEFAULT_CARDS[2].image,
-    card4Name: DEFAULT_CARDS[3].name,
-    card4Role: DEFAULT_CARDS[3].role,
-    card4Quote: DEFAULT_CARDS[3].quote,
-    card4Image: DEFAULT_CARDS[3].image,
-};
+export const DEFAULT_CONTENT: Required<StudentTestimonialsProps> = TESTIMONIALS_CONTENT;
 
 const stars = Array.from({ length: 5 });
 
@@ -105,30 +31,10 @@ export default function StudentTestimonials({
     heading = DEFAULT_CONTENT.heading,
     subtitle = DEFAULT_CONTENT.subtitle,
     cards = DEFAULT_CONTENT.cards,
-    card1Name = DEFAULT_CONTENT.card1Name,
-    card1Role = DEFAULT_CONTENT.card1Role,
-    card1Quote = DEFAULT_CONTENT.card1Quote,
-    card1Image = DEFAULT_CONTENT.card1Image,
-    card2Name = DEFAULT_CONTENT.card2Name,
-    card2Role = DEFAULT_CONTENT.card2Role,
-    card2Quote = DEFAULT_CONTENT.card2Quote,
-    card2Image = DEFAULT_CONTENT.card2Image,
-    card3Name = DEFAULT_CONTENT.card3Name,
-    card3Role = DEFAULT_CONTENT.card3Role,
-    card3Quote = DEFAULT_CONTENT.card3Quote,
-    card3Image = DEFAULT_CONTENT.card3Image,
-    card4Name = DEFAULT_CONTENT.card4Name,
-    card4Role = DEFAULT_CONTENT.card4Role,
-    card4Quote = DEFAULT_CONTENT.card4Quote,
-    card4Image = DEFAULT_CONTENT.card4Image,
 }: StudentTestimonialsProps) {
-    /* per-card overrides win over the shipped card list */
-    const testimonials: TestimonialCard[] = [
-        { name: card1Name, role: card1Role, quote: card1Quote, image: card1Image },
-        { name: card2Name, role: card2Role, quote: card2Quote, image: card2Image },
-        { name: card3Name, role: card3Role, quote: card3Quote, image: card3Image },
-        { name: card4Name, role: card4Role, quote: card4Quote, image: card4Image },
-    ];
+    /* The card LIST is the data source (any count, any order) — exactly what
+       the CMS card editor writes into the `cards` override. */
+    const testimonials: TestimonialCard[] = cards;
   const trackRef = useRef<HTMLDivElement>(null);
   const [activePage, setActivePage] = useState(0);
   const [pageCount, setPageCount] = useState(1);

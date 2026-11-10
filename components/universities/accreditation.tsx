@@ -1,13 +1,26 @@
 "use client";
 
-import { BadgeCheck, Building2, Check, GraduationCap } from "lucide-react";
-import type { ReactNode } from "react";
+import { Check } from "lucide-react";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
+import { ACCREDITATION_CONTENT } from "@/lib/universitySectionData";
+
+/**
+ * Accreditation — dark royal band; left = eyebrow/heading/paragraphs/quote/
+ * green-check checklist, right = stacked white accreditation cards
+ * (icon chip + title + description), bottom = full-width highlight card.
+ *
+ * Icons are stored as kebab-case lucide NAME strings (CMS-editable via the
+ * icon picker — see components/ui/iconRegistry.tsx). `iconTone` keeps the
+ * shipped two-colour design (emerald / champagne chips).
+ */
 
 type AccreditationCard = {
     title: string;
     description: string;
-    /** Icon rendered left of the title. */
-    icon: ReactNode;
+    /** Icon NAME from the CMS icon registry (kebab-case, e.g. "badge-check"). */
+    icon?: string;
+    /** Chip colour: "emerald" (default) or "champagne". */
+    iconTone?: "emerald" | "champagne";
 };
 
 type AccreditationProps = {
@@ -25,66 +38,22 @@ type AccreditationProps = {
     checklistLabel?: string;
     /** Green-check bullet items. */
     checklist?: string[];
-    /** Two stacked white cards on the right. */
+    /** Stacked white cards on the right. */
     cards?: AccreditationCard[];
     /** Title of the full-width white card at the bottom. */
     highlightTitle?: string;
     /** Body of the full-width white card at the bottom. */
     highlightText?: string;
-    highlightIcon?: ReactNode;
+    /** Icon NAME for the highlight card's round white chip. */
+    highlightIcon?: string;
 };
 
-const WFME_ICON: ReactNode = (
-    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft-bg">
-        <BadgeCheck className="h-6 w-6 text-brand-emerald-deep" aria-hidden="true" />
-    </span>
-);
-
-const IAAR_ICON: ReactNode = (
-    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-champagne-soft-bg">
-        <Building2 className="h-6 w-6 text-brand-champagne" aria-hidden="true" />
-    </span>
-);
-
-export const DEFAULT_CONTENT: Required<AccreditationProps> = {
-    anchorId: "accreditation",
-    sectionLabel: "Recognition and accreditation",
-    eyebrow: "Global Standards",
-    heading: "Recognition & Accreditation",
-    paragraphs: [
-        "Samara State Medical University (SamSMU) holds strong international recognition due to its high academic standards and globally accepted medical education system.",
-    ],
-    quote:
-        "With this dual accreditation system, graduates from SemSMU are eligible to practice in various countries, as the acceptance of their degree is significantly improved.",
-    checklistLabel:
-        "Practicing medicine in different countries (after required licensing exam):",
-    checklist: [
-        "Pursue postgraduate medical studies abroad",
-        "Securing better international career opportunities",
-    ],
-    cards: [
-        {
-            title: "WFME Accredited",
-            description:
-                "Accredited by the World Federation of Medical Education (WFME), meeting international standards comparable to global medical schools.",
-            icon: WFME_ICON,
-        },
-        {
-            title: "IAAR/NAAR Recognized",
-            description:
-                "Ensuring medical degrees are aligned with European education standards, improving degree acceptance worldwide.",
-            icon: IAAR_ICON,
-        },
-    ],
-    highlightTitle: "Global Career Pathway (USA & Canada)",
-    highlightText:
-        "Accreditation also emphasizes the importance of qualifying your qualifications recognized in various countries. Furthermore, the WFME accreditation qualifies graduates to pursue the Educational Commission for Foreign Medical Graduates (ECFMG) certification, which is a prerequisite for medical careers in the USA and Canada. Graduates can also potentially apply for United States Medical Licensing Examination (USMLE), which is a crucial step for medical licensure in the USA.",
-    highlightIcon: (
-        <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-brand-champagne-soft">
-            <GraduationCap className="h-5 w-5 text-brand-emerald-deep" aria-hidden="true" />
-        </span>
-    ),
+const chipToneClass: Record<"emerald" | "champagne", string> = {
+    emerald: "text-brand-emerald-deep",
+    champagne: "text-brand-champagne",
 };
+
+export const DEFAULT_CONTENT: Required<AccreditationProps> = ACCREDITATION_CONTENT;
 
 export default function AccreditationSection({
     anchorId = "accreditation",
@@ -100,6 +69,7 @@ export default function AccreditationSection({
     highlightText = DEFAULT_CONTENT.highlightText,
     highlightIcon = DEFAULT_CONTENT.highlightIcon,
 }: AccreditationProps) {
+    const HighlightIcon = getLucideIcon(highlightIcon);
     return (
         <section
             id={anchorId}
@@ -145,37 +115,56 @@ export default function AccreditationSection({
                         </ul>
                     </div>
 
-                    {/* Right: stacked accreditation cards */}
+                    {/* Right: stacked accreditation cards — CMS-editable */}
                     <div className="flex flex-col justify-center gap-6">
-                        {cards.map((card) => (
-                            <div
-                                key={card.title}
-                                className="relative overflow-hidden rounded-2xl bg-white p-5 shadow-lg @min-[1024px]:p-6"
-                            >
+                        {cards.map((card, index) => {
+                            const CardIcon = getLucideIcon(card.icon);
+                            const tone: "emerald" | "champagne" =
+                                card.iconTone === "champagne" ? "champagne" : "emerald";
+                            return (
                                 <div
-                                    aria-hidden="true"
-                                    className="absolute left-0 top-1/2 h-2/3 w-1.5 -translate-y-1/2 rounded-r-full bg-linear-to-b from-brand-emerald to-brand-forest"
-                                />
-                                <div className="flex items-center gap-4">
-                                    {card.icon}
-                                    <h3 className="text-lg font-semibold text-brand-forest">
-                                        {card.title}
-                                    </h3>
+                                    key={`${card.title}-${index}`}
+                                    className="relative overflow-hidden rounded-2xl bg-white p-5 shadow-lg @min-[1024px]:p-6"
+                                >
+                                    <div
+                                        aria-hidden="true"
+                                        className="absolute left-0 top-1/2 h-2/3 w-1.5 -translate-y-1/2 rounded-r-full bg-linear-to-b from-brand-emerald to-brand-forest"
+                                    />
+                                    <div className="flex items-center gap-4">
+                                        {CardIcon && (
+                                            <span className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-brand-champagne-soft-bg">
+                                                <CardIcon
+                                                    className={`h-6 w-6 ${chipToneClass[tone]}`}
+                                                    aria-hidden="true"
+                                                />
+                                            </span>
+                                        )}
+                                        <h3 className="text-lg font-semibold text-brand-forest">
+                                            {card.title}
+                                        </h3>
+                                    </div>
+                                    <div className="mt-3 border-t border-line pt-3">
+                                        <p className="text-xs leading-relaxed text-muted">
+                                            {card.description}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="mt-3 border-t border-line pt-3">
-                                    <p className="text-xs leading-relaxed text-muted">
-                                        {card.description}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
 
                 {/* Bottom: full-width highlight card */}
                 <div className="mt-12 rounded-2xl bg-white p-6 shadow-lg @min-[1024px]:p-8">
                     <div className="flex items-center gap-3">
-                        {highlightIcon}
+                        {HighlightIcon && (
+                            <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-brand-champagne-soft">
+                                <HighlightIcon
+                                    className="h-5 w-5 text-brand-emerald-deep"
+                                    aria-hidden="true"
+                                />
+                            </span>
+                        )}
                         <h3 className="text-lg font-semibold text-brand-forest">
                             {highlightTitle}
                         </h3>

@@ -1,13 +1,13 @@
 "use client";
 
-import bgDoctorImg from "@/public/bg-doctor.jpg";
-import { BookOpen, CalendarCheck, Globe, Target, type LucideIcon } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
-import type { ReactNode } from "react";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
+import { FMGE_CONTENT } from "@/lib/universitySectionData";
 
 type FmgeFeature = {
     label: string;
-    icon: ReactNode;
+    /** Icon NAME from the CMS icon registry (kebab-case, e.g. "book-open"). */
+    icon?: string;
 };
 
 type FmgeClassesProps = {
@@ -34,40 +34,13 @@ type FmgeClassesProps = {
     pathwaysParagraphs?: string[];
     /** Brand line under the paragraphs (uppercase label + icon). */
     standardsLabel?: string;
-    standardsIcon?: ReactNode;
+    /** Icon NAME for the standards chip. */
+    standardsIcon?: string;
     /** Thumbnail shown when videoUrl is empty. */
     videoPoster?: StaticImageData | string;
 };
 
-const featureIcon = (Icon: LucideIcon) => <Icon className="h-4 w-4 text-brand-emerald-deep" aria-hidden="true" />;
-
-export const DEFAULT_CONTENT: Required<FmgeClassesProps> = {
-    anchorId: "fmge-classes",
-    sectionLabel: "FMGE Classes",
-    title: "FMGE Classes at Samara State Medical University",
-    intro: "FMGE Classes at Samara State Medical University help Indian students pursuing MBBS in Russia prepare effectively for the FMGE exam.",
-    features: [
-        { label: "FMGE focused syllabus", icon: featureIcon(BookOpen) },
-        { label: "Weekly & Monthly mock tests", icon: featureIcon(CalendarCheck) },
-        { label: "Revision & exam strategy", icon: featureIcon(Target) },
-    ],
-    quote: "Structured guidance for better FMGE results.",
-    videoUrl: "",
-    videoTitle: "FMGE Classes at Samara State Medical University",
-    videoCaption: "FMGE Classes at Samara State Medical University",
-    videoPoster: bgDoctorImg,
-    pathwaysTitle: "Global Career Pathways",
-    pathwaysParagraphs: [
-        "Furthermore, the WFME accreditation qualifies graduates to pursue the Educational Commission for Foreign Medical Graduates (ECFMG) certification, which is a prerequisite for medical careers in the USA and Canada. Accreditation also emphasizes the importance of qualifying your qualifications recognized in various countries.",
-        "Graduates can also potentially apply for United States Medical Licensing Examination USMLE, which is a crucial step for medical license in the USA.",
-    ],
-    standardsLabel: "International standards",
-    standardsIcon: (
-        <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-brand-emerald text-white">
-            <Globe className="h-4 w-4" aria-hidden="true" />
-        </span>
-    ),
-};
+export const DEFAULT_CONTENT: Required<FmgeClassesProps> = FMGE_CONTENT;
 
 export default function FmgeClassesSection({
     anchorId = DEFAULT_CONTENT.anchorId,
@@ -110,17 +83,25 @@ export default function FmgeClassesSection({
                         </p>
 
                         <div className="mt-6 space-y-3 @min-[1024px]:pl-5.5">
-                            {features.map((feature) => (
-                                <div
-                                    key={feature.label}
-                                    className="flex items-center gap-3 rounded-lg bg-surface-alt px-4 py-3"
-                                >
-                                    {feature.icon}
-                                    <span className="text-xs font-medium text-body">
-                                        {feature.label}
-                                    </span>
-                                </div>
-                            ))}
+                            {features.map((feature, index) => {
+                                const FeatureIcon = getLucideIcon(feature.icon);
+                                return (
+                                    <div
+                                        key={`${feature.label}-${index}`}
+                                        className="flex items-center gap-3 rounded-lg bg-surface-alt px-4 py-3"
+                                    >
+                                        {FeatureIcon && (
+                                            <FeatureIcon
+                                                className="h-4 w-4 flex-none text-brand-emerald-deep"
+                                                aria-hidden="true"
+                                            />
+                                        )}
+                                        <span className="text-xs font-medium text-body">
+                                            {feature.label}
+                                        </span>
+                                    </div>
+                                );
+                            })}
                         </div>
 
                         <div className="mt-6 flex items-start gap-3 rounded-lg bg-surface-alt p-4 @min-[1024px]:ml-5.5">
@@ -140,8 +121,10 @@ export default function FmgeClassesSection({
                                 <Image
                                     src={videoPoster}
                                     alt={videoTitle}
+                                    fill
+                                    sizes="(max-width: 1024px) 100vw, 60vw"
                                     className="h-full w-full object-cover"
-                                    placeholder="blur"
+                                    placeholder={typeof videoPoster === "string" ? "empty" : "blur"}
                                 />
                                 <div
                                     aria-hidden="true"
@@ -178,7 +161,14 @@ export default function FmgeClassesSection({
                         ))}
                     </div>
                     <div className="mt-5 flex items-center gap-3">
-                        {standardsIcon}
+                        {(() => {
+                            const StandardsIcon = getLucideIcon(standardsIcon);
+                            return StandardsIcon ? (
+                                <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-brand-emerald text-white">
+                                    <StandardsIcon className="h-4 w-4" aria-hidden="true" />
+                                </span>
+                            ) : null;
+                        })()}
                         <span className="text-xs font-bold uppercase tracking-[0.15em] text-brand-emerald-deep">
                             {standardsLabel}
                         </span>

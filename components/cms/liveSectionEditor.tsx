@@ -8,6 +8,10 @@
  * (universities, via withUniversityName) -> edits write into
  * `useCmsStore.overrides` -> the preview re-renders with the new values.
  *
+ * Field kinds: text / textarea / list (liveSectionEditor FieldInput),
+ * icon + select (fieldInputs.tsx) and "cards" — the repeatable card editor
+ * (cardListEditor.tsx) used for every card list on the frontend.
+ *
  * ONLY preview state — nothing here calls the content API, so changes are not
  * stored. "Revert"/"Reset edits" clears the in-memory overrides.
  */
@@ -22,15 +26,14 @@ import { FAQ_ITEMS } from "@/components/ui/Faq";
 import { EVENT_CONTACT_DEFAULTS } from "@/components/images/EventContactForm";
 import { DEFAULT_CONTENT as ABROAD_HERO_DEFAULTS } from "@/components/homepage/MBBSAbroadHero";
 import {
-  formatCountryCards,
-  formatDocuments,
-  formatEligibilityCards,
-  formatFacts,
-  formatFaq,
-  formatStages,
-  formatSteps,
+  seedCountryCards,
   toPlainText,
 } from "./sectionLines";
+import {
+  seedSchemaValues,
+  toEditorLines,
+  toEditorText,
+} from "./editorValues";
 import { MessageSquareWarning, RotateCcw, EyeOff } from "lucide-react";
 import { useMemo } from "react";
 import { Card, Field } from "./smallerComponents";
@@ -38,6 +41,8 @@ import { getSectionSchema, getSectionLabel, type FieldSpec } from "./sectionFiel
 import { UNIVERSITY_SECTIONS } from "./universitySectionRegistry";
 import { useCmsStore } from "@/store/cmsStore";
 import type { ContentType } from "@/types/types";
+import CardListEditor, { type CardObject } from "./cardListEditor";
+import { IconPicker, SelectInput, TextAreaInput, TextInput } from "./fieldInputs";
 
 type LiveSectionEditorProps = { active: ContentType };
 
@@ -45,9 +50,10 @@ type LiveSectionEditorProps = { active: ContentType };
 function getSectionSeed(active: ContentType, kind: string, slug: string, type: string): Record<string, unknown> {
   if (active === "countries") {
     /* Same merge the preview renders, so the editor opens with exactly the
-       copy on screen (constants carry JSX for some fields — flattened to
-       plain text for the textareas). */
+       copy on screen. seedSchemaValues flattens every value (JSX, image
+       objects, {label,value} rows) into editor-safe text — no [object Object]. */
     const c = { ...DEFAULT_COUNTRY_CONTENT, ...getCountryContent(slug) };
+    const schema = getSectionSchema(active, type);
     const countrySeeds: Record<string, Record<string, unknown>> = {
       hero: {
         heroTitle: c.heroTitle,
@@ -55,7 +61,7 @@ function getSectionSeed(active: ContentType, kind: string, slug: string, type: s
         languages: c.languages,
         currency: c.currency,
       },
-      intro: { introHeading: c.introHeading, intro: c.intro },
+      intro: { introHeading: c.introHeading, intro: c.intro, introParagraphs: c.introParagraphs },
       "why-russia": {
         whyHeading: c.whyHeading,
         whyPoints: (c.whyPoints ?? []).map((p) => toPlainText(p)),
@@ -66,27 +72,27 @@ function getSectionSeed(active: ContentType, kind: string, slug: string, type: s
       },
       eligibility: {
         eligibilityHeading: c.eligibilityHeading,
-        eligibilityCards: formatEligibilityCards(c.eligibilityCards),
+        eligibilityCards: c.eligibilityCards ?? [],
       },
       "ssmu-durations": {
         university: c.durations?.university,
         totalYears: String(c.durations?.totalYears ?? ""),
-        stages: formatStages(c.durations?.stages),
+        stages: c.durations?.stages ?? [],
       },
       steps: {
         heading: c.documents?.heading,
         intro: c.documents?.intro ?? [],
-        documents: formatDocuments(c.documents?.items),
+        documents: c.documents?.items ?? [],
       },
       admission: {
         heading: c.admissionHeading,
-        steps: formatSteps(c.admissionSteps),
+        steps: c.admissionSteps ?? [],
       },
       about: {
         heading: c.about?.heading,
         subtitle: c.about?.subtitle,
         paragraphs: (c.about?.paragraphs ?? []).map((p) => toPlainText(p)),
-        facts: formatFacts(c.about?.facts),
+        facts: c.about?.facts ?? [],
       },
       "free-counselling": { ...EVENT_CONTACT_DEFAULTS },
       "abroad-hero": {
@@ -98,20 +104,22 @@ function getSectionSeed(active: ContentType, kind: string, slug: string, type: s
         countriesDescription: ABROAD_HERO_DEFAULTS.countriesDescription,
         descriptionSuffix: ABROAD_HERO_DEFAULTS.descriptionSuffix,
         ctaLabel: ABROAD_HERO_DEFAULTS.ctaLabel,
-        countries: formatCountryCards(ABROAD_HERO_DEFAULTS.countries),
+        countries: seedCountryCards(ABROAD_HERO_DEFAULTS.countries),
       },
       faq: {
         heading: "Frequently Asked Questions",
-        items: formatFaq(FAQ_ITEMS),
+        items: FAQ_ITEMS,
       },
     };
-    return countrySeeds[type] ?? {};
+    const source = countrySeeds[type] ?? {};
+    // normalize through the schema so card lists / lists / text are editor-safe
+    return seedSchemaValues(schema.fields, source);
   }
 
   const name = getUniversityContent(slug).name;
   if (type === "hero") {
     const u = getUniversityContent(slug);
-    return {
+    const heroSource: Record<string, unknown> = {
       // banner defaults first, then the university's own constants
       ...RUSSIA_BANNER_DEFAULTS,
       sectionLabel: `${name} hero banner`,
@@ -121,13 +129,17 @@ function getSectionSeed(active: ContentType, kind: string, slug: string, type: s
       ratingLabel: `Rating: ${u.rating} out of 5 stars`,
       languages: u.languages,
       currency: u.currency,
-    } as unknown as Record<string, unknown>;
+    };
+    const schema = getSectionSchema(active, type);
+    return seedSchemaValues(schema.fields, heroSource);
   }
 
   const def = UNIVERSITY_SECTIONS[type];
   if (!def) return {};
+  const schema = getSectionSchema(active, type);
+  const source = withUniversityName(def.defaults, name) as Record<string, unknown>;
   // DEFAULT_CONTENTs already carry every editor key (schemas mirror the props)
-  return { ...withUniversityName(def.defaults, name) } as Record<string, unknown>;
+  return seedSchemaValues(schema.fields, source);
 }
 
 /** empty editor values mean "keep the default copy" — filter them out */
@@ -147,31 +159,51 @@ function FieldInput({
 }: {
   field: FieldSpec;
   value: unknown;
-  onChange: (next: string | string[]) => void;
+  onChange: (next: string | string[] | CardObject[]) => void;
 }) {
-  const stringValue = Array.isArray(value) ? value.join("\n") : value == null ? "" : String(value);
+  // editor-safe text: ReactNode -> text, image objects -> URL, arrays -> lines
+  const stringValue =
+    field.kind === "list"
+      ? toEditorLines(value).join("\n")
+      : toEditorText(value);
   const inputClass =
     "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-base text-ink sm:text-sm " +
     "placeholder:text-muted outline-none transition " +
     "hover:border-line-strong focus:border-brand-green focus:ring-4 focus:ring-brand-green/10";
 
+  /* repeatable card list -> CardListEditor */
+  if (field.kind === "cards") {
+    const cardObjects: CardObject[] = Array.isArray(value)
+      ? (value.filter(
+          (v): v is CardObject => !!v && typeof v === "object" && !Array.isArray(v)
+        ) as CardObject[])
+      : [];
+    return (
+      <CardListEditor
+        value={cardObjects}
+        fields={field.fields ?? []}
+        itemLabel={field.itemLabel ?? "Card"}
+        template={field.template}
+        onChange={(next) => onChange(next)}
+      />
+    );
+  }
+
   return (
     <Field label={field.label}>
       {field.kind === "text" && (
-        <input
-          value={stringValue}
-          placeholder={field.hint}
-          onChange={(e) => onChange(e.target.value)}
-          className={inputClass}
-        />
+        <TextInput value={stringValue} placeholder={field.hint} onChange={onChange} />
       )}
       {field.kind === "textarea" && (
-        <textarea
-          rows={3}
+        <TextAreaInput value={stringValue} placeholder={field.hint} onChange={onChange} />
+      )}
+      {field.kind === "icon" && <IconPicker value={stringValue} onChange={onChange} />}
+      {field.kind === "select" && (
+        <SelectInput
           value={stringValue}
+          options={field.options ?? []}
           placeholder={field.hint}
-          onChange={(e) => onChange(e.target.value)}
-          className={`${inputClass} resize-y`}
+          onChange={onChange}
         />
       )}
       {field.kind === "list" && (

@@ -2,9 +2,14 @@
 
 import type { ReactNode } from "react";
 import { COUNTRY_CONTENT } from "@/lib/constants";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
 
 /* Fallback copy lives in lib/constants.tsx -> COUNTRY_CONTENT.russia */
 const RUSSIA = COUNTRY_CONTENT.russia;
+
+/** One benefit card. CMS stores the icon as a kebab-case lucide NAME string
+ *  (see components/ui/iconRegistry.tsx); constants keep the plain-string form. */
+export type WhyBenefit = { text: string; icon?: string };
 
 export type WhyRussiaProps = {
   /** Paragraphs under the gradient heading. */
@@ -15,11 +20,20 @@ export type WhyRussiaProps = {
   exams?: string[];
   /** Label above the benefit cards ("Additionally, Russia provides:"). */
   additionalLabel?: string;
-  /** The 3 benefit-card texts. */
-  benefits?: string[];
+  /** Benefit cards — plain strings (constants) or {text, icon} (CMS). */
+  benefits?: Array<string | WhyBenefit>;
   /** Closing paragraph (may contain a styled <Link>). */
   outro?: ReactNode;
 };
+
+/** strings -> {text}; empty icon names dropped. */
+function normalizeBenefits(benefits: Array<string | WhyBenefit>): WhyBenefit[] {
+  return benefits.map((benefit) =>
+    typeof benefit === "string"
+      ? { text: benefit }
+      : { text: benefit?.text ?? "", icon: benefit?.icon || undefined }
+  );
+}
 
 export default function WhyRussia({
   points = RUSSIA.whyPoints ?? [],
@@ -143,33 +157,44 @@ export default function WhyRussia({
             {additionalLabel}
           </p>
 
-          {/* 3 Benefit Cards */}
+          {/* Benefit Cards — CMS-editable (add/delete/reorder + optional lucide icon) */}
           <div className="grid @min-[640px]:grid-cols-1 @min-[1024px]:grid-cols-3
            gap-3 @min-[640px]:gap-3.5 @min-[1024px]:gap-4 w-full">
-            {benefits.map((text) => (
-              <div
-                key={text}
-                className="relative overflow-hidden rounded-xl p-3.5 @min-[640px]:p-4 bg-white/8 border border-white/10 backdrop-blur-sm flex flex-col justify-center min-h-19 @min-[640px]:min-h-22 shadow-lg"
-              >
-                {/* Left gradient border bar */}
+            {normalizeBenefits(benefits).map((benefit, index) => {
+              const BenefitIcon = getLucideIcon(benefit.icon);
+              return (
                 <div
-                  className="absolute left-0 top-0 bottom-0 w-1.25 @min-[640px]:w-1.5"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(152.61deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
-                  }}
-                  aria-hidden="true"
-                />
-                <p
-                  className="m-0 pl-1.5 @min-[640px]:pl-2 text-white
+                  key={`${benefit.text}-${index}`}
+                  className="relative overflow-hidden rounded-xl p-3.5 @min-[640px]:p-4 bg-white/8 border border-white/10 backdrop-blur-sm flex flex-col justify-center min-h-19 @min-[640px]:min-h-22 shadow-lg"
+                >
+                  {/* Left gradient border bar */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1.25 @min-[640px]:w-1.5"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(152.61deg, var(--color-brand-forest) 12.704%, var(--color-brand-forest-deep) 87.17%)",
+                    }}
+                    aria-hidden="true"
+                  />
+                  {BenefitIcon && (
+                    <span
+                      className="mb-2 ml-1.5 @min-[640px]:ml-2 grid h-8 w-8 place-items-center rounded-lg bg-white/10"
+                      aria-hidden="true"
+                    >
+                      <BenefitIcon size={16} className="text-white" />
+                    </span>
+                  )}
+                  <p
+                    className="m-0 pl-1.5 @min-[640px]:pl-2 text-white
                    font-semibold text-[12.5px] @min-[640px]:text-[13px]
                    @min-[1024px]:text-[14px] leading-snug"
-                  style={{ fontFamily: 'var(--font-body)' }}
-                >
-                  {text}
-                </p>
-              </div>
-            ))}
+                    style={{ fontFamily: 'var(--font-body)' }}
+                  >
+                    {benefit.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
           {/* Paragraph 3 — CMS content is plain semantic HTML (a/strong);

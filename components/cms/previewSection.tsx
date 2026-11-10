@@ -38,6 +38,7 @@ import {
   getUniversityContent,
 } from "@/lib/constants";
 import {
+  parseBenefits,
   parseCountryCards,
   parseDocuments,
   parseEligibilityCards,
@@ -91,7 +92,11 @@ function CountryPreview({ slug }: { slug: string }) {
       <SectionHitbox pageKey={pageKey} type="intro">
         <CountryIntro
           heading={s(ov("intro").introHeading, c.introHeading ?? "")}
-          paragraphs={c.introParagraphs}
+          paragraphs={
+            Array.isArray(ov("intro").introParagraphs)
+              ? (ov("intro").introParagraphs as string[])
+              : c.introParagraphs ?? []
+          }
           intro={s(ov("intro").intro, c.intro)}
         />
       </SectionHitbox>
@@ -101,7 +106,9 @@ function CountryPreview({ slug }: { slug: string }) {
           heading={s(ov("why-russia").whyHeading, c.whyHeading ?? "")}
           exams={strList(ov("why-russia").whyExams, c.whyExams ?? [])}
           additionalLabel={s(ov("why-russia").whyAdditionalLabel, c.whyAdditionalLabel ?? "")}
-          benefits={strList(ov("why-russia").whyBenefits, c.whyBenefits ?? [])}
+          benefits={
+            parseBenefits(ov("why-russia").whyBenefits) ?? c.whyBenefits ?? []
+          }
           outro={(ov("why-russia").whyOutro as ReactNode | undefined) ?? c.whyOutro}
         />
       </SectionHitbox>
@@ -264,8 +271,11 @@ function UniversityPreview({ name, slug }: { name: string; slug: string }) {
           {...buildSectionProps("testimonials", name, ov("testimonials") as Record<string, unknown>)}
         />
       </SectionHitbox>
-      <SectionHitbox pageKey={pageKey} type="faq" readOnly>
-        <Faq />
+      <SectionHitbox pageKey={pageKey} type="faq">
+        <Faq
+          {...(buildSectionProps("faq", name, ov("faq") as Record<string, unknown>) as
+            Partial<ComponentProps<typeof Faq>>)}
+        />
       </SectionHitbox>
       <EditorHint />
     </div>

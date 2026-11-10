@@ -63,3 +63,20 @@ Permissions/Auth: None here — the dashboard page is still an unprotected place
 ### `smallerComponents.tsx`
 
 [smallerComponents.tsx]: `SectionLabel`, `StatusBadge`, `Card`, `Field` primitives used by the dashboard/editor. Unchanged.
+
+## Card system (2026 update — thumb rule: every card on the frontend is CMS-editable)
+
+### `sectionFieldSchemas.ts`
+Field kinds: `text` / `textarea` / `list` (lines), plus **`icon`** (searchable lucide picker -> kebab-case NAME string, "" = none), **`select`** (`options`, "" = default) and **`cards`** — repeatable card list (`fields` = per-card sub-fields, `template` = new-card values, `itemLabel` = row label). All country + university card sections use `cards`: why-choose-us `reasons`, eligibility `criteria`/`eligibilityCards`, accreditation `cards`, fmge `features`, duration `stages`, admission `steps`, documents `items`, benefits, fees `cards` (rows stay a `list` of "Label | Value" lines), faculty `items`, hostel `features` + `messPoints`, testimonials `cards`, country why-russia `whyBenefits`, about `facts`, abroad-hero `countries`, faq `items`.
+
+### `cardListEditor.tsx` + `fieldInputs.tsx`
+CardListEditor renders one collapsible block per card (summary = first filled text field) with move-up / move-down / delete and an "Add" button; sub-fields render via shared TextInput / TextAreaInput / SelectInput / IconPicker (searchable grid over `components/ui/iconRegistry.tsx`, 70+ icons, "No icon" = empty value). Values are plain serializable objects (`Array<Record<string,string>>`) stored in `useCmsStore.overrides`.
+
+### `sectionLines.ts`
+Parse helpers accept BOTH shapes: structured card objects (new) and legacy "A | B | C" pipe lines (old editor + constants). `seed*` helpers convert constants content into card objects for the editor (JSX flattened with `toPlainText`). Auto-numbering: empty `number` fields become "1." (eligibility) / "01" (admission steps) at parse time.
+
+### `components/ui/iconRegistry.tsx`
+Central `CMS_ICONS` map (kebab name -> LucideIcon), `ICON_CHOICES`, `getLucideIcon(name)`. Section components resolve card icons by name at render time and fall back to their built-in defaults (index pairing / no icon) when a name is empty/unknown — adding an icon choice = one entry.
+
+### University registry additions
+`UNIVERSITY_SECTIONS` now also carries `free-counselling` (EventContactForm) and `faq` (Faq) so those in-page blocks are editable on university routes too; `StudentTestimonials` renders directly from the `cards` array (flat card1..4 props removed); `buildSectionProps` spreads card arrays straight onto component props. Fixed corrupted anchors in `univNav.getOptions()` (accreditation / fees-structure / faculty hrefs now real `#anchors`).

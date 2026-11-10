@@ -1,8 +1,8 @@
 "use client";
 
-import univCampusImg from "@/public/home/univ-campus.jpg";
 import { CircleCheck } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
+import { ADVANCED_TRAINING_CONTENT } from "@/lib/universitySectionData";
 
 type AdvancedTrainingProps = {
     /** Anchor id for the sub-nav (WITHOUT the leading "#"). */
@@ -23,21 +23,7 @@ type AdvancedTrainingProps = {
     imageAlt?: string;
 };
 
-export const DEFAULT_CONTENT: Required<AdvancedTrainingProps> = {
-    anchorId: "advanced-training",
-    sectionLabel: "Advanced clinical training and labs",
-    titleGreen: "Advanced Clinical",
-    titleBlue: "Training & Labs",
-    intro:
-        "Strong focus on both theoretical knowledge and practical clinical training, helping students build deep medical understanding along with real-world skills. Our modern laboratories and research centers support hands-on learning and scientific research.",
-    highlights: [
-        "Modern simulation-based training",
-        "Well-equipped medical research labs",
-        "Extensive medical libraries",
-    ],
-    imageSrc: univCampusImg, // TODO: swap to a real laboratory photo when available
-    imageAlt: "University clinical training laboratory",
-};
+export const DEFAULT_CONTENT: Required<AdvancedTrainingProps> = ADVANCED_TRAINING_CONTENT;
 
 export default function AdvancedTrainingSection({
     anchorId = DEFAULT_CONTENT.anchorId,
@@ -89,8 +75,10 @@ export default function AdvancedTrainingSection({
                         <Image
                             src={imageSrc}
                             alt={imageAlt}
-                            className="h-full w-full object-cover"
-                            placeholder="blur"
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-cover"
+                            placeholder={typeof imageSrc === "string" ? "empty" : "blur"}
                         />
                     </div>
                 </div>

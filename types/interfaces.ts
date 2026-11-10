@@ -154,20 +154,28 @@ export interface DurationStageItem {
   years: number;
 }
 
-/** One "Documents Required" card. Icons stay in the section component. */
+/** One "Documents Required" card. Icons resolve by NAME via the CMS icon
+ *  registry (components/ui/iconRegistry.tsx); sections fall back to their
+ *  built-in index pairing when a card carries no icon name. */
 export interface DocumentItem {
   label: string;
+  /** Icon NAME from the CMS icon registry (kebab-case, e.g. "mail"). */
+  icon?: string;
   /** Red accent (NEET row in the design). */
   tone?: "red";
   /** Final card spans both grid columns. */
   wide?: boolean;
 }
 
-/** One "About country" fact card. Icons stay in the section component. */
+/** One "About country" fact card. Icons resolve by NAME via the CMS icon
+ *  registry; sections fall back to their built-in index pairing when a card
+ *  carries no icon name. */
 export interface FactItem {
   id: number;
   label: string;
   value: string;
+  /** Icon NAME from the CMS icon registry (kebab-case, e.g. "users"). */
+  icon?: string;
   /** Spans both grid columns (e.g. the languages card). */
   wide?: boolean;
 }

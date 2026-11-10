@@ -1,9 +1,8 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
-import type { LucideIcon } from "lucide-react";
-import { Camera, Copy, FileBadge, FileText, HeartPulse, Landmark, Mail } from "lucide-react";
-import bgDoctorImg from "@/public/bg-doctor.jpg";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
+import { DOCUMENTS_CONTENT } from "@/lib/universitySectionData";
 
 /**
  * Documents — "Documents Required For <University>" section:
@@ -14,21 +13,11 @@ import bgDoctorImg from "@/public/bg-doctor.jpg";
  * CMS compatibility (same approach as `admissionProcess.tsx`):
  *  - Every prop is optional with a default from `DEFAULT_CONTENT`, so a CMS can
  *    render it with plain JSON via `<DocumentsSection {...cmsContent} />`.
- *  - Items reference icons by NAME string (see ICONS below) and colours by
- *    NAME string (see TONES below) — data stays serializable, no React nodes.
- *  - Unknown icon names fall back to "file-text", unknown tones to "blue".
+ *  - Items reference icons by NAME string via the central CMS icon registry
+ *    (components/ui/iconRegistry.tsx) and colours by NAME string (TONES below)
+ *    — data stays serializable, no React nodes.
+ *  - Unknown icon names render no icon; unknown tones fall back to "blue".
  */
-
-/* Icon registry: lucide icons indexed by CMS-friendly kebab-case names. */
-const ICONS: Record<string, LucideIcon> = {
-    "file-text": FileText,
-    copy: Copy,
-    camera: Camera,
-    "file-badge": FileBadge,
-    mail: Mail,
-    landmark: Landmark,
-    "heart-pulse": HeartPulse,
-};
 
 /* Colour tones for the icon chips, also referenced by NAME string. */
 const TONES: Record<string, string> = {
@@ -36,7 +25,6 @@ const TONES: Record<string, string> = {
     red: "bg-red-50 text-red-600",
     green: "bg-brand-champagne-soft-bg/60 text-brand-emerald-deep",
 };
-
 type DocumentItem = {
     /** Card label, e.g. "Passport-size photos". Doubles as the React key. */
     title: string;
@@ -62,36 +50,7 @@ type DocumentsProps = {
     imageAlt?: string;
 };
 
-export const DEFAULT_CONTENT: Required<DocumentsProps> = {
-    sectionLabel: "Documents required",
-    titleGreen: "Documents Required For",
-    titleBlue: "Samara State Medical University",
-    paragraphs: [
-        "All Indian medical aspirants must ensure that they properly gather and organise the required documentation to avoid any unnecessary delays in the review process.",
-        "The following documents are required to be submitted by Indian students for the MBBS program at Samara State Medical University.",
-    ],
-    items: [
-        { title: "10th certificate and Mark Sheet", icon: "file-text" },
-        { title: "Scan copy of 12th certificate and Mark Sheet", icon: "copy" },
-        { title: "Passport-size photos", icon: "camera" },
-        { title: "NEET Result / Admit Card", icon: "file-badge", tone: "red" },
-        {
-            title: "Official invitation letter of the Medical University of Russia",
-            icon: "mail",
-        },
-        {
-            title: "Issue of all documents by the Ministry of Foreign Affairs, New Delhi",
-            icon: "landmark",
-        },
-        {
-            title: "Medical report with HIV test result required at the time of Visa stamping",
-            icon: "heart-pulse",
-        },
-        { title: "Xerox copy of Passport (First & Last pages)", icon: "copy" },
-    ],
-    imageSrc: bgDoctorImg,
-    imageAlt: "Doctor in a white coat putting on surgical gloves",
-};
+export const DEFAULT_CONTENT: Required<DocumentsProps> = DOCUMENTS_CONTENT;
 
 export default function DocumentsSection({
     sectionLabel = DEFAULT_CONTENT.sectionLabel,
@@ -152,22 +111,24 @@ export default function DocumentsSection({
                     </div>
 
                     <ul className="mt-8 grid grid-cols-1 gap-3 @min-[640px]:grid-cols-2">
-                        {items.map((item) => {
-                            const ItemIcon = ICONS[item.icon ?? ""] ?? FileText;
+                        {items.map((item, index) => {
+                            const ItemIcon = getLucideIcon(item.icon);
                             const tone = TONES[item.tone ?? "blue"] ?? TONES.blue;
                             return (
                                 <li
-                                    key={item.title}
+                                    key={`${item.title}-${index}`}
                                     className="flex items-start gap-3 rounded-lg bg-white p-3.5 shadow-sm"
                                 >
-                                    <span
-                                        className={`flex h-6 w-6 flex-none items-center justify-center rounded-md ${tone}`}
-                                    >
-                                        <ItemIcon
-                                            aria-hidden="true"
-                                            className="h-4 w-4"
-                                        />
-                                    </span>
+                                    {ItemIcon && (
+                                        <span
+                                            className={`flex h-6 w-6 flex-none items-center justify-center rounded-md ${tone}`}
+                                        >
+                                            <ItemIcon
+                                                aria-hidden="true"
+                                                className="h-4 w-4"
+                                            />
+                                        </span>
+                                    )}
                                     <span className="text-xs leading-relaxed text-body">
                                         {item.title}
                                     </span>

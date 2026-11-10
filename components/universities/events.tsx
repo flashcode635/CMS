@@ -1,6 +1,7 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
+import { EVENTS_CONTENT } from "@/lib/universitySectionData";
 
 /**
  * Events — "Rythm 3.0 2026 – Relive …" style event highlight band:
@@ -30,19 +31,7 @@ type EventsProps = {
     imageAlt?: string;
 };
 
-export const DEFAULT_CONTENT: Required<EventsProps> = {
-    sectionLabel: "University event highlights",
-    titleMain: "Rythm 3.0 2026 – Relive the",
-    titleAccent: "Most Electrifying Freshers' Night",
-    paragraphs: [
-        "Rythm 3.0 – 2025 Freshers' Party, hosted by My Study Hub & others, turned into an electrifying celebration of new beginnings with an incredible crowd of 500+ Indian students. The evening was filled with energy, enthusiasm, and unforgettable moments, creating a grand welcome for the newest batch.",
-        "The night sparkled with DJ beats, dance, engaging games, and spectacular stage performances. Special gratitude goes to our dedicated senior volunteers and team members who set up a perfect platform for freshers to interact, bond, and step into their academic journey with confidence, fun, and unity.",
-        "Rythm 3.0 – 2026 not only brought smiles and memories but also built friendships that will last throughout the upcoming medical years. A night that truly marked the start of an exciting chapter!",
-    ],
-    // TODO: swap for this university's real event photo (CMS override works too)
-    eventImageSrc: "/home/partyone.webp",
-    imageAlt: "Students celebrating at the freshers party",
-};
+export const DEFAULT_CONTENT: Required<EventsProps> = EVENTS_CONTENT;
 
 export default function EventsSection({
     sectionLabel = DEFAULT_CONTENT.sectionLabel,

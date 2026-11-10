@@ -27,6 +27,7 @@ import desk from "@/public/contact-us/chairs.jpg";
 
 import { COUNTRY_CONTENT } from "@/lib/constants";
 import type { DocumentItem } from "@/types/interfaces";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
 
 /* Fallback copy lives in lib/constants.tsx -> COUNTRY_CONTENT.russia */
 const RUSSIA = COUNTRY_CONTENT.russia;
@@ -40,7 +41,8 @@ export type StepsSSMUProps = {
   documents?: DocumentItem[];
 };
 
-/* Icons are presentation, not copy — paired with the constants list by index. */
+/* Default icons (presentation), paired with the constants list by index —
+   a card's own `icon` NAME (from the CMS) always wins over this pairing. */
 const REQUIRED_DOCUMENT_ICONS: LucideIcon[] = [
   FileText,
   FileText,
@@ -161,10 +163,11 @@ export default function StepsSSMU({
             </div>
 
             {/* Mobile: horizontal swipe-row of document cards; sm+ keeps the
-                original 2-col grid. */}
+                original 2-col grid. Cards are CMS-editable (add/delete/reorder,
+                icon = kebab-case lucide NAME via the icon registry). */}
             <ul className="flex flex-row overflow-x-auto @min-[640px]:grid @min-[640px]:grid-cols-2 gap-2.5 @min-[640px]:gap-3">
-              {documents.map(({ label, tone, wide }, index) => {
-                const Icon = REQUIRED_DOCUMENT_ICONS[index] ?? FileText;
+              {documents.map(({ label, tone, wide, icon }, index) => {
+                const Icon = getLucideIcon(icon) ?? REQUIRED_DOCUMENT_ICONS[index] ?? FileText;
                 return (
                 <li
                   key={label}

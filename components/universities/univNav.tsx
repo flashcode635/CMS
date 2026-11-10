@@ -18,6 +18,7 @@ import FeeStructureSection, { DEFAULT_CONTENT as FEES_DEFAULTS } from "./feesStr
 import FacultySection, { DEFAULT_CONTENT as FACULTY_DEFAULTS } from "./faculty";
 import HostelFacilitiesSection, { DEFAULT_CONTENT as HOSTEL_DEFAULTS } from "./hostelFacilities";
 import EventsSection, { DEFAULT_CONTENT as EVENTS_DEFAULTS } from "./events";
+import AdvancedTrainingSection, { DEFAULT_CONTENT as ADVANCED_TRAINING_DEFAULTS } from "./advancedTraining";
 import { withUniversityName } from "./universityName";
 
 type UnivOption = {
@@ -61,22 +62,27 @@ export function getOptions(universityName?: string): UnivOption[] {
     const faculty = withUniversityName(FACULTY_DEFAULTS, universityName);
     const hostel = withUniversityName(HOSTEL_DEFAULTS, universityName);
     const events = withUniversityName(EVENTS_DEFAULTS, universityName);
+    // anchorId: "" — the wrapper <div id="advanced-training"> in sections.tsx
+    // already provides the anchor (same pattern as the duration section).
+    const advancedTraining = withUniversityName(ADVANCED_TRAINING_DEFAULTS, universityName);
+    const advancedTrainingProps = { ...advancedTraining, anchorId: "" };
 
     return [
         { id: 1, name: "Overview", href: "#overview", component: <UniversityOverview {...overview} /> },
-        { id: 2, name: "Accreditation", href: "var(--color-muted)reditation", component: <AccreditationSection {...accreditation} /> },
+        { id: 2, name: "Accreditation", href: "#accreditation", component: <AccreditationSection {...accreditation} /> },
         { id: 3, name: "FMGE Classes", href: "#fmge-classes", component: <FmgeClassesSection {...fmge} /> },
         { id: 4, name: "Why Choose Us", href: "#why-choose-us", component: <WhyChooseUsSection {...whyChooseUs} /> },
-        { id: 5, name: "Eligibility", href: "#eligibility", component: <EligibilitySection {...eligibility} /> },
-        { id: 6, name: "MBBS Duration", href: "#mbbs-duration", component: <DurationSection {...durationProps} /> },
-        { id: 7, name: "Admission Process", href: "#admission-process", component: <AdmissionProcessSection {...admissionProcess} /> },
-        { id: 8, name: "Documents", href: "#documents", component: <DocumentsSection {...documents} /> },
-        { id: 9, name: "Benefits", href: "#benefits", component: <BenefitsSection {...benefits} /> },
-        { id: 10, name: "Fee Structure", href: "var(--color-red-100)s-structure", component: <FeeStructureSection {...fees} /> },
-        { id: 11, name: "Faculty", href: "var(--color-red-100)ulty", component: <FacultySection {...faculty} /> },
-        { id: 12, name: "Hostel & Facilities", href: "#hostel-facilities", component: <HostelFacilitiesSection {...hostel} /> },
-        { id: 13, name: "Events", href: "#events", component: <EventsSection {...events} /> },
-        { id: 14, name: "Free Counselling", href: "#free-counselling", component: <EventContactForm /> },
+        { id: 5, name: "Advanced Training", href: "#advanced-training", component: <AdvancedTrainingSection {...advancedTrainingProps} /> },
+        { id: 6, name: "Eligibility", href: "#eligibility", component: <EligibilitySection {...eligibility} /> },
+        { id: 7, name: "MBBS Duration", href: "#mbbs-duration", component: <DurationSection {...durationProps} /> },
+        { id: 8, name: "Admission Process", href: "#admission-process", component: <AdmissionProcessSection {...admissionProcess} /> },
+        { id: 9, name: "Documents", href: "#documents", component: <DocumentsSection {...documents} /> },
+        { id: 10, name: "Benefits", href: "#benefits", component: <BenefitsSection {...benefits} /> },
+        { id: 11, name: "Fee Structure", href: "#fees-structure", component: <FeeStructureSection {...fees} /> },
+        { id: 12, name: "Faculty", href: "#faculty", component: <FacultySection {...faculty} /> },
+        { id: 13, name: "Hostel & Facilities", href: "#hostel-facilities", component: <HostelFacilitiesSection {...hostel} /> },
+        { id: 14, name: "Events", href: "#events", component: <EventsSection {...events} /> },
+        { id: 15, name: "Free Counselling", href: "#free-counselling", component: <EventContactForm /> },
     ];
 }
 

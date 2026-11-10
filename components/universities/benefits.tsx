@@ -2,7 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { GraduationCap } from "lucide-react";
-import univCampusImg from "@/public/home/univ-campus.jpg";
+import { BENEFITS_CONTENT } from "@/lib/universitySectionData";
 
 /**
  * Benefits — "Benefits of Studying MBBS in <University>" section:
@@ -47,39 +47,7 @@ type BenefitsProps = {
     videoPoster?: StaticImageData | string;
 };
 
-export const DEFAULT_CONTENT: Required<BenefitsProps> = {
-    sectionLabel: "Benefits of studying at this university",
-    eyebrow: "Why Samara State",
-    titleGreen: "Benefits of Studying MBBS in",
-    titleBlue: "Samara State Medical University, Russia",
-    benefits: [
-        {
-            title: "Globally Recognized Degree",
-            description:
-                "Accredited by WHO, MCI/NMC, and UNESCO, allowing graduates to practice medicine globally after clearing the screening tests.",
-        },
-        {
-            title: "Advanced Research Facilities",
-            description:
-                "Home to some of Russia's most specialized medical research centers, including their own specialized university hospitals.",
-        },
-        {
-            title: "English Medium Education",
-            description:
-                "A dedicated faculty for international students providing 100% English-medium instruction for the entire duration of the course.",
-        },
-        {
-            title: "Affordable Tuition & Living",
-            description:
-                "High-quality education at a fraction of the cost compared to private medical colleges in India or the West.",
-        },
-    ],
-    videoUrl: "",
-    videoTitle: "FMGE Classes at Samara State Medical University",
-    videoBadge: "My Study Hub",
-    watchLabel: "Event highlight",
-    videoPoster: univCampusImg,
-};
+export const DEFAULT_CONTENT: Required<BenefitsProps> = BENEFITS_CONTENT;
 
 export default function BenefitsSection({
     sectionLabel = DEFAULT_CONTENT.sectionLabel,

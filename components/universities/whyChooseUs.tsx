@@ -1,10 +1,13 @@
 "use client";
 
-import AdvancedTrainingSection from "./advancedTraining";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
+import { WHY_CHOOSE_US_CONTENT } from "@/lib/universitySectionData";
 
 type WhyChooseReason = {
     title: string;
     description: string;
+    /** Optional icon NAME (kebab-case lucide) — renders only when set. */
+    icon?: string;
 };
 
 type WhyChooseUsProps = {
@@ -22,46 +25,7 @@ type WhyChooseUsProps = {
     reasons?: WhyChooseReason[];
 };
 
-export const DEFAULT_CONTENT: Required<WhyChooseUsProps> = {
-    anchorId: "why-choose-us",
-    sectionLabel: "Why choose this university",
-    titleGreen: "Why Choose",
-    titleBlue: "Samara State Medical University?",
-    subtitle:
-        "Choosing the right university is a crucial decision for every medical aspirant. Here are compelling reasons to study at SamSMU.",
-    reasons: [
-        {
-            title: "Globally Recognized Degree",
-            description:
-                "Recognized by major medical bodies such as WHO and NMC, making its degree valid for practicing in India after qualifying licensing exams like FMGE/NExT.",
-        },
-        {
-            title: "Affordable MBBS Fees",
-            description:
-                "Compared to private medical colleges in India, the fees are much more affordable, making it an excellent option for middle-class families.",
-        },
-        {
-            title: "English Medium Curriculum",
-            description:
-                "The MBBS program is offered in English, which ensures that international students can easily understand and adapt to the course.",
-        },
-        {
-            title: "Advanced Infrastructure",
-            description:
-                "Equipped with modern laboratories, digital classrooms, and simulation-based training facilities for hands-on experience.",
-        },
-        {
-            title: "Indian Student-Friendly",
-            description:
-                "Significant number of Indian students, availability of Indian food, and cultural inclusivity adds to the comfort.",
-        },
-        {
-            title: "Safe Living Environment",
-            description:
-                "Samara is considered a safe city for international students, with good public transport and a peaceful environment.",
-        },
-    ],
-};
+export const DEFAULT_CONTENT: Required<WhyChooseUsProps> = WHY_CHOOSE_US_CONTENT;
 
 export default function WhyChooseUsSection({
     anchorId = DEFAULT_CONTENT.anchorId,
@@ -91,26 +55,38 @@ export default function WhyChooseUsSection({
                     </p>
 
                     <div className="mt-12 grid grid-cols-1 gap-5 @min-[640px]:grid-cols-2 @min-[1024px]:grid-cols-3">
-                        {reasons.map((reason, index) => (
-                            <div
-                                key={reason.title}
-                                className="relative rounded-xl bg-white p-5 pl-7 shadow-sm"
-                            >
+                        {reasons.map((reason, index) => {
+                            const ReasonIcon = getLucideIcon(reason.icon);
+                            return (
                                 <div
-                                    aria-hidden="true"
-                                    className="absolute bottom-3 left-0 top-3 w-1 rounded-r-full bg-brand-emerald"
-                                />
-                                <h3 className="text-base font-semibold text-ink">
-                                    {index + 1}. {reason.title}
-                                </h3>
-                                <p className="mt-3 text-xs leading-relaxed text-muted">
-                                    {reason.description}
-                                </p>
-                            </div>
-                        ))}
+                                    key={`${reason.title}-${index}`}
+                                    className="relative rounded-xl bg-white p-5 pl-7 shadow-sm"
+                                >
+                                    <div
+                                        aria-hidden="true"
+                                        className="absolute bottom-3 left-0 top-3 w-1 rounded-r-full bg-brand-emerald"
+                                    />
+                                    <div className="flex items-center gap-2.5">
+                                        {ReasonIcon && (
+                                            <span
+                                                aria-hidden="true"
+                                                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-champagne-soft-bg"
+                                            >
+                                                <ReasonIcon size={16} className="text-brand-emerald-deep" />
+                                            </span>
+                                        )}
+                                        <h3 className="text-base font-semibold text-ink">
+                                            {index + 1}. {reason.title}
+                                        </h3>
+                                    </div>
+                                    <p className="mt-3 text-xs leading-relaxed text-muted">
+                                        {reason.description}
+                                    </p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
-              <AdvancedTrainingSection />  
             </section>
         </>
     );

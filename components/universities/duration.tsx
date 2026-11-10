@@ -1,5 +1,7 @@
 "use client";
 
+import { DURATION_CONTENT } from "@/lib/universitySectionData";
+
 type DurationStage = {
     duration: string;
     title: string;
@@ -21,34 +23,7 @@ type DurationProps = {
     stages?: DurationStage[];
 };
 
-export const DEFAULT_CONTENT: Required<DurationProps> = {
-    anchorId: "mbbs-duration",
-    sectionLabel: "Duration of MBBS at Samara State Medical University",
-    titleGreen: "Duration Of MBBS At",
-    titleBlue: "Samara State Medical University",
-    totalLabel: "Total Duration",
-    totalDuration: "6",
-    totalUnit: "Years",
-    cardTitle: "Duration of MBBS at Samara State University, Russia",
-    cardIntro:
-        "The total duration of the MBBS course at Samara State Medical University is 6 years.",
-    stages: [
-        {
-            duration: "5 YEARS",
-            title: "Theoretical + practical medical training",
-            description: "Academic study",
-            label: "Academic study",
-            color: "var(--color-brand-forest-deep)",
-        },
-        {
-            duration: "1 YEAR",
-            title: "Clinical practice",
-            description: "Compulsory internship",
-            label: "Compulsory internship",
-            color: "var(--color-brand-champagne)",
-        },
-    ],
-};
+export const DEFAULT_CONTENT: Required<DurationProps> = DURATION_CONTENT;
 
 export default function DurationSection({
     anchorId = DEFAULT_CONTENT.anchorId,

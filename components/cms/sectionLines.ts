@@ -1,13 +1,15 @@
 /**
- * Line-format helpers for the CMS live editor's list fields.
+ * Card/line-format helpers between the CMS live editor and the section
+ * components.
  *
- * The editor only has three field kinds (text / textarea / list-of-lines), so
- * structured country content (stages, documents, steps, facts, cards) travels
- * through `list` fields as "A | B | C" lines. These helpers convert between
- * the structured objects in `lib/constants.tsx` and those editor lines.
- *
- * parse* helpers return `undefined` for anything that isn't a string[] of
- * usable lines, so previewSection can fall back to the constants copy.
+ * Card fields (`kind: "cards"`) travel as ARRAY<OBJECT> — one plain object per
+ * card (e.g. { title, description, icon }) — which previewSection passes
+ * straight to the section components as props. Every parse* helper below
+ * accepts BOTH shapes:
+ *   1. structured objects   (the cards editor writes these)
+ *   2. legacy "A | B | C" string lines (the old list textareas + constants)
+ * and returns `undefined` for unusable input so the preview can fall back to
+ * the constants copy.
  */
 import type { ReactNode } from "react";
 import type {
@@ -41,6 +43,30 @@ function splitParts(row: string): string[] {
   return row.split("|").map((p) => p.trim());
 }
 
+/**
+ * Normalize a card-field override into Array<Record<string, string>>.
+ * Accepts the objects the cards editor writes; returns undefined for legacy
+ * string arrays (callers parse those with their own format rules) and for
+ * anything unusable.
+ */
+function toCardObjects(value: unknown): Array<Record<string, string>> | undefined {
+  if (!Array.isArray(value) || value.length === 0) return undefined;
+  if (!value.every((v) => v && typeof v === "object" && !Array.isArray(v))) return undefined;
+  return (value as Array<Record<string, unknown>>).map((obj) => {
+    const out: Record<string, string> = {};
+    for (const [key, v] of Object.entries(obj)) {
+      if (v == null) continue;
+      out[key] = typeof v === "string" ? v : String(v);
+    }
+    return out;
+  });
+}
+
+/** truthy("wide" | "true" | true) for select-style width/highlight values. */
+function flag(v: unknown): boolean {
+  return v === true || v === "wide" || v === "true" || v === "yes";
+}
+
 /** Flatten any ReactNode (strings, arrays, <strong>/<Link>-style elements)
  *  to the plain text an editor textarea can hold. */
 export function toPlainText(node: ReactNode): string {
@@ -54,44 +80,59 @@ export function toPlainText(node: ReactNode): string {
   return "";
 }
 
-/* ---------- SSMUDurations stages: "Badge | Title | Description | Years" ---------- */
+/* ---------- SSMUDurations stages ---------- */
 
-export function formatStages(stages?: DurationStageItem[]): string[] {
-  return (stages ?? []).map((s) =>
-    line([s.badge, s.title, s.description, s.years])
-  );
-}
+type StageInput = {
+  badge: string;
+  title: string;
+  description: string;
+  years: number;
+};
 
-export function parseStages(value: unknown): DurationStageItem[] | undefined {
-  const lines = toLines(value);
-  if (!lines) return undefined;
-  return lines.map((row) => {
-    const [badge = "", title = "", description = "", years = ""] = splitParts(row);
-    return {
+export function parseStages(value: unknown): StageInput[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ badge = "", title = "", description = "", years = "" }) => ({
       badge,
       title,
       description,
       years: Number.parseFloat(years) || 0,
-    };
-  });
-}
-
-/* ---------- StepsSSMU documents: "!label" = red tone, "label+" = wide card ---------- */
-
-export function formatDocuments(items?: DocumentItem[]): string[] {
-  return (items ?? []).map(({ label, tone, wide }) => {
-    let row = label ?? "";
-    if (tone === "red") row = `!${row}`;
-    if (wide) row = `${row}+`;
-    return row;
-  });
-}
-
-export function parseDocuments(value: unknown): DocumentItem[] | undefined {
+    }));
+  }
   const lines = toLines(value);
   if (!lines) return undefined;
   return lines.map((row) => {
-    const tone = row.startsWith("!") ? "red" : undefined;
+    const [badge = "", title = "", description = "", years = ""] = splitParts(row);
+    return { badge, title, description, years: Number.parseFloat(years) || 0 };
+  });
+}
+
+/** editor seed: constants stages -> card objects */
+export function seedStages(stages?: DurationStageItem[]): Array<Record<string, string>> {
+  return (stages ?? []).map((s) => ({
+    badge: s.badge ?? "",
+    title: s.title ?? "",
+    description: toPlainText(s.description ?? ""),
+    years: String(s.years ?? ""),
+  }));
+}
+
+/* ---------- StepsSSMU documents ---------- */
+
+export function parseDocuments(value: unknown): DocumentItem[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ label = "", icon = "", tone = "", wide = "" }) => ({
+      label,
+      icon: icon || undefined,
+      tone: tone === "red" ? "red" : undefined,
+      wide: flag(wide) || undefined,
+    }));
+  }
+  const lines = toLines(value);
+  if (!lines) return undefined;
+  return lines.map((row) => {
+    const tone = row.startsWith("!") ? ("red" as const) : undefined;
     const wide = row.trimEnd().endsWith("+");
     const label = row
       .replace(/^!/, "")
@@ -101,40 +142,75 @@ export function parseDocuments(value: unknown): DocumentItem[] | undefined {
   });
 }
 
-/* ---------- AdmissionProcess steps: "01 | Title | Description" ---------- */
+/** editor seed: constants documents -> card objects */
+export function seedDocuments(items?: DocumentItem[]): Array<Record<string, string>> {
+  return (items ?? []).map(({ label, tone, wide, icon }) => ({
+    label: label ?? "",
+    icon: icon ?? "",
+    tone: tone === "red" ? "red" : "",
+    wide: wide ? "wide" : "",
+  }));
+}
+
+/* ---------- Admission steps (country): "01 | Title | Description" ---------- */
 
 export type AdmissionStep = { number: string; title: string; description: string };
 
-export function formatSteps(
-  steps?: Array<{ number: string; title: string; description: ReactNode }>
-): string[] {
-  return (steps ?? []).map((s) => line([s.number, s.title, toPlainText(s.description)]));
-}
+export function parseSteps(
+  value: unknown,
+  autoNumber: "padded" | "dotted" = "padded"
+): AdmissionStep[] | undefined {
+  const fill = (index: number) =>
+    autoNumber === "padded"
+      ? String(index + 1).padStart(2, "0")
+      : `${index + 1}.`;
 
-export function parseSteps(value: unknown): AdmissionStep[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ number = "", title = "", description = "" }, i) => ({
+      number: number || fill(i),
+      title,
+      description,
+    }));
+  }
   const lines = toLines(value);
   if (!lines) return undefined;
-  return lines.map((row) => {
+  return lines.map((row, i) => {
     const parts = row.split("|");
     const number = (parts[0] ?? "").trim();
     const title = (parts[1] ?? "").trim();
     const description = parts.slice(2).join("|").trim();
-    return { number, title, description };
+    return { number: number || fill(i), title, description };
   });
 }
 
-/* ---------- AboutRussia facts: "Label | Value" ("Value+" = wide card) ---------- */
-
-/** Shape matches types/interfaces FactItem so it passes straight to components. */
-export type FactInput = { id: number; label: string; value: string; wide?: boolean };
-
-export function formatFacts(facts?: FactItem[]): string[] {
-  return (facts ?? []).map(({ label, value, wide }) =>
-    wide ? `${line([label, value])}+` : line([label, value])
-  );
+/** editor seed: constants admission steps -> card objects */
+export function seedSteps(
+  steps?: Array<{ number: string; title: string; description: ReactNode }>
+): Array<Record<string, string>> {
+  return (steps ?? []).map((s) => ({
+    number: s.number ?? "",
+    title: s.title ?? "",
+    description: toPlainText(s.description ?? ""),
+  }));
 }
 
+/* ---------- AboutRussia facts ---------- */
+
+/** Shape matches types/interfaces FactItem so it passes straight to components. */
+export type FactInput = { id: number; label: string; value: string; icon?: string; wide?: boolean };
+
 export function parseFacts(value: unknown): FactInput[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ label = "", value = "", icon = "", wide = "" }, i) => ({
+      id: i + 1,
+      label,
+      value,
+      icon: icon || undefined,
+      wide: flag(wide) || undefined,
+    }));
+  }
   const lines = toLines(value);
   if (!lines) return undefined;
   return lines.map((row, index) => {
@@ -150,7 +226,17 @@ export function parseFacts(value: unknown): FactInput[] | undefined {
   });
 }
 
-/* ---------- Eligibility cards: "1. | Title | Description" ---------- */
+/** editor seed: constants facts -> card objects */
+export function seedFacts(facts?: FactItem[]): Array<Record<string, string>> {
+  return (facts ?? []).map(({ label, value, wide, icon }) => ({
+    label: label ?? "",
+    value: value ?? "",
+    icon: icon ?? "",
+    wide: wide ? "wide" : "",
+  }));
+}
+
+/* ---------- Eligibility cards ---------- */
 
 export type EligibilityCardInput = {
   number: string;
@@ -158,36 +244,70 @@ export type EligibilityCardInput = {
   description: string;
 };
 
-export function formatEligibilityCards(
-  cards?: Array<{ number: string; title: string; description: ReactNode }>
-): string[] {
-  return (cards ?? []).map(({ number, title, description }) =>
-    line([number, title, toPlainText(description)])
-  );
-}
-
 export function parseEligibilityCards(value: unknown): EligibilityCardInput[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ number = "", title = "", description = "" }, i) => ({
+      number: number || `${i + 1}.`,
+      title,
+      description,
+    }));
+  }
   const lines = toLines(value);
   if (!lines) return undefined;
-  return lines.map((row) => {
+  return lines.map((row, i) => {
     const parts = row.split("|");
+    const number = (parts[0] ?? "").trim();
     return {
-      number: (parts[0] ?? "").trim(),
+      number: number || `${i + 1}.`,
       title: (parts[1] ?? "").trim(),
       description: parts.slice(2).join("|").trim(),
     };
   });
 }
 
-/* ---------- FAQ: "Question | Answer" ---------- */
+/** editor seed: constants eligibility cards -> card objects */
+export function seedEligibilityCards(
+  cards?: Array<{ number: string; title: string; description: ReactNode }>
+): Array<Record<string, string>> {
+  return (cards ?? []).map(({ number, title, description }) => ({
+    number: number ?? "",
+    title: title ?? "",
+    description: toPlainText(description ?? ""),
+  }));
+}
+
+/* ---------- WhyRussia benefit cards: { text, icon? } ---------- */
+
+export type BenefitCard = { text: string; icon?: string };
+
+export function parseBenefits(value: unknown): BenefitCard[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ text = "", icon = "" }) => ({
+      text,
+      icon: icon || undefined,
+    }));
+  }
+  const lines = toLines(value);
+  if (!lines) return undefined;
+  return lines.map((text) => ({ text }));
+}
+
+/** editor seed: constants benefits (string[]) -> card objects */
+export function seedBenefits(benefits?: string[]): Array<Record<string, string>> {
+  return (benefits ?? []).map((text) => ({ text, icon: "" }));
+}
+
+/* ---------- FAQ ---------- */
 
 export type FaqLine = { question: string; answer: string };
 
-export function formatFaq(items?: FaqLine[]): string[] {
-  return (items ?? []).map(({ question, answer }) => line([question, answer]));
-}
-
 export function parseFaq(value: unknown): FaqLine[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ question = "", answer = "" }) => ({ question, answer }));
+  }
   const lines = toLines(value);
   if (!lines) return undefined;
   return lines.map((row) => {
@@ -199,19 +319,29 @@ export function parseFaq(value: unknown): FaqLine[] | undefined {
   });
 }
 
-/* ---------- MBBSAbroadHero country cards: "Name | /image/path" ---------- */
+/** editor seed: FAQ items -> card objects */
+export function seedFaq(items?: FaqLine[]): Array<Record<string, string>> {
+  return (items ?? []).map(({ question, answer }) => ({ question, answer }));
+}
+
+/* ---------- MBBSAbroadHero country cards ---------- */
 
 export type CountryCardLine = { name: string; image: string };
 
-export function formatCountryCards(cards?: CountryCardLine[]): string[] {
-  return (cards ?? []).map(({ name, image }) => line([name, image]));
-}
-
 export function parseCountryCards(value: unknown): CountryCardLine[] | undefined {
+  const objs = toCardObjects(value);
+  if (objs) {
+    return objs.map(({ name = "", image = "" }) => ({ name, image }));
+  }
   const lines = toLines(value);
   if (!lines) return undefined;
   return lines.map((row) => {
     const [name = "", image = ""] = splitParts(row);
     return { name, image };
   });
+}
+
+/** editor seed: country cards -> card objects */
+export function seedCountryCards(cards?: CountryCardLine[]): Array<Record<string, string>> {
+  return (cards ?? []).map(({ name, image }) => ({ name, image }));
 }

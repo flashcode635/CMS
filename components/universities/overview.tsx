@@ -1,9 +1,9 @@
 "use client";
 
-import chhattisgarhImg from "@/public/countries/russia/chhattisgarh.webp";
 import { ArrowRight } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import { OVERVIEW_CONTENT } from "@/lib/universitySectionData";
 
 type OverviewProps = {
     /** Accessible label for the section (visually hidden). */
@@ -28,22 +28,7 @@ type OverviewProps = {
     badgeText?: string;
 };
 
-export const DEFAULT_CONTENT: Required<OverviewProps> = {
-    sectionLabel: "University overview and introduction",
-    titleGreen: "University Overview &",
-    titleBlue: "Introduction",
-    paragraphs: [
-        "Located in the city of Samara, this university has become a preferred destination for international students, especially Indian students who are looking for MBBS in Russia. With modern infrastructure, experienced faculty, and globally recognized degrees, Samara State Medical University offers a strong foundation for a successful medical career.",
-        "One of the key reasons behind its popularity is the balance it offers between quality and affordability. Students not only receive theoretical excellence but also gain practical exposure through clinical training in well-equipped hospitals.",
-        "Established in 1919, the university has a long-standing academic excellence and is highly trusted for MBBS in Russia for Indian students, offering a stable and reputed medical education system.",
-    ],
-    ctaHref: "/contact-us",
-    ctaLabel: "Read More About Us",
-    imageSrc: chhattisgarhImg,
-    imageAlt: "University campus interior",
-    badgeCount: "14+ Years",
-    badgeText: "Academic Excellence & Heritage",
-};
+export const DEFAULT_CONTENT: Required<OverviewProps> = OVERVIEW_CONTENT;
 
 export default function UniversityOverview({
     sectionLabel = DEFAULT_CONTENT.sectionLabel,
@@ -95,8 +80,10 @@ export default function UniversityOverview({
                         <Image
                             src={imageSrc}
                             alt={imageAlt}
+                            width={1200}
+                            height={1600}
                             className="h-full w-full object-cover"
-                            placeholder="blur"
+                            placeholder={typeof imageSrc === "string" ? "empty" : "blur"}
                         />
                     </div>
 

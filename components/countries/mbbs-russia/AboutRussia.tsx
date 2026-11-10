@@ -2,6 +2,7 @@ import PageBanner from "@/components/ui/PageBanner";
 import type { ReactNode } from "react";
 import { CARD_GRADIENTS, COUNTRY_CONTENT } from "@/lib/constants";
 import type { FactItem } from "@/types/interfaces";
+import { getLucideIcon } from "@/components/ui/iconRegistry";
 import {
   Users,
   Banknote,
@@ -31,7 +32,8 @@ export type AboutCountryProps = {
 const CARD_STYLE = "bg-white rounded-2xl shadow-md";
 const GRADIENT_ID = "card-icon-gradient";
 
-/* Icons are presentation, not copy — paired with the constants list by index. */
+/* Default icons (presentation), paired with the constants list by index —
+   a card's own `icon` NAME (from the CMS) always wins over this pairing. */
 const FACT_ICONS: LucideIcon[] = [
   Users,
   Banknote,
@@ -97,11 +99,11 @@ export default function AboutRussia({
             ))}
           </div>
 
-          {/* Mobile: horizontal swipe-row of fact cards; md+/lg+ keep the
-              original 2/3-col grids. */}
+          {/* Fact cards — CMS-editable (add/delete/reorder, icon = kebab-case
+              lucide NAME via the icon registry). */}
           <div className="flex flex-row overflow-x-auto @min-[768px]:grid @min-[768px]:grid-cols-2 @min-[1024px]:grid-cols-3 gap-4">
-            {facts.map(({ id, label, value, wide }, index) => {
-              const Icon = FACT_ICONS[index] ?? Users;
+            {facts.map(({ id, label, value, wide, icon }, index) => {
+              const Icon = getLucideIcon(icon) ?? FACT_ICONS[index] ?? Users;
               return (
               <div key={id} className={`${CARD_STYLE} p-5 w-full shrink-0 @min-[768px]:w-auto ${wide ? "@min-[1024px]:col-span-2" : ""}`}>
                 <div className="flex items-center gap-3 mb-3">

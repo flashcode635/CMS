@@ -2,12 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { CircleCheck, Info } from "lucide-react";
-import aboutGraduationImg from "@/public/home/about-graduation.png";
-import blogGraduationImg from "@/public/home/blog-graduation.jpg";
-import univCampusImg from "@/public/home/univ-campus.jpg";
-import heroBgImg from "@/public/home/hero-bg.jpg";
-import mbbsAbroadRussiaImg from "@/public/home/mbbs-abroad-russia.jpg";
-import mbbsAbroadKazakhstanImg from "@/public/home/mbbs-abroad-kazakhstan.jpg";
+import { HOSTEL_CONTENT } from "@/lib/universitySectionData";
 
 /**
  * Hostel & Mess Facilities — light mint→periwinkle band in two parts:
@@ -61,65 +56,7 @@ type HostelFacilitiesProps = {
     closingNote?: string;
 };
 
-export const DEFAULT_CONTENT: Required<HostelFacilitiesProps> = {
-    sectionLabel: "Hostel and mess facilities",
-    eyebrow: "Campus Life",
-    title: "Hostel & Mess Facilities",
-    intro:
-        "Accommodation is one of the major concerns for students going abroad. Samara State Medical University ensures that students feel at home by providing comfortable and secure hostel facilities.",
-    featuresHeading: "Hostel Features",
-    // TODO: photos below are borrowed campus/blog placeholders — swap for real
-    // hostel/mess photos (or CMS overrides) when proper assets land in `public/`.
-    features: [
-        {
-            title: "Fully Furnished Rooms",
-            description:
-                "Equipped with essential furniture including study desks, wardrobes, and comfortable bedding.",
-            imageSrc: aboutGraduationImg,
-            imageAlt: "Fully furnished hostel room",
-        },
-        {
-            title: "Separate Accommodation",
-            description:
-                "Dedicated and secure wings for boys and girls to ensure privacy and comfort.",
-            imageSrc: blogGraduationImg,
-            imageAlt: "Separate hostel accommodation corridor",
-        },
-        {
-            title: "24/7 Security & CCTV",
-            description:
-                "Round-the-clock surveillance and on-site security personnel for a safe living environment.",
-            imageSrc: univCampusImg,
-            imageAlt: "Security desk with CCTV monitors",
-        },
-        {
-            title: "Central Heating System",
-            description:
-                "Advanced heating infrastructure providing consistent warmth during Samara's cold winters.",
-            imageSrc: heroBgImg,
-            imageAlt: "Warm hostel room during winter",
-        },
-        {
-            title: "Wi-Fi & Study Areas",
-            description:
-                "High-speed internet access and quiet zones designed for academic focus and research.",
-            imageSrc: mbbsAbroadRussiaImg,
-            imageAlt: "Wi-Fi enabled shared study area",
-        },
-    ],
-    messEyebrow: "Dining Services",
-    messTitle: "Indian Mess Facilities",
-    messIntro:
-        "One of the biggest advantages for Indian students is the availability of Indian food. The university or nearby facilities offer Indian mess services where students can get familiar meals, reducing the struggle of adapting to a new cuisine.",
-    messPoints: [
-        "Authentic Indian Spices & Recipes",
-        "Hygienic and Nutritious Meal Plans",
-    ],
-    messImageSrc: mbbsAbroadKazakhstanImg,
-    messImageAlt: "Indian mess serving a variety of dishes",
-    closingNote:
-        "This combination of safe housing and food availability makes life easier for first-year students who are new to a foreign country.",
-};
+export const DEFAULT_CONTENT: Required<HostelFacilitiesProps> = HOSTEL_CONTENT;
 
 /**
  * Bento grid spans for a 6-column desktop grid:
@@ -213,7 +150,7 @@ export default function HostelFacilitiesSection({
                             >
                                 <div className="relative aspect-[16/10]">
                                     <Image
-                                        src={feature.imageSrc ?? univCampusImg}
+                                        src={feature.imageSrc ?? "/home/univ-campus.jpg"}
                                         alt={feature.imageAlt ?? feature.title}
                                         fill
                                         className="object-cover"

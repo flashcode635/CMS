@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { ELIGIBILITY_CONTENT } from "@/lib/universitySectionData";
 
 export type EligibilityCriterion = {
     title: string;
@@ -16,42 +17,7 @@ type EligibilityProps = {
     footer?: ReactNode;
 };
 
-export const DEFAULT_CONTENT: Required<EligibilityProps> = {
-    anchorId: "eligibility",
-    sectionLabel: "Eligibility criteria",
-    heading: "Eligibility Criteria",
-    intro:
-        "To secure admission in Samara State Medical University for MBBS, students must fulfill the following criteria:",
-    criteria: [
-        {
-            title: "Education",
-            description:
-                "The applicant must have completed 10+2 education with Physics, Chemistry, and Biology.",
-        },
-        {
-            title: "PCB marks",
-            description:
-                "A minimum of 50% marks in PCB subjects is required for general category students (40% for reserved categories).",
-        },
-        {
-            title: "NEET",
-            description:
-                "The student must qualify for the NEET examination.",
-        },
-        {
-            title: "Age",
-            description:
-                "The minimum age should be 17 years at the time of admission.",
-        },
-    ],
-    footer: (
-        <>
-            These requirements are in line with the guidelines for Indian students
-            planning to study <strong className="text-red-400">MBBS abroad</strong>,
-            ensuring eligibility for future medical licensing exams.
-        </>
-    ),
-};
+export const DEFAULT_CONTENT: Required<EligibilityProps> = ELIGIBILITY_CONTENT;
 
 export default function EligibilitySection({
     anchorId = DEFAULT_CONTENT.anchorId,

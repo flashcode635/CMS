@@ -1,6 +1,23 @@
 "use client";
 
 import { Info } from "lucide-react";
+import { FEES_CONTENT } from "@/lib/universitySectionData";
+
+/* FeeRow strings from the CMS card editor ("Label | Value") -> objects. */
+function asFeeRows(rows: Array<FeeRow | string>): FeeRow[] {
+    return rows
+        .map((row) => {
+            if (typeof row !== "string") return row;
+            const [label = "", value = ""] = row.split("|").map((p) => p.trim());
+            return { label, value };
+        })
+        .filter((row) => row.label !== "" || row.value !== "");
+}
+
+/* CMS select value ("true") or boolean -> highlight flag. */
+function asHighlight(highlight: boolean | string | undefined): boolean {
+    return highlight === true || highlight === "true" || highlight === "yes";
+}
 
 /**
  * FeeStructure — "University Fee <Year>" section:
@@ -29,12 +46,12 @@ type FeeCard = {
     year: string;
     /** Optional small tag rendered above the card (e.g. "First Year"). */
     tag?: string;
-    /** List of fee rows. */
-    rows: FeeRow[];
+    /** List of fee rows — objects, or CMS strings "Label | Value". */
+    rows: Array<FeeRow | string>;
     /** Total line, e.g. "5,07,000 RUB + 1400 USD". */
     total: string;
     /** Highlight the card (orange border + orange total), per the design's 1st card. */
-    highlight?: boolean;
+    highlight?: boolean | string;
 };
 
 type FeeStructureProps = {
@@ -54,78 +71,7 @@ type FeeStructureProps = {
     messChargeNote?: string;
 };
 
-export const DEFAULT_CONTENT: Required<FeeStructureProps> = {
-    sectionLabel: "University fee structure",
-    titleGreen: "Samara State",
-    titleBlue: "Medical University Fee 2026",
-    cards: [
-        {
-            year: "1st Year",
-            tag: "First Year",
-            rows: [
-                { label: "Tuition Fee", value: "4,50,000 RUB" },
-                { label: "Accommodation", value: "22,000 RUB" },
-                { label: "Medical & Visa", value: "25,000 RUB" },
-                { label: "Admin Charges", value: "1400 USD" },
-            ],
-            total: "5,07,000 RUB + 1400 USD",
-            highlight: true,
-        },
-        {
-            year: "2nd Year",
-            rows: [
-                { label: "Tuition Fee", value: "4,50,000 RUB" },
-                { label: "Accommodation", value: "—" },
-                { label: "Medical & Visa", value: "PCC Only" },
-                { label: "Admin Charges", value: "N/A" },
-            ],
-            total: "4,50,000 RUB",
-        },
-        {
-            year: "3rd Year",
-            rows: [
-                { label: "Tuition Fee", value: "4,50,000 RUB" },
-                { label: "Accommodation", value: "—" },
-                { label: "Medical & Visa", value: "PCC Only" },
-                { label: "Admin Charges", value: "N/A" },
-            ],
-            total: "4,50,000 RUB",
-        },
-        {
-            year: "4th Year",
-            rows: [
-                { label: "Tuition Fee", value: "4,50,000 RUB" },
-                { label: "Accommodation", value: "—" },
-                { label: "Medical & Visa", value: "PCC Only" },
-                { label: "Admin Charges", value: "N/A" },
-            ],
-            total: "4,50,000 RUB",
-        },
-        {
-            year: "5th Year",
-            rows: [
-                { label: "Tuition Fee", value: "4,50,000 RUB" },
-                { label: "Accommodation", value: "—" },
-                { label: "Medical & Visa", value: "PCC Only" },
-                { label: "Admin Charges", value: "N/A" },
-            ],
-            total: "4,50,000 RUB",
-        },
-        {
-            year: "6th Year",
-            rows: [
-                { label: "Tuition Fee", value: "4,50,000 RUB" },
-                { label: "Accommodation", value: "—" },
-                { label: "Medical & Visa", value: "PCC Only" },
-                { label: "Admin Charges", value: "N/A" },
-            ],
-            total: "4,50,000 RUB",
-        },
-    ],
-    approxLabel: "Approx. 6 years",
-    approxTotal: "27,57,000 RUB + 1400 USD",
-    messChargeNote: "Mess Charge = 1200$ for 1st Year only",
-};
+export const DEFAULT_CONTENT: Required<FeeStructureProps> = FEES_CONTENT;
 
 export default function FeeStructureSection({
     sectionLabel = DEFAULT_CONTENT.sectionLabel,
@@ -153,13 +99,17 @@ export default function FeeStructureSection({
                         </h2>
                     </div>
 
-                    {/* Per-year fee cards — horizontally scrollable when they overflow */}
+                    {/* Per-year fee cards — horizontally scrollable when they overflow.
+                        Cards are CMS-editable: add/delete/reorder years, edit rows. */}
                     <div className="mt-10 flex gap-3 overflow-x-auto pb-3 pt-2 @min-[1024px]:grid @min-[1024px]:grid-cols-6 @min-[1024px]:gap-3 @min-[1024px]:overflow-visible @min-[1024px]:pb-0">
-                        {cards.map((card) => (
+                        {cards.map((card, index) => {
+                            const rows = asFeeRows(card.rows ?? []);
+                            const highlight = asHighlight(card.highlight);
+                            return (
                             <div
-                                key={card.year}
+                                key={`${card.year}-${index}`}
                                 className={`flex w-52 flex-none flex-col rounded-xl bg-brand-forest-deep p-4 text-white shadow-md @min-[1024px]:w-auto ${
-                                    card.highlight
+                                    highlight
                                         ? "border-2 border-orange-400"
                                         : "border border-brand-forest-deep"
                                 }`}
@@ -175,9 +125,9 @@ export default function FeeStructureSection({
                                 <p className="text-sm font-bold">{card.year}</p>
 
                                 <dl className="mt-3 space-y-2">
-                                    {card.rows.map((row) => (
+                                    {rows.map((row, rowIndex) => (
                                         <div
-                                            key={row.label}
+                                            key={`${row.label}-${rowIndex}`}
                                             className="flex items-baseline justify-between gap-2"
                                         >
                                             <dt className="text-[10px] text-brand-champagne-soft/70">
@@ -196,7 +146,7 @@ export default function FeeStructureSection({
                                     </p>
                                     <p
                                         className={`mt-0.5 text-xs font-bold leading-snug ${
-                                            card.highlight
+                                            highlight
                                                 ? "text-orange-400"
                                                 : "text-white"
                                         }`}
@@ -205,7 +155,8 @@ export default function FeeStructureSection({
                                     </p>
                                 </div>
                             </div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     {/* Approx-total chip + mess-charge note */}

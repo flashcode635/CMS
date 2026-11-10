@@ -1,5 +1,7 @@
 "use client";
 
+import { FACULTY_CONTENT } from "@/lib/universitySectionData";
+
 /**
  * Faculty — "Faculty of <University>, Russia" section:
  * dark navy band with a decorative circle; white left-aligned heading, a thin
@@ -33,24 +35,7 @@ type FacultyProps = {
     items?: FacultyItem[];
 };
 
-export const DEFAULT_CONTENT: Required<FacultyProps> = {
-    sectionLabel: "University faculties",
-    title: "Faculty of Samara State Medical University, Russia",
-    intro:
-        "The Faculty of Samara State Medical University offers comprehensive MBBS programs with experienced faculty dedicated to student success.",
-    items: [
-        { label: "General Medicine" },
-        { label: "Institute of Pediatrics" },
-        { label: "Institute of Pharmacy" },
-        { label: "Institute of Dentistry" },
-        { label: "The adapted physical education center" },
-        { label: "The faculty of Sports Medicine" },
-        { label: "Institute of Nursing Education" },
-        { label: "Pre-university education" },
-        { label: "The faculty of Clinical Psychology" },
-        { label: "Faculty for foreign students" },
-    ],
-};
+export const DEFAULT_CONTENT: Required<FacultyProps> = FACULTY_CONTENT;
 
 export default function FacultySection({
     sectionLabel = DEFAULT_CONTENT.sectionLabel,
