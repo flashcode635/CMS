@@ -23,6 +23,36 @@ Agents must read this file before starting any task.
 
 ## Decisions
 
+### D-025 | 2026-11-10 | Use visual architecture and flow documentation
+
+- Task: Make the system architecture easier to understand and document the
+  main user journeys.
+- Decision: Restructure `architecture.md` around Mermaid diagrams, concise
+  layer/route/content maps, and explicit runtime boundaries. Add `flow.md`
+  with visitor, auth, counselling, content, CMS, and fallback flows.
+- Why: The previous architecture document contained useful verified details but
+  required readers to extract relationships from long prose. Visual maps make
+  the public site, local auth, and client-only CMS boundary clear before a
+  contributor reads implementation notes.
+- Impact: `architecture.md`, `flow.md`.
+- Status: Active
+
+### D-024 | 2026-11-10 | CMS card system — every frontend card is editable, with an Add-card button
+
+- Task: Make every card shown on country/university pages editable from the live CMS editor (edit, add, delete, reorder), per the thumb rule "every card displayed on the frontend must be CMS-editable".
+- Decision: Added a repeatable `cards` field kind to `sectionFieldSchemas.ts` (per-card sub-fields + `template` for new-card values). `cardListEditor.tsx` renders one collapsible block per card with move-up / move-down / delete and a **Plus "Add card" button** that appends the template card. `fieldInputs.tsx` provides shared text/textarea/select inputs plus a searchable lucide `IconPicker` backed by `components/ui/iconRegistry.tsx` (kebab-case name → icon, serializable). `sectionLines.ts` parse helpers accept BOTH new structured card objects and legacy "A | B | C" pipe lines, so old overrides and constants keep working; empty `number` fields auto-number ("1." / "01"). Wired all card sections: why-choose-us, eligibility, accreditation, fmge, duration, admission, documents, benefits, fees, faculty, hostel, testimonials, country why-russia / about / abroad-hero / faq.
+- Why: Card content previously lived as hardcoded JSX inside section components (some as `<div>` loops, not `<Card>`), so the editor had nothing to bind to; a serializable array of plain string records stores cleanly in `useCmsStore.overrides` and falls back to constants when blank.
+- Impact: `components/cms/sectionFieldSchemas.ts`, `cardListEditor.tsx`, `fieldInputs.tsx`, `sectionLines.ts`, `components/ui/iconRegistry.tsx`, all section components under `components/universities/` and `components/countries/mbbs-russia/`, `components/cms/AGENT_CONTEXT.md`.
+- Status: Active
+
+### D-023 | 2026-11-10 | Segregate university data into `lib/universitySectionData.ts` and fix `[object Object]` seeding
+
+- Task: Full rescan of the university page (all components and sub-components); move ALL displayed copy into constants following the country-data pattern; make the CMS show proper headings with data instead of `[object Object]`.
+- Decision: Created `lib/universitySectionData.ts` as the single source for every university section's copy — same merge pattern as countries (`DEFAULT_COUNTRY_CONTENT` / `getCountryContent` in `lib/constants.tsx`). Serializable by design: plain strings/numbers/arrays of plain objects, icons as kebab-case lucide name strings, no ReactNode or `StaticImageData`. Section components import these as their `DEFAULT_CONTENT`. Fixed `[object Object]` in the editor by flattening every seed value with `toPlainText(ReactNode)` before it reaches a text/textarea input (objects/JSX were previously coerced with implicit `String()`), and seeding structured lists as card objects via `seed*` helpers instead of stringifying them. Also fixed corrupted nav anchors in `univNav.getOptions()` and made `StudentTestimonials` render from its `cards` prop (flat card1..4 props removed).
+- Why: The editor inputs can only hold strings, so any object/ReactNode reaching them rendered as `[object Object]`; and hardcoded section copy made cards uneditable.
+- Impact: `lib/universitySectionData.ts`, `components/cms/liveSectionEditor.tsx`, `sectionLines.ts`, `universitySectionRegistry.tsx`, `components/universities/univNav.tsx`, `studentTestimonials.tsx`.
+- Status: Active
+
 ### D-022 | 2026-11-08 | Remove vertical padding from active 3D carousel card
 
 - Task: Make the active card in the shared 3D carousel use `py-0`.

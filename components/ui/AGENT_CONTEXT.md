@@ -104,6 +104,18 @@ Primary Purpose: Shared design-system and site-chrome layer — the single `Butt
 - **Consumers:** `components/about-us/page.tsx`, `app/(site)/about-us/services/page.tsx`, `components/countries/russianUni.tsx`, and `components/countries/countryCarousal.tsx` (relative `../ui/HeadingOfCard`). Usage is documented (not imported) in `components/about-us/HeadingOfCard.md` with prefix/italic/normal examples.
 - **Notes:** Layout wrapper: `w-full px-6 sm:px-10 lg:px-20 xl:px-32 py-4 lg:py-10` + `max-w-300 mx-auto flex flex-col gap-2`. `type="normal"` swaps to `font-normal text-4xl lg:text-[50px]` while `type="bold"` uses `font-bold` + `size`. The `JSX` import from `react/jsx-runtime` is unconventional (prefer `React.ReactNode`/`ReactElement`) and couples the file to the automatic JSX runtime. No `id`/`aria-labelledby` hook, so it cannot be referenced by `aria-labelledby` on sections.
 
+### `iconRegistry.tsx`
+
+[iconRegistry.tsx]: Central lucide icon registry for CMS-editable cards — the single place that maps serializable icon names to `LucideIcon` components.
+
+- **Runtime:** no directive (pure data/helpers; imports icons at module scope).
+- **Purpose:** Lets the CMS store icons as plain kebab-case strings (serializable JSON in `useCmsStore.overrides`) while section components resolve them back to real icons at render time. Adding an icon choice = one entry in `CMS_ICONS`.
+- **Exports:** `CMS_ICONS: Record<string, LucideIcon>` (kebab name → icon, 70+ entries), `ICON_CHOICES: Array<{ name: string; Icon: LucideIcon }>` (derived), `getLucideIcon(name?: string | null): LucideIcon | null` ("" / unknown → `null`, so callers fall back to their built-in defaults).
+- **State & effects:** none. **Handlers:** none.
+- **Dependencies:** `lucide-react` (`LucideIcon` type + icon components).
+- **Consumers:** `components/cms/fieldInputs.tsx` (IconPicker grid over `ICON_CHOICES`, preview via `getLucideIcon`) and the university/country section components, which resolve each card's `icon` string at render time and fall back to index-paired defaults when empty/unknown.
+- **Notes:** Names are kebab-case lucide names (`graduation-cap`, `shield-check`, …). Keep the map icon-name-accurate: a typo just renders the fallback (never crashes).
+
 ### `NavDropdown.tsx`
 
 [NavDropdown.tsx]: Dropdown panel primitives and the three image+list menus used by the desktop navbar (About, Collections, Gallery).

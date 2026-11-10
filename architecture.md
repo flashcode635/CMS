@@ -1,204 +1,215 @@
-# architecture.md — how this project is built
+# My Study Hub — architecture at a glance
 
-System-level map of the My Study Hub website. For *where files live* read
-[details.md](details.md); for *per-file implementation detail* open the
-`AGENT_CONTEXT.md` in the folder you are about to touch. This file consolidates
-and supersedes the previous `Architecture.md` (renamed), verified against the
-working tree at the time of writing.
+This is the visual guide to the My Study Hub website. It explains what runs
+where, how content moves through the app, and which parts are intentionally
+not persistent yet.
 
-## 1. Overview
+- **Where should I edit something?** See [details.md](details.md).
+- **How does a user or editor move through the product?** See [flow.md](flow.md).
+- **Why was a design chosen?** See [decisions.md](decisions.md).
+- **What does each file do?** Open the nearest `AGENT_CONTEXT.md`.
 
-My Study Hub is a content-heavy marketing website for an MBBS-abroad
-admissions consultancy, with a small, partly unfinished admin placeholder.
-Almost everything is static, presentational React. There is **no CMS, no public
-API and no server action** in the repository today — editorial content (blogs,
-brochures, events, universities, team, testimonials) is hard-coded in
-components/page files.
-
-- **Framework:** Next.js 16.3.8 (App Router, Turbopack), React 19.2.8.
-- **Language:** TypeScript 5, `strict: true`, path alias `@/*` → repo root.
-- **Styling:** Tailwind CSS v4 (`@tailwindcss/postcss`), utility classes plus
-  inline styles copied from Figma values; global CSS in `app/globals.css`.
-- **UI libs:** `lucide-react` icons, `class-variance-authority`, `clsx`,
-  `tailwind-merge` (wrapped by `lib/utils.ts#cn`).
-- **Backend:** No database or external application backend is currently used.
-- **Tooling:** ESLint (`eslint-config-next`), npm scripts (see §10). A
-  dependency-graph generator (`npm run graph`) is referenced but its script
-  `tools/graph.mjs` is absent from the working tree.
-
-> Next.js 16 has breaking changes. Read the bundled docs in
-> `node_modules/next/dist/docs/` before writing Next-specific code.
-
-## 2. Directory responsibilities
-
-```
-app/                 Routes only. Pages compose sections; no business logic.
-  layout.tsx         Root layout: Geist fonts, Navbar, <main>, Footer (wraps admin too)
-  page.tsx           "/" — stacks components/homepage sections
-  globals.css        Tailwind import, Google-font @import, theme tokens, body bg
-  (site)/            Route group (no URL segment): all public pages
-  admin/             Empty admin placeholder
-components/          All UI, one folder per feature (86 .tsx files, 16 folders)
-  ui/                Shared primitives: Navbar, NavDropdown, Footer, PageBanner, Button, form, ...
-  homepage/          19+ sections of "/"; some reused by other pages
-  about-us, services, contact-us, career, partner-with-us, collections,
-  brochures, blogs, blog-details, images, videos, countries(+mbbs-russia), admin
-lib/                 Shared registries, constants and utilities
-types/index.ts       Shared interfaces (mostly aspirational — see §6)
-scripts_ts/          Standalone Node CLIs: create-admin.ts, dev-db.ts
-tools/               search.sh (npm run find); graph.mjs is MISSING
-public/              196 static assets; public/AGENT_CONTEXT.md is the asset blueprint
-```
-
-## 3. Layering
+## 1. Product in one picture
 
 ```mermaid
-flowchart TD
-  A["app/** routes (server components)"] --> B["components/** (client + server UI)"]
-  A --> T["types/index.ts"]
-  B --> T
-  A --> L["lib/** (shared utilities/data)"]
-  N["app/(site)/layout.tsx"] --> U["components/ui Navbar + Footer"]
+flowchart LR
+    Visitor([Visitor]) --> Public["Public website<br/>marketing + discovery"]
+    Member([Signed-in user]) --> Auth["/login or /signup<br/>local cookie session"]
+    Editor([Content editor]) --> Admin["/admin/login<br/>/admin/dashboard"]
+
+    Public --> Explore["Countries · universities<br/>blogs · brochures · gallery"]
+    Public --> Contact["Contact and counselling<br/>forms / CTAs"]
+    Auth --> Public
+    Admin --> Compose["Section composer<br/>and live preview"]
+    Compose --> Preview["Country / university<br/>route preview"]
+    Compose -. "in-memory only" .-> Store[("Zustand CMS store")]
+
+    Content[("Typed constants<br/>and section data")] --> Public
+    Content --> Compose
 ```
 
-Rules implied by the implementation:
+### The important boundary
 
-- `app/**` may import `components/**`, `lib/**`, `types/**`.
-- `components/**` may import the framework-free helpers in `lib/**`.
-- `lib/**` imports nothing from `app/` or `components/`.
-- No import cycles are intended. Known exception:
-  `components/ui/Navbar.tsx ↔ NavDropdown.tsx` (NavDropdown imports `bgColor`
-  from Navbar).
-- Cross-feature reuse exists and is easy to break:
-  `about-us/ContactSection` ← contact page, `about-us/lastsection` ←
-  partner-with-us, `homepage/ExpertCounsellingSection` ← about-us,
-  `homepage/MeetOurTeam` ← about-us, `images/EventContactForm` ← Russia page.
+The public website is primarily a static presentation layer. The CMS can
+change the client-side preview, but those changes are not saved to a database
+or published to visitors after a refresh.
 
-## 4. Routing and rendering
+| Area | Current responsibility | Persistence |
+| --- | --- | --- |
+| Public pages | Present marketing, country, university, blog, brochure, event and gallery content | Source files / typed constants |
+| Public auth UI | `/login` and `/signup` forms | Current form wiring posts to `/api/admin/login`; public auth handlers are not present in the current tree |
+| Admin CMS | Compose sections and edit cards in a live route preview | Zustand state in the browser only |
+| Backend | Small auth and admin/university API surfaces where present | No general public content API |
 
-`app/(site)` is a route group: it contributes no URL segment and owns the
-public Navbar/Footer/main shell. The root layout only supplies the document,
-fonts, and global styles, so auth and admin routes do not receive site chrome.
+## 2. Runtime layers
 
-| Area | Routes | Rendering |
-|---|---|---|
-| Public | `/`, `/about-us`, `/about-us/career`, `/about-us/partner-with-us`, `/about-us/services`, `/collections`, `/collections/blog`, `/collections/blog/[slug]`, `/collections/brochures`, `/collections/upcoming-event`, `/contact-us`, `/countries`, `/countries/mbbs-in-russia`, `/gallery` (redirect → `/gallery/images`), `/gallery/images`, `/gallery/images/[slug]`, `/gallery/videos`, `/web-stories` | Page files are server components that render mostly `"use client"` section components. Statically prerendered unless they touch cookies. |
+```mermaid
+flowchart TB
+    Browser["Browser"]
+    Next["Next.js 16 App Router"]
+    Root["app/layout.tsx<br/>document, fonts, global CSS"]
+    Site["app/(site)/layout.tsx<br/>public Navbar + Footer"]
+    Routes["app/**/page.tsx<br/>thin route composition"]
+    UI["components/**<br/>client and server sections"]
+    Shared["lib/** + types/**<br/>content, registries, helpers"]
+    Assets["public/**<br/>images and SVGs"]
+    Auth["Auth UI + lib/auth.ts<br/>(API wiring incomplete)"]
+    CMS["store/cmsStore.ts<br/>client CMS overrides"]
 
-Details verified in the tree:
+    Browser --> Next --> Root
+    Root --> Site --> Routes
+    Root --> Routes
+    Routes --> UI
+    Routes --> Shared
+    UI --> Shared
+    UI --> Assets
+    Browser -. "auth requests" .-> Auth
+    UI -. "live editor state" .-> CMS
+```
 
-- `/about-us` is special: `app/(site)/about-us/page.tsx` re-exports the default
-  export and metadata from `components/about-us/page.tsx`.
-- Metadata is exported per page, but `/` (homepage) falls back to the root
-  layout title; `/countries`, `/collections/blog/[slug]`,
-  `/gallery/images/[slug]` and the redirecting `/gallery` export none.
-- Dynamic routes: `blog/[slug]` awaits `params` (Next 16 async params) but
-  renders one hard-coded article for every slug; `gallery/images/[slug]`
-  accepts any slug and does not pass it to the section components.
-- `/gallery` calls `redirect()` (307) to `/gallery/images`.
-- Missing routes referenced by UI: `/countries/mbbs-in-<slug>` (12 of 13),
-  `/colleges/<slug>`, `/admin`.
+### Import rules
 
-### Public request lifecycle
+```mermaid
+flowchart LR
+    App["app/**"] --> Components["components/**"]
+    App --> Lib["lib/**"]
+    App --> Types["types/**"]
+    Components --> Lib
+    Components --> Types
+    Lib --> Types
+    Lib -. "must not import" .-> App
+    Lib -. "must not import" .-> Components
+```
+
+- Routes compose pages; business and presentation logic belongs below them.
+- Shared helpers in `lib/` stay framework- and UI-independent.
+- Do not add module-level mutable state in `app/`, `components/`, or `lib/`.
+- Auth checks belong on every protected page or server action, not only in a
+  layout.
+- The known `Navbar.tsx` ↔ `NavDropdown.tsx` import cycle is an existing
+  exception and should not be expanded.
+
+## 3. Route map
+
+```mermaid
+flowchart LR
+    Root["/"] --> Home["Homepage<br/>18+ sections"]
+    Root --> About["/about-us<br/>career · services · partners"]
+    Root --> Collections["/collections<br/>blogs · brochures · events"]
+    Root --> Countries["/countries<br/>/countries/mbbs-in-russia"]
+    Root --> Universities["/universities/[slug]"]
+    Root --> Gallery["/gallery/images<br/>/gallery/videos"]
+    Root --> Contact["/contact-us"]
+    Root --> Auth["/login · /signup"]
+    Root --> Admin["/admin/login<br/>/admin/dashboard"]
+```
+
+| Route group | Shell | Rendering shape | Main source |
+| --- | --- | --- | --- |
+| Public `(site)` | Navbar, `<main>`, Footer | Server route + mostly client sections | `components/<feature>/` |
+| Auth `(auth)` | Root document only | Client auth form + auth API | `components/auth/`, `lib/auth.ts` |
+| Admin | Root document only | Client dashboard and CMS preview | `components/cms/`, `store/cmsStore.ts` |
+
+The `(site)` folder is a route group, so it does not add a URL segment.
+`/gallery` redirects to `/gallery/images`. Dynamic blog and gallery slugs
+currently render permissive placeholder/detail content rather than validated
+records.
+
+## 4. Request and content lifecycles
+
+### Public page request
 
 ```mermaid
 sequenceDiagram
-  participant B as Browser
-  participant N as Next.js (App Router)
-  participant L as app/layout.tsx + app/(site)/layout.tsx
-  participant P as page.tsx
-  participant C as components/<feature>
-  B->>N: GET /path
-  N->>L: render root document layout
-  N->>L: render site layout (Navbar, main, Footer)
-  N->>P: render route segment
-  P->>C: compose sections (server + client components)
-  C-->>B: HTML + RSC payload; client components hydrate
+    actor Visitor
+    participant Next as Next.js
+    participant Layout as Root + site layouts
+    participant Page as Route page
+    participant Sections as Feature components
+
+    Visitor->>Next: GET /path
+    Next->>Layout: Build document and public shell
+    Layout->>Page: Render route composition
+    Page->>Sections: Pass content and props
+    Sections-->>Visitor: HTML + RSC payload
+    Visitor->>Sections: Hydrate client interactions
 ```
 
-## 5. Data architecture
+### CMS live-edit loop
 
-- **Content:** hard-coded arrays/objects inside page and component files
-  (blogs, brochures, events, videos, universities, jobs, testimonials, team
-  members, gallery items). Several datasets are duplicated across files (e.g.
-  `BlogsGrid`, `RelatedBlogs`, blog detail page).
-- **Types:** `types/index.ts` defines the intended domain model
-  (`BlogPost`, `University`, `EventItem`, `JobOpening`, `BrochureItem`, …) but
-  only `TeamMember` is imported anywhere — the data is not typed against them.
-- **Database:** none. No public data is persisted.
+```mermaid
+sequenceDiagram
+    actor Editor
+    participant Dashboard as /admin/dashboard
+    participant Preview as Live route preview
+    participant Store as cmsStore
+    participant Defaults as constants / section data
 
-## 6. Concurrency and shared state
+    Editor->>Dashboard: Select a country or university route
+    Dashboard->>Preview: Compose real page sections
+    Preview->>Defaults: Seed editable section fields
+    Editor->>Preview: Select section or card
+    Preview->>Dashboard: Open LiveSectionEditor
+    Editor->>Dashboard: Edit, add, delete, or reorder
+    Dashboard->>Store: Save override in browser memory
+    Store-->>Preview: Re-render with override
+    Note over Store,Preview: Refresh or restart loses the override
+```
 
-Next.js serves many requests from one Node process and hot-reloads modules in
-development, so module scope is shared.
+## 5. Content ownership map
 
-- Layouts do not re-render on client-side navigation: auth checks must live in
-  every page/server action, never only in a layout.
-- Do not add module-level mutable singletons in `components/**` or `lib/**`;
-  per-request data must come from props, `cookies()`, or the database.
-- Prefer atomic DB updates (`$inc`, `$set`) over read-modify-write.
+```mermaid
+flowchart TB
+    Country["Country content"] --> Constants["lib/constants.tsx"]
+    University["University content"] --> UniversityData["lib/universitySectionData.ts"]
+    Blog["Blogs"] --> BlogData["lib/blogPosts.ts + feature data"]
+    CMSData["CMS edits"] --> Override["store/cmsStore.ts overrides"]
 
-## 7. Presentation conventions
+    Constants --> CountryPage["Country sections"]
+    UniversityData --> UniversityPage["University sections"]
+    BlogData --> BlogPages["Blog cards and detail"]
+    Override --> CountryPage
+    Override --> UniversityPage
+    Constants --> CountryEditor["Country live editor"]
+    UniversityData --> UniversityEditor["University live editor"]
+```
 
-- One section per file, default export, PascalCase `.tsx`, kebab-case folders.
-- Most sections are `"use client"` (57 of 86 components) because they use
-  state, effects or hover handlers; purely presentational ones remain server
-  components.
-- Styling is a mix of Tailwind utilities and inline `style` objects carrying
-  Figma values (`clamp()` typography, gradient text via
-  `backgroundClip: "text"`). Google fonts are loaded with a CSS `@import` in
-  `app/globals.css`; `app/layout.tsx` loads Geist through `next/font` but the
-  theme actually uses Inter.
-- Images: local files under `public/` referenced as `/folder/file.ext`, plus
-  remote hosts allow-listed in `next.config.ts` (unsplash, flagcdn, figma).
-  Image inventory and per-file usage: `public/AGENT_CONTEXT.md`.
+**Card rule:** country and university cards are represented as serializable
+records and edited through the shared CMS card editor. New cards use the
+section template; legacy pipe-delimited values are still parsed for backwards
+compatibility.
 
-## 8. Configuration and entry points
+## 6. Rendering and styling conventions
 
-| Entry point | Role |
-|---|---|
-| `app/layout.tsx` | Root document layout and `<html>`/`<body>` |
-| `app/(site)/layout.tsx` | Public Navbar, main shell and Footer |
-| `app/(site)/page.tsx` | Homepage composition |
-| `app/(site)/**/page.tsx` | Public routes |
-| `app/admin/**` | Empty admin placeholder |
+- Components are functional, default-exported PascalCase `.tsx` files.
+- Feature folders use kebab-case; dynamic routes use `[slug]`.
+- `@/*` resolves to the repository root.
+- Tailwind CSS v4 utilities are combined with inline Figma-derived values.
+- Local media belongs in `public/<feature>/` and is referenced with
+  `/feature/file.ext`.
+- Most interactive sections are `"use client"`; route files should remain
+  thin.
 
-Configuration files: `next.config.ts` (image hosts, devIndicators off),
-`tsconfig.json` (strict, `@/*`), `eslint.config.mjs`, `postcss.config.mjs`,
-`.env.example` (currently informational only).
+## 7. Known gaps (important when reading the diagrams)
 
-## 9. Tooling
+1. The CMS is a client-side editing preview, not a publishing system.
+2. Blog cards and brochure links are display-only in several places; brochure
+   downloads currently use `#`.
+3. Blog and gallery dynamic slugs are not validated with `notFound()`.
+4. Several UI CTAs do not yet have a destination or handler.
+5. Many country links refer to route patterns that do not exist yet.
+6. `tools/graph.mjs` is missing, so `npm run graph` and
+   `npm run graph:check` are currently unavailable.
+7. Some stale Tailwind utilities and an unused default `PageBanner` asset
+   reference are documented in the existing implementation notes.
 
-| Command | State | What |
-|---|---|---|
-| `npm run dev` / `build` / `start` | works | Next scripts; `build` is the de-facto type-check |
-| `npm run lint` | works | ESLint |
-| `npm run find -- <name>` | works | `tools/search.sh`, case-insensitive filename search |
-| `npm run graph` | **broken** | points at missing `tools/graph.mjs`; `graph/` does not exist |
-| `npm run graph:check` | **broken** | same missing script |
+## 8. Verification commands
 
-Because the graph generator is missing, every `AGENT_CONTEXT.md` in the tree is
-hand-maintained. When adding/moving/renaming a source file, update the
-`AGENT_CONTEXT.md` of its directory manually.
-
-## 11. Known gaps and risks (verified in the working tree)
-
-1. Blog system is display-only: all card links are `#`, `[slug]` ignores the
-   slug, no `generateStaticParams`, no `notFound()`.
-2. `Gallery images/[slug]` is a soft 404: any slug renders the same content.
-3. Brochures have `fileUrl: "#"`; no downloads work.
-4. Many CTAs/buttons have no `href`/`onClick` (homepage, career, partner pages).
-8. `PageBanner` default image `/bd-doctor.jpg` does not exist (call sites pass
-   their own).
-9. Stale/invalid Tailwind utilities appear in places (`h-[60]`, `sm:75`,
-   `insert-0`, dynamic `h-${size}` classes) and silently do nothing.
-10. `components/ui/Faq.tsx` and `lib/constants.ts#gradientTextStyle` are unused;
-    several `public/` assets are unreferenced (see `public/AGENT_CONTEXT.md`).
-
-## 12. Documentation map
-
-- `architecture.md` (this file): system structure and cross-cutting rules.
-- `details.md`: folder tree and “where do I change X”.
-- `decisions.md`: decision log (D-001…).
-- `AGENTS.md`: non-negotiable agent rules (Next 16 docs, graph usage, state
-  rules).
-- `*/AGENT_CONTEXT.md`: file-by-file implementation notes for that directory.
+| Command | Purpose | Current state |
+| --- | --- | --- |
+| `npm run dev` | Local development | Supported |
+| `npm run build` | Production build and type check | Supported |
+| `npm run lint` | ESLint | Supported |
+| `npm run find -- <name>` | Case-insensitive filename search | Supported |
+| `npm run graph` | Rebuild dependency documentation | Blocked by missing `tools/graph.mjs` |
+| `npm run graph:check` | Check dependency documentation freshness | Blocked by missing `tools/graph.mjs` |

@@ -31,7 +31,11 @@ studypalacehub-website/
 │   │   ├── contact-us/          /contact-us
 │   │   ├── countries/mbbs-in-russia/   /countries/mbbs-in-russia
 │   │   ├── gallery/             /gallery -> redirects to /gallery/images (+ images, images/[slug], videos)
+│   │   ├── universities/[slug]/ /universities/[slug] (live route rendered by the CMS preview too)
 │   │   └── web-stories/         /web-stories (placeholder)
+│   ├── (auth)/            /login, /signup (public auth forms)
+│   └── admin/             /admin/login + /admin/dashboard — the in-app CMS (client-side,
+│                          sections composer + live-route editor; edits stay in memory, no DB)
 │
 ├── components/            All UI. One folder per page/feature; flat files inside
 │   ├── common/            Navbar, NavDropdown, Footer, PageBanner (used by 12 pages), Faq (unused)
@@ -40,12 +44,23 @@ studypalacehub-website/
 │   ├── career/ services/ partner-with-us/ collections/ brochures/ contact-us/ blogs/ blog-details/
 │   ├── images/ videos/    Gallery pages
 │   ├── countries/mbbs-russia/   Russia country page sections
+│   ├── universities/      University page sections (whyChooseUs, eligibility, documents,
+│   │                      admissionProcess, accreditation, feesStructure, faculty, hostel,
+│   │                      fmgeClasses, duration, studentTestimonials, univNav, ...)
+│   ├── cms/               In-app CMS UI: sectionEditor, liveSectionEditor, previewSection,
+│   │                      cardListEditor (+ fieldInputs with IconPicker), sectionFieldSchemas,
+│   │                      sectionLines, universitySectionRegistry — see its AGENT_CONTEXT.md
 │   ├── admin/             Admin LoginForm
 │   └── auth/              Shared login/signup AuthForm
 │
-├── lib/                   Server-only infrastructure
+├── store/                 cmsStore.ts — zustand store holding CMS sections + live overrides
+│
+├── lib/                   Shared registries, constants and content sources
+│   ├── constants.tsx      Country content (DEFAULT_COUNTRY_CONTENT / getCountryContent) + shared constants
+│   ├── universitySectionData.ts  Single source of ALL university section copy (CMS reads it; serializable)
+│   ├── cms/               Country CMS content helpers (cmsContent)
+│   ├── auth.ts            JSON-file auth module
 │   ├── blogPosts.ts       Shared blog registry
-│   ├── constants.ts       Shared constants
 │   └── utils.ts           Shared UI utilities
 │
 ├── types/index.ts         Shared TS interfaces (BlogPost, University, EventItem, ... - mostly unused so far)
@@ -65,7 +80,10 @@ studypalacehub-website/
 | Add a new public route | new folder with `page.tsx` under `app/(site)/`; add menu link in `components/ui/Navbar.tsx` (and Footer) |
 | Site-wide header/footer | `components/ui/Navbar.tsx`, `Footer.tsx`; mounted in `app/layout.tsx` |
 | Shared page hero | `components/ui/PageBanner.tsx` (blast radius: 12 importers) |
-| Blog / brochure / event data | currently hard-coded inside the page or component files (no CMS/DB) |
+| Blog / brochure / event data | typed constants (`lib/blogPosts.ts`, page-level data files) |
+| Country page copy (all sections) | `lib/constants.tsx` (`DEFAULT_COUNTRY_CONTENT` + `getCountryContent`) — CMS edits overlay it |
+| University page copy (all sections/cards) | `lib/universitySectionData.ts` — single source, same pattern as countries |
+| Edit cards/sections from the admin UI | `/admin/dashboard` → live route → pick a section in the preview; cards get edit/delete/move + Plus "Add card" (`components/cms/cardListEditor.tsx`) |
 | New image | put it in `public/<feature>/`, reference as `"/feature/file.ext"`, then `npm run graph` |
 | Shared types | `types/index.ts` |
 
